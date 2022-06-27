@@ -5,7 +5,7 @@
 
 if [ ! -z "$USER" ]
 then
-    echo "USER=`/usr/bin/angel`" >> ~/.zshrc
+    echo "USER=`/usr/bin/angmarti`" >> ~/.zshrc
     echo "export USER" >> ~/.zshrc
 fi
 
@@ -24,6 +24,6 @@ fi
 mkdir -p ~/.vim/plugin
 
 # Add stdheader to vim plugins
-cp plugin/stdheader.vim ~/.vim/plugin/
+cp stdheader.vim ~/.vim/plugin/
 
 source ~/.zshrc
