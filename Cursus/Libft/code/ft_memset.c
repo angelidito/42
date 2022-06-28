@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angmarti <angmarti@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/24 17:13:08 by angmarti          #+#    #+#             */
-/*   Updated: 2022/06/24 17:32:27 by angmarti         ###   ########.fr       */
+/*   Created: 2022/06/27 17:09:31 by angmarti          #+#    #+#             */
+/*   Updated: 2022/06/28 14:34:34 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-size_t	ft_strlen(const char *s)
+void	ft_memset(void *b, int c, size_t len)
 {
-	size_t	len;
+	size_t	i;
 
-	len = 0;
-	while (*(s + len) != '\0')
-		len++;
-	return (len);
+	i = 0;
+	while (i < len)
+		*(b + i++) = c;
 }
