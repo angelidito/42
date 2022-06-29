@@ -6,13 +6,13 @@
 /*   By: angmarti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 16:12:22 by angmarti          #+#    #+#             */
-/*   Updated: 2022/06/28 18:35:37 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/06/29 12:52:49 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
 	unsigned char	*p;
 
