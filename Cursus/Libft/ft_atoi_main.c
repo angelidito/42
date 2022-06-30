@@ -6,7 +6,7 @@
 /*   By: angmarti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:22:32 by angmarti          #+#    #+#             */
-/*   Updated: 2022/06/30 18:54:36 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/06/30 14:43:45 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,3 +78,67 @@ int	ft_atoi(const char *str)
 	n = ft_atoi_logic(str, i);
 	return (sign * n);
 }
+
+/*#include <stdlib.h>
+#include <stdio.h>
+
+void	test(int test, char *str)
+{
+	int	expected;
+	int	obtained;
+
+	expected = atoi(str);
+	obtained = ft_atoi(str);
+	if (expected == obtained)
+	{
+		printf("Test %d: OK!\n", test);
+		//printf("%d\t<- %s\n", obtained, str);
+	}
+	else
+	{
+		printf("\nTest %d: Error ?!?!?!?!?!?!?\n", test);
+		//printf("     Attention: human check is needed here if there ");
+		//printf("are more than one consecutive '+' or '-' before numbers\n");
+		printf("       str: %s\n", str);
+		printf("  Expected: %d\n", expected);
+		printf("  Obtained: %d\n", obtained);
+		printf("\n");
+	}
+}
+
+int	main(void)
+{
+	int	t;
+
+	t = 0;
+	test(t++, "");
+	test(t++, "+2147483649");
+	test(t++, "+2147483649984563457d98fgdghdkjgd");
+	test(t++, "+2147483648");
+	test(t++, "21474836489");
+	test(t++, "-2147483647");
+	test(t++, "-2147483648");
+	test(t++, "-999999999999999");
+	test(t++, "0");
+	test(t++, "-0");
+	test(t++, "-1");
+	test(t++, "1");
+	test(t++, "+1234");
+	test(t++, "+12 34");
+	test(t++, "+12-34");
+	test(t++, "12 34");
+	test(t++, "12a34");
+	test(t++, "12ç34");
+	test(t++, "a1234");
+	test(t++, "  -  1234");
+	test(t++, "  -1234");
+	test(t++, " 	 -1234");
+	test(t++, " \n 		 -1234");
+	test(t++, "+-1234");
+	test(t++, "-+-1234");
+	test(t++, "-+--1234");
+	test(t++, "-+-1-234");
+	test(t++, "--1");
+	test(t++, "---1");
+	return (0);
+}*/
