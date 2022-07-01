@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-
+/*
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	unsigned long	i;
@@ -40,3 +40,4 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 			p = NULL;
 	return (p);
 }
+*/
