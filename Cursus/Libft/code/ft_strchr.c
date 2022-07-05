@@ -6,14 +6,14 @@
 /*   By: angmarti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 13:00:37 by angmarti          #+#    #+#             */
-/*   Updated: 2022/07/04 13:41:43 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/07/05 14:04:26 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-char	*ft_strchr(const char *s,  int c)
+char	*ft_strchr(const char *s, int c)
 {
 	unsigned long	i;
 
@@ -25,6 +25,6 @@ char	*ft_strchr(const char *s,  int c)
 		i++;
 	}
 	if ((c % 256) == *(s + i))
-		return ((char *) (s + i));
+		return ((char *)(s + i));
 	return (NULL);
 }
