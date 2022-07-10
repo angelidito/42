@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 14:54:06 by angmarti          #+#    #+#             */
-/*   Updated: 2022/07/10 20:09:48 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/07/10 20:22:31 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int ft_intlen(int n)
 		n /= 10;
 		len++;
 	}
-	printf("\nlen: %d\n", len);
 	return (len);
 }
 
@@ -43,23 +42,22 @@ char	*ft_itoa(int n)
 	a = malloc(len + 1);
 	if (!a)
 		return (NULL);
-	sign = 1;
 	a[len] = '\0';
+	while (0 < len--)
+	{
+		if (x % 10 < 0)
+			sign = -1;
+		else 
+			sign = 1;
+		a[len] = '0' + sign * x % 10;
+		x /= 10;
+	}
 	if (n < 0)
-	{
 		a[0] = '-';
-		sign = -1;
-	}
-	while ((0 < len && sign == 1)
-		|| (1 < len && sign == -1))
-	{
-		len--;
-		
-		a[len] = '0' + sign * n % 10;
-		n /= 10;
-	}
+
 	return (a);
 }
+/*
 int main(void)
 {
 	printf("%s\n", ft_itoa(1234));
@@ -69,4 +67,4 @@ int main(void)
 	printf("%s\n", ft_itoa(-0));
 	printf("%s\n", ft_itoa(2147483647));
 	printf("%s\n", ft_itoa(-2147483648));
-}
+}*/
