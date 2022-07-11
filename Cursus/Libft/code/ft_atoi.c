@@ -6,7 +6,7 @@
 /*   By: angmarti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:22:32 by angmarti          #+#    #+#             */
-/*   Updated: 2022/06/30 18:54:36 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/07/11 17:09:20 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ int	ft_isspace(char c)
 		|| c == '\r' || c == '\f');
 }
 
-int	ft_isdigit(int c)
+/*int	ft_isdigit(int c)
 {
 	if ('0' <= c && c <= '9')
 		return (c);
 	return (0);
-}
+}*/
 
 // '+' value is 43; '-' value es 45; That's how sign is calculated.
 int	ft_getsign(const char *p, unsigned long *i)

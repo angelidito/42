@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 13:30:02 by angmarti          #+#    #+#             */
-/*   Updated: 2022/07/10 14:34:33 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/07/11 12:43:30 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ char	**ft_split(char const *s, char c)
 	size_t	len;
 	size_t	pos;
 
-	//if (!s) return (NULL);
+	if (!s)
+		return (NULL);
 	array = calloc(ft_countchr(s, c) + 2, sizeof (char *));
 	if (!array)
 		return (NULL);
