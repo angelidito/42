@@ -1,8 +1,38 @@
-FILES	= ft_atoi ft_bzero ft_calloc ft_isalnum ft_isalpha \
-	ft_isascii ft_isdigit ft_isprint ft_memchr ft_memcmp \
-	ft_memcpy ft_memmove ft_memset ft_strchr ft_strdup ft_strlcat \
-	ft_strlcpy ft_strlen ft_strncmp ft_strnstr ft_strrchr \
-	ft_tolower ft_toupper
+FILES	= ft_bzero \
+			ft_isalnum \
+			ft_isalpha \
+			ft_isascii \
+			ft_isdigit \
+			ft_isprint \
+			ft_memcpy \
+			ft_memset \
+			ft_memmove \
+			ft_memchr \
+			ft_memcmp \
+			ft_calloc \
+			ft_strchr \
+			ft_strlcat \
+			ft_strlcpy \
+			ft_strlen \
+			ft_strncmp \
+			ft_strnstr \
+			ft_atoi \
+			ft_strrchr \
+			ft_tolower \
+			ft_toupper \
+			ft_strdup \
+			ft_strjoin \
+			ft_strtrim \
+			ft_substr \
+			ft_split \
+			ft_itoa \
+			ft_putchar_fd \
+			ft_putendl_fd \
+			ft_putnbr_fd \
+			ft_putstr_fd \
+			ft_strmapi \
+			ft_striteri
+
 
 NAME = libft.a
 
