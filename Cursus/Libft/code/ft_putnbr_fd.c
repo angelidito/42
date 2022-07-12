@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 15:14:35 by angmarti          #+#    #+#             */
-/*   Updated: 2022/07/11 17:38:07 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/07/12 11:37:47 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ void	ft_putnbr_fd(int n, int fd)
 			ft_putchar_fd('-', fd);
 		}
 		if (n < 10)
-			ft_putchar('0' + n, fd);
+			ft_putchar_fd('0' + n, fd);
 		else
 		{
-			fd_putnbr_fd(n / 10, fd);
-			ft_putchar_fd(n % 10);
+			ft_putnbr_fd(n / 10, fd);
+			ft_putchar_fd('0' + n % 10, fd);
 		}
 	}
 }
