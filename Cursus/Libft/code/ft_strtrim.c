@@ -6,13 +6,11 @@
 /*   By: angmarti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 14:00:17 by angmarti          #+#    #+#             */
-/*   Updated: 2022/07/06 18:46:28 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/07/13 11:30:45 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 size_t	ft_findtrimpos(char const *s1, char const *set, int last)
 {
@@ -35,7 +33,10 @@ size_t	ft_findtrimpos(char const *s1, char const *set, int last)
 				match++;
 		if (!match)
 			return (i);
-		i = i + 1 - 2 * last;
+		if (i || !last)
+			i = i + 1 - 2 * last;
+		else
+			last = 0;
 	}
 	return (ft_strlen(s1));
 }
@@ -51,10 +52,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	a = ft_findtrimpos(s1, set, 0);
 	z = ft_findtrimpos(s1, set, 1);
-	printf("a = %zu; z = %zu", a, z);
-	if (a != ft_strlen(s1) || z != ft_strlen(s1) || z < a)
+	if (a >= ft_strlen(s1) || z >= ft_strlen(s1) || z < a)
 		return ((char *)calloc(1, 1));
-	s0 = malloc(z - a + 2);
+	s0 = calloc(z - a + 2, sizeof (char));
 	if (!s0)
 		return (NULL);
 	i = 0;
