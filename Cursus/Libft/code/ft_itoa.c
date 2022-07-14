@@ -38,10 +38,9 @@ char	*ft_itoa(int n)
 
 	x = n;
 	len = ft_intlen(n);
-	a = malloc(len + 1);
+	a = calloc(len + 1, sizeof (char));
 	if (!a)
 		return (NULL);
-	a[len] = '\0';
 	while (0 < len--)
 	{
 		if (x % 10 < 0)

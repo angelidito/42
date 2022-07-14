@@ -3,7 +3,7 @@ $> hostname; uname -msr
 MBP-de-Angel.home
 Darwin 21.4.0 arm64
 $> date
-lunes, 11 de julio de 2022, 17:41:27 CEST
+jueves, 14 de julio de 2022, 15:18:55 CEST
 $> gcc --version
 Apple clang version 13.0.0 (clang-1300.0.27.3)
 Target: arm64-apple-darwin21.4.0
@@ -20,205 +20,71 @@ $> norminette libft.h | grep -E '(Error|Warning)'
 
 = Compiling libft ==============================================================
 $> make re
-rm -f ./ft_bzero.o ./ft_isalnum.o ./ft_isalpha.o ./ft_isascii.o ./ft_isdigit.o ./ft_isprint.o ./ft_memcpy.o ./ft_memset.o ./ft_memmove.o ./ft_memchr.o ./ft_memcmp.o ./ft_calloc.o ./ft_strchr.o ./ft_strlcat.o ./ft_strlcpy.o ./ft_strlen.o ./ft_strncmp.o ./ft_strnstr.o ./ft_atoi.o ./ft_strrchr.o ./ft_tolower.o ./ft_toupper.o ./ft_strdup.o ./ft_strjoin.o ./ft_strtrim.o ./ft_substr.o ./ft_split.o ./ft_itoa.o ./ft_putchar_fd.o ./ft_putendl_fd.o ./ft_putnbr_fd.o ./ft_putstr_fd.o ./ft_strmapi.o ./ft_striteri.o 
-gcc -Wall -Wextra -Werror -c -o ft_bzero.o ft_bzero.c
-gcc -Wall -Wextra -Werror -c -o ft_isalnum.o ft_isalnum.c
-gcc -Wall -Wextra -Werror -c -o ft_isalpha.o ft_isalpha.c
-gcc -Wall -Wextra -Werror -c -o ft_isascii.o ft_isascii.c
-gcc -Wall -Wextra -Werror -c -o ft_isdigit.o ft_isdigit.c
-gcc -Wall -Wextra -Werror -c -o ft_isprint.o ft_isprint.c
-gcc -Wall -Wextra -Werror -c -o ft_memcpy.o ft_memcpy.c
-gcc -Wall -Wextra -Werror -c -o ft_memset.o ft_memset.c
-gcc -Wall -Wextra -Werror -c -o ft_memmove.o ft_memmove.c
-gcc -Wall -Wextra -Werror -c -o ft_memchr.o ft_memchr.c
-gcc -Wall -Wextra -Werror -c -o ft_memcmp.o ft_memcmp.c
-gcc -Wall -Wextra -Werror -c -o ft_calloc.o ft_calloc.c
-gcc -Wall -Wextra -Werror -c -o ft_strchr.o ft_strchr.c
-gcc -Wall -Wextra -Werror -c -o ft_strlcat.o ft_strlcat.c
-gcc -Wall -Wextra -Werror -c -o ft_strlcpy.o ft_strlcpy.c
-gcc -Wall -Wextra -Werror -c -o ft_strlen.o ft_strlen.c
-gcc -Wall -Wextra -Werror -c -o ft_strncmp.o ft_strncmp.c
-gcc -Wall -Wextra -Werror -c -o ft_strnstr.o ft_strnstr.c
-gcc -Wall -Wextra -Werror -c -o ft_atoi.o ft_atoi.c
-gcc -Wall -Wextra -Werror -c -o ft_strrchr.o ft_strrchr.c
-gcc -Wall -Wextra -Werror -c -o ft_tolower.o ft_tolower.c
-gcc -Wall -Wextra -Werror -c -o ft_toupper.o ft_toupper.c
-gcc -Wall -Wextra -Werror -c -o ft_strdup.o ft_strdup.c
-gcc -Wall -Wextra -Werror -c -o ft_strjoin.o ft_strjoin.c
-gcc -Wall -Wextra -Werror -c -o ft_strtrim.o ft_strtrim.c
-gcc -Wall -Wextra -Werror -c -o ft_substr.o ft_substr.c
-gcc -Wall -Wextra -Werror -c -o ft_split.o ft_split.c
-gcc -Wall -Wextra -Werror -c -o ft_itoa.o ft_itoa.c
-gcc -Wall -Wextra -Werror -c -o ft_putchar_fd.o ft_putchar_fd.c
-gcc -Wall -Wextra -Werror -c -o ft_putendl_fd.o ft_putendl_fd.c
-gcc -Wall -Wextra -Werror -c -o ft_putnbr_fd.o ft_putnbr_fd.c
-ft_putnbr_fd.c:27:4: error: implicit declaration of function 'ft_putchar' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
-                        ft_putchar('0' + n, fd);
-                        ^
-ft_putnbr_fd.c:27:4: note: did you mean 'ft_putchar_fd'?
-./libft.h:28:9: note: 'ft_putchar_fd' declared here
-void                            ft_putchar_fd(char c, int fd);
-                                ^
-ft_putnbr_fd.c:30:4: error: implicit declaration of function 'fd_putnbr_fd' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
-                        fd_putnbr_fd(n / 10, fd);
-                        ^
-ft_putnbr_fd.c:30:4: note: did you mean 'ft_putnbr_fd'?
-ft_putnbr_fd.c:15:6: note: 'ft_putnbr_fd' declared here
-void    ft_putnbr_fd(int n, int fd)
-        ^
-ft_putnbr_fd.c:31:24: error: too few arguments to function call, expected 2, have 1
-                        ft_putchar_fd(n % 10);
-                        ~~~~~~~~~~~~~       ^
-./libft.h:28:9: note: 'ft_putchar_fd' declared here
-void                            ft_putchar_fd(char c, int fd);
-                                ^
-3 errors generated.
-make: *** [ft_putnbr_fd.o] Error 1
+rm -f ft_bzero.o ft_isalnum.o ft_isalpha.o ft_isascii.o ft_isdigit.o ft_isprint.o ft_memcpy.o ft_memset.o ft_memmove.o ft_memchr.o ft_memcmp.o ft_calloc.o ft_strchr.o ft_strlcat.o ft_strlcpy.o ft_strlen.o ft_strncmp.o ft_strnstr.o ft_atoi.o ft_strrchr.o ft_tolower.o ft_toupper.o ft_strdup.o ft_strjoin.o ft_strtrim.o ft_substr.o ft_split.o ft_itoa.o ft_putchar_fd.o ft_putendl_fd.o ft_putnbr_fd.o ft_putstr_fd.o ft_strmapi.o ft_striteri.o ft_lstnew.o ft_lstadd_back.o ft_lstadd_front.o ft_lstsize.o ft_lstdelone.o ft_lstclear.o ft_lstiter.o ft_lstmap.o ft_lstlast.o
+rm -f libft.a
+gcc -Wall -Werror -Wextra   -c -o ft_bzero.o ft_bzero.c
+gcc -Wall -Werror -Wextra   -c -o ft_isalnum.o ft_isalnum.c
+gcc -Wall -Werror -Wextra   -c -o ft_isalpha.o ft_isalpha.c
+gcc -Wall -Werror -Wextra   -c -o ft_isascii.o ft_isascii.c
+gcc -Wall -Werror -Wextra   -c -o ft_isdigit.o ft_isdigit.c
+gcc -Wall -Werror -Wextra   -c -o ft_isprint.o ft_isprint.c
+gcc -Wall -Werror -Wextra   -c -o ft_memcpy.o ft_memcpy.c
+gcc -Wall -Werror -Wextra   -c -o ft_memset.o ft_memset.c
+gcc -Wall -Werror -Wextra   -c -o ft_memmove.o ft_memmove.c
+gcc -Wall -Werror -Wextra   -c -o ft_memchr.o ft_memchr.c
+gcc -Wall -Werror -Wextra   -c -o ft_memcmp.o ft_memcmp.c
+gcc -Wall -Werror -Wextra   -c -o ft_calloc.o ft_calloc.c
+gcc -Wall -Werror -Wextra   -c -o ft_strchr.o ft_strchr.c
+gcc -Wall -Werror -Wextra   -c -o ft_strlcat.o ft_strlcat.c
+gcc -Wall -Werror -Wextra   -c -o ft_strlcpy.o ft_strlcpy.c
+gcc -Wall -Werror -Wextra   -c -o ft_strlen.o ft_strlen.c
+gcc -Wall -Werror -Wextra   -c -o ft_strncmp.o ft_strncmp.c
+gcc -Wall -Werror -Wextra   -c -o ft_strnstr.o ft_strnstr.c
+gcc -Wall -Werror -Wextra   -c -o ft_atoi.o ft_atoi.c
+gcc -Wall -Werror -Wextra   -c -o ft_strrchr.o ft_strrchr.c
+gcc -Wall -Werror -Wextra   -c -o ft_tolower.o ft_tolower.c
+gcc -Wall -Werror -Wextra   -c -o ft_toupper.o ft_toupper.c
+gcc -Wall -Werror -Wextra   -c -o ft_strdup.o ft_strdup.c
+gcc -Wall -Werror -Wextra   -c -o ft_strjoin.o ft_strjoin.c
+gcc -Wall -Werror -Wextra   -c -o ft_strtrim.o ft_strtrim.c
+gcc -Wall -Werror -Wextra   -c -o ft_substr.o ft_substr.c
+gcc -Wall -Werror -Wextra   -c -o ft_split.o ft_split.c
+gcc -Wall -Werror -Wextra   -c -o ft_itoa.o ft_itoa.c
+gcc -Wall -Werror -Wextra   -c -o ft_putchar_fd.o ft_putchar_fd.c
+gcc -Wall -Werror -Wextra   -c -o ft_putendl_fd.o ft_putendl_fd.c
+gcc -Wall -Werror -Wextra   -c -o ft_putnbr_fd.o ft_putnbr_fd.c
+gcc -Wall -Werror -Wextra   -c -o ft_putstr_fd.o ft_putstr_fd.c
+gcc -Wall -Werror -Wextra   -c -o ft_strmapi.o ft_strmapi.c
+gcc -Wall -Werror -Wextra   -c -o ft_striteri.o ft_striteri.c
+gcc -Wall -Werror -Wextra -c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_memcpy.c ft_memset.c ft_memmove.c ft_memchr.c ft_memcmp.c ft_calloc.c ft_strchr.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strncmp.c ft_strnstr.c ft_atoi.c ft_strrchr.c ft_tolower.c ft_toupper.c ft_strdup.c ft_strjoin.c ft_strtrim.c ft_substr.c ft_split.c ft_itoa.c ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c ft_strmapi.c ft_striteri.c
+ar rcs libft.a ft_bzero.o ft_isalnum.o ft_isalpha.o ft_isascii.o ft_isdigit.o ft_isprint.o ft_memcpy.o ft_memset.o ft_memmove.o ft_memchr.o ft_memcmp.o ft_calloc.o ft_strchr.o ft_strlcat.o ft_strlcpy.o ft_strlen.o ft_strncmp.o ft_strnstr.o ft_atoi.o ft_strrchr.o ft_tolower.o ft_toupper.o ft_strdup.o ft_strjoin.o ft_strtrim.o ft_substr.o ft_split.o ft_itoa.o ft_putchar_fd.o ft_putendl_fd.o ft_putnbr_fd.o ft_putstr_fd.o ft_strmapi.o ft_striteri.o
+gcc -Wall -Werror -Wextra   -c -o ft_lstnew.o ft_lstnew.c
+gcc -Wall -Werror -Wextra   -c -o ft_lstadd_back.o ft_lstadd_back.c
+gcc -Wall -Werror -Wextra   -c -o ft_lstadd_front.o ft_lstadd_front.c
+gcc -Wall -Werror -Wextra   -c -o ft_lstsize.o ft_lstsize.c
+gcc -Wall -Werror -Wextra   -c -o ft_lstdelone.o ft_lstdelone.c
+gcc -Wall -Werror -Wextra   -c -o ft_lstclear.o ft_lstclear.c
+gcc -Wall -Werror -Wextra   -c -o ft_lstiter.o ft_lstiter.c
+gcc -Wall -Werror -Wextra   -c -o ft_lstmap.o ft_lstmap.c
+gcc -Wall -Werror -Wextra   -c -o ft_lstlast.o ft_lstlast.c
+gcc -Wall -Werror -Wextra -c ft_lstnew.c ft_lstadd_back.c ft_lstadd_front.c ft_lstsize.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c ft_lstlast.c
+ar rcs libft.a ft_lstnew.o ft_lstadd_back.o ft_lstadd_front.o ft_lstsize.o ft_lstdelone.o ft_lstclear.o ft_lstiter.o ft_lstmap.o ft_lstlast.o
 
 $> make bonus
-make: Nothing to be done for `bonus'.
+gcc -Wall -Werror -Wextra   -c -o ft_lstnew.o ft_lstnew.c
+gcc -Wall -Werror -Wextra   -c -o ft_lstadd_back.o ft_lstadd_back.c
+gcc -Wall -Werror -Wextra   -c -o ft_lstadd_front.o ft_lstadd_front.c
+gcc -Wall -Werror -Wextra   -c -o ft_lstsize.o ft_lstsize.c
+gcc -Wall -Werror -Wextra   -c -o ft_lstdelone.o ft_lstdelone.c
+gcc -Wall -Werror -Wextra   -c -o ft_lstclear.o ft_lstclear.c
+gcc -Wall -Werror -Wextra   -c -o ft_lstiter.o ft_lstiter.c
+gcc -Wall -Werror -Wextra   -c -o ft_lstmap.o ft_lstmap.c
+gcc -Wall -Werror -Wextra   -c -o ft_lstlast.o ft_lstlast.c
+gcc -Wall -Werror -Wextra -c ft_lstnew.c ft_lstadd_back.c ft_lstadd_front.c ft_lstsize.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c ft_lstlast.c
+ar rcs libft.a ft_lstnew.o ft_lstadd_back.o ft_lstadd_front.o ft_lstsize.o ft_lstdelone.o ft_lstclear.o ft_lstiter.o ft_lstmap.o ft_lstlast.o
 
 $> ls -la libft.a
-
-= Part1_functions ==============================================================
-
-= ft_memset.c ==================================================================
-$> norminette ft_memset.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_memset.c main.c libft.a -o user_exe
-
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a'
-
-= ft_bzero.c ===================================================================
-$> norminette ft_bzero.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_bzero.c main.c libft.a -o user_exe
-
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a'
-
-= ft_calloc.c ==================================================================
-$> norminette ft_calloc.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_calloc.c main.c libft.a -o user_exe
-
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a'
-
-= ft_memcpy.c ==================================================================
-$> norminette ft_memcpy.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_memcpy.c main.c libft.a -o user_exe
-
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a'
-
-= ft_memmove.c =================================================================
-$> norminette ft_memmove.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_memmove.c main.c libft.a -o user_exe
-
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a'
-
-= ft_memchr.c ==================================================================
-$> norminette ft_memchr.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_memchr.c main.c libft.a -o user_exe
-
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a'
-
-= ft_memcmp.c ==================================================================
-$> norminette ft_memcmp.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_memcmp.c main.c libft.a -o user_exe
-
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a'
-
-= ft_strlen.c ==================================================================
-$> norminette ft_strlen.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strlen.c main.c libft.a -o user_exe
-
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a'
-
-= ft_strdup.c ==================================================================
-$> norminette ft_strdup.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strdup.c main.c libft.a -o user_exe
-
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a'
-
-= ft_strlcat.c =================================================================
-$> norminette ft_strlcat.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strlcat.c main.c libft.a -o user_exe
-
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a'
-
-= ft_strlcpy.c =================================================================
-$> norminette ft_strlcpy.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strlcpy.c main.c libft.a -o user_exe
-
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a'
-
-= ft_strchr.c ==================================================================
-$> norminette ft_strchr.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strchr.c main.c libft.a -o user_exe
-
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a'
-
-= ft_strrchr.c =================================================================
-$> norminette ft_strrchr.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strrchr.c main.c libft.a -o user_exe
-
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a'
-
-= ft_strnstr.c =================================================================
-$> norminette ft_strnstr.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strnstr.c main.c libft.a -o user_exe
-
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a'
-
-= ft_strncmp.c =================================================================
-$> norminette ft_strncmp.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strncmp.c main.c libft.a -o user_exe
-
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a'
-
-= ft_atoi.c ====================================================================
-$> norminette ft_atoi.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_atoi.c main.c libft.a -o user_exe
-
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a'
-
-= ft_isalpha.c =================================================================
-$> norminette ft_isalpha.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_isalpha.c main.c libft.a -o user_exe
-
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a'
-
-= ft_isdigit.c =================================================================
-$> norminette ft_isdigit.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_isdigit.c main.c libft.a -o user_exe
-
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a'
-
-= ft_isalnum.c =================================================================
-$> norminette ft_isalnum.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_isalnum.c main.c libft.a -o user_exe
-
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a'
-
-= ft_isascii.c =================================================================
-$> norminette ft_isascii.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_isascii.c main.c libft.a -o user_exe
-
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a'
-
-= ft_isprint.c =================================================================
-$> norminette ft_isprint.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_isprint.c main.c libft.a -o user_exe
-
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a'
-
-= ft_toupper.c =================================================================
-$> norminette ft_toupper.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_toupper.c main.c libft.a -o user_exe
-
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a'
-
-= ft_tolower.c =================================================================
-$> norminette ft_tolower.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_tolower.c main.c libft.a -o user_exe
-
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a'
+-rw-r--r--  1 angel  staff  36168 14 jul 15:18 /Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a
 
 = Part2_functions ==============================================================
 
@@ -226,129 +92,8 @@ clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursu
 $> norminette ft_strmapi.c | grep -E '(Error|Warning)'
 $> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strmapi.c main.c libft.a -o user_exe
 
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a'
+= Test 1 ===================================================
+$> ./user_exe 01
+$> diff -U 3 user_output_test01 test01.output
 
-= ft_substr.c ==================================================================
-$> norminette ft_substr.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_substr.c main.c libft.a -o user_exe
-
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a'
-
-= ft_strjoin.c =================================================================
-$> norminette ft_strjoin.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strjoin.c main.c libft.a -o user_exe
-
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a'
-
-= ft_strtrim.c =================================================================
-$> norminette ft_strtrim.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strtrim.c main.c libft.a -o user_exe
-
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a'
-
-= ft_split.c ===================================================================
-$> norminette ft_split.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_split.c main.c libft.a -o user_exe
-
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a'
-
-= ft_itoa.c ====================================================================
-$> norminette ft_itoa.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_itoa.c main.c libft.a -o user_exe
-
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a'
-
-= ft_striteri.c ================================================================
-$> norminette ft_striteri.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_striteri.c main.c libft.a -o user_exe
-
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a'
-
-= ft_putchar_fd.c ==============================================================
-$> norminette ft_putchar_fd.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_putchar_fd.c main.c libft.a -o user_exe
-
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a'
-
-= ft_putstr_fd.c ===============================================================
-$> norminette ft_putstr_fd.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_putstr_fd.c main.c libft.a -o user_exe
-
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a'
-
-= ft_putendl_fd.c ==============================================================
-$> norminette ft_putendl_fd.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_putendl_fd.c main.c libft.a -o user_exe
-
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a'
-
-= ft_putnbr_fd.c ===============================================================
-$> norminette ft_putnbr_fd.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_putnbr_fd.c main.c libft.a -o user_exe
-
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a'
-
-= Bonus_functions ==============================================================
-
-= ft_lstnew_bonus.c ============================================================
-$> norminette ft_lstnew_bonus.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_lstnew.c main.c libft.a -o user_exe
-
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft//ft_lstnew.c'
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a'
-
-= ft_lstdelone_bonus.c =========================================================
-$> norminette ft_lstdelone_bonus.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_lstdelone.c main.c libft.a -o user_exe
-
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft//ft_lstdelone.c'
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a'
-
-= ft_lstclear_bonus.c ==========================================================
-$> norminette ft_lstclear_bonus.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_lstclear.c main.c libft.a -o user_exe
-
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft//ft_lstclear.c'
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a'
-
-= ft_lstadd_front_bonus.c ======================================================
-$> norminette ft_lstadd_front_bonus.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_lstadd_front.c main.c libft.a -o user_exe
-
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft//ft_lstadd_front.c'
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a'
-
-= ft_lstadd_back_bonus.c =======================================================
-$> norminette ft_lstadd_back_bonus.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_lstadd_back.c main.c libft.a -o user_exe
-
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft//ft_lstadd_back.c'
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a'
-
-= ft_lstsize_bonus.c ===========================================================
-$> norminette ft_lstsize_bonus.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_lstsize.c main.c libft.a -o user_exe
-
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft//ft_lstsize.c'
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a'
-
-= ft_lstiter_bonus.c ===========================================================
-$> norminette ft_lstiter_bonus.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_lstiter.c main.c libft.a -o user_exe
-
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft//ft_lstiter.c'
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a'
-
-= ft_lstmap_bonus.c ============================================================
-$> norminette ft_lstmap_bonus.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_lstmap.c main.c libft.a -o user_exe
-
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft//ft_lstmap.c'
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a'
-
-= ft_lstlast_bonus.c ===========================================================
-$> norminette ft_lstlast_bonus.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_lstlast.c main.c libft.a -o user_exe
-
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft//ft_lstlast.c'
-clang: error: no such file or directory: '/Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a'
+Diff OK :D
