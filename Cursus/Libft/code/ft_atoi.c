@@ -12,21 +12,13 @@
 
 #include "libft.h"
 
-int	ft_isspace(char c)
+static int	ft_isspace(char c)
 {
 	return (c == ' ' || c == '\t' || c == '\n' || c == '\v'
 		|| c == '\r' || c == '\f');
 }
 
-/*int	ft_isdigit(int c)
-{
-	if ('0' <= c && c <= '9')
-		return (c);
-	return (0);
-}*/
-
-// '+' value is 43; '-' value es 45; That's how sign is calculated.
-int	ft_getsign(const char *p, unsigned long *i)
+static int	ft_getsign(const char *p, unsigned long *i)
 {
 	char	c;
 
@@ -48,7 +40,7 @@ int	ft_getsign(const char *p, unsigned long *i)
 	return (0);
 }
 
-int	ft_atoi_logic(const char *p, unsigned long i)
+static int	ft_atoi_logic(const char *p, unsigned long i)
 {
 	int				n;
 

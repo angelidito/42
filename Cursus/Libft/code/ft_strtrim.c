@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-size_t	ft_findtrimpos(char const *s1, char const *set, int last)
+static size_t	ft_findtrimpos(char const *s1, char const *set, int last)
 {
 	size_t	i;
 	size_t	j;
