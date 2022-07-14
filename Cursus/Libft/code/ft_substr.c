@@ -20,10 +20,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	if (ft_strlen(s) < (size_t)start)
 	{
-		sub = malloc(sizeof (char));
+		sub = calloc(1, sizeof (char));
 		if (!sub)
 			return (NULL);
-		*sub = '\0';
 		return (sub);
 	}
 	if (ft_strlen(s) - start - 1 < len)
