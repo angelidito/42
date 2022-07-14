@@ -25,11 +25,11 @@ char	*ft_strrchr(const char *s, int c)
 			p = i;
 		i++;
 	}
-	if (c == '\0')
+	if (!c)
 		return ((char *)(s + i));
-	if (p != 0)
+	if (p)
 		return ((char *)(s + p));
-	if (p == 0 && (char)*s == (char)c)
+	else if ((char)*s == (char)c)
 		return ((char *)s);
 	return (NULL);
 }
