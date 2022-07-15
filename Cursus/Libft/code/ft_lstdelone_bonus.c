@@ -6,7 +6,7 @@
 /*   By: angmarti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 13:19:39 by angmarti          #+#    #+#             */
-/*   Updated: 2022/07/13 14:27:04 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/07/15 14:04:53 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	if (!lst || !del)
-		return ;
 	(*del)(lst->content);
 	free(lst);
 }
