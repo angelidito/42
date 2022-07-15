@@ -6,11 +6,12 @@
 /*   By: angmarti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:22:32 by angmarti          #+#    #+#             */
-/*   Updated: 2022/07/11 17:09:20 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/07/14 19:34:31 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <limits.h>
 
 static int	ft_isspace(char c)
 {
@@ -40,26 +41,11 @@ static int	ft_getsign(const char *p, unsigned long *i)
 	return (0);
 }
 
-static int	ft_atoi_logic(const char *p, unsigned long i)
-{
-	int				n;
-
-	n = 0;
-	while (*(p + i))
-	{
-		if (!ft_isdigit((int) *(p + i)))
-			return (n);
-		n = n * 10 + (*(p + i) - '0');
-		i++;
-	}
-	return (n);
-}
-
 int	ft_atoi(const char *str)
 {
 	unsigned long	i;
-	int				sign;
-	int				n;
+	long long int	sign;
+	long long int	n;
 
 	n = 0;
 	sign = 0;
@@ -67,6 +53,10 @@ int	ft_atoi(const char *str)
 	sign = ft_getsign(str, &i);
 	if (!sign)
 		return (0);
-	n = ft_atoi_logic(str, i);
+	while (ft_isdigit(str[i]))
+	{
+		n = n * 10 + str[i] - '0';
+		i++;
+	}
 	return (sign * n);
 }

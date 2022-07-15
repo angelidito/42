@@ -6,7 +6,7 @@
 /*   By: angmarti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 16:33:31 by angmarti          #+#    #+#             */
-/*   Updated: 2022/07/05 14:05:00 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/07/14 16:33:21 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	char	*d;
 	char	*s;
 
+	if (!dst && !src)
+		return (dst);
 	d = (char *) dst;
 	s = (char *) src;
 	i = 0;
