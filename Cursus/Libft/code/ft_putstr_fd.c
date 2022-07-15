@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 14:24:43 by angmarti          #+#    #+#             */
-/*   Updated: 2022/07/11 14:27:24 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/07/15 12:12:02 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	write(fd, s, ft_strlen(s));
+	if (s)
+		write(fd, s, ft_strlen(s));
 }

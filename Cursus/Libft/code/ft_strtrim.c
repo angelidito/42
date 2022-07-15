@@ -6,7 +6,7 @@
 /*   By: angmarti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 14:00:17 by angmarti          #+#    #+#             */
-/*   Updated: 2022/07/13 11:30:45 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/07/15 12:03:31 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 	z = ft_findtrimpos(s1, set, 1);
 	if (a >= ft_strlen(s1) || z >= ft_strlen(s1) || z < a)
 		return ((char *)calloc(1, 1));
-	s0 = calloc(z - a + 2, sizeof (char));
+	s0 = malloc((z - a + 2) * sizeof (char));
 	if (!s0)
 		return (NULL);
 	i = 0;
 	while (a <= z)
 		*(s0 + i++) = *(s1 + a++);
+	s0[i] = '\0';
 	return (s0);
 }

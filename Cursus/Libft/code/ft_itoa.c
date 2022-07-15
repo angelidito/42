@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 14:54:06 by angmarti          #+#    #+#             */
-/*   Updated: 2022/07/11 17:15:05 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/07/15 12:09:17 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,10 @@ char	*ft_itoa(int n)
 
 	x = n;
 	len = ft_intlen(n);
-	a = calloc(len + 1, sizeof (char));
+	a = malloc((1 + len) * sizeof (char));
 	if (!a)
 		return (NULL);
+	a[len] = '\0';
 	while (0 < len--)
 	{
 		if (x % 10 < 0)
