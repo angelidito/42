@@ -6,7 +6,7 @@
 /*   By: angmarti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:22:32 by angmarti          #+#    #+#             */
-/*   Updated: 2022/07/14 19:34:31 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/07/15 13:07:29 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,19 +44,22 @@ static int	ft_getsign(const char *p, unsigned long *i)
 int	ft_atoi(const char *str)
 {
 	unsigned long	i;
-	long long int	sign;
+	int				sign;
 	long long int	n;
 
-	n = 0;
-	sign = 0;
 	i = 0;
 	sign = ft_getsign(str, &i);
 	if (!sign)
 		return (0);
+	n = 0;
 	while (ft_isdigit(str[i]))
 	{
 		n = n * 10 + str[i] - '0';
 		i++;
 	}
+	if (n > 9223372036854775807 && sign == 1)
+		return (-1);
+	else if (n > 9223372036854775807 && sign == -1)
+		return (0);
 	return (sign * n);
 }
