@@ -6,7 +6,7 @@
 /*   By: angmarti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 18:58:20 by angmarti          #+#    #+#             */
-/*   Updated: 2022/07/14 19:43:28 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/07/15 13:23:08 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	*ft_calloc(size_t count, size_t size)
 	void	*ptr;
 	size_t	len;
 
+	if (count == SIZE_MAX || size == SIZE_MAX)
+		return (NULL);
 	if (!count || !size)
 		len = 1;
 	else
