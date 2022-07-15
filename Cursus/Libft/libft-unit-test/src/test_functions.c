@@ -6626,21 +6626,6 @@ void			test_ft_split_null(void *ptr) {
 			)
 }
 
-void			test_ft_split_terminator(void *ptr) {
-	char	**(*ft_split)(char *, char) = ptr;
-	SET_EXPLANATION("your split will segfault in case --> *str=\"\\0aa\\0bbb\" c=\'\\0\' ");
-
-	SANDBOX_RAISE(
-			char	**expected = ft_split("\0aa\0bbb", '\0');
-			for (int i = 0; expected[i]; i++)
-			{
-				if (expected[i] != NULL)
-					exit(TEST_FAILED);
-			}
-			exit(TEST_SUCCESS);
-			)
-}
-
 void            test_ft_split(void) {
 	add_fun_subtest(test_ft_split_basic);
 	add_fun_subtest(test_ft_split_space);
@@ -6648,7 +6633,6 @@ void            test_ft_split(void) {
 	add_fun_subtest(test_ft_split_end);
 	add_fun_subtest(test_ft_split_empty);
 	add_fun_subtest(test_ft_split_full);
-	add_fun_subtest(test_ft_split_terminator);
 	add_fun_subtest(test_ft_split_free);
 	add_fun_subtest(test_ft_split_malloc_null);
 	add_fun_subtest(test_ft_split_zero);
@@ -8959,7 +8943,7 @@ void		test_ft_strlcpy_null(void *ptr) {
 	typeof(strlcpy)	*ft_strlcpy = ptr;
 	SET_EXPLANATION("your strlcpy doe not segfault when null parameter is sent");
 
-	SANDBOX_IRAISE(
+	SANDBOX_PROT(
 			ft_strlcpy(NULL, NULL, 10);
 			);
 }

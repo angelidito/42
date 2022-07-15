@@ -3,7 +3,7 @@ $> hostname; uname -msr
 MBP-de-Angel.home
 Darwin 21.4.0 arm64
 $> date
-jueves, 14 de julio de 2022, 15:18:55 CEST
+jueves, 14 de julio de 2022, 17:27:14 CEST
 $> gcc --version
 Apple clang version 13.0.0 (clang-1300.0.27.3)
 Target: arm64-apple-darwin21.4.0
@@ -84,16 +84,51 @@ gcc -Wall -Werror -Wextra -c ft_lstnew.c ft_lstadd_back.c ft_lstadd_front.c ft_l
 ar rcs libft.a ft_lstnew.o ft_lstadd_back.o ft_lstadd_front.o ft_lstsize.o ft_lstdelone.o ft_lstclear.o ft_lstiter.o ft_lstmap.o ft_lstlast.o
 
 $> ls -la libft.a
--rw-r--r--  1 angel  staff  36168 14 jul 15:18 /Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a
+-rw-r--r--  1 angel  staff  36056 14 jul 17:27 /Users/angel/Documents/GitHub/42/Cursus/Libft/libft-war-machine-master/dirlibft/libft.a
 
-= Part2_functions ==============================================================
+= Part1_functions ==============================================================
 
-= ft_strmapi.c =================================================================
-$> norminette ft_strmapi.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strmapi.c main.c libft.a -o user_exe
+= ft_strrchr.c =================================================================
+$> norminette ft_strrchr.c | grep -E '(Error|Warning)'
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strrchr.c main.c libft.a -o user_exe
 
 = Test 1 ===================================================
 $> ./user_exe 01
 $> diff -U 3 user_output_test01 test01.output
+
+Diff OK :D
+= Test 2 ===================================================
+$> ./user_exe 02
+$> diff -U 3 user_output_test02 test02.output
+
+Diff OK :D
+= Test 3 ===================================================
+$> ./user_exe 03
+$> diff -U 3 user_output_test03 test03.output
+
+Diff OK :D
+= Test 4 ===================================================
+$> ./user_exe 04
+$> diff -U 3 user_output_test04 test04.output
+
+Diff OK :D
+= Test 5 ===================================================
+$> ./user_exe 05
+$> diff -U 3 user_output_test05 test05.output
+
+Diff OK :D
+= Test 6 ===================================================
+$> ./user_exe 06
+$> diff -U 3 user_output_test06 test06.output
+
+Diff OK :D
+= Test 7 ===================================================
+$> ./user_exe 07
+$> diff -U 3 user_output_test07 test07.output
+
+Diff OK :D
+= Test 8 ===================================================
+$> ./user_exe 08
+$> diff -U 3 user_output_test08 test08.output
 
 Diff OK :D
