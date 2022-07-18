@@ -1,0 +1,1 @@
+Get next line Score: [![angmarti's 42 get_next_line Score](https://badge42.vercel.app/api/v2/cl5nvqyx2001109jk9d48eq0s/project/2670153)](https://github.com/angelidito/42/tree/main/Cursus/Get%20Next%20Line)
