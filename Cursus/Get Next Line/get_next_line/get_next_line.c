@@ -6,7 +6,7 @@
 /*   By: angmarti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 17:04:29 by angmarti          #+#    #+#             */
-/*   Updated: 2022/08/11 17:35:42 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/08/15 18:12:40 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,8 @@ ssize_t	read_and_add(int fd, char **currentline, size_t len)
 	while (i < len + result)
 		*(newline + i++) = *(buffer + j++);
 	*(newline + i) = '\0';
-	free(*currentline);
+	if (currentline)
+		free(*currentline);
 	*currentline = newline; 
 	return (result);
 }
@@ -115,22 +116,30 @@ char	*cut_line(char **currentline, size_t len)
 	i = 0;
 	while (i < len)
 	{
-		*(substr + i) = *(*currentline + i);
+		*(substr + i) = (*currentline)[i];
 		i++;
 	}
 	j = 0;
 	*(substr + i) = '\0';
-	while (*(substr + i + j))
+	while (*(*currentline + (i + j)))
+	{
 		j++;
+	}
 	newline = malloc ((j + 1) * sizeof(char));
 	if (!newline)
 		return (NULL);
 	k = 0;
 	while (k < j)
+	{
 		*(newline + k) = *(*currentline + i + k);
+	}
 	newline[k] = '\0';
-	free(*currentline);
+	//printf("\nCrntLne: '%s'\n", *currentline);
+	if (currentline)
+		free(*currentline);
 	*currentline = newline; 
+	//printf("NewLine: '%s'\n", newline);
+	//printf(" SubStr: '%s'\n", substr);
 	return (substr);
 }
 
@@ -140,40 +149,33 @@ char	*get_next_line(int fd)
 	ssize_t			result;
 	size_t			i;
 
-	result = 0;
 	if (fd < 0 || BUFFER_SIZE < 1 || BUFFER_SIZE > SSIZE_MAX)
 		return (NULL);
-	if (!line || !line[0])
-	{
-		line = malloc(sizeof(char)); 
-		result = read_and_add(fd, &line, 0);
-	}
+	result = 1;
 	while (result != -1)
 	{
-		//printf("_BUSCANDO_");
 		i = 0;
-		//printf("_line: \"%s\"_", line);
 		while (line && line[i])
 			if (line[i++] == '\n')
 				break ;
-		if (line[i - 1] == '\n')
+		if (line && line[0] && line[i - 1] == '\n')
 			return (cut_line(&line, i));
-	//	printf("_RESULT: %lu_", result);
-		if (!result)
+		if (line && *line && !result)
 			return (line);
+		if (!result)
+			return (NULL);
 		result = read_and_add(fd, &line, i);
-	//	printf("_RESULT: %lu_", result);
 	}
 	return (NULL);
 }
 
-/*
+
 int	main(void)
 {
 	int		fd;
 	int		i;
 
-	fd = open("prueba3", O_RDWR);
+	fd = open("prueba", O_RDWR);
 //	fd = open("gnlTester/files/empty", O_RDWR);
 //	fd = open("gnlTester/files/nl", O_RDWR);
 //	fd = open("gnlTester/files/41_no_nl", O_RDWR);
@@ -191,18 +193,21 @@ int	main(void)
 //	fd = open("gnlTester/files/big_line_with_nl", O_RDWR);
 //	fd = open("gnlTester/files/alternate_line_nl_with_nl", O_RDWR);
 
+
 	i = 0;
-	while (++i <= 1)
+	while (++i <= 50)
 	{
 		//printf("~Vuelta: %d~", i);
 		char *str = get_next_line(fd);
-		if (str != NULL)
-			printf("\nLINEA: %s", str);
+		//if (str != NULL)
+			printf("%s", str);
+			//printf("\nLINEA: '%s'", str);
 			//printf("------------->%s", str);
-		else 
-			printf("->NULL");
+		//else 
+		//	printf("->NULL");
 			//printf("------------->NULL");
 		//printf("result line : \"%s\"\n", get_next_line(fd));
 	}
+
 	return (0);
-}*/
+}
