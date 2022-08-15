@@ -6,7 +6,7 @@
 /*   By: angmarti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 13:38:57 by angmarti          #+#    #+#             */
-/*   Updated: 2022/07/19 16:27:08 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/08/10 13:49:00 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,12 @@ char	*ft_strchr(const char *s, int c)
 
 int	main(void)
 {
+	char c = '\0';
+	printf("'%d', '%c'", (int) c, c);
+/*
 	int		fd;
 	int		i;
 	char	*buff;
-
 	buff = (char *)malloc(6);
 	if (!buff)
 	{
@@ -51,7 +53,7 @@ int	main(void)
 	buff[i++] = '4';
 	buff[i++] = '5';
 	buff[i] = '\0';
-	printf("%s\n", buff);
+	printf("%s\n", buff);*/
 	/*
 	fd = open("prueba", O_RDONLY);
 	read(fd, buff, 6);
@@ -60,7 +62,7 @@ int	main(void)
 	{
 		printf("\"%c\"\n", *buff);
 		buff++;
-	}*/
-	printf("%ld\n%ld\n", buff+0 ,0+ ft_strchr(buff, 4));
+	}*//*
+	printf("%ld\n%ld\n", buff+0 ,0+ ft_strchr(buff, 4));*/
 	return (0);
 }

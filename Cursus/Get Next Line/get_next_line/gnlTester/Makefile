@@ -86,6 +86,9 @@ dockerm dockerb dockera: docker%:
 	@docker rm -f mc > /dev/null 2>&1
 
 m: mandatory_start $(1MANDATORY) $(42MANDATORY) $(10MMANDATORY) cleanMandatory
+m1: mandatory_start $(1MANDATORY) cleanMandatory
+m2: mandatory_start $(42MANDATORY) cleanMandatory
+m3: mandatory_start $(10MMANDATORY) cleanMandatory
 b: bonus_start $(1MBONUS) $(42MBONUS) $(10MMBONUS) $(1BONUS) $(42BONUS) $(10MBONUS) cleanBonus
 a: m b
 

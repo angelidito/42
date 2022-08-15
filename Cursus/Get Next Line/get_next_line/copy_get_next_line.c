@@ -6,7 +6,7 @@
 /*   By: angmarti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 17:04:29 by angmarti          #+#    #+#             */
-/*   Updated: 2022/08/11 17:35:42 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/08/11 16:59:12 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,113 +67,154 @@
  *
  **/
 
-#include "get_next_line.h"
-
-ssize_t	read_and_add(int fd, char **currentline, size_t len)
+void	ft_free(void *ptr)
 {
-	char	*buffer;
-	char	*newline;
-	ssize_t	result;
-	size_t	i;
-	size_t	j;
+	if (!ptr)
+		return ;
+	free(ptr);
+}
 
-	buffer = malloc((BUFFER_SIZE + 0) * sizeof(char));
-	if (!buffer)
-		return (-1);
-	result = read(fd, buffer, BUFFER_SIZE);
-	if (result == -1)
-		return (-1);
-	newline = malloc((len + result + 1) * sizeof(char));
+int	freecat(char **oldline, char *buff, ssize_t bytes)
+{
+	char	*newline;
+	size_t	i;
+	ssize_t	j;
+
+	i = 0;
+	while (*oldline && (*oldline)[i])
+		i++;
+	newline = malloc((i + bytes + 1) * sizeof (char));
 	if (!newline)
 		return (-1);
 	i = 0;
-	while (i < len)
+	while (*oldline && (*oldline)[i])
 	{
-		*(newline + i) = *(*currentline + i);
+		newline[i] = (*oldline)[i];
 		i++;
 	}
 	j = 0;
-	while (i < len + result)
-		*(newline + i++) = *(buffer + j++);
-	*(newline + i) = '\0';
-	free(*currentline);
-	*currentline = newline; 
-	return (result);
+	while (j < bytes)
+		newline[i + j++] = *buff++;
+	newline[i + j] = '\0';
+	if (*oldline)
+		free(*oldline);
+	*oldline = newline;
+	return (0);
 }
 
-char	*cut_line(char **currentline, size_t len)
+int	read_until_newline(int fd, char **line)
+{
+	char			*buff;
+	int				found;
+	ssize_t			bytes;
+	ssize_t			i;
+
+	found = 0;
+	bytes = -1;
+	buff = malloc((BUFFER_SIZE + 1) * sizeof (char));
+	if (!buff)
+		return (-1);
+	buff[BUFFER_SIZE] = '\0';
+	bytes = read(fd, buff, BUFFER_SIZE);
+	if (!bytes){
+		free(buff);
+		return (-1);
+	}
+	while (!found && bytes)
+	{
+		//printf("\tbuff: \"%s\"\n", buff);
+		if (!buff || bytes == -1 || -1 == freecat(line, buff, bytes))
+			return (-1);
+		i = -1;
+		while (++i < BUFFER_SIZE)
+			if (i < bytes && buff[i] == '\n')
+				found = 1;
+			else if (i >  bytes)
+				buff[i] = '-';
+		bytes = read(fd, buff, BUFFER_SIZE);
+	}
+	free(buff);
+	if (!found)
+		return (0);
+	return (1);
+}
+
+char	*get_until_newline(char **oldline)
 {
 	size_t	i;
-	size_t	j;
-	size_t	k;
-	char	*newline;
+	size_t	newlen;
 	char	*substr;
+	char	*newline;
 
-	substr = malloc((len + 1) * sizeof(char));
+//	printf("result oldln: %s\n", *oldline);
+	i = 0;
+	while (*oldline && (*oldline)[i] && (*oldline)[i] != '\n')
+		i++;
+	substr = malloc((i + 2) * sizeof (char));
 	if (!substr)
 		return (NULL);
 	i = 0;
-	while (i < len)
+	while (*oldline && (*oldline)[i] && (*oldline)[i] != '\n')
 	{
-		*(substr + i) = *(*currentline + i);
+		substr[i] = (*oldline)[i];
 		i++;
 	}
-	j = 0;
-	*(substr + i) = '\0';
-	while (*(substr + i + j))
-		j++;
-	newline = malloc ((j + 1) * sizeof(char));
-	if (!newline)
-		return (NULL);
-	k = 0;
-	while (k < j)
-		*(newline + k) = *(*currentline + i + k);
-	newline[k] = '\0';
-	free(*currentline);
-	*currentline = newline; 
+	substr[i] = '\n';
+	substr[i + 1] = '\0';
+	newlen = 0;
+	while (*oldline && (*oldline)[i + 1 + newlen])
+		newlen++;
+	newline = malloc((newlen + 1) * sizeof (char));
+	newlen = 0;
+	while (*oldline && (*oldline)[i + 1])
+		newline[newlen++] = (*oldline)[1 + i++];
+	//free(*oldline);
+	*oldline = newline;
+	free(newline);
 	return (substr);
+}
+
+int	contains_newline(char *line)
+{
+	size_t	i;
+
+	i = 0;
+	while (line[i])
+		if (line[i++] == '\n')
+			return (1);
+	return (0);
 }
 
 char	*get_next_line(int fd)
 {
 	static char		*line;
-	ssize_t			result;
-	size_t			i;
+	char			*substr;
+	int				result;
 
-	result = 0;
-	if (fd < 0 || BUFFER_SIZE < 1 || BUFFER_SIZE > SSIZE_MAX)
+	if (fd < 0 || BUFFER_SIZE < 1)
 		return (NULL);
-	if (!line || !line[0])
+	if (line == NULL || !contains_newline(line))
 	{
-		line = malloc(sizeof(char)); 
-		result = read_and_add(fd, &line, 0);
-	}
-	while (result != -1)
-	{
-		//printf("_BUSCANDO_");
-		i = 0;
-		//printf("_line: \"%s\"_", line);
-		while (line && line[i])
-			if (line[i++] == '\n')
-				break ;
-		if (line[i - 1] == '\n')
-			return (cut_line(&line, i));
-	//	printf("_RESULT: %lu_", result);
-		if (!result)
+		result = read_until_newline(fd, &line);
+		if (-1 == result || !line || !*line)
+			return (NULL);
+		if (0 == result)
 			return (line);
-		result = read_and_add(fd, &line, i);
-	//	printf("_RESULT: %lu_", result);
 	}
-	return (NULL);
+	substr = get_until_newline(&line);
+	if (!substr)
+		return (NULL);
+	//printf("result sbstr : %s\n", substr);
+	//printf("result lline : %s\n", line);
+	return (substr);
 }
 
-/*
 int	main(void)
 {
 	int		fd;
 	int		i;
 
-	fd = open("prueba3", O_RDWR);
+	fd = open("prueba2", O_RDONLY);
 //	fd = open("gnlTester/files/empty", O_RDWR);
 //	fd = open("gnlTester/files/nl", O_RDWR);
 //	fd = open("gnlTester/files/41_no_nl", O_RDWR);
@@ -192,17 +233,15 @@ int	main(void)
 //	fd = open("gnlTester/files/alternate_line_nl_with_nl", O_RDWR);
 
 	i = 0;
-	while (++i <= 1)
+	while (++i <= 2)
 	{
-		//printf("~Vuelta: %d~", i);
+		//printf("Vuelta: %d\n", i);
 		char *str = get_next_line(fd);
 		if (str != NULL)
-			printf("\nLINEA: %s", str);
-			//printf("------------->%s", str);
+			printf("------------->%s", str);
 		else 
-			printf("->NULL");
-			//printf("------------->NULL");
+			printf("------------->NULL");
 		//printf("result line : \"%s\"\n", get_next_line(fd));
 	}
 	return (0);
-}*/
+}
