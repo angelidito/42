@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angmarti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 17:04:29 by angmarti          #+#    #+#             */
-/*   Updated: 2022/08/15 18:12:40 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/08/17 18:11:48 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,26 @@
 
 #include "get_next_line.h"
 
-ssize_t	read_and_add(int fd, char **currentline, size_t len)
+void	gnl_replace(char **currentline, char *newline)
+{
+	if (currentline && *currentline)
+	{
+		free(*currentline);
+	}
+	*currentline = newline;
+}
+
+/**
+ * It reads from a file descriptor and adds the read characters to a string
+ * 
+ * @param fd the file descriptor to read from
+ * @param currentline a pointer to a pointer to a char. This is the address of 
+ * the pointer to the string that we're reading
+ * @param len the length of the current line
+ * 
+ * @return The number of characters read.
+ */
+ssize_t	gnl_read_and_add(int fd, char **currentline, size_t len)
 {
 	char	*buffer;
 	char	*newline;
@@ -87,22 +106,28 @@ ssize_t	read_and_add(int fd, char **currentline, size_t len)
 	if (!newline)
 		return (-1);
 	i = 0;
+	j = 0;
 	while (i < len)
-	{
-		*(newline + i) = *(*currentline + i);
-		i++;
-	}
+		*(newline + i++) = *(*currentline + j++);
 	j = 0;
 	while (i < len + result)
 		*(newline + i++) = *(buffer + j++);
 	*(newline + i) = '\0';
-	if (currentline)
-		free(*currentline);
-	*currentline = newline; 
+	gnl_replace(currentline, newline);
 	return (result);
 }
 
-char	*cut_line(char **currentline, size_t len)
+/**
+ * It takes a pointer to a string and a length, and returns a pointer to a 
+ * substring of the original string, and modifies the original string to be 
+ * the remainder of the original string
+ * 
+ * @param currentline the current line that we're reading from the file
+ * @param len the length of the substring to be cut out of the current line
+ * 
+ * @return A pointer to a string.
+ */
+char	*gnl_cut_line(char **currentline, size_t len)
 {
 	size_t	i;
 	size_t	j;
@@ -134,15 +159,19 @@ char	*cut_line(char **currentline, size_t len)
 		*(newline + k) = *(*currentline + i + k);
 	}
 	newline[k] = '\0';
-	//printf("\nCrntLne: '%s'\n", *currentline);
-	if (currentline)
-		free(*currentline);
-	*currentline = newline; 
-	//printf("NewLine: '%s'\n", newline);
-	//printf(" SubStr: '%s'\n", substr);
+	gnl_replace(currentline, newline);
 	return (substr);
 }
 
+/**
+ * It reads a file descriptor until it finds a newline character,
+ * then returns the line.
+ * It can be called again and will return the next line each time.
+ * 
+ * @param fd file descriptor to the file whose line will be readed
+ * 
+ * @return A pointer to a string that contains the line.
+ */
 char	*get_next_line(int fd)
 {
 	static char		*line;
@@ -159,55 +188,55 @@ char	*get_next_line(int fd)
 			if (line[i++] == '\n')
 				break ;
 		if (line && line[0] && line[i - 1] == '\n')
-			return (cut_line(&line, i));
+			return (gnl_cut_line(&line, i));
 		if (line && *line && !result)
-			return (line);
+		{
+			return (gnl_cut_line(&line, i));
+		}
 		if (!result)
 			return (NULL);
-		result = read_and_add(fd, &line, i);
+		result = gnl_read_and_add(fd, &line, i);
 	}
 	return (NULL);
 }
 
+// int	main(void)
+// {
+// 	int		fd;
+// 	int		i;
 
-int	main(void)
-{
-	int		fd;
-	int		i;
+// 	// fd = open("prueba", O_RDWR);
+// 	// fd = open("gnlTester/files/empty", O_RDWR);
+// 	// fd = open("gnlTester/files/nl", O_RDWR);
+// 	// fd = open("gnlTester/files/41_no_nl", O_RDWR);
+// 	fd = open("gnlTester/files/41_with_nl", O_RDWR);
+// 	// fd = open("gnlTester/files/42_no_nl", O_RDWR);
+// 	// fd = open("gnlTester/files/42_with_nl", O_RDWR);
+// 	// fd = open("gnlTester/files/43_no_nl", O_RDWR);
+// 	// fd = open("gnlTester/files/43_with_nl", O_RDWR);
+// 	// fd = open("gnlTester/files/multiple_nlx5", O_RDWR);
+// 	// fd = open("gnlTester/files/multiple_line_no_nl", O_RDWR);
+// 	// fd = open("gnlTester/files/multiple_line_with_nl", O_RDWR);
+// 	// fd = open("gnlTester/files/alternate_line_nl_no_nl", O_RDWR);
+// 	// fd = open("gnlTester/files/alternate_line_nl_with_nl", O_RDWR);
+// 	// fd = open("gnlTester/files/big_line_no_nl", O_RDWR);
+// 	// fd = open("gnlTester/files/big_line_with_nl", O_RDWR);
+// 	// fd = open("gnlTester/files/alternate_line_nl_with_nl", O_RDWR);
 
-	fd = open("prueba", O_RDWR);
-//	fd = open("gnlTester/files/empty", O_RDWR);
-//	fd = open("gnlTester/files/nl", O_RDWR);
-//	fd = open("gnlTester/files/41_no_nl", O_RDWR);
-//	fd = open("gnlTester/files/41_with_nl", O_RDWR);
-//	fd = open("gnlTester/files/42_no_nl", O_RDWR);
-//	fd = open("gnlTester/files/42_with_nl", O_RDWR);
-//	fd = open("gnlTester/files/43_no_nl", O_RDWR);
-//	fd = open("gnlTester/files/43_with_nl", O_RDWR);
-//	fd = open("gnlTester/files/multiple_nlx5", O_RDWR);
-//	fd = open("gnlTester/files/multiple_line_no_nl", O_RDWR);
-//	fd = open("gnlTester/files/multiple_line_with_nl", O_RDWR);
-//	fd = open("gnlTester/files/alternate_line_nl_no_nl", O_RDWR);
-//	fd = open("gnlTester/files/alternate_line_nl_with_nl", O_RDWR);
-//	fd = open("gnlTester/files/big_line_no_nl", O_RDWR);
-//	fd = open("gnlTester/files/big_line_with_nl", O_RDWR);
-//	fd = open("gnlTester/files/alternate_line_nl_with_nl", O_RDWR);
+// 	i = 0;
+// 	while (++i <= 1)
+// 	{
+// 		// printf("~Vuelta: %d~", i);
+// 		char *str = get_next_line(fd);
+// 		//if (str != NULL)
+// 			printf("%s", str);
+// 			//printf("\nLINEA: '%s'", str);
+// 			//printf("------------->%s", str);
+// 		//else 
+// 		//	printf("->NULL");
+// 			//printf("------------->NULL");
+// 		//printf("result line : \"%s\"\n", get_next_line(fd));
+// 	}
 
-
-	i = 0;
-	while (++i <= 50)
-	{
-		//printf("~Vuelta: %d~", i);
-		char *str = get_next_line(fd);
-		//if (str != NULL)
-			printf("%s", str);
-			//printf("\nLINEA: '%s'", str);
-			//printf("------------->%s", str);
-		//else 
-		//	printf("->NULL");
-			//printf("------------->NULL");
-		//printf("result line : \"%s\"\n", get_next_line(fd));
-	}
-
-	return (0);
-}
+// 	return (0);
+// }
