@@ -3,22 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angmarti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:22:32 by angmarti          #+#    #+#             */
-/*   Updated: 2022/07/16 12:27:22 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/08/31 15:36:36 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <limits.h>
 
+/**
+ * It returns 1 if the character is a space, tab, newline, vertical tab, 
+ * carriage return, or form feed. Otherwise, 0.
+ * 
+ * @param c The character to be checked.
+ * 
+ * @return 1 or 0
+ */
 static int	ft_isspace(char c)
 {
 	return (c == ' ' || c == '\t' || c == '\n' || c == '\v'
 		|| c == '\r' || c == '\f');
 }
 
+/**
+ * It returns the sign of the number, or 0 if there is no sign
+ * 
+ * @param p The string to be parsed.
+ * @param i the index of the string
+ * 
+ * @return The sign of the number.
+ */
 static int	ft_getsign(const char *p, unsigned long *i)
 {
 	char	c;
@@ -41,6 +57,13 @@ static int	ft_getsign(const char *p, unsigned long *i)
 	return (0);
 }
 
+/**
+ * It takes a string, and returns the integer value of the string
+ * 
+ * @param str The string to be converted.
+ * 
+ * @return the integer value of the string passed as argument.
+ */
 int	ft_atoi(const char *str)
 {
 	unsigned long	i;

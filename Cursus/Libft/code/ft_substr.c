@@ -3,15 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angmarti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 17:08:44 by angmarti          #+#    #+#             */
-/*   Updated: 2022/07/15 11:58:22 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/09/01 16:56:26 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/**
+ * If the string is too short, return an empty string, otherwise return a 
+ * substring of the given string.
+ * 
+ * @param s The string to be split.
+ * @param start the index of the first character to include in the substring.
+ * @param len the length of the substring to be returned
+ * 
+ * @return A pointer to a new string.
+ */
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*sub;

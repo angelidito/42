@@ -1,17 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angmarti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 14:43:02 by angmarti          #+#    #+#             */
-/*   Updated: 2022/07/15 12:18:06 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/08/31 15:44:34 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/**
+ * Iterate through the list, apply the function to each element, 
+ * and return a new list
+ * 
+ * @param lst the list to iterate over
+ * @param f a function that takes a pointer to a list element and returns 
+ * a pointer to a new list
+ * element
+ * @param del a function that takes a pointer to a single element of the list 
+ * and frees the memory of that element.
+ * 
+ * @return A new list with the same content as the original list, but with 
+ * the content of each element being the result of the function f.
+ */
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new;

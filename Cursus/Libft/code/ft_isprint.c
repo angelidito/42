@@ -3,13 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angmarti <angmarti@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 17:05:23 by angmarti          #+#    #+#             */
-/*   Updated: 2022/06/27 17:08:33 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/08/31 15:40:58 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
+/**
+ * If the character is between a space and a tilde, return the character. 
+ * Otherwise, return 0
+ * 
+ * @param c The character to be checked.
+ * 
+ * @return The character if it is printable, otherwise 0.
+ */
 int	ft_isprint(int c)
 {
 	if (' ' <= c && c <= '~')

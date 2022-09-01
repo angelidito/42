@@ -3,15 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angmarti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 11:27:30 by angmarti          #+#    #+#             */
-/*   Updated: 2022/07/05 13:12:07 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/08/31 15:47:48 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/**
+ * It copies the string src to the end of dst, but never more than dstsize - 1 
+ * bytes, and then NUL-terminates the result
+ * 
+ * @param dst The destination string.
+ * @param src The string to be appended.
+ * @param dstsize The size of the destination buffer.
+ * 
+ * @return The length of the string that would have been created if there was 
+ * enough space.
+ */
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;

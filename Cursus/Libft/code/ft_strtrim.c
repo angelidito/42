@@ -3,15 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angmarti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 14:00:17 by angmarti          #+#    #+#             */
-/*   Updated: 2022/07/15 13:28:39 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/09/01 16:59:02 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/**
+ * It finds the first or last position in a string that is not in a set of 
+ * characters
+ * 
+ * @param s1 The string to be trimmed.
+ * @param set the set of characters to trim
+ * @param last 0 for the first trim, 1 for the last trim
+ * 
+ * @return The position of the first character that is not in the set.
+ */
 static size_t	ft_findtrimpos(char const *s1, char const *set, int last)
 {
 	size_t	i;
@@ -41,6 +51,15 @@ static size_t	ft_findtrimpos(char const *s1, char const *set, int last)
 	return (ft_strlen(s1));
 }
 
+/**
+ * It returns a copy of the string s1, with all the characters in the string 
+ * set removed from the beginning and end of s1
+ * 
+ * @param s1 the string to be trimmed
+ * @param set the set of characters to trim
+ * 
+ * @return A pointer to a new string.
+ */
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*s0;

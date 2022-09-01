@@ -3,15 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angmarti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 14:37:17 by angmarti          #+#    #+#             */
-/*   Updated: 2022/07/05 14:06:18 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/08/31 15:46:45 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/**
+ * It compares the first n bytes of the memory areas s1 and s2
+ * 
+ * @param s1 This is the first string to be compared.
+ * @param s2 The string to be compared.
+ * @param n The number of bytes to compare.
+ * 
+ * @return The difference between the first two different bytes.
+ */
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	size_t			i;

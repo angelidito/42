@@ -3,15 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angmarti <angmarti@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 13:30:02 by angmarti          #+#    #+#             */
-/*   Updated: 2022/07/15 13:44:28 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/09/01 16:58:19 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/**
+ * Count the number of words in a string, where words are separated by a 
+ * character
+ * 
+ * @param s The string to be split.
+ * @param c the character to split the string by
+ * 
+ * @return The number of words in the string.
+ */
 static int	ft_countwords(char const *s, char c)
 {
 	size_t	count;
@@ -27,6 +36,11 @@ static int	ft_countwords(char const *s, char c)
 	return (count);
 }
 
+/**
+ * It creates an empty array of strings.
+ * 
+ * @return A pointer to a pointer to a char.
+ */
 static char	**ft_emptyarray(void)
 {
 	char	**emptyarr;
@@ -37,6 +51,13 @@ static char	**ft_emptyarray(void)
 	return (emptyarr);
 }
 
+/**
+ * It saves a word from a string
+ * 
+ * @param pts pointer to the string
+ * @param auxi a pointer to a pointer to a char.
+ * @param c the delimiter
+ */
 static void	ft_saveword(char **pts, char **auxi, char c)
 {
 	char	*ptc;
@@ -49,6 +70,15 @@ static void	ft_saveword(char **pts, char **auxi, char c)
 		(*pts)++;
 }
 
+/**
+ * It takes a string and a character, and returns an array of strings, 
+ * each of which is a word from the original string, separated by the character
+ * 
+ * @param s The string to be split.
+ * @param c the character to split on
+ * 
+ * @return An array of strings.
+ */
 char	**ft_split(char const *s, char c)
 {
 	char	**array;

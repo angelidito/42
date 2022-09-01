@@ -3,15 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angmarti <angmarti@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 13:46:48 by angmarti          #+#    #+#             */
-/*   Updated: 2022/07/15 12:19:06 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/08/31 15:46:05 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/**
+ * Apply the function f to each character of the string passed as argument, 
+ * and passing its index as first argument.
+ * 
+ * @param s The string to iterate through
+ * @param f a function that takes two parameters: an unsigned int and a char*
+ * 
+ * @return nothing.
+ */
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	unsigned int	i;

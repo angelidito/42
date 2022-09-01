@@ -3,20 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angmarti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 13:46:57 by angmarti          #+#    #+#             */
-/*   Updated: 2022/07/05 14:03:26 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/09/01 16:57:35 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/**
+ * It compares two characters and returns the difference between them.
+ * 
+ * @param c1 The first character to compare.
+ * @param c2 The character to search for.
+ * 
+ * @return The difference between the two characters.
+ */
 static int	ft_chrcmp(unsigned char c1, unsigned char c2)
 {
 	return (c1 - c2);
 }
 
+/**
+ * It compares the first n characters of two strings, and returns the 
+ * difference between the first two characters that differ
+ * 
+ * @param s1 The first string to be compared.
+ * @param s2 The string to compare to.
+ * @param n The maximum number of characters to compare.
+ * 
+ * @return The difference between the first two characters that differ in the 
+ * strings being compared.
+ */
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;

@@ -3,15 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angmarti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 18:37:27 by angmarti          #+#    #+#             */
-/*   Updated: 2022/07/14 19:05:15 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/08/31 15:48:42 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/**
+ * Copy the string pointed to by src, including the terminating 
+ * null byte ('\0'), to the buffer pointed to by dst
+ * 
+ * @param dst This is the destination string.
+ * @param src The string to be copied.
+ * @param dstsize The size of the destination buffer.
+ * 
+ * @return The length of the string src.
+ */
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;

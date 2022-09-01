@@ -3,15 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angmarti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 17:01:59 by angmarti          #+#    #+#             */
-/*   Updated: 2022/07/14 17:04:17 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/08/31 15:46:27 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/**
+ * If the source and destination overlap, copy the source backwards
+ * 
+ * @param dst The destination string.
+ * @param src The source string.
+ * @param len The number of bytes to be moved.
+ * 
+ * @return A pointer to the destination string.
+ */
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	unsigned long	i;

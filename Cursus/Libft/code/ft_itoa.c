@@ -3,15 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angmarti <angmarti@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 14:54:06 by angmarti          #+#    #+#             */
-/*   Updated: 2022/07/15 12:09:17 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/08/31 15:42:00 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/**
+ * It returns the number of digits in an integer
+ * 
+ * @param n the number to be converted
+ * 
+ * @return The length of the number.
+ */
 static int	ft_intlen(int n)
 {
 	int	len;
@@ -29,6 +36,13 @@ static int	ft_intlen(int n)
 	return (len);
 }
 
+/**
+ * It takes an integer and returns a string representation of that integer
+ * 
+ * @param n the number to be converted to a string
+ * 
+ * @return A pointer to a string.
+ */
 char	*ft_itoa(int n)
 {
 	char	*a;
