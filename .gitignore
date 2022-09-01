@@ -80,4 +80,8 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+#Others
 Cursus/Libft/libft-war-machine-master/deepthought
+**/.vscode
+**/.vscode/**
