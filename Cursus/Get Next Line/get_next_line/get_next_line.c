@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 17:04:29 by angmarti          #+#    #+#             */
-/*   Updated: 2022/08/17 18:11:48 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/08/31 14:35:26 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
  *
  * Funciones autorizadas: read, malloc, free.
  *
- * • Llamar a tu función get_next_line de manera repetida (por ejemplo, usando 
+ * • Llamar a tu función get_next_line de manera repetida (por ejemplo, usando
  *   un bucle) te permitirá leer el contenido del archivo hacia el que apunta 
  *   el file descriptor, línea a línea, hasta el final.
  *
