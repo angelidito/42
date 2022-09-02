@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 12:55:06 by angmarti          #+#    #+#             */
-/*   Updated: 2022/08/31 15:44:02 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/09/01 18:28:11 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
  * 
  * @return The last element of the list.
  */
-wt_list	*ft_lstlast(t_list *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
 	if (!lst)
 		return (NULL);
