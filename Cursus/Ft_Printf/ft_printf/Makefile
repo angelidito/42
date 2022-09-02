@@ -3,18 +3,18 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: angmarti <angmarti@student.42madrid.com    +#+  +:+       +#+         #
+#    By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/18 19:39:06 by angmarti          #+#    #+#              #
-#    Updated: 2022/08/18 19:41:30 by angmarti         ###   ########.fr        #
+#    Updated: 2022/09/01 18:21:37 by angmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	libftprintf.a
 
-SRCS	=	ft_printf.c \
-			printing_utilities.c \
-			conversion_utilities.c
+SRCS	=	srcs/ft_printf.c \
+			srcs/pf_puts_fd.c \
+			libft/ft_itoa.c
 
 OBJS	= 	${SRCS:.c=.o}
 

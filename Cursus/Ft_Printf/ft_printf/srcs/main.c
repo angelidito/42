@@ -1,16 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angmarti <angmarti@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/18 19:30:03 by angmarti          #+#    #+#             */
-/*   Updated: 2022/08/18 19:41:47 by angmarti         ###   ########.fr       */
+/*   Created: 2022/09/01 16:08:24 by angmarti          #+#    #+#             */
+/*   Updated: 2022/09/01 18:18:33 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_printf(char const *, ...)
+#include "../incs/ft_printf.h"
+
+int	main(void)
 {
-	
+	ft_printf("Hola");
+	return (0);
 }
