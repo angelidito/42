@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 15:55:04 by angmarti          #+#    #+#             */
-/*   Updated: 2022/09/01 18:26:36 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/09/02 12:18:43 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,26 +112,6 @@ ssize_t	ft_putnbr_base_fd(int nbr, char *base, int fd)
 	}
 	return (chr_printed);
 }
-
-// // ft_putnbr_base's main
-// int	main(void)
-// {
-// 	ft_putnbr_base(-2147483648, "01");
-// 	printf("\n");
-// 	ft_putnbr_base(-2147483647, "01");
-// 	printf("\n");
-// 	ft_putnbr_base(2147483647, "01");
-// 	printf("\n");
-// 	ft_putnbr_base(-42, "01");
-// 	printf("\n");
-// 	ft_putnbr_base(0, "01");
-// 	printf("\n");
-// 	ft_putnbr_base(-0, "01");
-// 	printf("\n");
-// 	ft_putnbr_base(42, "01");
-// 	printf("\n");
-// }
-
 /**
  * It writes a string to a file descriptor.
  * 
@@ -155,7 +135,7 @@ ssize_t	ft_putstr_fd_ss(char *s, int fd)
  * 
  * @return The number of bytes written.
  */
-ssize_t	ft_putchar_fd_ss(char c, int fd)
+ssize_t	ft_putchar_fd_ss(int c, int fd)
 {
 	return (write(fd, &c, sizeof(char)));
 }

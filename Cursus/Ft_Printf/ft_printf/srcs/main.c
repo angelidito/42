@@ -6,14 +6,15 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 16:08:24 by angmarti          #+#    #+#             */
-/*   Updated: 2022/09/01 18:18:33 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/09/02 13:02:49 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/ft_printf.h"
+// #include "../incs/ft_printf.h"
+#include "../psegura-printf/ft_printf.h"
 
 int	main(void)
 {
-	ft_printf("Hola");
+	ft_printf("Hola %c", 'G');
 	return (0);
 }
