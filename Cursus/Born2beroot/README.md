@@ -1,15 +1,28 @@
 # Born2beroot
 
-## Debian Vs CentoOS
+Como consiste en configurar un servidor e instalar el número mínimo de servicios. Por este motivo, una interfaz gráfica no tiene sentido
+
+Está prohibido por tanto instalar X.org o cualquier servidor gráfico equivalente. En caso de hacerlo, la nota será 0
+
+Elegir como sistema operativo la última versión estable de Debian o CentOS
+
+## A tener en cuenta
+
+### Debian y CentoOS
+
+#### Gestión de paquetes
+Debian usa el formato de paquete DEB con dpkg/APT
+
+CentOS usa el formato de paquete RPM, con YUM/DNF como administrador de paquetes derivado de Red Hat
+
+#### Sistemas de archivos
+CentoOS usa XFS por defecto, y Debian EXT4. Sin embargo, ambas opciones (y otras) son soportadas por ambas distribuciones.
 
 
-### Diferencias
+#### Aptitude y apt
 
 
-### Aptitude y apt
-
-
-### SELinux y AppArmor
+#### SELinux y AppArmor
 
 
 ### Uso de SSH para crear un nuevo usuario
@@ -41,23 +54,19 @@
   - [ ] Un número
   - [ ] No tener más de 3 veces consecutivas el mismo carácter
   - [ ] No contener el nombre del usuario
-  - [ ] Tener al menos 7 caracteres que no sean parte de la antigua contraseña 
-(no aplica a root)
+  - [ ] Tener al menos 7 caracteres que no sean parte de la antigua contraseña (no aplica a root)
 
 
 ## Debian
 
-Se recomienda encarecidamente si no se tiene experiencia en administración de 
-sistemas...
+Se recomienda encarecidamente si no se tiene experiencia en administración de sistemas...
 - [ ] AppArmor debe ejecutarse al inciar
 
 
 ## CentoOS
 
-- [ ] Configurar CentOS es bastante complejo. Por lo tanto, no hay que
-configurar KDump
-- [ ] SELinux debe ejecutarse al iniciar y su configuración debe 
-adaptarse a las necesidades del proyecto
+Configurar CentOS es bastante complejo. Por lo tanto, no hay que configurar KDump
+- [ ] SELinux debe ejecutarse al iniciar y su configuración debe adaptarse a las necesidades del proyecto
 - [ ] (¿) AppArmor debe ejecutarse al inciar (?)
 
 
@@ -90,8 +99,7 @@ Por ejemplo:
 
 Debe de estar desarrollado en bash.
 
-Cuando el servidor inicie, el script mostrará cierta información (listada debajo) 
-en todos los terminales cada 10 minutos (Échale un vistazo a wall).
+Cuando el servidor inicie, el script mostrará cierta información (listada debajo) en todos los terminales cada 10 minutos (Échale un vistazo a wall).
 
 El banner de wall es opcional. Ningún error debe ser visible
 
@@ -100,8 +108,7 @@ Tu script debe siempre mostrar la siguiente información:
 - [ ] El número de núcleos físicos
 - [ ] El número de núcleos virtuales
 - [ ] La memoria RAM disponible actualmente en tu servidor y su porcentaje de uso
-- [ ] La memoria disponible actualmente en tu servidor y su utilización como 
-  un porcentaje
+- [ ] La memoria disponible actualmente en tu servidor y su utilización como un porcentaje
 - [ ] El porcentaje actual de uso de tus núcleos
 - [ ] La fecha y hora del último reinicio
 - [ ] Si LVM está activo o no
