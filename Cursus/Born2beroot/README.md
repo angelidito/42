@@ -6,34 +6,33 @@ Está prohibido por tanto instalar X.org o cualquier servidor gráfico equivalen
 
 Elegir como sistema operativo la última versión estable de Debian o CentOS
 
-## A tener en cuenta
 
-### Debian y CentoOS
+## Debian y CentoOS: a tener en cuenta
 
-#### Gestión de paquetes
+### Gestión de paquetes
 Debian usa el formato de paquete DEB con dpkg/APT
 
 CentOS usa el formato de paquete RPM, con YUM/DNF como administrador de paquetes derivado de Red Hat
 
-#### Sistemas de archivos
+### Sistemas de archivos
 CentoOS usa XFS por defecto, y Debian EXT4. Sin embargo, ambas opciones (y otras) son soportadas por ambas distribuciones.
 
 
-#### Aptitude y apt
+### Aptitude y apt
 
 
-#### SELinux y AppArmor
+### SELinux y AppArmor
 
 
-### Uso de SSH para crear un nuevo usuario
+## Uso de SSH para crear un nuevo usuario
 
 
-### Asignar un usuario a un grupo
+## Asignar un usuario a un grupo
 
 
-### Modo TTY
+## Modo TTY
 
-### Diretorios de sudo
+## Diretorios de sudo
 - /usr/local/sbin
 - /usr/local/bin
 - /usr/sbin
@@ -43,7 +42,7 @@ CentoOS usa XFS por defecto, y Debian EXT4. Sin embargo, ambas opciones (y otras
 - /snap/bin
 
 
-### Política fuerte de contraseñas
+## Política fuerte de contraseñas
 
 - [ ] La contraseña debe expirar cada 30 días
 - [ ] El mínimo nº de días permitido antes de modificar una contraseña debe ser 2
@@ -70,19 +69,19 @@ Configurar CentOS es bastante complejo. Por lo tanto, no hay que configurar KDum
 - [ ] (¿) AppArmor debe ejecutarse al inciar (?)
 
 
-## El Proyecto
+# ¿Qué hay que hacer?
 
-### Tareas generales
+## Tareas generales
 - [ ] Crear al menos 2 particiones cifradas usando LVM
 - [ ] Ejecutar el servicio SSH sólamente en el puerto 4242
 - [ ] No debe ser posible conectarte a través de SSH como root
 - [ ] Configurar el SO con el firewall UFW dejando abierto solamente el puerto 4242
-- [ ] Política de contraseñas fuerte
+- [ ] Usar la política de contraseñas fuerte
 - [ ] Instalar y configurar sudo siguiendo reglas estrictas
-- [ ] Crear usuario con angmarti como nombre
+- [x] Crear usuario con angmarti como nombre
   - [ ] Debe pertenecer a los grupos user42 y sudo
 
-### Para el grupo *sudo*
+## Para el grupo *sudo*
 - [ ] Autenticarse con sudo debe limitado a tres intentos fallidos de introducir 
 la contraseña
 - [ ] Mostrar mensaje personalizado en caso de contraseña introducida incorrecta 
@@ -95,7 +94,7 @@ Por ejemplo:
 **/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin**
 
 
-### Script: monitoring.sh
+## Script: monitoring.sh
 
 Debe de estar desarrollado en bash.
 
@@ -139,3 +138,9 @@ Broadcast message from root@wil (tty1) (Sun Apr 25 15:45:00 2021):
 Caomando utilizable para comprobar algunos requisitos del subject:
 > head -n2 /etc/os-release
 
+
+
+# Desarrollo
+
+Desarrollo
+==
