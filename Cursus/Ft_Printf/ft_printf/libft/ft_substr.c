@@ -6,11 +6,11 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 17:08:44 by angmarti          #+#    #+#             */
-/*   Updated: 2022/09/01 16:56:26 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/09/08 15:01:58 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "incs/libft.h"
 
 /**
  * If the string is too short, return an empty string, otherwise return a 

@@ -6,11 +6,11 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 16:12:22 by angmarti          #+#    #+#             */
-/*   Updated: 2022/09/01 16:59:19 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/09/08 15:01:58 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "incs/libft.h"
 
 /**
  * Ft_bzero() takes a pointer to a memory area and a size, and sets all bytes 

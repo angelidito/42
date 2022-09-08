@@ -6,11 +6,11 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 12:43:51 by angmarti          #+#    #+#             */
-/*   Updated: 2022/09/01 16:55:50 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/09/08 15:01:58 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "incs/libft.h"
 
 /**
  * If the character is lowercase, subtract 32 from it to make it uppercase

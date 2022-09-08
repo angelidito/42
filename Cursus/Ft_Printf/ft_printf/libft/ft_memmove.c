@@ -6,11 +6,11 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 17:01:59 by angmarti          #+#    #+#             */
-/*   Updated: 2022/08/31 15:46:27 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/09/08 15:01:58 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "incs/libft.h"
 
 /**
  * If the source and destination overlap, copy the source backwards

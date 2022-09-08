@@ -6,11 +6,11 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 16:33:31 by angmarti          #+#    #+#             */
-/*   Updated: 2022/08/31 15:46:37 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/09/08 15:01:58 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "incs/libft.h"
 
 /**
  * Copy n bytes from memory area src to memory area dst

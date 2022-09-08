@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 15:48:59 by angmarti          #+#    #+#             */
-/*   Updated: 2022/09/08 14:10:38 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/09/08 15:02:57 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
-# include "../libft/libft.h"
+# include "../libft/incs/libft.h"
 
 
 int		ft_printf(char const *str, ...) __attribute__((format(printf, 1, 2)));
