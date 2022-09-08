@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 19:30:40 by angmarti          #+#    #+#             */
-/*   Updated: 2022/09/08 13:58:28 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/09/08 15:53:18 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,20 +26,24 @@ ssize_t	ft_pf_format(char c, va_list args)
 	ssize_t	printed;
 
 	printed = 0;
+	if (c == '%')
+		printed = ft_putchar_fd_ss('%', 1);
 	if (c == 'c')
 		printed = ft_putchar_fd_ss(va_arg(args, int), 1);
-	if (c == 'd' || c == 'i')
+	else if (c == 'd' || c == 'i')
 		printed = ft_putstr_fd_ss(ft_itoa(va_arg(args, int)), 1);
-	if (c == 'p')
+	else if (c == 'p')
 		printed = ft_putptr_fd(va_arg(args, void *), 1);
-	if (c == 's')
+	else if (c == 's')
 		printed = ft_putstr_fd_ss(va_arg(args, char *), 1);
-	if (c == 'u')
+	else if (c == 'u')
 		printed = ft_putnbr_base_fd(va_arg(args, int), "01234567", 1);
-	if (c == 'x')
+	else if (c == 'x')
 		printed = ft_putnbr_base_fd(va_arg(args, int), "0123456789abcdef", 1);
-	if (c == 'X')
+	else if (c == 'X')
 		printed = ft_putnbr_base_fd(va_arg(args, int), "0123456789ABCDEF", 1);
+	else
+		printed += ft_putstr_fd_ss(va_arg(args, char *), 1);
 	return (printed);
 }
 
@@ -74,3 +78,25 @@ int	ft_printf(char const *str, ...)
 	}
 	return (chr_printed);
 }
+
+
+// category: c OK 
+// category: s
+// 10.KO 
+// category: p
+// 1.KO 6.KO 7.KO 8.KO
+// category: d
+// LEAKS.KO 
+// category: i
+// LEAKS.KO 
+// category: u
+// 2.KO 4.KO 5.KO 6.KO 7.KO 8.KO 9.KO 10.KO 11.KO 12.KO 13.KO 14.KO 15.KO 16.KO 17.KO 18.KO 19.KO 20.KO 21.KO 22.KO 23.KO 24.KO 26.KO 27.KO 28.KO 29.KO 
+// category: x
+// 2.KO 13.KO 14.KO 15.KO 16.KO 17.KO 18.KO 19.KO 20.KO 21.KO 23.KO 24.KO 26.KO 27.KO 28.KO 29.KO 31.KO 
+// category: X
+// 2.KO 13.KO 14.KO 15.KO 16.KO 17.KO 18.KO 19.KO 20.KO 21.KO 23.KO 24.KO 26.KO 27.KO 28.KO 29.KO 31.KO 
+// category: %
+// 1.KO 2.KO 3.KO 4.KO 5.KO 6.KO 7.KO 
+// category: mix 
+// 1.KO LEAKS.KO 
+
