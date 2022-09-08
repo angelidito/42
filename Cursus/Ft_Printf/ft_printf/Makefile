@@ -6,10 +6,11 @@
 #    By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/18 19:39:06 by angmarti          #+#    #+#              #
-#    Updated: 2022/09/08 14:59:13 by angmarti         ###   ########.fr        #
+#    Updated: 2022/09/08 15:49:32 by angmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+#----------------------------------------------------------SOURCES
 SRCS	=	srcs/ft_printf.c \
 			srcs/pf_puts_fd.c \
 			srcs/pf_putnbr_base_fd.c \
@@ -56,62 +57,7 @@ SRCS	=	srcs/ft_printf.c \
 			libft/ft_lstiter_bonus.c \
 			libft/ft_lstmap_bonus.c \
 			libft/ft_lstlast_bonus.c
-
-# CC		= gcc
-# CFLAGS	= -Wall -Wextra -Werror -pedantic
-
-
-# OBJS	= $(SRCS:.c=.o)
-# NAME	= libftprintf.a
-# RM		= /bin/rm -f
-# # RM		=	rm -rf
-# # AR		=	ar rcs
-
-# all: $(NAME)
-
-# # ${NAME}	:	${OBJS} ${AR} ${NAME} ${OBJS}
-# $(NAME): $(OBJS) 
-# 		ar rc $(NAME) $(OBJS)
-
-# # $(OBJS):	$(CC) $(CFLAGS) -c $(SRCS)
-# $(OBJS): gcc 
-# 		$(CFLAGS) -c $(SRCS)
-
-# clean:
-# 	$(RM) $(OBJS)
-	
-# fclean:	clean
-# 	$(RM) $(NAME)
-
-# re:		fclean $(NAME)
-
-# .PHONY: all clean fclean re
-
-# CC		= gcc
-# CFLAGS	= -Wall -Wextra -Werror -pedantic
-
-# OBJS	= $(SRCS:.c=.o)
-# NAME	= libftprintf.a
-# RM		= /bin/rm -f
-
-# $(NAME): $(OBJS)
-# 	ar rc $(NAME) $(OBJS)
-	
-# all:	$(NAME)
-
-# $(OBJS):
-# 	gcc $(CFLAGS) -c $(SRCS)
-
-# clean:
-# 	$(RM) $(OBJS)
-	
-# fclean:	clean
-# 	$(RM) $(NAME)
-
-# re:		fclean $(NAME)
-
-# .PHONY: all clean fclean re
-
+OBJS		=	$(SRCS:.c=.o)
 
 #----------------------------------------------------------COMPILER
 NAME = libftprintf.a
@@ -122,12 +68,6 @@ CFLAGS	= -Wall -Wextra -Werror
 #----------------------------------------------------------LIBS
 LIB			=	./libft/libft.a
 INCLUDES	=	-I ./incs -I ./libft/incs
-
-#----------------------------------------------------------SOURCES
-# SRCS		=	ft_printf.c ft_printf_tools_flag.c ft_printf_format.c ft_lib_fd.c \
-# 				ft_print_1strings.c ft_print_2pointers.c ft_print_3integers.c \
-# 				ft_print_4integers_unsigned.c ft_print_5hexa.c
-OBJS		=	$(SRCS:.c=.o)
 
 #----------------------------------------------------------RULES
 all: lib_submodule $(NAME)
