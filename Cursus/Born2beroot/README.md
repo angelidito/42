@@ -55,6 +55,17 @@ CentoOS usa XFS por defecto, y Debian EXT4. Sin embargo, ambas opciones (y otras
   - [ ] No contener el nombre del usuario
   - [ ] Tener al menos 7 caracteres que no sean parte de la antigua contraseña (no aplica a root)
 
+## Reglas estrictas para *sudo*
+- [x] Autenticarse con sudo debe limitado a tres intentos fallidos de introducir 
+la contraseña
+- [x] Mostrar mensaje personalizado en caso de contraseña introducida incorrecta 
+al utilizar sudo
+- [x] Para cada comando ejecutado con sudo, tanto el **input** como el **output** 
+deben quedar archivados en el directorio **/var/log/sudo/**
+- [x] El modo TTY debe estar activado por razones de seguridad
+- [x] Por seguridad, los directorios utilizables por sudo deben estar restringidos.
+Por ejemplo:  
+**/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin**
 
 ## Debian
 
@@ -72,26 +83,15 @@ Configurar CentOS es bastante complejo. Por lo tanto, no hay que configurar KDum
 # ¿Qué hay que hacer?
 
 ## Tareas generales
-- [ ] Crear al menos 2 particiones cifradas usando LVM
-- [ ] Ejecutar el servicio SSH sólamente en el puerto 4242
-- [ ] No debe ser posible conectarte a través de SSH como root
+- [x] Crear al menos 2 particiones cifradas usando LVM
+- [x] Ejecutar el servicio SSH sólamente en el puerto 4242
+  - [x] No debe ser posible conectarte a través de SSH como root
 - [ ] Configurar el SO con el firewall UFW dejando abierto solamente el puerto 4242
 - [ ] Usar la política de contraseñas fuerte
-- [ ] Instalar y configurar sudo siguiendo reglas estrictas
+- [x] Instalar y configurar sudo siguiendo reglas estrictas
 - [x] Crear usuario con angmarti como nombre
   - [ ] Debe pertenecer a los grupos user42 y sudo
 
-## Para el grupo *sudo*
-- [ ] Autenticarse con sudo debe limitado a tres intentos fallidos de introducir 
-la contraseña
-- [ ] Mostrar mensaje personalizado en caso de contraseña introducida incorrecta 
-al utilizar sudo
-- [ ] Para cada comando ejecutado con sudo, tanto el **input** como el **output** 
-deben quedar archivados en el directorio **/var/log/sudo/**
-- [ ] El modo TTY debe estar activado por razones de seguridad
-- [ ] Por seguridad, los directorios utilizables por sudo deben estar restringidos.
-Por ejemplo:  
-**/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin**
 
 
 ## Script: monitoring.sh
@@ -139,8 +139,35 @@ Caomando utilizable para comprobar algunos requisitos del subject:
 > head -n2 /etc/os-release
 
 
-
 # Desarrollo
 
-Desarrollo
-==
+## Sudo
+```
+	su -
+	apt-get install sudo
+	usermod -aG sudo angmarti  # Or "adduser angmarti sudo"
+	getent group sudo
+```
+
+Escribimos reglas estrictas en `/etc/sudoers.d/sudorules`:
+```
+Defaults        passwd_tries=3
+Defaults        insults
+Defaults        logfile="/var/log/sudo/sudorules"
+Defaults        log_input,log_output
+Defaults        iolog_dir="/var/log/sudo"
+Defaults        requiretty
+Defaults        secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
+```
+
+
+## SSH
+```
+sudo apt install openssh-server
+sudo nano /etc/ssh/sshd_config
+sudo systemctl restart ssh
+sudo systemctl status ssh
+```
+
+## UFW
+sudo ufw allow 4242
