@@ -18,27 +18,10 @@ CentOS usa el formato de paquete RPM, con YUM/DNF como administrador de paquetes
 CentoOS usa XFS por defecto, y Debian EXT4. Sin embargo, ambas opciones (y otras) son soportadas por ambas distribuciones.
 
 
-### Aptitude y apt
-
-
-### SELinux y AppArmor
-
-
-## Uso de SSH para crear un nuevo usuario
-
-
-## Asignar un usuario a un grupo
-
-
-## Modo TTY
-
-
-
-
 ## Debian
 
 Se recomienda encarecidamente si no se tiene experiencia en administración de sistemas...
-- [ ] AppArmor debe ejecutarse al inciar
+- [x] AppArmor debe ejecutarse al inciar
 
 
 ## CentoOS
@@ -56,10 +39,10 @@ Configurar CentOS es bastante complejo. Por lo tanto, no hay que configurar KDum
 - [x] Configurar el SO con el firewall UFW dejando abierto solamente el puerto 4242
 - [x] Usar la política de contraseñas fuerte
 - [x] Instalar y configurar sudo siguiendo reglas estrictas
-- [ ] El hostname de la máquina virtual angmarti42
+- [x] El hostname de la máquina virtual angmarti42
 - [x] Crear usuario con angmarti como nombre
   - [x] Debe pertenecer a los grupos user42 y sudo
-- [ ] Script: monitoring.sh
+- [x] Script: monitoring.sh
 
 
 
@@ -154,7 +137,7 @@ sudo chage -l    root
 
 ### Requisitos de las contraseñas
 - [x] Mínimo 10 caracteres de longitud
-- [ ] Una mayúscula
+- [x] Una mayúscula
 - [x] Un número
 - [x] No tener más de 3 veces consecutivas el mismo carácter
 - [x] No contener el nombre del usuario
@@ -222,20 +205,20 @@ Cuando el servidor inicie, el script mostrará cierta información (listada deba
 El banner de wall es opcional. Ningún error debe ser visible
 
 Tu script debe siempre mostrar la siguiente información:
-- [ ] La arquitectura de tu sistema operativo y su versión de kernel
-- [ ] El número de núcleos físicos
-- [ ] El número de núcleos virtuales
-- [ ] La memoria RAM disponible actualmente en tu servidor y su porcentaje de uso
-- [ ] La memoria disponible actualmente en tu servidor y su utilización como un porcentaje
-- [ ] El porcentaje actual de uso de tus núcleos
-- [ ] La fecha y hora del último reinicio
-- [ ] Si LVM está activo o no
-- [ ] El número de conexiones activas
-- [ ] El número de usuarios del servidor
-- [ ] La dirección IPv4 de tu servidor y su MAC (Media Access Control)
-- [ ] El número de comandos ejecutados con sudo
+- [x] La arquitectura de tu sistema operativo y su versión de kernel
+- [x] El número de núcleos físicos
+- [x] El número de núcleos virtuales
+- [x] La memoria RAM disponible actualmente en tu servidor y su porcentaje de uso
+- [x] La memoria disponible actualmente en tu servidor y su utilización como un porcentaje
+- [x] El porcentaje actual de uso de tus núcleos
+- [x] La fecha y hora del último reinicio
+- [x] Si LVM está activo o no
+- [x] El número de conexiones activas
+- [x] El número de usuarios del servidor
+- [x] La dirección IPv4 de tu servidor y su MAC (Media Access Control)
+- [x] El número de comandos ejecutados con sudo
 
-Ejemplo de funcionamiento
+### Ejemplo de funcionamiento
 
 ```
 Broadcast message from root@wil (tty1) (Sun Apr 25 15:45:00 2021):
@@ -254,30 +237,62 @@ Broadcast message from root@wil (tty1) (Sun Apr 25 15:45:00 2021):
 	#Sudo : 42 cmd
 ```
 
-Comandos utilizable para comprobar algunos requisitos del subject: 
+### Comandos para comprobar los requisitos: 
 ```
+uname -srvmo
+nproc --all
+cat /proc/cpuinfo | grep processor | wc -l
+free -m
+free -m | grep Mem | awk '{print $3}'
+free -m | grep Mem | awk '{print $2}'
+free -k | grep Mem | awk '{printf("%.2f%%"), $3 / $2 * 100}'
+df -m --total | grep total | awk '{print $3}'
+df -m --total | grep total | awk '{print $4}'
+df -m --total | grep total | awk '{print $5}'
+top -bn1 | grep '^%Cpu' | cut -c 9- | awk '{printf("%.1f%%"), $1 + $3}'
+who -b | awk '{print($3 " " $4)}'
+if [ $(lsblk | grep lvm | wc -l) -gt 0 ]; then echo yes; else echo nope; fi
+grep TCP /proc/net/sockstat | awk '{print $3}'
+who | wc -l
+hostname -I | awk '{print $1}'
+grep COMMAND /var/log/sudo/sudolog | wc -l
+
 head -n2 /etc/os-release
 sestatus
 ss -lputn
 ufw status
 ```
 
+### El script
 ```
 #!/bin/bash
 
-echo Broadcast message from root@wil (tty1) (Sun Apr 25 15:45:00 2021):
-
-echo \#Architecture $(uname -srvmo)
-echo \#Architecture: 
-echo \#CPU physical : 
-echo \#vCPU : 
-echo \#Memory Usage: 
-echo \#Disk Usage: 
-echo \#CPU load: 
-echo \#Last boot: 
-echo \#LVM use: 
-echo \#Connexions TCP : 
-echo \#User log: 
-echo \#Network: 
-echo \#Sudo :
+wall "
+	#Architecture $(uname -srvmo)
+	#CPU physical : $(cat /proc/cpuinfo | grep 'physical id' | wc -l)
+	#vCPU : $(cat /proc/cpuinfo | grep processor | wc -l)
+	#Memory Usage: $(free -m | grep Mem | awk '{print $3}')/$(free -m | grep Mem | awk '{print $2}')MB \($(free -k | grep Mem | awk '{printf("%.2f%%"), $3 / $2 * 100}')\)
+	#Disk Usage: $(df -m --total | grep total | awk '{print $3}')/$(df -m --total | grep total | awk '{print $4}') \($(df -m --total | grep total | awk '{print $5}')\)
+	#CPU load: $(top -bn1 | grep '^%Cpu' | cut -c 9- | awk '{printf("%.1f%%"), $1 + $3}')
+	#Last boot: $(who -b | awk '{print($3 " " $4)}')
+	#LVM use: $(if [ $(lsblk | grep lvm | wc -l) -gt 0 ]; then echo yes; else echo nope; fi)
+	#Connexions TCP : $(grep TCP /proc/net/sockstat | awk '{print $3}') ESTABLISHED
+	#User log: $(who | wc -l)
+	#Network: IP $(hostname -I | awk '{print $1}') \($(ip link show | grep link/ether | awk '{print $2}')\)
+	#Sudo : $(grep COMMAND /var/log/sudo/sudolog | wc -l) cmd
+"
 ```
+
+### Tarea cron
+**Como root**
+```
+sudo systemctl enable cron
+sudo crontab -u root -e
+```
+
+0 * * * * bash /root/monitoring.sh
+10 * * * * bash /root/monitoring.sh
+20 * * * * bash /root/monitoring.sh
+30 * * * * bash /root/monitoring.sh
+40 * * * * bash /root/monitoring.sh
+50 * * * * bash /root/monitoring.sh
