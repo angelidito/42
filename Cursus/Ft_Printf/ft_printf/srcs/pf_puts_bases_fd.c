@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 15:55:04 by angmarti          #+#    #+#             */
-/*   Updated: 2022/10/03 13:38:20 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/10/03 15:51:06 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,17 @@
  */
 ssize_t	ft_put_ex_fd(size_t nbr, int fd)
 {
-	char			*base;
-	ssize_t				i;
+	char	*base;
+	ssize_t	i;
 
 	i = 0;
 	base = "0123456789abcdef";
-	if (16 <= nbr)
+	if (nbr >= 16)
 	{
 		i += ft_put_ex_fd(nbr / 16, fd);
-		nbr = nbr % 16;
+		nbr %= 16;
 	}
-	i++;
-	ft_putchar_fd_ss(base[nbr], fd);
-	return (i);
+	return (i + ft_putchar_fd_ss(base[nbr], fd));
 }
 
 /**
@@ -58,38 +56,9 @@ ssize_t	ft_putnbr_fd_ss(int nbr, int fd)
 		i = ft_putchar_fd_ss('-', fd);
 	}
 	if (nbr < 10)
-		i += ft_putchar_fd_ss('0' + nbr, fd);
-	else
-	{
-		i += ft_putnbr_fd_ss(nbr / 10, fd);
-		i += ft_putchar_fd_ss('0' + nbr % 10, fd);
-	}
-	return (i);
-}
-
-/**
- * 
- * 
- * @param nbr the number to be converted
- * @param fd file descriptor
- * 
- * @return The number of characters printed.
- */
-ssize_t	ft_put_octal_fd(size_t nbr, int fd)
-{
-	char			*base;
-	ssize_t			i;
-
-	i = 0;
-	base = "01234567";
-	if (8 <= nbr)
-	{
-		i += ft_put_ex_fd(nbr / 8, fd);
-		nbr = nbr % 8;
-	}
-	i++;
-	ft_putchar_fd_ss(base[nbr], fd);
-	return (i);
+		return (i + ft_putchar_fd_ss('0' + nbr, fd));
+	i += ft_putnbr_fd_ss(nbr / 10, fd);
+	return (i + ft_putchar_fd_ss('0' + nbr % 10, fd));
 }
 
 /**
@@ -113,9 +82,7 @@ ssize_t	ft_putnbr_base_fd_simple(unsigned long nbr, char *base, int fd)
 	if (number >= b_len)
 	{
 		i += ft_putnbr_base_fd_simple(number / b_len, base, fd);
-		number = number % b_len;
+		number %= b_len;
 	}
-	i++;
-	ft_putchar_fd_ss(base[number], fd);
-	return (i);
+	return (i + ft_putchar_fd_ss(base[number], fd));
 }

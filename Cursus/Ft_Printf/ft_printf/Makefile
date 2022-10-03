@@ -6,7 +6,7 @@
 #    By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/18 19:39:06 by angmarti          #+#    #+#              #
-#    Updated: 2022/10/03 13:17:21 by angmarti         ###   ########.fr        #
+#    Updated: 2022/10/03 16:18:41 by angmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,6 @@
 SRCS	=	srcs/ft_printf.c \
 			srcs/pf_puts_fd.c \
 			srcs/pf_puts_bases_fd.c \
-			srcs/pf_putnbr_base_fd.c \
 			libft/ft_bzero.c \
 			libft/ft_isalnum.c \
 			libft/ft_isalpha.c \
@@ -61,19 +60,18 @@ SRCS	=	srcs/ft_printf.c \
 OBJS		=	$(SRCS:.c=.o)
 
 #----------------------------------------------------------COMPILER
-NAME = libftprintf.a
+NAME	= libftprintf.a
 CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror
-	-g3 -fsanitize=address
 
 #----------------------------------------------------------LIBS
 LIB			=	./libft/libft.a
 INCLUDES	=	-I ./incs -I ./libft/incs
 
 #----------------------------------------------------------RULES
-all: lib_submodule $(NAME)
+all: inc_libft $(NAME)
 
-lib_submodule:
+inc_libft:
 	@make -C ./libft
 
 %.o: %.c

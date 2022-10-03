@@ -6,14 +6,12 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 15:48:59 by angmarti          #+#    #+#             */
-/*   Updated: 2022/10/03 13:35:44 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/10/03 15:43:43 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-
-#define va_arg(ap, type) __builtin_va_arg(ap, type);
 
 # include <stdarg.h>
 # include <stdio.h>
@@ -22,17 +20,13 @@
 # include <unistd.h>
 # include "../libft/incs/libft.h"
 
-
-int		ft_printf(char const *str, ...) __attribute__((format(printf, 1, 2)));
+int		ft_printf(char const *str, ...);
 ssize_t	ft_pf_format(char c, va_list args);
 ssize_t	ft_putchar_fd_ss(int c, int fd);
-ssize_t	ft_putnbr_base_fd(int nbr, char *base, int fd);
 ssize_t	ft_putptr_fd(void *ptr, int fd);
 ssize_t	ft_putstr_fd_ss(char *s, int fd);
 ssize_t	ft_put_ex_fd(size_t nbr, int fd);
 ssize_t	ft_putnbr_fd_ss(int nbr, int fd);
-ssize_t	ft_put_octal_fd(size_t nbr, int fd);
 ssize_t	ft_putnbr_base_fd_simple(unsigned long nbr, char *base, int fd);
-
 
 #endif

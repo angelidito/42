@@ -6,17 +6,11 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 19:30:40 by angmarti          #+#    #+#             */
-/*   Updated: 2022/10/03 14:19:16 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/10/03 15:28:17 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/ft_printf.h"
-
-int	ft_putchar(int c)
-{
-	write(1, &c, 1);
-	return (1);
-}
 
 /**
  * It takes a format character and a va_list, and returns the number of 
@@ -34,7 +28,7 @@ ssize_t	ft_pf_format(char c, va_list args)
 	printed = 0;
 	if (c == '%')
 		printed = ft_putchar_fd_ss(37, 1);
-	else if (c == 'c')// || c == '%')
+	else if (c == 'c')
 		printed = ft_putchar_fd_ss(va_arg(args, int), 1);
 	else if (c == 'd' || c == 'i')
 		printed = ft_putnbr_fd_ss(va_arg(args, int), 1);
