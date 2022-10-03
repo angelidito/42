@@ -6,13 +6,14 @@
 #    By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/18 19:39:06 by angmarti          #+#    #+#              #
-#    Updated: 2022/09/08 15:49:32 by angmarti         ###   ########.fr        #
+#    Updated: 2022/10/03 13:17:21 by angmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #----------------------------------------------------------SOURCES
 SRCS	=	srcs/ft_printf.c \
 			srcs/pf_puts_fd.c \
+			srcs/pf_puts_bases_fd.c \
 			srcs/pf_putnbr_base_fd.c \
 			libft/ft_bzero.c \
 			libft/ft_isalnum.c \
@@ -63,7 +64,7 @@ OBJS		=	$(SRCS:.c=.o)
 NAME = libftprintf.a
 CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror
-#-g3 -fsanitize=address
+	-g3 -fsanitize=address
 
 #----------------------------------------------------------LIBS
 LIB			=	./libft/libft.a
@@ -83,11 +84,11 @@ $(NAME): $(OBJS) $(LIB)
 
 clean:
 	@rm -rf $(OBJS)
-	make clean -C ./libft_submodule
+	make clean -C ./libft
 
 fclean: clean
 	@rm -rf $(NAME)
-	make fclean -C ./libft_submodule
+	make fclean -C ./libft
 
 re: fclean all
 
