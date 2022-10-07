@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 17:04:29 by angmarti          #+#    #+#             */
-/*   Updated: 2022/10/06 19:13:14 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/10/06 16:27:51 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,22 @@
 // They tell the compiler what the function will return, 
 // what the function will be called, and what parameters the function will take.
 
+ssize_t	gnl_read_and_add(int fd, char **currentline, size_t len);
+char	*gnl_cut_line(char **currentline, size_t len);
 char	*get_next_line(int fd);
 
 
 
+// Prototypes of the first version
+// int		freecat(char **oldline, char *buff, ssize_t bytes);
+// int		read_until_newline(int fd, char **line);
+// char	*get_until_newline(char **oldline);
+
 //Utils
 void	*ft_calloc(size_t count, size_t size);
+void	ft_free(void *ptr);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
-size_t	ft_strlen(const char *s);
+size_t ft_strlen(const char *s);
 
 /*
 size_t	ft_strlen(const char *s);

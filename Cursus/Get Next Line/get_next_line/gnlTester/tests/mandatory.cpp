@@ -47,21 +47,21 @@ int main(void)
 		 /* 2 */ gnl(fd, "0");
 		 /* 3 */ gnl(fd, NULL);) cout << ENDL; close(fd);
 
-	title("files/42_no_nl: ")
-	fd = open("files/42_no_nl", O_RDWR);
-	TEST(/* 1 */ gnl(fd, "012345678901234567890123456789012345678901");
-		/* 2 */ gnl(fd, NULL);) cout << ENDL; close(fd);
+	// title("files/42_no_nl: ")
+	// fd = open("files/42_no_nl", O_RDWR);
+	// TEST(/* 1 */ gnl(fd, "012345678901234567890123456789012345678901");
+	// 	/* 2 */ gnl(fd, NULL);) cout << ENDL; close(fd);
 
-	title("files/42_with_nl: ")
-	fd = open("files/42_with_nl", O_RDWR);
-	TEST(/* 1 */ gnl(fd, "01234567890123456789012345678901234567890\n");
-	if (BUFFER_SIZE == 42) {
-		 /* 2 */ char c = 0; read(fd, &c, 1); check(c == '1'); ++iTest;
-	     /* 3 */ gnl(fd, NULL);}
-	else {
-		 /* 2 */ gnl(fd, "1");
-		 /* 3 */ gnl(fd, NULL);})
-	iTest = 1; cout << ENDL; close(fd);
+	// title("files/42_with_nl: ")
+	// fd = open("files/42_with_nl", O_RDWR);
+	// TEST(/* 1 */ gnl(fd, "01234567890123456789012345678901234567890\n");
+	// if (BUFFER_SIZE == 42) {
+	// 	 /* 2 */ char c = 0; read(fd, &c, 1); check(c == '1'); ++iTest;
+	//      /* 3 */ gnl(fd, NULL);}
+	// else {
+	// 	 /* 2 */ gnl(fd, "1");
+	// 	 /* 3 */ gnl(fd, NULL);})
+	// iTest = 1; cout << ENDL; close(fd);
 
 	// title("files/43_no_nl: ")
 	// fd = open("files/43_no_nl", O_RDWR);
