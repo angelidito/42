@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+ /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
@@ -12,6 +12,14 @@
 
 #include "get_next_line.h"
 
+/**
+ * It allocates memory for a given size and sets all the bytes to 0.
+ * 
+ * @param count The number of elements to allocate.
+ * @param size The size of the memory block, in bytes.
+ * 
+ * @return A pointer to the allocated memory.
+ */
 void	*ft_calloc(size_t count, size_t size)
 {
 	void			*ptr;
@@ -33,61 +41,50 @@ void	*ft_calloc(size_t count, size_t size)
 	return (ptr);
 }
 
-void	ft_free(void *ptr)
-{
-	if (ptr)
-		free(ptr);
-}
-
 /**
- * Copy n bytes from memory area src to memory area dst
+ * If the string is too short, return an empty string, otherwise return a 
+ * substring of the given string.
  * 
- * @param dst The destination string where the content is to be copied.
- * @param src The source string.
- * @param n the number of bytes to copy
+ * @param s The string to be split.
+ * @param start the index of the first character to include in the substring.
+ * @param len the length of the substring to be returned
  * 
- * @return The address of the destination string.
+ * @return A pointer to a new string.
  */
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	i;
-	char	*d;
-	char	*s;
+	char	*sub;
 
-	if (!dst && !src)
-		return (dst);
-	d = (char *) dst;
-	s = (char *) src;
-	i = 0;
-	while (i < n)
+	if (!s)
+		return (NULL);
+	if (ft_strlen(s) < (size_t)start)
 	{
-		*(d + i) = *(s + i);
-		i++;
+		sub = malloc(sizeof (char));
+		if (!sub)
+			return (NULL);
+		*sub = '\0';
+		return (sub);
 	}
-	return (dst);
-}
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	len;
-
-	len = 0;
-	while (*(s + len))
-		len++;
-	return (len);
+	if (ft_strlen(s) - start - 1 < len)
+		len = ft_strlen(s) - start;
+	sub = malloc((len + 1) * sizeof (char));
+	if (!sub)
+		return (NULL);
+	ft_strlcpy(sub, s + start, len + 1);
+	sub[len] = '\0';
+	return (sub);
 }
 
 /*
-size_t	ft_strlen(const char *s)
-{
-	size_t	len;
-
-	len = 0;
-	while (*(s + len))
-		len++;
-	return (len);
-}
-
+ * Copy the string pointed to by src, including the terminating 
+ * null byte ('\0'), to the buffer pointed to by dst
+ * 
+ * @param dst This is the destination string.
+ * @param src The string to be copied.
+ * @param dstsize The size of the destination buffer.
+ * 
+ * @return The length of the string src.
+ */
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
@@ -107,38 +104,19 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	return (ft_strlen(src));
 }
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+/**
+ * It returns the length of a string.
+ * 
+ * @param s This is the string we want to find the length of.
+ * 
+ * @return The length of the string.
+ */
+size_t	ft_strlen(const char *s)
 {
-	size_t	i;
-	size_t	dst_len;
+	size_t	len;
 
-	dst_len = ft_strlen(dst);
-	if (dstsize < dst_len)
-		dst_len = dstsize;
-	i = 0;
-	while (src[i] && i + dst_len + 1 < dstsize)
-	{
-		*(dst + dst_len + i) = src[i];
-		i++;
-	}
-	if (i != 0)
-		*(dst + dst_len + i) = '\0';
-	return (dst_len + ft_strlen(src));
+	len = 0;
+	while (*(s + len))
+		len++;
+	return (len);
 }
-
-char	*ft_strjoin(char const *s1, char const *s2)
-{
-	char		*dst;
-	size_t		dstsize;
-
-	if (!s1)
-		return (NULL);
-	dstsize = ft_strlen(s1) + ft_strlen(s2) + 1;
-	dst = malloc(dstsize * sizeof (char));
-	if (!dst)
-		return (NULL);
-	ft_strlcpy(dst, s1, dstsize);
-	ft_strlcat(dst, s2, dstsize);
-	return (dst);
-}
-*/

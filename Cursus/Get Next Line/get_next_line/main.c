@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angmarti <angmarti@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 13:13:25 by angmarti          #+#    #+#             */
-/*   Updated: 2022/10/06 19:08:43 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/10/10 18:51:02 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,15 @@ int	main(void)
 	// else
 		fd = open("prueba2", O_RDONLY);
 	i = 0;
+	i++;
 	// while (i++ <= 10)
-		// printf("%s", get_next_line(1000));
-		// printf("%s", get_next_line(-1));
-		// close(fd);
-		printf("%d", get_next_line(fd) ? 1 : 0);
-		printf("%d", get_next_line(fd) ? 1 : 0);
-		
-		// printf("%s", get_next_line(fd));
+	// printf("%s", get_next_line(1000));
+	// printf("%s", get_next_line(-1));
+	// close(fd);
+	printf("%s", get_next_line(fd));
+	// printf("%s", get_next_line(fd));
+
+	// printf("%s", get_next_line(fd));
 
 	check_leaks();
 	return (0);

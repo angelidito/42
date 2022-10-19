@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angmarti <angmarti@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 17:04:29 by angmarti          #+#    #+#             */
-/*   Updated: 2022/10/06 19:13:14 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/10/10 18:38:00 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,15 @@
 // what the function will be called, and what parameters the function will take.
 
 char	*get_next_line(int fd);
-
-
+void	gnl_replace_line(char **currentline, char *newline);
+char	*gnl_getsubstr_cutmyline(char **ptr2myline, size_t len);
+char	*gnl_strjoin(char *myline, char *buffer);
 
 //Utils
 void	*ft_calloc(size_t count, size_t size);
-void	*ft_memcpy(void *dst, const void *src, size_t n);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
+// void	*ft_memcpy(void *dst, const void *src, size_t n);
 size_t	ft_strlen(const char *s);
 
 /*

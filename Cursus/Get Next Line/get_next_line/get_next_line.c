@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angmarti <angmarti@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 17:04:29 by angmarti          #+#    #+#             */
-/*   Updated: 2022/10/06 20:15:21 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/10/10 18:38:42 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,106 @@
 
 #include "get_next_line.h"
 
+void	gnl_replace_line(char **ptr2myline, char *newline)
+{
+	if (ptr2myline && *ptr2myline)
+	{
+		free(*ptr2myline);
+	}
+	*ptr2myline = newline;
+}
+
+/**
+ * It takes two strings and returns a new string that is the concatenation of the two strings
+ * 
+ * @param myline the line that was read in the previous iteration of the loop
+ * @param buffer the buffer that is being read from the file descriptor
+ * 
+ * @return A pointer to a string.
+ */
+char	*gnl_strjoin(char *myline, char *buffer)
+{
+	char	*str;
+	int		i;
+	int		j;
+
+	if (!myline || !buffer)
+		return (NULL);
+	str = ft_calloc(ft_strlen(myline) + ft_strlen(buffer) + 1, sizeof(char));
+	if (!str)
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (myline[i])
+		str[i++] = myline[j++];
+	j = 0;
+	while (buffer[j])
+		str[i++] = buffer[j++];
+	return (str);
+}
+
+/**
+ * It reads from a file descriptor and adds the read characters to a string
+ * 
+ * @param fd the file descriptor to read from
+ * @param currentline a pointer to a pointer to a char. This is the address of 
+ * the pointer to the string that we're reading
+ * @param len the length of the current line
+ * 
+ * @return The number of characters read.
+ */
+// ssize_t	gnl_read_and_add(int fd, char **ptr2myline, size_t len)
+ssize_t	gnl_read_and_add(int fd, char **ptr2myline)
+{
+	char	*buffer;
+	char	*newline;
+	ssize_t	result;
+
+	buffer = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
+	if (!buffer)
+		return (-1);
+	result = read(fd, buffer, BUFFER_SIZE);
+	if (result < 1) // si es 0 lo que se ha leido no tiene sentido modificar myline
+		return (result);
+	buffer[result] = 0;
+	newline = gnl_strjoin(*ptr2myline, buffer);
+	if (!newline)
+		return (-1);
+	free(*ptr2myline);
+	*ptr2myline = ft_substr(newline, 0, ft_strlen(newline));
+	free(newline);
+	return (result);
+}
+
+/**
+ * It takes a pointer to a string, and a length, and returns a pointer to 
+ * a substring of the original string, and modifies the original string to 
+ * be the remainder of the original string
+ * 
+ * @param ptr2myline a pointer to the pointer to the line.
+ * @param len the length of the line to be cut
+ * 
+ * @return A pointer to a string.
+ */
+char	*gnl_getsubstr_cutmyline(char **ptr2myline, size_t len)
+{
+	char	*substr;
+	char	*newline;
+
+	// substr = ft_calloc(len + 1, sizeof(char));
+	// if (!substr)
+	// 	return (NULL);
+	// ft_memcpy(substr, *myline, len);
+	// substr[len] = 0;
+	substr = ft_substr(*ptr2myline, 0, len);
+	if (!substr)
+		return (NULL);
+	newline = ft_substr(*ptr2myline, len, ft_strlen(*ptr2myline));
+	free(*ptr2myline);
+	*ptr2myline = ft_substr(newline, 0, ft_strlen(newline));
+	free(newline);
+	return (substr);
+}
 
 /**
  * It reads a file descriptor until it finds a newline character,
@@ -81,32 +181,30 @@ char	*get_next_line(int fd)
 {
 	static char		*myline;
 	ssize_t			result;
-	size_t			len;
-
-	if (!myline)
-		myline = "";
-	result = 1;
-	while (result != -1)
-	{
-		len = 0;
-		if (myline)
-		{
-			while (myline[len])
-				if (myline[len++] == '\n')
-					break ;
-			if (myline[0] && myline[len - 1] == '\n')
-				return (gnl_cut_line(&myline, len));
-			if (*myline && !result)
-				return (gnl_cut_line(&myline, len));
-		}
-		if (!result)
-			return (NULL);
-		result = gnl_read_and_add(fd, &myline, len);
-	}
-	return (NULL);
+	size_t			partial_len;
 
 	if (fd < 0 || BUFFER_SIZE < 1 || BUFFER_SIZE > SSIZE_MAX)
 		return (NULL);
-	return (myline);
-
+	if (!myline)
+		myline = ft_calloc(1, 1);
+	result = 1;
+	while (myline && result != -1)
+	{
+		partial_len = 0;
+		if (*myline)
+		{
+			while (myline[partial_len])
+				if (myline[partial_len++] == '\n')
+					break ;
+			if (myline[partial_len - 1] == '\n')
+				return (gnl_getsubstr_cutmyline(&myline, partial_len));
+			if (!result)
+				return (gnl_getsubstr_cutmyline(&myline, partial_len));
+		}
+		if (!result)
+			return (NULL);
+		// result = gnl_read_and_add(fd, &myline, partial_len);
+		result = gnl_read_and_add(fd, &myline);
+	}
+	return (NULL);
 }
