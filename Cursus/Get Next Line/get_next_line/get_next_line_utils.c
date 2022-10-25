@@ -1,16 +1,93 @@
- /* ************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/18 15:43:45 by angmarti          #+#    #+#             */
-/*   Updated: 2022/10/05 15:56:04 by angmarti         ###   ########.fr       */
+/*   Created: 2022/10/25 16:11:38 by angmarti          #+#    #+#             */
+/*   Updated: 2022/10/25 18:13:05 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+/**
+ * It returns the length of a string.
+ * 
+ * @param s This is the string we want to find the length of.
+ * 
+ * @return The length of the string.
+ */
+size_t	ft_strlen(const char *s)
+{
+	size_t	len;
+
+	len = 0;
+	while (*(s + len))
+		len++;
+	return (len);
+}
+
+/**
+ * It returns a pointer to the first occurrence of the character c in the 
+ * string s
+ * 
+ * @param s The string to search.
+ * @param c The character to search for.
+ * 
+ * @return A pointer to the first occurrence of the character c in the 
+ * string s.
+ */
+char	*ft_strchr(const char *s, int c)
+{
+	unsigned long	i;
+
+	i = 0;
+	while (*(s + i))
+	{
+		if ((c % 256) == *(s + i))
+			break ;
+		i++;
+	}
+	if ((c % 256) == *(s + i))
+		return ((char *)(s + i));
+	return (NULL);
+}
+
+/**
+ * It takes two strings and returns a new string that is the concatenation of 
+ * the two strings
+ * 
+ * @param myline the line that was read in the previous iteration of the loop
+ * @param buffer the buffer that is being read from the file descriptor
+ * 
+ * @return A pointer to a string.
+ */
+char	*gnl_strjoin(char *myline, char *buffer)
+{
+	char	*str;
+	int		i;
+	int		j;
+
+	if (!buffer)
+		return (myline);
+	if (!myline)
+		return (buffer);
+	str = (char *) ft_calloc(ft_strlen(myline) + ft_strlen(buffer) + 1,
+			sizeof(char));
+	if (!str)
+		return (NULL);
+	i = 0;
+	j = 0;
+	while ((myline)[i])
+		str[i++] = (myline)[j++];
+	j = 0;
+	while (buffer[j])
+		str[i++] = buffer[j++];
+	free(myline);
+	return (str);
+}
 
 /**
  * It allocates memory for a given size and sets all the bytes to 0.
@@ -39,84 +116,4 @@ void	*ft_calloc(size_t count, size_t size)
 	while (0 < len--)
 		*p++ = 0;
 	return (ptr);
-}
-
-/**
- * If the string is too short, return an empty string, otherwise return a 
- * substring of the given string.
- * 
- * @param s The string to be split.
- * @param start the index of the first character to include in the substring.
- * @param len the length of the substring to be returned
- * 
- * @return A pointer to a new string.
- */
-char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	char	*sub;
-
-	if (!s)
-		return (NULL);
-	if (ft_strlen(s) < (size_t)start)
-	{
-		sub = malloc(sizeof (char));
-		if (!sub)
-			return (NULL);
-		*sub = '\0';
-		return (sub);
-	}
-	if (ft_strlen(s) - start - 1 < len)
-		len = ft_strlen(s) - start;
-	sub = malloc((len + 1) * sizeof (char));
-	if (!sub)
-		return (NULL);
-	ft_strlcpy(sub, s + start, len + 1);
-	sub[len] = '\0';
-	return (sub);
-}
-
-/*
- * Copy the string pointed to by src, including the terminating 
- * null byte ('\0'), to the buffer pointed to by dst
- * 
- * @param dst This is the destination string.
- * @param src The string to be copied.
- * @param dstsize The size of the destination buffer.
- * 
- * @return The length of the string src.
- */
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
-{
-	size_t	i;
-
-	if (!dst || !src)
-		return (0);
-	i = 0;
-	if (0 < dstsize)
-	{
-		while (i < dstsize - 1 && *(src + i))
-		{
-			*(dst + i) = *(src + i);
-			i++;
-		}
-		*(dst + i) = '\0';
-	}
-	return (ft_strlen(src));
-}
-
-/**
- * It returns the length of a string.
- * 
- * @param s This is the string we want to find the length of.
- * 
- * @return The length of the string.
- */
-size_t	ft_strlen(const char *s)
-{
-	size_t	len;
-
-	len = 0;
-	while (*(s + len))
-		len++;
-	return (len);
 }
