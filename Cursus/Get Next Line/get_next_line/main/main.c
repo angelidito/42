@@ -3,37 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angmarti <angmarti@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 13:13:25 by angmarti          #+#    #+#             */
-/*   Updated: 2022/10/10 18:51:02 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/10/26 11:32:27 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-void check_leaks();
+#include "../get_next_line.h"
+#include <stdlib.h>
 
-int	main(void)
-{
-	check_leaks();
-	int	fd;
-	int	i;
-
-	// if (!argc)
-	// 	fd = open(*argv, O_RDONLY);
-	// else
-		fd = open("prueba2", O_RDONLY);
-	i = 0;
-	i++;
-	// while (i++ <= 10)
 	// printf("%s", get_next_line(1000));
 	// printf("%s", get_next_line(-1));
 	// close(fd);
-	printf("%s", get_next_line(fd));
 	// printf("%s", get_next_line(fd));
 
-	// printf("%s", get_next_line(fd));
+int	main(int argc, char const *argv[])
+{
+	int		fd;
+	int		i;
+	int		j;
 
-	check_leaks();
+	if (argc > 1)
+	{
+		j = atoi(argv[1]);
+		if (argc > 2)
+			fd = open(argv[2], O_RDONLY);
+	}
+	else
+	{
+		fd = open("prueba", O_RDONLY);
+		j = 5;
+	}
+	i = 0;
+	while (++i <= j)
+		printf("%s", get_next_line(fd));
 	return (0);
 }
