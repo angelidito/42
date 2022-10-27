@@ -6,21 +6,26 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 17:04:29 by angmarti          #+#    #+#             */
-/*   Updated: 2022/10/26 11:36:19 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/10/26 14:40:32 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_BONUS_H
 # define GET_NEXT_LINE_BONUS_H
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <fcntl.h>
-# include <limits.h>
+# include <stdlib.h>	/* Malloc & Free functions */
+# include <unistd.h> 	/* Write & Read functions */
+# include <stdio.h>		/* BUFSIZ definition*/
+# include <fcntl.h> 	/* Open function */
+# include <limits.h>	/* Macro defined OPEN_MAX */
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1
+#  define BUFFER_SIZE BUFSIZ
+# endif
+
+# if BUFFER_SIZE > 9223372036854775806L /*Double long*/
+#  undef BUFFER_SIZE
+#  define BUFFER_SIZE 0
 # endif
 
 char	*get_next_line(int fd);

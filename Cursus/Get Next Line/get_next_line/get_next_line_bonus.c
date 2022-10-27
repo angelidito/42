@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 18:54:26 by angmarti          #+#    #+#             */
-/*   Updated: 2022/10/26 11:09:56 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/10/26 14:41:36 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ char	*gnl_read_and_add(int fd, char *myline)
  */
 char	*get_next_line(int fd)
 {
-	static char	*myline[4096];
+	static char	*myline[OPEN_MAX];
 	char		*line2return;
 
 	if (fd < 0 || BUFFER_SIZE < 1 || BUFFER_SIZE > SSIZE_MAX)
