@@ -5,9 +5,9 @@
 ```mermaid
 flowchart TD
 subgraph Main idea
-	0main("get_next_line()") --> isLineEmpty{Is the current line empty or NULL?}
+	0main("get_next_line()") --> isLineEmpty{Is the current line NULL?}
   isLineEmpty -- No --> checkEOL[Check for EOL in the line]
-  isLineEmpty -- Yes --> read[/Read from file \n and add to line/] --> checkEOL
+  isLineEmpty -- Yes --> instance[Inicializate line with calloc] --> read[/Read from file \n and add to line/] --> checkEOL
   checkEOL --> containsEOL{Do line contains EOL?}
   containsEOL -- No -->  isEOFreached{Is EOF reached?}
   isEOFreached -- Yes --> returnLine(Return \n the actual line)
