@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 14:24:56 by angmarti          #+#    #+#             */
-/*   Updated: 2022/10/28 15:06:45 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/11/03 12:21:08 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,11 @@
  * 	rrr : reverse rotate a y reverse rotate b - desplaza al mismo tiempo todos 
  * 		los elementos del stack a y del stack b una posición hacia abajo, 
  * 		de forma que el último elemento se convierte en el primero.
+ * 
+ * sa  sb  ss
+ * ps  pb
+ * ra  rb  rr
+ * rra rrb rrr 
  */
 
 /**
