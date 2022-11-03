@@ -6,11 +6,11 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 17:09:31 by angmarti          #+#    #+#             */
-/*   Updated: 2022/10/28 14:18:11 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/11/03 16:35:35 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/libft.h"
+#include "incs/libft.h"
 
 /**
  * Ft_memset() takes a pointer to a memory area, a byte value, and a size, and 

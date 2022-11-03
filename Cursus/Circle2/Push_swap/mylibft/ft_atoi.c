@@ -6,11 +6,11 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:22:32 by angmarti          #+#    #+#             */
-/*   Updated: 2022/10/28 14:18:11 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/11/03 16:35:35 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/libft.h"
+#include "incs/libft.h"
 #include <limits.h>
 
 /**
@@ -43,7 +43,8 @@ static int	ft_getsign(const char *p, unsigned long *i)
 	{
 		c = *(p + *i);
 		*i = *i + 1;
-		if (ft_isspace(c))
+		if (c == ' ' || c == '\t' || c == '\n' || c == '\v'
+			|| c == '\r' || c == '\f')
 			continue ;
 		if (c == '+' || c == '-')
 			return ((c - 44) * (-1));

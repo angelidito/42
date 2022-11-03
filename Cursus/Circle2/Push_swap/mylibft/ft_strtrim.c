@@ -6,11 +6,11 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 14:00:17 by angmarti          #+#    #+#             */
-/*   Updated: 2022/10/28 14:18:11 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/11/03 16:35:35 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/libft.h"
+#include "incs/libft.h"
 
 /**
  * It finds the first or last position in a string that is not in a set of 

@@ -6,11 +6,11 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 14:43:02 by angmarti          #+#    #+#             */
-/*   Updated: 2022/10/28 14:18:11 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/11/03 16:35:35 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/libft.h"
+#include "incs/libft.h"
 
 /**
  * Iterate through the list, apply the function to each element, 
@@ -18,8 +18,7 @@
  * 
  * @param lst the list to iterate over
  * @param f a function that takes a pointer to a list element and returns 
- * a pointer to a new list
- * element
+ * a pointer to a new list element
  * @param del a function that takes a pointer to a single element of the list 
  * and frees the memory of that element.
  * 
