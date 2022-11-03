@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 12:01:34 by angmarti          #+#    #+#             */
-/*   Updated: 2022/11/03 12:38:59 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/11/03 16:33:30 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,12 @@
 
 typedef struct s_stack
 {
-	int				*value;
-	int				*weight;
-	struct s_stack	*next;
-}					t_stack;
+	int	value;
+	int	weight;
+}		t_stack;
 
-
+// errors.c
+int		check_errors(int argc, const char *argv[]);
+void	error(void);
 
 #endif

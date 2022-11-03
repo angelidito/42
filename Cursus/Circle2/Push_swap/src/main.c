@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 14:24:56 by angmarti          #+#    #+#             */
-/*   Updated: 2022/11/03 12:21:08 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/11/03 16:25:00 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,8 +98,32 @@
 
 // ! Can use only: write read malloc free exit
 
+#include "../incs/push_swap.h"
+
+int		ft_lstsize(t_list *lst);
+
+t_list	*ft_lstnew(void *content);
+t_list	*ft_lstlast(t_list *lst);
+
+void	ft_lstadd_front(t_list **lst, t_list *new);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+
+;
+/**
+ * sa  sb  ss
+ * ps  pb
+ * ra  rb  rr
+ * rra rrb rrr
+ * TODO: ...
+ * void	ft_lstrmlast(t_list **lst)
+ * void	ft_lstrotate(t_list **lst)
+ * void	ft_lstrrotate(t_list **lst)
+ * 
+ */
+
+
 int	main(int argc, char const *argv[])
 {
-	if (argc == 1)
+	check_errors(argc, argv);
 	return (0);
 }
