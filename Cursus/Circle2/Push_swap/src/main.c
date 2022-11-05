@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 14:24:56 by angmarti          #+#    #+#             */
-/*   Updated: 2022/11/03 16:25:00 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/11/05 16:13:40 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,16 +99,6 @@
 // ! Can use only: write read malloc free exit
 
 #include "../incs/push_swap.h"
-
-int		ft_lstsize(t_list *lst);
-
-t_list	*ft_lstnew(void *content);
-t_list	*ft_lstlast(t_list *lst);
-
-void	ft_lstadd_front(t_list **lst, t_list *new);
-void	ft_lstadd_back(t_list **lst, t_list *new);
-
-;
 /**
  * sa  sb  ss
  * ps  pb
@@ -121,9 +111,35 @@ void	ft_lstadd_back(t_list **lst, t_list *new);
  * 
  */
 
+int		ft_lstsize(t_list *lst);
+t_list	*ft_lstnew(void *content);
+t_list	*ft_lstlast(t_list *lst);
+void	ft_lstadd_front(t_list **lst, t_list *new);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+// !	typedef struct s_stack
+// !	{
+// !		int	value;
+// !		int	weight;
+// !	}		t_stack;
+// printf("%s ft_isnumber: %d\n", (char*)argv[1], ft_isnumber((char*)argv[1]));
 
 int	main(int argc, char const *argv[])
 {
+	size_t	i;
+	t_list	**lst;
+	t_elem	aux;
+
 	check_errors(argc, argv);
+	lst = calloc(1, sizeof(t_list **));
+	if (!lst)
+		exit(1);
+	i = 0;
+	*lst = ft_lstnew(newelem(ft_atoi(argv[i])));
+	if (!lst)
+		exit(1);
+	while (++i < argc)
+	{
+		ft_lstadd_front(lst, );
+	}
 	return (0);
 }

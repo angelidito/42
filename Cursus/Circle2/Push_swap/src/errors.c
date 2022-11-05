@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 15:30:08 by angmarti          #+#    #+#             */
-/*   Updated: 2022/11/03 16:33:55 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/11/05 14:44:25 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,15 @@ static long	ft_getsign(const char *p, unsigned long *i)
 }
 
 /**
- * It takes a string, and returns the integer value of the string
+ * It takes a string, and returns the integer value of the string.
+ * If the number is not in the int range, it will return the error code
+ * 6666666666.
  * 
  * @param str The string to be converted.
  * 
- * @return the integer value of the string passed as argument.
+ * @return the number of characters that are in the string.
  */
-size_t	ft_atos(const char *str)
+size_t	ps_atoi(const char *str)
 {
 	unsigned long	i;
 	long			sign;
@@ -66,10 +68,10 @@ size_t	ft_atos(const char *str)
 		n = n * 10 + str[i] - '0';
 		i++;
 	}
-	if ((n > 2147483648 || n < -2147483648) && sign == 1)
-		return (-1);
+	if ((n >= 2147483648 || n < -2147483648) && sign == 1)
+		return (6666666666);
 	else if ((n > 2147483648 || n < -2147483648) && sign == -1)
-		return (0);
+		return (6666666666);
 	return (sign * n);
 }
 
@@ -82,9 +84,11 @@ int	ft_isnumber(char *str)
 {
 	int	i;
 
-	if (!str || *str)
+	if (!str || !*str)
 		return (0);
 	i = 0;
+	if (str[i] == '-')
+		i++;
 	while (str[i])
 		if (!ft_isdigit(str[i++]))
 			return (0);
@@ -92,42 +96,44 @@ int	ft_isnumber(char *str)
 }
 
 /**
- * It checks for errors in the arguments
+ * It checks for any error in the arguments and terminates the program if found
  * 
  * @param argc the number of arguments passed to the program
  * @param argv The array of arguments passed to the program.
  * 
- * @return The number of errors.
+ * @attention It uses exit function
+ * 
  */
-int	check_errors(int argc, const char *argv[])
+void	check_errors(int argc, const char *argv[])
 {
-	int		errors;
 	int		i;
 	int		j;
 	long	n;
 
-	errors = 0;
 	if (argc < 2)
 		exit(1);
 	i = 0;
 	while (argv[++i])
 	{
+		n = ft_strlen(argv[i]);
+		if (n > 11 || (n > 10 && argv[i][0] != '-'))
+			error();
 		if (!ft_isnumber((char *)argv[i]))
 			error();
-		n = ft_atos(argv[i]);
-		if (n < -2147483648 || n > 2147483647)
+		if (ps_atoi(argv[i]) == 6666666666)
 			error();
 		j = i;
-		n = ft_strlen(argv[i]);
 		while (argv[++j])
-			if (n == (long) ft_strlen(argv[j]) && !ft_strncmp(argv[i], argv[j], n))
+			if (n == (long)ft_strlen(argv[j]) && !ft_strncmp(argv[i], argv[j],
+					n))
 				error();
 	}
-	return (errors);
 }
 
 /**
- * It prints it to the standard error output and terminates the program
+ * It prints "Error\n" to the standard error output and terminates the program.
+ * 
+ * @attention It uses exit function
  */
 void	error(void)
 {
