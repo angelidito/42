@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:22:32 by angmarti          #+#    #+#             */
-/*   Updated: 2022/11/03 16:35:35 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/11/07 13:43:58 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,7 @@ static int	ft_getsign(const char *p, unsigned long *i)
 	{
 		c = *(p + *i);
 		*i = *i + 1;
-		if (c == ' ' || c == '\t' || c == '\n' || c == '\v'
-			|| c == '\r' || c == '\f')
+		if (ft_isspace(c))
 			continue ;
 		if (c == '+' || c == '-')
 			return ((c - 44) * (-1));

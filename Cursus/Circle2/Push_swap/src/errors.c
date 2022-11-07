@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 15:30:08 by angmarti          #+#    #+#             */
-/*   Updated: 2022/11/05 14:44:25 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/11/07 15:00:29 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ size_t	ps_atoi(const char *str)
  * 
  * @param str The string to check.
  */
-int	ft_isnumber(char *str)
+int	isnumber(char *str)
 {
 	int	i;
 
@@ -118,7 +118,7 @@ void	check_errors(int argc, const char *argv[])
 		n = ft_strlen(argv[i]);
 		if (n > 11 || (n > 10 && argv[i][0] != '-'))
 			error();
-		if (!ft_isnumber((char *)argv[i]))
+		if (!isnumber((char *)argv[i]))
 			error();
 		if (ps_atoi(argv[i]) == 6666666666)
 			error();

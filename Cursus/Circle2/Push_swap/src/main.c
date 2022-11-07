@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 14:24:56 by angmarti          #+#    #+#             */
-/*   Updated: 2022/11/05 16:13:40 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/11/07 16:06:20 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,30 +116,47 @@ t_list	*ft_lstnew(void *content);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstadd_back(t_list **lst, t_list *new);
-// !	typedef struct s_stack
-// !	{
-// !		int	value;
-// !		int	weight;
-// !	}		t_stack;
+void	ft_lstiter(t_list *lst, void (*f)(void *));
+
 // printf("%s ft_isnumber: %d\n", (char*)argv[1], ft_isnumber((char*)argv[1]));
+
+void	write_elem(void *content)
+{
+	t_number	*elem;
+
+	elem = (t_number *)content;
+	printf("t_number : %d\n", elem->value);
+	printf("t_number : %zd\n\n", elem->weight);
+}
+
+void	write_list(void *content)
+{
+	t_number	*elem;
+
+	elem = (t_number *)content;
+	printf("%d ", elem->value);
+}
+
 
 int	main(int argc, char const *argv[])
 {
-	size_t	i;
+	int		i;
 	t_list	**lst;
-	t_elem	aux;
 
 	check_errors(argc, argv);
 	lst = calloc(1, sizeof(t_list **));
 	if (!lst)
 		exit(1);
-	i = 0;
-	*lst = ft_lstnew(newelem(ft_atoi(argv[i])));
+	i = 1;
+	*lst = ft_lstnew((void *)new_elem_simple(ft_atoi(argv[i])));
 	if (!lst)
 		exit(1);
 	while (++i < argc)
-	{
-		ft_lstadd_front(lst, );
-	}
+		ft_lstadd_front(lst,
+				(void *)ft_lstnew(new_elem_simple(ft_atoi(argv[i]))));
+	ft_lstiter(*lst, *write_list);
+	order(lst);
+	ft_lstiter(*lst, *write_list);
+	ft_lstclear(lst, *free);
 	return (0);
 }
