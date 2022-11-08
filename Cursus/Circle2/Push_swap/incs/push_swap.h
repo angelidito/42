@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 12:01:34 by angmarti          #+#    #+#             */
-/*   Updated: 2022/11/07 15:55:28 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/11/08 15:48:14 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,34 @@ void		error(void);
 t_number	*new_elem_simple(int value);
 t_number	*new_elem(int value, ssize_t weight);
 t_number	*copy_elem(t_number *tnumber);
+t_number	*get_number(t_list *lst);
+
+// lists.c
+
+t_list		*lstremovelast(t_list **lst);
+t_list		*lstremovefirst(t_list **lst);
 
 // order.c
 
 void		order(t_list **lst);
+
+// rotate.c
+
+void		ra(t_list **a);
+void		rb(t_list **b);
+void		rr(t_list **a, t_list **b);
+
+// rrotate.c
+
+void		rra(t_list **a);
+void		rrb(t_list **b);
+void		rrr(t_list **a, t_list **b);
+
+// swap.c
+
+void		sa(t_list **a);
+void		sb(t_list **b);
+void		ss(t_list **a, t_list **b);
 
 // LIBFT A USAR
 

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   elements.c                                         :+:      :+:    :+:   */
+/*   numbers.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 15:32:00 by angmarti          #+#    #+#             */
-/*   Updated: 2022/11/07 15:52:23 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/11/08 11:11:44 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ t_number	*new_elem(int value, ssize_t weight)
 }
 
 /**
- * It copies a t_number struct
+ * It copies a t_number struct to a new one
  * 
  * @param tnumber the number to be copied
  * 
@@ -68,4 +68,10 @@ t_number	*copy_elem(t_number *tnumber)
 	elem->value = tnumber->value;
 	elem->weight = tnumber->weight;
 	return (elem);
+}
+
+
+t_number	*get_number(t_list *lst)
+{
+	return ((t_number *)(lst)->content);
 }

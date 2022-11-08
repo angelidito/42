@@ -6,34 +6,66 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:59:00 by angmarti          #+#    #+#             */
-/*   Updated: 2022/11/07 16:08:27 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/11/08 14:12:09 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-//	ra : rotate a - desplaza hacia arriba todos los elementos del stack a una
-//		posición, de forma que el primer elemento se convierte en el último.
-//	rb : rotate b - desplaza hacia arriba todos los elementos del stack b una
-//		posición, de forma que el primer elemento se convierte en el último.
-//	rr : rotate a y rotate b - desplaza al mismo tiempo todos los elementos del
-//		stack a y del stack b una posición hacia arriba, de forma que el primer
-//		elemento se convierte en el último.
 
 #include "../incs/push_swap.h"
 
 /**
- * It takes the last element of the list and puts it at the front
+ * It takes the last element of the list and moves it to the front.
+ * It won't rotate if the list if empty or has one only element.
  * 
- * @param stack a pointer to a pointer to the first element of the list
+ * @param stack A pointer to the stack to be rotated.
+ * 
+ * @return 1 if the rotation was successful, 0 otherwise.
  */
-void	rotate(t_list **stack)
+int	rotate(t_list **stack)
 {
 	t_list	*top;
-	t_list	*aux;
 
-	top = ft_lstlast(*stack);
-	aux = *stack;
-	while (aux->next != top)
-		aux = aux->next;
-	aux->next = NULL;
+	if (ft_lstsize(*stack) < 2)
+		return (0);
+	top = lstremovelast(stack);
 	ft_lstadd_front(stack, top);
+	return (1);
+}
+
+/**
+ * It rotates the stack to the right, and prints "ra\n" to the 
+ * standard output if the rotation was successful.
+ * 
+ * @param a the stack to rotate
+ */
+void	ra(t_list **a)
+{
+	if (rotate(a))
+		write(1, "ra\n", 3);
+}
+
+/**
+ * It rotates the stack to the right, and prints "rb\n" to the
+ * standard output if the rotation was successful.
+ * 
+ * @param b the stack to rotate
+ */
+void	rb(t_list **b)
+{
+	if (rotate(b))
+		write(1, "rb\n", 3);
+}
+
+/**
+ * It rotates both stacks to the right, and prints "rr\n" to the 
+ * standard output if the rotation was successful.
+ * 
+ * @param a a stack to rotate
+ * @param b another stack to rotate
+ */
+void	rr(t_list **a, t_list **b)
+{
+	if (a == b)
+		write(1, "THAT'S CHEATING SOAB\n", 18);
+	if (rotate(a) || rotate(b))
+		write(1, "rr\n", 3);
 }

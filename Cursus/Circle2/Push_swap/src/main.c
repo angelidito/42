@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 14:24:56 by angmarti          #+#    #+#             */
-/*   Updated: 2022/11/07 16:06:20 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/11/08 15:30:21 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,7 +137,6 @@ void	write_list(void *content)
 	printf("%d ", elem->value);
 }
 
-
 int	main(int argc, char const *argv[])
 {
 	int		i;
@@ -148,15 +147,40 @@ int	main(int argc, char const *argv[])
 	if (!lst)
 		exit(1);
 	i = 1;
-	*lst = ft_lstnew((void *)new_elem_simple(ft_atoi(argv[i])));
+	*lst = ft_lstnew(new_elem_simple(ft_atoi(argv[i])));
 	if (!lst)
 		exit(1);
 	while (++i < argc)
-		ft_lstadd_front(lst,
-				(void *)ft_lstnew(new_elem_simple(ft_atoi(argv[i]))));
+		ft_lstadd_front(lst, ft_lstnew(new_elem_simple(ft_atoi(argv[i]))));
 	ft_lstiter(*lst, *write_list);
+	printf("\n");
 	order(lst);
 	ft_lstiter(*lst, *write_list);
+	printf("\n");
+	// order(lst);
+	// ft_lstiter(*lst, *write_list);
+	// printf("\n");
+	// order(lst);
+	// ft_lstiter(*lst, *write_list);
+	// printf("\n");
+	// order(lst);
+	// ft_lstiter(*lst, *write_list);
+	// printf("\n");
+	// order(lst);
+	// ft_lstiter(*lst, *write_list);
+	// printf("\n");
+	// order(lst);
+	// ft_lstiter(*lst, *write_list);
+	// printf("\n");
+	// order(lst);
+	// ft_lstiter(*lst, *write_list);
+	// printf("\n");
+	// order(lst);
+	// ft_lstiter(*lst, *write_list);
+	// printf("\n");
+	// order(lst);
+	// ft_lstiter(*lst, *write_list);
+	// printf("\n");
 	ft_lstclear(lst, *free);
 	return (0);
 }
