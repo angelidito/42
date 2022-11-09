@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:58:54 by angmarti          #+#    #+#             */
-/*   Updated: 2022/11/08 15:32:59 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/11/09 11:25:46 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ int	rrotate(t_list **stack)
  * It rotates the stack to the left, and prints "rra\n" to the 
  * standard output if the rotation was successful.
  * 
- * @param a the stack to rotate
+ * @param stack the stack to rotate
  */
-void	rra(t_list **a)
+void	rra(t_list **stack)
 {
-	if (rrotate(a))
+	if (rrotate(stack))
 		write(1, "rra\n", 4);
 }
 
@@ -50,11 +50,11 @@ void	rra(t_list **a)
  * It rotates the stack to the left, and prints "rrb\n" to the
  * standard output if the rotation was successful.
  * 
- * @param b the stack to rotate
+ * @param stack the stack to rotate
  */
-void	rrb(t_list **b)
+void	rrb(t_list **stack)
 {
-	if (rrotate(b))
+	if (rrotate(stack))
 		write(1, "rrb\n", 4);
 }
 
