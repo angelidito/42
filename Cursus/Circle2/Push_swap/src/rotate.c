@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:59:00 by angmarti          #+#    #+#             */
-/*   Updated: 2022/11/09 11:25:12 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/11/09 17:35:04 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	rb(t_list **stack)
 void	rr(t_list **a, t_list **b)
 {
 	if (a == b)
-		write(1, "THAT'S CHEATING SOAB\n", 18);
+		write(1, "THAT'S CHEATING\n", 16);
 	if (rotate(a) || rotate(b))
 		write(1, "rr\n", 3);
 }

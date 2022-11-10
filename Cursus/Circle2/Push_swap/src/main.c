@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 14:24:56 by angmarti          #+#    #+#             */
-/*   Updated: 2022/11/08 15:30:21 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/11/10 15:01:40 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,88 +99,55 @@
 // ! Can use only: write read malloc free exit
 
 #include "../incs/push_swap.h"
-/**
- * sa  sb  ss
- * ps  pb
- * ra  rb  rr
- * rra rrb rrr
- * TODO: ...
- * void	ft_lstrmlast(t_list **lst)
- * void	ft_lstrotate(t_list **lst)
- * void	ft_lstrrotate(t_list **lst)
- * 
- */
-
-int		ft_lstsize(t_list *lst);
-t_list	*ft_lstnew(void *content);
-t_list	*ft_lstlast(t_list *lst);
-void	ft_lstadd_front(t_list **lst, t_list *new);
-void	ft_lstadd_back(t_list **lst, t_list *new);
-void	ft_lstiter(t_list *lst, void (*f)(void *));
 
 // printf("%s ft_isnumber: %d\n", (char*)argv[1], ft_isnumber((char*)argv[1]));
 
-void	write_elem(void *content)
-{
-	t_number	*elem;
+// void	write_elem(void *content)
+// {
+// 	t_number	*elem;
 
-	elem = (t_number *)content;
-	printf("t_number : %d\n", elem->value);
-	printf("t_number : %zd\n\n", elem->weight);
-}
+// 	elem = (t_number *)content;
+// 	printf("t_number : %d\n", elem->value);
+// 	printf("t_number : %zd\n\n", elem->weight);
+// }
 
-void	write_list(void *content)
-{
-	t_number	*elem;
+// void	write_list(void *content)
+// {
+// 	t_number	*elem;
 
-	elem = (t_number *)content;
-	printf("%d ", elem->value);
-}
+// 	elem = (t_number *)content;
+// 	printf("%d ", elem->value);
+// }
 
+void	check_leaks(void);
 int	main(int argc, char const *argv[])
 {
 	int		i;
 	t_list	**lst;
 
+	// check_leaks();
+	// system("leaks push_swap");
 	check_errors(argc, argv);
 	lst = calloc(1, sizeof(t_list **));
 	if (!lst)
 		exit(1);
 	i = 1;
-	*lst = ft_lstnew(new_elem_simple(ft_atoi(argv[i])));
+	*lst = ft_lstnew(new_number(ft_atoi(argv[i]), -1));
 	if (!lst)
 		exit(1);
 	while (++i < argc)
-		ft_lstadd_front(lst, ft_lstnew(new_elem_simple(ft_atoi(argv[i]))));
-	ft_lstiter(*lst, *write_list);
-	printf("\n");
+		ft_lstadd_front(lst, ft_lstnew(new_number(ft_atoi(argv[i]), -1)));
+	// printf("\nLa lista:\n");
+	// ft_lstiter(*lst, *write_list);
+	// printf("\n\n");
 	order(lst);
-	ft_lstiter(*lst, *write_list);
-	printf("\n");
-	// order(lst);
+	// printf("\n\nLa lista ordenada:\n");
 	// ft_lstiter(*lst, *write_list);
 	// printf("\n");
-	// order(lst);
-	// ft_lstiter(*lst, *write_list);
-	// printf("\n");
-	// order(lst);
-	// ft_lstiter(*lst, *write_list);
-	// printf("\n");
-	// order(lst);
-	// ft_lstiter(*lst, *write_list);
-	// printf("\n");
-	// order(lst);
-	// ft_lstiter(*lst, *write_list);
-	// printf("\n");
-	// order(lst);
-	// ft_lstiter(*lst, *write_list);
-	// printf("\n");
-	// order(lst);
-	// ft_lstiter(*lst, *write_list);
-	// printf("\n");
-	// order(lst);
-	// ft_lstiter(*lst, *write_list);
 	// printf("\n");
 	ft_lstclear(lst, *free);
+	free(lst);
+	system("leaks push_swap");
+	// check_leaks();
 	return (0);
 }

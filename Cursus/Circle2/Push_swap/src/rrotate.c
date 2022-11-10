@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:58:54 by angmarti          #+#    #+#             */
-/*   Updated: 2022/11/09 11:25:46 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/11/09 12:20:03 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,6 @@ int	rrotate(t_list **stack)
 
 	if (ft_lstsize(*stack) < 2)
 		return (0);
-	// bottom = *stack;
-	// *stack = bottom->next;
-	// bottom->next = NULL;
 	bottom = lstremovefirst(stack);
 	ft_lstadd_back(stack, bottom);
 	return (1);

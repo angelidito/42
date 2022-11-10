@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:59:04 by angmarti          #+#    #+#             */
-/*   Updated: 2022/11/09 11:54:56 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/11/09 16:17:55 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	push(t_list **sender, t_list **host)
 {
 	t_list	*elem;
 
-	if (!ft_lstsize(sender))
+	if (!ft_lstsize(*sender))
 		return (0);
 	elem = lstremovelast(sender);
 	ft_lstadd_back(host, elem);
