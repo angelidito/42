@@ -6,7 +6,7 @@
 #    By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/09 17:09:09 by angmarti          #+#    #+#              #
-#    Updated: 2022/11/10 14:11:42 by angmarti         ###   ########.fr        #
+#    Updated: 2022/11/10 14:57:19 by angmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,7 +69,8 @@ SRC			=	\
 			src/push.c \
 			src/rotate.c \
 			src/rrotate.c \
-			src/swap.c
+			src/swap.c 
+#  src/check_leaks.c
 
 SRCO		=	$(SRC:.c=.o)
 LIB_DIR		=   mylibft
@@ -77,9 +78,7 @@ LIBINCS		=	$(LIB_DIR)/incs
 LIB			=	$(LIB_DIR)/libft.a
 INCS		=	incs
 CC			=	gcc
-CFLAGS		=	-Wall -Wextra -Werror 
-# -g3 
-# -fsanitize=address
+CFLAGS		=	-Wall -Wextra -Werror # -g3 -fsanitize=address
 
 all: $(NAME)
 

@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:59:03 by angmarti          #+#    #+#             */
-/*   Updated: 2022/11/09 11:35:20 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/11/09 14:07:48 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	swap(t_list **stack)
 	t_list	*top1;
 	t_list	*top2;
 
-	if (ft_lstsize(stack) < 2)
+	if (ft_lstsize(*stack) < 2)
 		return (0);
 	top1 = lstremovelast(stack);
 	top2 = lstremovelast(stack);
