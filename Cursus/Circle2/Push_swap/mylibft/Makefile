@@ -48,19 +48,23 @@ OBJS	= $(SRCS:.c=.o)
 
 CFLAGS	= -Wall -Werror -Wextra
 
-CC 		= gcc
+CC 		= @gcc
 
 ${NAME}: ${OBJS}
+	@echo "\033[32mLibft:\033[0m [Compilation:\033[33m *.o *.c\033[0m]\033[30m"
 	${CC} ${CFLAGS} -c ${SRCS}
-	ar rcs ${NAME} ${OBJS}
+	@echo "\033[32mLibft:\033[0m [Compilation:\033[33m $@\033[0m]\033[30m"
+	@ar rcs ${NAME} ${OBJS}
 
 all: ${NAME}
 
 clean:
-	rm -f ${OBJS}
+	@echo "\033[32mLibft:\033[0m [\033[31mRemoving \033[34m*.o\033[0m]\033[31m"
+	@rm -f ${OBJS}
 
 fclean: clean
-	rm -f $(NAME)
+	@echo "\033[32mLibft:\033[0m [\033[31mRemoving \033[34m$(NAME)\033[0m]\033[31m"
+	@rm -f $(NAME)
 
 re: fclean all bonus
 
