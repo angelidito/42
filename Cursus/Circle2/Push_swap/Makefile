@@ -6,56 +6,9 @@
 #    By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/09 17:09:09 by angmarti          #+#    #+#              #
-#    Updated: 2022/11/11 12:38:36 by angmarti         ###   ########.fr        #
+#    Updated: 2022/11/14 12:53:41 by angmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-# NAME=push_swap
-# SRCS = \
-# 		src/errors.c \
-# 		src/lists.c \
-# 		src/main.c \
-# 		src/numbers.c \
-# 		src/order.c \
-# 		src/order_algorithm.c \
-# 		src/push.c \
-# 		src/rotate.c \
-# 		src/rrotate.c \
-# 		src/swap.c
-
-# CC=gcc
-# CFLAGS=-c -Wall -Werror -Wextra
-# OBJS=$(SRCS:.c=.o)
-
-# MYLIBFT_DIR			=	mylibft
-# MYLIBFT				=	$(MYLIBFT_DIR)/libft.a
-# INCS_DEFAULT_DIR	=	incs
-# INCS				=	-I $(INCS_DEFAULT_DIR) -I $(MYLIBFT)/$(INCS_DEFAULT_DIR)
-
-# make_libft:
-# 	@make -C $(MYLIBFT_DIR)
-
-# all: make_libft $(NAME)
-
-# $(NAME): $(OBJS) $(MYLIBFT)
-# 		$(CC) $(OBJS) -o $@
-
-# %.o: %.c
-# 		$(CC) $(CFLAGS) $(INCS) $< -o $@
-
-# clean:
-# 		rm -rf $(OBJS)
-# 		make clean -C $(MYLIBFT_DIR)
-
-# fclean: clean
-# 		rm -rf  $(OBJS) $(NAME)
-# 		make fclean -C $(MYLIBFT_DIR)
-
-# .PHONY: all bonus clean fclean re
-
-############################################################
-############################################################
-############################################################
 
 NAME		=	push_swap
 
@@ -127,4 +80,4 @@ fclean:
 	@rm -f $(NAME)
 	@echo
 
-# .PHONY: re clean fclean all
+.PHONY: re clean fclean all
