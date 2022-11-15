@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 15:30:08 by angmarti          #+#    #+#             */
-/*   Updated: 2022/11/07 15:00:29 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/11/15 15:17:54 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ void	check_errors(int argc, const char *argv[])
 	long	n;
 
 	if (argc < 2)
-		exit(1);
+		exit(0);
 	i = 0;
 	while (argv[++i])
 	{
@@ -138,5 +138,5 @@ void	check_errors(int argc, const char *argv[])
 void	error(void)
 {
 	write(2, "Error\n", 6);
-	exit(1);
+	exit(0);
 }

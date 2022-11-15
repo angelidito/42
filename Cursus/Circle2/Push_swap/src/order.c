@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:47:08 by angmarti          #+#    #+#             */
-/*   Updated: 2022/11/10 15:01:03 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/11/15 16:07:17 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,45 @@ void	order3numbers(t_list **a)
 	else if (n1 < n0 && n0 < n2)
 		sa(a);
 	else if (!(n0 < n1 && n1 < n2))
-		write(1, "???????????????????????????????????????\n", 40);
+		ft_putstr_fd("???????????????????????????????????????\n", 1);
+}
+
+void	order4numbers(t_list **a, t_list **b)
+{
+	while (numweight(ft_lstlast(*a)))
+		ra(a);
+	pb(a, b);
+	order3numbers(a);
+	pa(a, b);
+}
+
+void	order_more_numbers(t_list **a, t_list **b, int size, ssize_t maxweight)
+{
+	if (size == 4)
+	{
+		while (numweight(ft_lstlast(*a)) != 0)
+			ra(a);
+		pb(a, b);
+		order3numbers(a);
+		pa(a, b);
+	}
+	else if (size == 5)
+	{
+		if (numweight(*a) == 0)
+			rra(a);
+		else
+			while (numweight(ft_lstlast(*a)) != 0)
+				ra(a);
+		pb(a, b);
+		while (numweight(ft_lstlast(*a)) != 1)
+			ra(a);
+		pb(a, b);
+		order3numbers(a);
+		pa(a, b);
+		pa(a, b);
+	}
+	else
+		start_algorithim(a, b, maxweight);
 }
 
 void	order(t_list **a)
@@ -70,8 +108,7 @@ void	order(t_list **a)
 		exit(1);
 	}
 	maxweight = setweights(a);
-	// printf("maxweight: '%zd'  \n", maxweight);
-	start_algorithim(a, b, maxweight);
+	order_more_numbers(a, b, size, maxweight);
 	ft_lstclear(b, *free);
 	free(b);
 }

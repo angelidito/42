@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:59:03 by angmarti          #+#    #+#             */
-/*   Updated: 2022/11/09 14:07:48 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/11/14 17:11:08 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	swap(t_list **stack)
 void	sa(t_list **stack)
 {
 	if (swap(stack))
-		write(1, "sa\n", 3);
+		ft_putstr_fd("sa\n", 1);
 }
 
 /**
@@ -54,7 +54,7 @@ void	sa(t_list **stack)
 void	sb(t_list **stack)
 {
 	if (swap(stack))
-		write(1, "sb\n", 3);
+		ft_putstr_fd("sb\n", 1);
 }
 
 /**
@@ -67,5 +67,5 @@ void	sb(t_list **stack)
 void	ss(t_list **a, t_list **b)
 {
 	if (swap(a) || swap(b))
-		write(1, "ss\n", 3);
+		ft_putstr_fd("ss\n", 1);
 }

@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 15:30:08 by angmarti          #+#    #+#             */
-/*   Updated: 2022/11/07 15:00:29 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/11/15 15:26:29 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
  * 
  * @return The sign of the number.
  */
-static long	ft_getsign(const char *p, unsigned long *i)
+long	ft_getsign(const char *p, unsigned long *i)
 {
 	char	c;
 
@@ -58,6 +58,8 @@ size_t	ps_atoi(const char *str)
 	long			sign;
 	long long int	n;
 
+	// if (!ft_strlen(str))
+	// 	return (6666666666);
 	i = 0;
 	sign = ft_getsign(str, &i);
 	if (!sign)
@@ -86,6 +88,8 @@ int	isnumber(char *str)
 
 	if (!str || !*str)
 		return (0);
+	if (str[0] == '-' && !str[1])
+		return (0);
 	i = 0;
 	if (str[i] == '-')
 		i++;
@@ -93,6 +97,37 @@ int	isnumber(char *str)
 		if (!ft_isdigit(str[i++]))
 			return (0);
 	return (1);
+}
+
+/**
+ * It checks for errors in the input
+ * 
+ * @param chararr the array of strings to be checked
+ */
+void	check_errors_chararr(char **chararr)
+{
+	int		i;
+	int		j;
+	long	n;
+
+	i = -1;
+	while (chararr[++i])
+	{
+		n = ft_strlen(chararr[i]);
+		if (!n)
+			continue ;
+		if (n > 11 || (n > 10 && chararr[i][0] != '-'))
+			error_free(chararr);
+		if (!isnumber((char *)chararr[i]))
+			error_free(chararr);
+		if (ps_atoi(chararr[i]) == 6666666666)
+			error_free(chararr);
+		j = i;
+		while (chararr[++j])
+			if (n == (long)ft_strlen(chararr[j]) && !ft_strncmp(chararr[i],
+					chararr[j], n))
+				error_free(chararr);
+	}
 }
 
 /**
@@ -104,14 +139,14 @@ int	isnumber(char *str)
  * @attention It uses exit function
  * 
  */
-void	check_errors(int argc, const char *argv[])
+void	check_errors_argv(int argc, const char *argv[])
 {
 	int		i;
 	int		j;
 	long	n;
 
 	if (argc < 2)
-		exit(1);
+		exit(0);
 	i = 0;
 	while (argv[++i])
 	{
@@ -135,8 +170,19 @@ void	check_errors(int argc, const char *argv[])
  * 
  * @attention It uses exit function
  */
+void	error_free(char **chararr)
+{
+	free_chararr(chararr);
+	error();
+}
+
+/**
+ * It prints "Error\n" to the standard error output and terminates the program.
+ * 
+ * @attention It uses exit function
+ */
 void	error(void)
 {
-	write(2, "Error\n", 6);
+	ft_putstr_fd("Error\n", 2);
 	exit(1);
 }

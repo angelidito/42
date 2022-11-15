@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 12:01:34 by angmarti          #+#    #+#             */
-/*   Updated: 2022/11/10 11:42:08 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/11/15 15:21:44 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,19 @@ typedef struct s_number
 
 // errors.c
 
-void		check_errors(int argc, const char *argv[]);
+void		check_errors_chararr(char **chararr);
+void		check_errors_argv(int argc, const char *argv[]);
+void		error_free(char **chararr);
 void		error(void);
 
 // lists.c
 
 t_list		*lstremovefirst(t_list **lst);
 t_list		*lstremovelast(t_list **lst);
+
+// main.c
+
+void		free_chararr(char **chararr);
 
 // numbers.c
 

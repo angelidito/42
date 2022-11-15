@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:58:54 by angmarti          #+#    #+#             */
-/*   Updated: 2022/11/09 12:20:03 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/11/14 17:10:51 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	rrotate(t_list **stack)
 void	rra(t_list **stack)
 {
 	if (rrotate(stack))
-		write(1, "rra\n", 4);
+		ft_putstr_fd("rra\n", 1);
 }
 
 /**
@@ -52,7 +52,7 @@ void	rra(t_list **stack)
 void	rrb(t_list **stack)
 {
 	if (rrotate(stack))
-		write(1, "rrb\n", 4);
+		ft_putstr_fd("rrb\n", 1);
 }
 
 /**
@@ -65,7 +65,7 @@ void	rrb(t_list **stack)
 void	rrr(t_list **a, t_list **b)
 {
 	if (a == b)
-		write(1, "THAT'S CHEATING SOAB\n", 18);
+		ft_putstr_fd("THAT'S CHEATING SOAB\n", 1);
 	if (rrotate(a) || rrotate(b))
-		write(1, "rrr\n", 4);
+		ft_putstr_fd("rrr\n", 1);
 }

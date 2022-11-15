@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 14:24:56 by angmarti          #+#    #+#             */
-/*   Updated: 2022/11/14 12:41:13 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/11/15 15:12:35 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,15 +118,12 @@
 // 	elem = (t_number *)content;
 // 	printf("%d ", elem->value);
 // }
-
-void	check_leaks(void);
-int	main(int argc, char const *argv[])
+// ! COPY
+int	case_multiple_args(int argc, char const *argv[])
 {
 	int		i;
 	t_list	**lst;
 
-	// check_leaks();
-	// system("leaks push_swap");
 	check_errors(argc, argv);
 	lst = calloc(1, sizeof(t_list **));
 	if (!lst)
@@ -148,6 +145,6 @@ int	main(int argc, char const *argv[])
 	ft_lstclear(lst, *free);
 	free(lst);
 	// system("leaks push_swap");
-	// check_leaks();
+
 	return (0);
 }

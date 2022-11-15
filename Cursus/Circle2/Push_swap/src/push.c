@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:59:04 by angmarti          #+#    #+#             */
-/*   Updated: 2022/11/09 16:17:55 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/11/14 17:09:55 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	push(t_list **sender, t_list **host)
 void	pa(t_list **a, t_list **b)
 {
 	if (push(b, a))
-		write(1, "pa\n", 3);
+		ft_putstr_fd("pa\n", 1);
 }
 
 /**
@@ -57,5 +57,5 @@ void	pa(t_list **a, t_list **b)
 void	pb(t_list **a, t_list **b)
 {
 	if (push(a, b))
-		write(1, "pb\n", 3);
+		ft_putstr_fd("pb\n", 1);
 }

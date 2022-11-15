@@ -6,7 +6,7 @@
 #    By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/09 17:09:09 by angmarti          #+#    #+#              #
-#    Updated: 2022/11/14 12:53:41 by angmarti         ###   ########.fr        #
+#    Updated: 2022/11/14 14:25:55 by angmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,8 +31,7 @@ LIBINCS		=	$(LIB_DIR)/incs
 LIB			=	$(LIB_DIR)/libft.a
 INCS		=	incs
 CC			=	gcc
-CFLAGS		=	-Wall -Wextra -Werror
-# -g3 -fsanitize=address
+CFLAGS		=	-Wall -Wextra -Werror #-g3 -fsanitize=address
 
 all: $(NAME)
 
