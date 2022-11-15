@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 15:30:08 by angmarti          #+#    #+#             */
-/*   Updated: 2022/11/15 15:26:29 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/11/15 16:29:14 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,6 @@ size_t	ps_atoi(const char *str)
 	long			sign;
 	long long int	n;
 
-	// if (!ft_strlen(str))
-	// 	return (6666666666);
 	i = 0;
 	sign = ft_getsign(str, &i);
 	if (!sign)
@@ -163,26 +161,4 @@ void	check_errors_argv(int argc, const char *argv[])
 					n))
 				error();
 	}
-}
-
-/**
- * It prints "Error\n" to the standard error output and terminates the program.
- * 
- * @attention It uses exit function
- */
-void	error_free(char **chararr)
-{
-	free_chararr(chararr);
-	error();
-}
-
-/**
- * It prints "Error\n" to the standard error output and terminates the program.
- * 
- * @attention It uses exit function
- */
-void	error(void)
-{
-	ft_putstr_fd("Error\n", 2);
-	exit(1);
 }

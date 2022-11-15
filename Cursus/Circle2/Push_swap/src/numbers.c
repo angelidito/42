@@ -6,30 +6,11 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 15:32:00 by angmarti          #+#    #+#             */
-/*   Updated: 2022/11/09 17:24:07 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/11/15 16:50:23 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/push_swap.h"
-
-// /**
-//  * It creates a new t_number with the given value and set weight at -1
-//  *
-//  * @param value the value of the node
-//  *
-//  * @return A pointer to a new t_number struct.
-//  */
-// t_number	*new_number_weightless(int value)
-// {
-// 	t_number	*elem;
-
-// 	elem = calloc(1, sizeof(t_number));
-// 	if (!elem)
-// 		return (NULL);
-// 	elem->value = value;
-// 	elem->weight = -1;
-// 	return (elem);
-// }
 
 /**
  * It creates a new t_number with the given value and weight
@@ -50,25 +31,6 @@ t_number	*new_number(int value, ssize_t weight)
 	elem->weight = weight;
 	return (elem);
 }
-
-// /**
-//  * It copies a t_number struct to a new one.
-//  * 
-//  * @param tnumber the number to be copied.
-//  * 
-//  * @return A copy of the t_number struct.
-//  */
-// t_number	*copy_number(t_number *tnumber)
-// {
-// 	t_number	*elem;
-
-// 	elem = calloc(1, sizeof(t_number));
-// 	if (!elem)
-// 		return (NULL);
-// 	elem->value = tnumber->value;
-// 	elem->weight = tnumber->weight;
-// 	return (elem);
-// }
 
 /**
  * It returns the value of the t_number pointed by the context t_list
@@ -127,7 +89,6 @@ ssize_t	setweights(t_list **lst)
 			current = current->next;
 		}
 		setweight(min, ++weight);
-		// printf("%d tiene peso %zd\n", numvalue(min), weight);
 	}
 	return (weight);
 }

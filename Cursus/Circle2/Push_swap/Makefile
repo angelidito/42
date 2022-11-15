@@ -6,14 +6,15 @@
 #    By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/09 17:09:09 by angmarti          #+#    #+#              #
-#    Updated: 2022/11/14 14:25:55 by angmarti         ###   ########.fr        #
+#    Updated: 2022/11/15 16:32:04 by angmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	push_swap
 
 SRC			=	\
-			src/errors.c \
+			src/errors_check.c \
+			src/errors_exit.c \
 			src/lists.c \
 			src/main.c \
 			src/numbers.c \

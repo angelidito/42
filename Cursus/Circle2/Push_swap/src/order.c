@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:47:08 by angmarti          #+#    #+#             */
-/*   Updated: 2022/11/15 16:07:17 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/11/15 16:41:57 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,43 @@ void	order(t_list **a)
 		exit(1);
 	}
 	maxweight = setweights(a);
-	order_more_numbers(a, b, size, maxweight);
+	if (!isordered(a, b))
+		order_more_numbers(a, b, size, maxweight);
 	ft_lstclear(b, *free);
 	free(b);
+}
+
+/**
+ * It checks if the lists are ordered.
+ * Notice that b list does not have to be empty.
+ * 
+ * @param a the first list
+ * @param b the second list
+ * 
+ * @return Returns 1 if both of the lists are ordered, 0 otherwise.
+ */
+int	isordered(t_list **a, t_list **b)
+{
+	t_list	*e;
+	int		ordered;
+
+	if (*a && *b)
+		if (numweight(ft_lstlast(*a)) < numweight(ft_lstlast(*b)))
+			return (0);
+	ordered = 1;
+	e = *a;
+	while (ordered && e)
+	{
+		if (e->next && numweight(e) < numweight(e->next))
+			ordered = 0;
+		e = e->next;
+	}
+	e = *b;
+	while (ordered && e)
+	{
+		if (e->next && numweight(e) > numweight(e->next))
+			ordered = 0;
+		e = e->next;
+	}
+	return (ordered);
 }

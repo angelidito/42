@@ -6,47 +6,11 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 12:54:38 by angmarti          #+#    #+#             */
-/*   Updated: 2022/11/10 13:17:21 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/11/15 16:42:27 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/push_swap.h"
-
-// void	write_list(void *content);
-
-/**
- * It checks if the lists are ordered
- * 
- * @param a the first list
- * @param b the second list
- * 
- * @return Returns 1 if the lists are ordered, 0 otherwise.
- */
-int	isordered(t_list **a, t_list **b)
-{
-	t_list	*e;
-	int		ordered;
-
-	if (*a && *b)
-		if (numweight(ft_lstlast(*a)) < numweight(ft_lstlast(*b)))
-			return (0);
-	ordered = 1;
-	e = *a;
-	while (ordered && e)
-	{
-		if (e->next && numweight(e) < numweight(e->next))
-			ordered = 0;
-		e = e->next;
-	}
-	e = *b;
-	while (ordered && e)
-	{
-		if (e->next && numweight(e) > numweight(e->next))
-			ordered = 0;
-		e = e->next;
-	}
-	return (ordered);
-}
 
 /**
  * It sorts a list of numbers by their binary representation.
@@ -97,7 +61,6 @@ void	start_algorithim(t_list **a, t_list **b, ssize_t maxweight)
 	radix_max = 8;
 	while (radix <= maxweight)
 	{
-		// printf("init radix: %llu\nmaxweight: %zd\n", radix, maxweight);
 		orderbyradix(radix, a, b);
 		radix *= 2;
 	}

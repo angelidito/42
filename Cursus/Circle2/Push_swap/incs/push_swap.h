@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 12:01:34 by angmarti          #+#    #+#             */
-/*   Updated: 2022/11/15 15:21:44 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/11/15 16:36:12 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,13 @@ typedef struct s_number
 	ssize_t	weight;
 }			t_number;
 
-// errors.c
+// errors_check.c
 
 void		check_errors_chararr(char **chararr);
 void		check_errors_argv(int argc, const char *argv[]);
+
+// errors_exit.c
+
 void		error_free(char **chararr);
 void		error(void);
 
@@ -50,12 +53,11 @@ ssize_t		numweight(t_list *lst);
 t_number	*new_number(int value, ssize_t weight);
 void		setweight(t_list *lst, ssize_t weight);
 ssize_t		setweights(t_list **lst);
-// t_number	*copy_number(t_number *tnumber);
-// t_number	*get_number(t_list *lst);
 
 // order.c
 
 void		order(t_list **lst);
+int			isordered(t_list **a, t_list **b);
 
 // order_algorithm.c
 

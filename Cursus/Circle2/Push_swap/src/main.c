@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 14:24:56 by angmarti          #+#    #+#             */
-/*   Updated: 2022/11/15 15:23:54 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/11/15 16:48:35 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,24 +100,13 @@
 
 #include "../incs/push_swap.h"
 
-// printf("%s ft_isnumber: %d\n", (char*)argv[1], ft_isnumber((char*)argv[1]));
-
-// void	write_elem(void *content)
+// void	write_list(void *content)
 // {
 // 	t_number	*elem;
 
 // 	elem = (t_number *)content;
-// 	printf("t_number : %d\n", elem->value);
-// 	printf("t_number : %zd\n\n", elem->weight);
+// 	printf("%d ", elem->value);
 // }
-
-void	write_list(void *content)
-{
-	t_number	*elem;
-
-	elem = (t_number *)content;
-	printf("%d ", elem->value);
-}
 
 void	free_chararr(char **chararr)
 {
@@ -129,10 +118,12 @@ void	free_chararr(char **chararr)
 	free(chararr);
 }
 
-void	rplzspz(char *p)
+void	repalce_split(char *p)
 {
-	int	i;
+	int		i;
 
+	if (!ft_strlen(p))
+		exit(0);
 	i = -1;
 	while (p[++i])
 	{
@@ -140,25 +131,18 @@ void	rplzspz(char *p)
 			|| p[i] == '\f')
 			p[i] = ' ';
 	}
+	return (ft_split(p, ' '));
 }
+
+// ft_lstiter(*lst, *write_list);
 
 int	case_two_args(char const *argv[])
 {
 	int		i;
 	t_list	**lst;
 	char	**chararr;
-	char	*trimmed;
 
-	trimmed = ft_strtrim(argv[1], " \t\n\v\r\f");
-	if (!ft_strlen(trimmed))
-		exit(0);
-	rplzspz(trimmed);
-	chararr = ft_split(trimmed, ' ');
-	// if (!*chararr[0])
-	// {
-	// 	free_chararr(chararr);
-	// 	exit(0);
-	// }
+	chararr = repalce_split(ft_strtrim(argv[1], " \t\n\v\r\f"));
 	check_errors_chararr(chararr);
 	lst = calloc(1, sizeof(t_list **));
 	if (!lst)
@@ -171,20 +155,12 @@ int	case_two_args(char const *argv[])
 	while (chararr[++i])
 		if (ft_strlen(chararr[i]))
 			ft_lstadd_front(lst, ft_lstnew(new_number(ft_atoi(chararr[i]),
-							-1)));
-	// printf("\nLa lista:\n");
-	// ft_lstiter(*lst, *write_list);
-	// printf("\n\n");
+						-1)));
 	order(lst);
-	// printf("\n\nLa lista ordenada:\n");
-	// ft_lstiter(*lst, *write_list);
-	// printf("\n");
-	// printf("\n");
 	free_chararr(chararr);
 	free(trimmed);
 	ft_lstclear(lst, *free);
 	free(lst);
-	// system("leaks push_swap");
 	return (0);
 }
 
@@ -203,19 +179,13 @@ int	case_multiple_args(int argc, char const *argv[])
 		exit(1);
 	while (++i < argc)
 		ft_lstadd_front(lst, ft_lstnew(new_number(ft_atoi(argv[i]), -1)));
-	// printf("\nLa lista:\n");
-	// ft_lstiter(*lst, *write_list);
-	// printf("\n\n");
 	order(lst);
-	// printf("\n\nLa lista ordenada:\n");
-	// ft_lstiter(*lst, *write_list);
-	// printf("\n");
-	// printf("\n");
 	ft_lstclear(lst, *free);
 	free(lst);
-	// system("leaks push_swap");
 	return (0);
 }
+
+// system("leaks push_swap");
 
 int	main(int argc, char const *argv[])
 {
