@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 12:01:34 by angmarti          #+#    #+#             */
-/*   Updated: 2022/11/15 16:36:12 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/11/16 11:25:32 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,12 @@ void		check_errors_argv(int argc, const char *argv[]);
 
 void		error_free(char **chararr);
 void		error(void);
+void		free_chararr(char **chararr);
 
 // lists.c
 
 t_list		*lstremovefirst(t_list **lst);
 t_list		*lstremovelast(t_list **lst);
-
-// main.c
-
-void		free_chararr(char **chararr);
 
 // numbers.c
 

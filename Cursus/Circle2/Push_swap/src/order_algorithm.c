@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 12:54:38 by angmarti          #+#    #+#             */
-/*   Updated: 2022/11/15 16:42:27 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/11/15 17:03:25 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ void	orderbyradix(ssize_t radix, t_list **a, t_list **b)
 
 /**
  * It takes a list of numbers, and orders them by their binary representation.
+ * Disclaimer: when I wrote this code only God and I knew how it worked.
+ * Today, it's probable that even He can't remeber.
  * 
  * @param a the list of numbers to be sorted
  * @param b the list of numbers that are not in order
