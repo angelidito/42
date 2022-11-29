@@ -6,15 +6,15 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:44:24 by angmarti          #+#    #+#             */
-/*   Updated: 2022/11/21 16:09:37 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/11/29 15:50:48 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
+# include <math.h>
 # include <stdio.h>
-#include <math.h>
 
 /**
  * Struct that contains a void pointer, a char pointer, 
@@ -33,6 +33,29 @@ typedef struct s_data
 	int		line_length;
 	int		endian;
 }			t_data;
+
+enum		e_events
+{
+	ON_KEYDOWN = 2,
+	ON_KEYUP = 3,
+	ON_MOUSEDOWN = 4,
+	ON_MOUSEUP = 5,
+	ON_MOUSEMOVE = 6,
+	ON_EXPOSE = 12,
+	ON_DESTROY = 17
+};
+
+// color
+
+int			get_channel_a(int argb);
+int			get_channel_r(int argb);
+int			get_channel_g(int argb);
+int			get_channel_b(int argb);
+
+int			get_argb(int r, int g, int b, int a);
+int			get_rgb(int r, int g, int b);
+int			add_shade(double shade, int argb);
+int			get_opposite(int argb);
 
 //skils
 void		draw_sqr0(t_data *img, int x_start, int y_start, int side_len);
