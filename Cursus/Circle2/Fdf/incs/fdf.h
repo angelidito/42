@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:44:24 by angmarti          #+#    #+#             */
-/*   Updated: 2022/11/29 15:50:48 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/11/30 16:59:57 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <math.h>
 # include <stdio.h>
+# include <stdlib.h>
 
 /**
  * Struct that contains a void pointer, a char pointer, 
@@ -33,6 +34,12 @@ typedef struct s_data
 	int		line_length;
 	int		endian;
 }			t_data;
+
+typedef struct s_vars
+{
+	void	*mlx;
+	void	*win;
+}			t_vars;
 
 enum		e_events
 {
