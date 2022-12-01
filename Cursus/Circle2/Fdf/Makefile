@@ -6,17 +6,19 @@
 #    By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/17 12:03:08 by angmarti          #+#    #+#              #
-#    Updated: 2022/11/30 17:52:01 by angmarti         ###   ########.fr        #
+#    Updated: 2022/12/01 13:07:25 by angmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	myfdf
 SRC			= \
-			src/main.c \
-			src/colors/color.c \
 			src/colors/channels.c \
-			src/skill_testing/sqr.c \
-			src/skill_testing/circle.c 
+			src/colors/color.c \
+			src/events/keys.c \
+			src/events/mouse.c \
+			src/main.c \
+			src/skill_testing/circle.c \
+			src/skill_testing/sqr.c
 
 OBJ			=	$(SRC:.c=.o)
 LIB_DIR		=   mylibft

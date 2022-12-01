@@ -6,9 +6,11 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 13:29:40 by angmarti          #+#    #+#             */
-/*   Updated: 2022/11/29 15:32:08 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/12/01 11:58:32 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../../incs/fdf.h"
 
 /**
  * It returns the alpha channel of the color.

@@ -6,12 +6,11 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 12:22:52 by angmarti          #+#    #+#             */
-/*   Updated: 2022/11/30 17:58:29 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/12/01 14:37:17 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/fdf.h"
-#include <mlx.h>
 
 /**
  * It takes a t_data struct, an x and y coordinate, and a color, and it puts
@@ -45,26 +44,18 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
  * 
  * @return The address of the first pixel of the image.
  */
-void	my_mlx_set_data_addr(t_data *img)
+char	*my_mlx_set_data_addr(t_data *img)
 {
 	img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel,
 			&img->line_length, &img->endian);
-}
-
-int	close(int keycode, t_vars *vars)
-{
-	printf("keycode: %d\n", keycode);
-	if (keycode == 53)
-	{
-		mlx_destroy_window(vars->mlx, vars->win);
-		exit(0);
-	}
-	return (0);
+	return (img->addr);
 }
 
 void	hooks(t_vars *vars)
 {
-	mlx_hook(vars->win, ON_KEYDOWN, 1L << 0, close, vars);
+	mlx_hook(vars->win, ON_KEYDOWN, 1L << 0, on_keydown, vars);
+	mlx_hook(vars->win, ON_MOUSEMOVE, 1L << 0, on_mousemove, vars);
+	mlx_hook(vars->win, ON_MOUSEDOWN, 1L << 0, on_mousedown, vars);
 }
 
 int	main(void)
@@ -73,9 +64,9 @@ int	main(void)
 	t_vars	vars;
 
 	vars.mlx = mlx_init();
-	vars.win = mlx_new_window(vars.mlx, 1920, 1080, "Hello Mori!");
+	vars.win = mlx_new_window(vars.mlx, WIN_W, WIN_H, "Hello Mori!");
 	hooks(&vars);
-	img.img = mlx_new_image(vars.mlx, 1920, 1080);
+	img.img = mlx_new_image(vars.mlx, WIN_W, WIN_H);
 	my_mlx_set_data_addr(&img);
 	draw_circle(&img, 500, 500, 100);
 	mlx_put_image_to_window(vars.mlx, vars.win, img.img, 0, 0);
