@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 12:22:52 by angmarti          #+#    #+#             */
-/*   Updated: 2022/12/01 14:37:17 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/12/13 15:02:45 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,11 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
  * 
  * @return The address of the first pixel of the image.
  */
-char	*my_mlx_set_data_addr(t_data *img)
+char	*my_mlx_set_data_addr(t_vars *vars)
 {
+	t_data	*img;
+
+	img = vars->img;
 	img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel,
 			&img->line_length, &img->endian);
 	return (img->addr);
@@ -65,11 +68,13 @@ int	main(void)
 
 	vars.mlx = mlx_init();
 	vars.win = mlx_new_window(vars.mlx, WIN_W, WIN_H, "Hello Mori!");
-	hooks(&vars);
 	img.img = mlx_new_image(vars.mlx, WIN_W, WIN_H);
-	my_mlx_set_data_addr(&img);
+	vars.img = &img;
+	hooks(&vars);
+	my_mlx_set_data_addr(&vars);
 	draw_circle(&img, 500, 500, 100);
 	mlx_put_image_to_window(vars.mlx, vars.win, img.img, 0, 0);
+	mlx_loop_hook(vars.mlx, render_next_frame, &vars);
 	mlx_loop(vars.mlx);
 	return (0);
 }
