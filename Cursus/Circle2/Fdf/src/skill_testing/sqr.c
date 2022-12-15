@@ -47,3 +47,5 @@ void	draw_sqr0(t_data *img, int x_start, int y_start, int side_len)
 		}
 	}
 }
+
+
