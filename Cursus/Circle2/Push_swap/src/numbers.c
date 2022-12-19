@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 15:32:00 by angmarti          #+#    #+#             */
-/*   Updated: 2022/11/15 16:50:23 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/12/19 16:44:22 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_number	*new_number(int value, ssize_t weight)
 {
 	t_number	*elem;
 
-	elem = calloc(1, sizeof(t_number));
+	elem = ft_calloc(1, sizeof(t_number));
 	if (!elem)
 		return (NULL);
 	elem->value = value;

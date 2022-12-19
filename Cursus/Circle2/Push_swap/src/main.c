@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 14:24:56 by angmarti          #+#    #+#             */
-/*   Updated: 2022/11/16 11:29:40 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/12/19 16:44:15 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	case_two_args(char const *argv[])
 	trimmed = ft_strtrim(argv[1], " \t\n\v\r\f");
 	chararr = repalce_split(trimmed);
 	check_errors_chararr(chararr);
-	lst = calloc(1, sizeof(t_list **));
+	lst = ft_calloc(1, sizeof(t_list **));
 	if (!lst)
 	{
 		free_chararr(chararr);
@@ -95,7 +95,7 @@ int	case_multiple_args(int argc, char const *argv[])
 	t_list	**lst;
 
 	check_errors_argv(argc, argv);
-	lst = calloc(1, sizeof(t_list **));
+	lst = ft_calloc(1, sizeof(t_list **));
 	if (!lst)
 		exit(1);
 	i = 1;

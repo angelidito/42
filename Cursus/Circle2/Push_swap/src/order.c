@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:47:08 by angmarti          #+#    #+#             */
-/*   Updated: 2022/11/15 16:41:57 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/12/19 16:44:28 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ void	order(t_list **a)
 		order3numbers(a);
 	if (size < 4)
 		return ;
-	b = calloc(1, sizeof(t_list **));
+	b = ft_calloc(1, sizeof(t_list **));
 	if (!b)
 	{
 		ft_lstclear(a, *free);
