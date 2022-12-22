@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 12:22:52 by angmarti          #+#    #+#             */
-/*   Updated: 2022/12/22 20:23:14 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/12/22 23:15:07 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,8 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
  * 
  * @return The address of the first pixel of the image.
  */
-char	*my_mlx_set_data_addr(t_vars *vars)
+char	*my_mlx_set_data_addr(t_data	*img)
 {
-	t_data	*img;
-
-	img = vars->img;
 	img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel, &img->line_length,
 			&img->endian);
 	return (img->addr);
@@ -74,7 +71,7 @@ int	main(int argc, const char *argv[])
 	vars.img = ft_calloc(1, sizeof (t_data));
 	vars.img->img = mlx_new_image(vars.mlx, WIN_W, WIN_H);
 	hooks(&vars);
-	my_mlx_set_data_addr(&vars);
+	my_mlx_set_data_addr(vars.img);
 	// mlx_put_image_to_window(vars.mlx, vars.win, img.img, 0, 0);
 	if (set_map(argv[1], &vars))
 		return (-1);

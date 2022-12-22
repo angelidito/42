@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 11:58:36 by angmarti          #+#    #+#             */
-/*   Updated: 2022/12/22 20:59:34 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/12/22 23:24:09 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ int	on_mousedown(int button, int x, int y, t_vars *vars)
 	{
 		printf("mouse click at (%d, %d)\n", x, y);
 		// img.img = mlx_new_image(vars->mlx, WIN_W, WIN_H);
-		my_mlx_set_data_addr(vars);
-		draw_circle(vars->img, x, y, 100);
+		my_mlx_set_data_addr(vars->img);
+		draw_circle(vars, x, y, 100);
 		mlx_put_image_to_window(vars->mlx, vars->win, vars->img->img, 0, 0);
 	}
 	printf("mouse button: %d\n", button);

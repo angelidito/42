@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:44:24 by angmarti          #+#    #+#             */
-/*   Updated: 2022/12/22 20:05:17 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/12/22 23:19:14 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@
 #  define BUFFER_SIZE BUFSIZ
 # endif
 
-void breakpoint(void);
-
+void	breakpoint(void);
 
 //	COLORS
 
@@ -56,20 +55,20 @@ int		on_mousemove(int x, int y, t_vars *vars);
 
 void	draw_sqr0(t_data *img, int x_start, int y_start, int side_len);
 void	draw_sqr1(t_data *img, int x_start, int y_start, int side_len);
-void	draw_circle(t_data *img, int x_center, int y_center, int radius);
+void	draw_circle(t_vars *vars, int x_center, int y_center, int radius);
 
 //	MAPPING
 
 void	free_data_matrix(t_map *map);
 int		set_map_data_matrix(const char *file, t_vars *vars);
-int		set_map_point_matrix(t_vars *vars);
+int		set_map_point_matrix(t_vars *vars, t_map *map);
 int		set_map(const char *file, t_vars *vars);
 
 //	MY MLX
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 char	*my_mlx_get_data_addr(t_data *img);
-char	*my_mlx_set_data_addr(t_vars *vars);
+char	*my_mlx_set_data_addr(t_data *img);
 int		render_next_frame(t_vars *vars);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 12:22:52 by angmarti          #+#    #+#             */
-/*   Updated: 2022/12/22 20:17:05 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/12/22 23:22:59 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	main(void)
 	vars.img = &img;
 	hooks(&vars);
 	my_mlx_set_data_addr(&vars);
-	draw_circle(&img, 500, 500, 100);
+	draw_circle(&vars, 500, 500, 100);
 	mlx_put_image_to_window(vars.mlx, vars.win, img.img, 0, 0);
 	mlx_loop_hook(vars.mlx, render_next_frame, &vars);
 	mlx_loop(vars.mlx);
