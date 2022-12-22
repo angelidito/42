@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 12:22:52 by angmarti          #+#    #+#             */
-/*   Updated: 2022/12/14 14:37:57 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/12/22 20:23:14 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,13 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	char	*dst;
 	int		offset;
 
-	// Think about making a ft_offset function
 	offset = y * data->line_length + x * (data->bits_per_pixel / 8);
 	dst = data->addr + offset;
 	*(unsigned int *)dst = color;
 }
 
 /**
- * It returns the address of the data of the image
+ * It sets and returns the address of the data of the image
  * 
  * @param img the image to get the data from
  * 
@@ -49,32 +48,51 @@ char	*my_mlx_set_data_addr(t_vars *vars)
 	t_data	*img;
 
 	img = vars->img;
-	img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel,
-			&img->line_length, &img->endian);
+	img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel, &img->line_length,
+			&img->endian);
 	return (img->addr);
 }
 
-void	hooks(t_vars *vars)
+void	leaks(void)
 {
-	mlx_hook(vars->win, ON_KEYDOWN, 1L << 0, on_keydown, vars);
-	mlx_hook(vars->win, ON_MOUSEMOVE, 1L << 0, on_mousemove, vars);
-	mlx_hook(vars->win, ON_MOUSEDOWN, 1L << 0, on_mousedown, vars);
+	ft_printf("\033[7;49;33m");
+	system("leaks -q fdf");
 }
 
-int	main(void)
+int	main(int argc, const char *argv[])
 {
-	t_data	img;
 	t_vars	vars;
 
+	atexit(leaks);
+	if (argc != 2)
+	{
+		ft_printf("\033[0;34mUsage : %s <filename>\n\n", *argv);
+		return (-1);
+	}
 	vars.mlx = mlx_init();
 	vars.win = mlx_new_window(vars.mlx, WIN_W, WIN_H, "Hello Mori!");
-	img.img = mlx_new_image(vars.mlx, WIN_W, WIN_H);
-	vars.img = &img;
+	vars.img = ft_calloc(1, sizeof (t_data));
+	vars.img->img = mlx_new_image(vars.mlx, WIN_W, WIN_H);
 	hooks(&vars);
 	my_mlx_set_data_addr(&vars);
-	draw_circle(&img, 500, 500, 100);
-	mlx_put_image_to_window(vars.mlx, vars.win, img.img, 0, 0);
+	// mlx_put_image_to_window(vars.mlx, vars.win, img.img, 0, 0);
+	if (set_map(argv[1], &vars))
+		return (-1);
 	mlx_loop_hook(vars.mlx, render_next_frame, &vars);
 	mlx_loop(vars.mlx);
+	free_data_matrix(vars.map);
+	free(vars.map);
+	// int		i;
+	// int		j;
+	// i = -1;
+	// j = -1;
+	// while (vars.map_matrix[++i])
+	// 	while (vars.map_matrix[i][++j])
+	// 		ft_printf("%d ", vars.map_matrix[i][j]);
 	return (0);
+}
+
+void	breakpoint(void)
+{
+	ft_printf("______BREAKPOINT______\n");
 }

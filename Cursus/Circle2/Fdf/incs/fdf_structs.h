@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 13:55:32 by angmarti          #+#    #+#             */
-/*   Updated: 2022/12/14 13:55:34 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/12/22 20:21:15 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,30 @@ typedef struct s_data
 	int		endian;
 }			t_data;
 
+typedef struct s_point
+{
+	int		x;
+	int		y;
+
+}			t_point;
+
+typedef struct s_map
+{
+	t_point	start;
+	t_point	**point_matrix;
+	int		**data_matrix;
+	int		width;
+	int		height;
+	int		scale;
+}			t_map;
+
 typedef struct s_vars
 {
 	void	*mlx;
 	void	*win;
 	t_data	*img;
+	t_map	*map;
+
 }			t_vars;
 
 #endif

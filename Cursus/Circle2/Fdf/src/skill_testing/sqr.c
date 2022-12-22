@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:36:13 by angmarti          #+#    #+#             */
-/*   Updated: 2022/11/21 15:47:53 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/12/20 15:27:06 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	draw_sqr1(t_data *img, int x_start, int y_start, int side_len)
 	{
 		x = x_start - 1;
 		while (x_start + side_len - ++x > 0)
-				my_mlx_pixel_put(img, x, y, 0x00FFFFFF);
+			my_mlx_pixel_put(img, x, y, 0x00FFFFFF);
 	}
 }
 
@@ -47,5 +47,3 @@ void	draw_sqr0(t_data *img, int x_start, int y_start, int side_len)
 		}
 	}
 }
-
-

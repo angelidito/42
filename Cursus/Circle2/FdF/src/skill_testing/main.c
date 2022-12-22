@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 12:22:52 by angmarti          #+#    #+#             */
-/*   Updated: 2022/12/14 14:37:57 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/12/22 20:17:05 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ char	*my_mlx_set_data_addr(t_vars *vars)
 {
 	t_data	*img;
 
-	img = vars->img;
+	img = &vars->img;
 	img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel,
 			&img->line_length, &img->endian);
 	return (img->addr);
@@ -63,8 +63,8 @@ void	hooks(t_vars *vars)
 
 int	main(void)
 {
-	t_data	img;
 	t_vars	vars;
+	t_data	img;
 
 	vars.mlx = mlx_init();
 	vars.win = mlx_new_window(vars.mlx, WIN_W, WIN_H, "Hello Mori!");

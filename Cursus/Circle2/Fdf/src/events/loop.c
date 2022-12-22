@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 11:37:20 by angmarti          #+#    #+#             */
-/*   Updated: 2022/12/13 12:34:07 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/12/22 20:18:31 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	render_next_frame(t_vars *vars)
 	// 	my_mlx_pixel_put(vars->img, i++, j, color[3]);
 	// if (i > WIN_W)
 	// {
-	// 	mlx_put_image_to_window(vars->mlx, vars->win, vars->img->img, 0, 0);
+	// 	mlx_put_image_to_window(vars->mlx, vars->win, vars->img.img, 0, 0);
 	// 	i = 0;
 	// }
 	// // else if ( color[z % 3] >= 255 && color[(z - 1) % 3] >= 255)
@@ -55,7 +55,7 @@ int	render_next_frame(t_vars *vars)
 	// // if (i < 5 || j < 5)
 	// // 	printf("I=%d; J=%D\n", i, j);
 	// // 		my_mlx_pixel_put(vars->img, i, j, RED);
-	// // 	mlx_put_image_to_window(vars->mlx,vars->win,vars->img->img,0,0);
+	// // 	mlx_put_image_to_window(vars->mlx,vars->win,vars->img.img,0,0);
 	// // 		i++;
 	// // 	}
 	// // 	i = 0;

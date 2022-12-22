@@ -6,7 +6,7 @@
 #    By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/17 12:03:08 by angmarti          #+#    #+#              #
-#    Updated: 2022/12/16 16:52:10 by angmarti         ###   ########.fr        #
+#    Updated: 2022/12/22 20:02:13 by angmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,15 +16,22 @@
 
 NAME			=	fdf
 SRC				=	\
+					src/main.c \
 					src/colors/channels.c \
 					src/colors/color.c \
+					src/mapping/data_matrix.c \
+					src/mapping/data_matrix_aux.c \
+					src/mapping/mapping.c \
+					src/mapping/point_matrix.c \
+					src/mapping/printing.c \
+					src/events/hooks.c \
 					src/events/keys.c \
 					src/events/loop.c \
 					src/events/mouse.c \
-					src/main.c \
 					src/skill_testing/circle.c \
 					src/skill_testing/sqr.c
 OBJ				=	$(SRC:.c=.o)
+
 
 
 # **************************************************************************** #
@@ -46,7 +53,8 @@ LIBFT			=	$(LIBFT_DIR)/libft.a
 # MLX_INCS_DIR	=	$(MLX_DIR)/
 # MLX				=	$(MLX_DIR)/gnl.a
 
-LIBS			=	${LIBFT} ${GNL}
+LIBS			=	${LIBFT} # ${GNL}
+
 
 
 # **************************************************************************** #
@@ -54,13 +62,14 @@ LIBS			=	${LIBFT} ${GNL}
 # **************************************************************************** #
 
 CC				=	@gcc
-CFLAGS			=	-Wall -Wextra -Werror #-g3 -fsanitize=address
+C_FLAGS			=	-Wall -Wextra -Werror #-g3 -fsanitize=address
+C_INCLUDES		=	-Imlx -I$(INCS_DIR) -I$(LIBFT_INCS_DIR)
 
 MAKES			=	make -C $(LIBFT_DIR)/ ; 
-
 MAKES_CLEAN		=	make clean -C $(LIBFT_DIR)/ ;
-
 MAKES_FCLEAN	=	make fclean -C $(LIBFT_DIR)/ ;
+
+
 
 # **************************************************************************** #
 # *****************************      COLORS      ***************************** #
@@ -82,13 +91,13 @@ NOCOLOR			=	\033[0m
 
 %.o: %.c
 	@echo "$(GREEN)$(NAME):$(NOCOLOR) [Compilation:$(YELLOW) $@$(NOCOLOR)]$(GRAY)"
-	$(CC) $(CFLAGS) -Imlx -I$(INCS_DIR) -I$(LIBFT_INCS_DIR) -c $< -o $@
+	$(CC) $(C_FLAGS) $(C_INCLUDES) -c $< -o $@
 
 $(NAME): $(OBJ)
 	@${MAKES}
 	@echo
 	@echo "$(GREEN)$(NAME):$(NOCOLOR) [Compilation:$(YELLOW) $@$(NOCOLOR)]$(GRAY)"
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	$(CC) $(C_FLAGS) $(OBJ) $(LIBFT) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 	@echo
 	@echo
 	@echo "$(NOCOLOR)[$(GREEN)--------------------------$(NOCOLOR)]"
