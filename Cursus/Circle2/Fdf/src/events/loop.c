@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 11:37:20 by angmarti          #+#    #+#             */
-/*   Updated: 2022/12/22 20:18:31 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/12/22 23:41:44 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,11 @@ int	render_next_frame(t_vars *vars)
 	// static int		j;
 	// static size_t	z;
 	// static int		color[4];
-	if (vars)
-		;
+	// if (vars)
+	// 	;
+	vars->img->img = mlx_new_image(vars->mlx, WIN_W, WIN_H);
+	my_mlx_set_data_addr(vars->img);
+	set_points(vars, vars->map);
 	// // color[0] = 0;
 	// // color[1] = 255;
 	// // color[2] = 0;

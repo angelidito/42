@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 13:55:27 by angmarti          #+#    #+#             */
-/*   Updated: 2022/12/14 13:55:30 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/12/23 00:08:14 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@ enum	e_keycodes
 	KEY_W = 13,
 	KEY_ESC = 53,
 	KEY_ENTER = 36,
+	KEY_UP = 126,
+	KEY_DOWN = 125,
+	KEY_LEFT = 123,
+	KEY_RIGHT = 124,
 };
 
 enum	e_mousebuttons

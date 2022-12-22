@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 14:56:35 by angmarti          #+#    #+#             */
-/*   Updated: 2022/12/22 23:28:57 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/12/23 00:01:56 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ int	set_map(const char *file, t_vars *vars)
 	vars->map = ft_calloc(1, sizeof(t_map));
 	if (!vars->map)
 		return (-1);
-	vars->map->angle = 0.1;
+	vars->map->desv = 1;
+	vars->map->angle = 0.9;
 	vars->map->scale = 30;
 	vars->map->z_scale = 1;
 	vars->map->start.x = 6;

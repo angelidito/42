@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:36:13 by angmarti          #+#    #+#             */
-/*   Updated: 2022/12/22 23:26:02 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/12/22 23:48:00 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	draw_circle(t_vars *vars, int x_center, int y_center, int radius)
 		while (x_center + radius >= ++x)
 			if (((x - x_center) * (x - x_center) + (y - y_center) * (y
 						- y_center)) <= radius * radius)
-				if (x >= 0 && x <= WIN_W && y >= 0 && y <= WIN_H)
+				if (x >= 0 && x < WIN_W && y >= 0 && y < WIN_H)
 					my_mlx_pixel_put(img, x, y, color);
 	}
 }
