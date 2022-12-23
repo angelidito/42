@@ -6,13 +6,14 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 15:04:21 by angmarti          #+#    #+#             */
-/*   Updated: 2022/12/23 00:06:34 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/12/23 01:12:47 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/fdf.h"
 
 //PERSPECTIVA CABALLERA: CHECK UME NOTEBOOK
+// TODO para hacer que rote en un punto central calcular centro del mapa
 void	point_calc(int x, int y, t_vars *vars)
 {
 	double	a;

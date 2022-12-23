@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 11:58:36 by angmarti          #+#    #+#             */
-/*   Updated: 2022/12/23 00:35:06 by angmarti         ###   ########.fr       */
+/*   Updated: 2022/12/23 01:36:36 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,20 +46,18 @@ int	on_mousedown(int button, int x, int y, t_vars *vars)
 		draw_circle(vars, x, y, 100);
 		mlx_put_image_to_window(vars->mlx, vars->win, vars->img->img, 0, 0);
 	}
-	// if (button == MOUSE_SCROLL_UP)
-	// {
-	// 	vars->map->scale += 0.2;
-	// 	// if (vars->map->scale > 1)
-	// 	// 	vars->map->scale = 1;
-	// 	printf("scale : %f\n", vars->map->scale);
-	// }
-	// else if (button == MOUSE_SCROLL_DOWN)
-	// {
-	// 	vars->map->scale -= 0.2;
-	// 	if (vars->map->scale < 1)
-	// 		vars->map->scale = 1;
-	// 	printf("scale : %f\n", vars->map->scale);
-	// }
+	if (button == MOUSE_SCROLL_UP)
+	{
+		vars->map->scale += 0.2;
+		printf("scale : %f\n", vars->map->scale);
+	}
+	else if (button == MOUSE_SCROLL_DOWN)
+	{
+		vars->map->scale -= 0.2;
+		if (vars->map->scale < 1)
+			vars->map->scale = 1;
+		printf("scale : %f\n", vars->map->scale);
+	}
 	printf("mouse button: %d\n", button);
 	return (0);
 }
