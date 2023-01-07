@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 11:58:05 by angmarti          #+#    #+#             */
-/*   Updated: 2022/12/23 01:35:54 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/01/07 18:02:27 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ int	asdw_keys(int keycode, t_vars *vars)
 			return (0);
 		}
 		printf("desv  : %f\n", vars->map->desv);
-		
 		if (vars->map->desv < desv_diff)
 			vars->map->scale -= desv_diff * 12;
 		else
@@ -60,7 +59,6 @@ int	asdw_keys(int keycode, t_vars *vars)
 			return (0);
 		}
 		printf("desv  : %f\n", vars->map->desv);
-		
 		if (vars->map->desv < desv_diff)
 			vars->map->scale += desv_diff * 12;
 		else
@@ -71,6 +69,7 @@ int	asdw_keys(int keycode, t_vars *vars)
 	}
 	return (0);
 }
+
 int	arrows_keys(int keycode, t_vars *vars)
 {
 	int	var;
@@ -109,6 +108,8 @@ int	arrows_keys(int keycode, t_vars *vars)
 
 int	on_keydown(int keycode, t_vars *vars)
 {
+	int	return_code;
+
 	if (keycode == KEY_ESC)
 	{
 		mlx_destroy_window(vars->mlx, vars->win);
@@ -117,9 +118,12 @@ int	on_keydown(int keycode, t_vars *vars)
 	}
 	else if (keycode == KEY_A || keycode == KEY_S || keycode == KEY_D
 			|| keycode == KEY_W)
-		return (asdw_keys(keycode, vars));
+		return_code = asdw_keys(keycode, vars);
 	else if (keycode >= KEY_LEFT && keycode <= KEY_UP)
-		return (arrows_keys(keycode, vars));
+		return_code = arrows_keys(keycode, vars);
+	else
+		return_code = 0;
 	printf("keycode: %d\n", keycode);
-	return (0);
+	render_next_frame(vars);
+	return (return_code);
 }

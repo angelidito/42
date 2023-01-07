@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 12:22:52 by angmarti          #+#    #+#             */
-/*   Updated: 2022/12/22 23:15:07 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/01/07 16:26:50 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,8 @@ int	main(int argc, const char *argv[])
 	// mlx_put_image_to_window(vars.mlx, vars.win, img.img, 0, 0);
 	if (set_map(argv[1], &vars))
 		return (-1);
-	mlx_loop_hook(vars.mlx, render_next_frame, &vars);
+	// mlx_loop_hook(vars.mlx, render_next_frame, &vars);
+	render_next_frame(&vars);
 	mlx_loop(vars.mlx);
 	free_data_matrix(vars.map);
 	free(vars.map);

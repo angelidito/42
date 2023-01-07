@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 11:58:36 by angmarti          #+#    #+#             */
-/*   Updated: 2022/12/23 01:36:36 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/01/07 16:20:55 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,6 @@ int	on_mousemove(int x, int y, t_vars *vars)
 
 int	on_mousedown(int button, int x, int y, t_vars *vars)
 {
-	// t_data	img;
-
-	if (vars)
-		;
 	if (button == MOUSE_LEFT)
 	{
 		printf("mouse click at (%d, %d)\n", x, y);
@@ -49,13 +45,17 @@ int	on_mousedown(int button, int x, int y, t_vars *vars)
 	if (button == MOUSE_SCROLL_UP)
 	{
 		vars->map->scale += 0.2;
+		vars->map->z_scale += 0.2;
 		printf("scale : %f\n", vars->map->scale);
 	}
 	else if (button == MOUSE_SCROLL_DOWN)
 	{
-		vars->map->scale -= 0.2;
-		if (vars->map->scale < 1)
-			vars->map->scale = 1;
+		if (vars->map->scale >= 1.2)
+			vars->map->scale -= 0.2;
+		// vars->map->scale = 1;
+		if (vars->map->z_scale >= 1.2)
+			vars->map->z_scale -= 0.2;
+		// vars->map->z_scale = 1;
 		printf("scale : %f\n", vars->map->scale);
 	}
 	printf("mouse button: %d\n", button);

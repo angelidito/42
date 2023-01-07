@@ -6,12 +6,12 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 14:56:35 by angmarti          #+#    #+#             */
-/*   Updated: 2022/12/22 20:04:05 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/01/07 16:09:10 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incs/fdf.h"
 #include "../../incs/aux_datamatrix.h"
+#include "../../incs/fdf.h"
 
 /**
  * It prints the file matrix
@@ -113,7 +113,8 @@ void	store_line_numbers(char **line, int *map_matrix_row)
  * 
  * @param lines Linked list of strings, each string is a line from the map file
  * 
- * @return 0 if no errors occurred.
+ * @return 0 if no errors occurred,
+	and the amount of calls to malloc before mallor error.
  */
 int	get_map_matrix(t_list *lines, t_vars *vars)
 {
@@ -133,10 +134,7 @@ int	get_map_matrix(t_list *lines, t_vars *vars)
 		words = words_calc(line);
 		vars->map->data_matrix[i] = ft_calloc(words + 1, sizeof(int *));
 		if (!vars->map->data_matrix[i])
-		{
-			free_data_matrix_i(i, vars->map->data_matrix);
-			return (-1);
-		}
+			return (i);
 		store_line_numbers(line, vars->map->data_matrix[i++]);
 		lines = lines->next;
 	}
@@ -159,6 +157,8 @@ int	set_map_data_matrix(const char *file, t_vars *vars)
 
 	lines = linelist(file);
 	errors = get_map_matrix(lines, vars);
+	if (errors)
+		free_data_matrix_i(errors, vars->map->data_matrix);
 	ft_lstclear(&lines, free);
 	if (!vars->map->data_matrix)
 		return (-1);

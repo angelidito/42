@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 15:04:21 by angmarti          #+#    #+#             */
-/*   Updated: 2022/12/23 01:12:47 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/01/07 16:21:43 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,11 @@ void	point_calc(int x, int y, t_vars *vars)
 	t_map	*map;
 
 	map = vars->map;
-	z = map->data_matrix[y][x] * map->scale * (1 - map->angle);
+	z = map->data_matrix[y][x] * map->z_scale * (1 - map->angle);
 	// a = (x ) * (map->scale + pow(map->scale, 2) / M_SQRT2) + map->start.x;
 	// b = (y ) * (map->scale + map->scale / M_SQRT2) + map->start.y;
-	a = (x+ y * map->desv) * map->scale + map->start.x;
-	b = (y- x * map->desv) * map->scale * map->angle + map->start.y
-		- z * map->z_scale;
+	a = (x + y * map->desv) * map->scale + map->start.x;
+	b = (y - x * map->desv) * map->scale * map->angle + map->start.y - z;
 	// printf("%f, %f\n", a, b);
 	map->point_matrix[y][x].x = (int)trunc(a);
 	map->point_matrix[y][x].y = (int)trunc(b);
@@ -37,7 +36,7 @@ void	point_calc(int x, int y, t_vars *vars)
 	// if (map->point_matrix[y][x].x >= 0 && map->point_matrix[y][x].x < WIN_W
 	// 	&& map->point_matrix[y][x].y >= 0 && map->point_matrix[y][x].y < WIN_H)
 	draw_circle(vars, map->point_matrix[y][x].x, map->point_matrix[y][x].y,
-			map->scale / 10);
+			map->z_scale / 30);
 }
 
 void	set_points(t_vars *vars, t_map *map)
