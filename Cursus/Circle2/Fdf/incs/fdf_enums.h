@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 13:55:27 by angmarti          #+#    #+#             */
-/*   Updated: 2022/12/23 00:08:14 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/01/09 17:30:54 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,16 @@ enum	e_keycodes
 	KEY_DOWN = 125,
 	KEY_LEFT = 123,
 	KEY_RIGHT = 124,
+	KEY_1 = 18,
+	KEY_2 = 19,
+	KEY_3 = 20,
+	KEY_4 = 21,
+	KEY_5 = 23,
+	KEY_6 = 22,
+	KEY_7 = 26,
+	KEY_8 = 28,
+	KEY_9 = 25,
+	KEY_0 = 29,
 };
 
 enum	e_mousebuttons
@@ -39,11 +49,11 @@ enum	e_mousebuttons
 enum	e_events
 {
 	ON_KEYDOWN = 2,
-	ON_KEYUP = 3,
+	// ON_KEYUP = 3,
 	ON_MOUSEDOWN = 4,
-	ON_MOUSEUP = 5,
+	// ON_MOUSEUP = 5,
 	ON_MOUSEMOVE = 6,
-	ON_EXPOSE = 12,
+	// ON_EXPOSE = 12,
 	ON_DESTROY = 17,
 };
 

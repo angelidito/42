@@ -6,7 +6,7 @@
 #    By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/17 12:03:08 by angmarti          #+#    #+#              #
-#    Updated: 2023/01/07 16:25:23 by angmarti         ###   ########.fr        #
+#    Updated: 2023/01/09 17:58:31 by angmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,8 @@ SRC				=	\
 					src/events/hooks.c \
 					src/events/keys.c \
 					src/events/mouse.c \
+					src/events/moves.c \
+					src/events/win.c \
 					src/events/render_next_frame.c \
 					src/skill_testing/circle.c \
 					src/skill_testing/sqr.c

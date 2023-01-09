@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 11:58:36 by angmarti          #+#    #+#             */
-/*   Updated: 2023/01/07 16:20:55 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/01/09 19:52:41 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,10 @@ int	on_mousemove(int x, int y, t_vars *vars)
 		mouse_is_in = 1;
 	else
 		mouse_is_in = 0;
-	// printf("mouse_is_in %d\n", mouse_is_in);
-	// printf("mouse at (%d, %d)\n", x, y);
 	if (mouse_was_in && !mouse_is_in)
 		printf("Mouse leaving\n");
 	else if (!mouse_was_in && mouse_is_in)
 		printf("Mouse entering\n");
-	// mlx_clear_window(vars->mlx, vars->win);
 	return (0);
 }
 
@@ -59,5 +56,9 @@ int	on_mousedown(int button, int x, int y, t_vars *vars)
 		printf("scale : %f\n", vars->map->scale);
 	}
 	printf("mouse button: %d\n", button);
+	render_next_frame(vars);
 	return (0);
 }
+
+
+

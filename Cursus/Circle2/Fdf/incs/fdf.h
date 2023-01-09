@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:44:24 by angmarti          #+#    #+#             */
-/*   Updated: 2022/12/22 23:32:26 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/01/09 18:37:58 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,10 @@ void	hooks(t_vars *vars);
 int		on_keydown(int keycode, t_vars *vars);
 int		on_mousedown(int button, int x, int y, t_vars *vars);
 int		on_mousemove(int x, int y, t_vars *vars);
+int		on_destroy(t_vars *vars);
+
+int		desviate(double variation, t_vars *vars);
+
 // ON_KEYUP*		3	int (*f)(int keycode, void *param);
 // ON_MOUSEUP		5	int (*f)(int button, int x, int y, void *param);
 // ON_EXPOSE*		12	int (*f)(void *param);
