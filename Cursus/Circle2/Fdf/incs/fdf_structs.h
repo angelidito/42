@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 13:55:32 by angmarti          #+#    #+#             */
-/*   Updated: 2023/01/09 19:51:35 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/01/09 20:08:12 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,11 @@ typedef struct s_map
 	int		**data_matrix;
 	int		width;
 	int		height;
+	double	abs_scale;
 	double	scale;
-	// double	abs_scale;
+	double	z_scale;
 	double	desv;
 	double	angle;
-	double	z_scale;
 }			t_map;
 
 typedef struct s_vars

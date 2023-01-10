@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 11:58:36 by angmarti          #+#    #+#             */
-/*   Updated: 2023/01/09 19:52:41 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/01/09 20:14:20 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@ int	on_mousemove(int x, int y, t_vars *vars)
 
 int	on_mousedown(int button, int x, int y, t_vars *vars)
 {
+	double	scale_diff;
+
+	scale_diff = 0.02;
 	if (button == MOUSE_LEFT)
 	{
 		printf("mouse click at (%d, %d)\n", x, y);
@@ -39,19 +42,22 @@ int	on_mousedown(int button, int x, int y, t_vars *vars)
 		draw_circle(vars, x, y, 100);
 		mlx_put_image_to_window(vars->mlx, vars->win, vars->img->img, 0, 0);
 	}
-	if (button == MOUSE_SCROLL_UP)
+	else if (button == MOUSE_SCROLL_UP)
 	{
-		vars->map->scale += 0.2;
-		vars->map->z_scale += 0.2;
+		vars->map->abs_scale += scale_diff;
+		vars->map->scale += scale_diff;
+		vars->map->z_scale += scale_diff;
 		printf("scale : %f\n", vars->map->scale);
 	}
 	else if (button == MOUSE_SCROLL_DOWN)
 	{
-		if (vars->map->scale >= 1.2)
-			vars->map->scale -= 0.2;
+		if (vars->map->abs_scale >= 1 + scale_diff)
+			vars->map->abs_scale -= scale_diff;
+		if (vars->map->scale >= 1 + scale_diff)
+			vars->map->scale -= scale_diff;
 		// vars->map->scale = 1;
-		if (vars->map->z_scale >= 1.2)
-			vars->map->z_scale -= 0.2;
+		if (vars->map->z_scale >= 1 + scale_diff)
+			vars->map->z_scale -= scale_diff;
 		// vars->map->z_scale = 1;
 		printf("scale : %f\n", vars->map->scale);
 	}
@@ -59,6 +65,3 @@ int	on_mousedown(int button, int x, int y, t_vars *vars)
 	render_next_frame(vars);
 	return (0);
 }
-
-
-
