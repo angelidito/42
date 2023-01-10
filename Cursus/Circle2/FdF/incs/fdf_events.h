@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   aux_datamatrix.h                                   :+:      :+:    :+:   */
+/*   fdf_events.h.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 19:59:55 by angmarti          #+#    #+#             */
-/*   Updated: 2022/12/22 20:07:06 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/01/10 20:03:47 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AUX_DATAMATRIX_H
-# define AUX_DATAMATRIX_H
+#ifndef FDF_EVENTS_H
+# define FDF_EVENTS_H
+
+# include "fdf.h"
 
 int		words_calc(char **line);
+int		desviate(double variation, t_vars *vars);
+void	change_scale(int code, t_vars *vars);
+void	change_z_scale(int keycode, t_vars *vars);
 void	free_data_matrix_i(int i, int **data_matrix);
 
 #endif

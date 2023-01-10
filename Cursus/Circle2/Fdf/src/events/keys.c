@@ -6,11 +6,12 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 11:58:05 by angmarti          #+#    #+#             */
-/*   Updated: 2023/01/09 18:41:48 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/01/10 20:47:38 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/fdf.h"
+#include "../../incs/fdf_events.h"
 
 /**
  * It handles the keys A, S, D and W
@@ -33,51 +34,17 @@ int	asdw_keys(int keycode, t_vars *vars)
 		vars->map->angle += angle_diff;
 		if (vars->map->angle > 1)
 			vars->map->angle = 1;
-		printf("angle : %f\n", vars->map->angle);
 	}
 	else if (keycode == KEY_W)
 	{
 		vars->map->angle -= angle_diff;
 		if (vars->map->angle < 0)
 			vars->map->angle = 0;
-		printf("angle : %f\n", vars->map->angle);
 	}
 	else if (keycode == KEY_A)
-	{
 		desviate(-desv_diff, vars);
-		// vars->map->desv -= desv_diff;
-		// if (vars->map->desv < -1)
-		// {
-		// 	vars->map->desv = -1;
-		// 	return (-1);
-		// }
-		// printf("desv  : %f\n", vars->map->desv);
-		// if (vars->map->desv < desv_diff)
-		// 	vars->map->scale -= desv_diff * 12 / 100;
-		// else
-		// 	vars->map->scale += desv_diff * 12 / 100;
-		// if (vars->map->scale < 1)
-		// 	vars->map->scale = 1;
-		// printf("scale : %f\n", vars->map->scale);
-	}
 	else if (keycode == KEY_D)
-	{
 		desviate(desv_diff, vars);
-		// vars->map->desv += desv_diff;
-		// if (vars->map->desv > 1)
-		// {
-		// 	vars->map->desv = 1;
-		// 	return (1);
-		// }
-		// printf("desv  : %f\n", vars->map->desv);
-		// if (vars->map->desv < desv_diff)
-		// 	vars->map->scale += desv_diff * 12 / 100;
-		// else
-		// 	vars->map->scale -= desv_diff * 12 / 100;
-		// if (vars->map->scale < 1)
-		// 	vars->map->scale = 1;
-		// printf("scale : %f\n", vars->map->scale);
-	}
 	return (0);
 }
 
@@ -92,24 +59,24 @@ int	asdw_keys(int keycode, t_vars *vars)
  */
 int	arrow_keys(int keycode, t_vars *vars)
 {
-	int	var;
+	int	pos_diff;
 
-	var = 5;
+	pos_diff = 5 * vars->map->abs_scale;
 	if (keycode == KEY_UP)
 	{
-		vars->map->start.y -= var;
+		vars->map->start.y -= pos_diff;
 	}
 	else if (keycode == KEY_DOWN)
 	{
-		vars->map->start.y += var;
+		vars->map->start.y += pos_diff;
 	}
 	else if (keycode == KEY_LEFT)
 	{
-		vars->map->start.x -= var;
+		vars->map->start.x -= pos_diff;
 	}
 	else if (keycode == KEY_RIGHT)
 	{
-		vars->map->start.x += var;
+		vars->map->start.x += pos_diff;
 	}
 	return (0);
 }
@@ -152,11 +119,10 @@ int	arrow_keys(int keycode, t_vars *vars)
 // 	printf("scale : %f\n", vars->map->scale);
 // 	return (0);
 // }
-int	on_keydown(int keycode, t_vars *vars)
-{
-	int	return_code;
 
-	if (keycode == KEY_ESC)
+void	on_keydown(int keycode, t_vars *vars)
+{
+	if (keycode == KEY_ESC || keycode == KEY_Q)
 	{
 		mlx_destroy_window(vars->mlx, vars->win);
 		printf("Exiting program: keycode %d\n", keycode);
@@ -164,15 +130,16 @@ int	on_keydown(int keycode, t_vars *vars)
 	}
 	else if (keycode == KEY_A || keycode == KEY_S || keycode == KEY_D
 			|| keycode == KEY_W)
-		return_code = asdw_keys(keycode, vars);
+		asdw_keys(keycode, vars);
 	else if (keycode >= KEY_LEFT && keycode <= KEY_UP)
-		return_code = arrow_keys(keycode, vars);
+		arrow_keys(keycode, vars);
+	else if (keycode == KEY_PLUS || keycode == KEY_MINUS)
+		change_scale(keycode, vars);
+	else if (keycode == KEY_INCREASE || keycode == KEY_DECREASE)
+		change_z_scale(keycode, vars);
 	// else if (keycode != 24 && keycode != 27 && keycode >= KEY_1
 	// 		&& keycode <= KEY_0)
-	// 	return_code = number_keys(keycode, vars);
-	else
-		return_code = 0;
+	// 	number_keys(keycode, vars);
 	printf("keycode: %d\n", keycode);
 	render_next_frame(vars);
-	return (return_code);
 }

@@ -6,11 +6,12 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 11:58:36 by angmarti          #+#    #+#             */
-/*   Updated: 2023/01/09 20:14:20 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/01/10 20:04:39 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/fdf.h"
+#include "../../incs/fdf_events.h"
 
 int	on_mousemove(int x, int y, t_vars *vars)
 {
@@ -29,39 +30,20 @@ int	on_mousemove(int x, int y, t_vars *vars)
 	return (0);
 }
 
+
 int	on_mousedown(int button, int x, int y, t_vars *vars)
 {
-	double	scale_diff;
-
-	scale_diff = 0.02;
 	if (button == MOUSE_LEFT)
 	{
 		printf("mouse click at (%d, %d)\n", x, y);
 		// img.img = mlx_new_image(vars->mlx, WIN_W, WIN_H);
-		my_mlx_set_data_addr(vars->img);
-		draw_circle(vars, x, y, 100);
-		mlx_put_image_to_window(vars->mlx, vars->win, vars->img->img, 0, 0);
+		// my_mlx_set_data_addr(vars->img);
+		// draw_circle(vars, x, y, 100);
+		// mlx_put_image_to_window(vars->mlx, vars->win, vars->img->img, 0, 0);
 	}
-	else if (button == MOUSE_SCROLL_UP)
-	{
-		vars->map->abs_scale += scale_diff;
-		vars->map->scale += scale_diff;
-		vars->map->z_scale += scale_diff;
-		printf("scale : %f\n", vars->map->scale);
-	}
-	else if (button == MOUSE_SCROLL_DOWN)
-	{
-		if (vars->map->abs_scale >= 1 + scale_diff)
-			vars->map->abs_scale -= scale_diff;
-		if (vars->map->scale >= 1 + scale_diff)
-			vars->map->scale -= scale_diff;
-		// vars->map->scale = 1;
-		if (vars->map->z_scale >= 1 + scale_diff)
-			vars->map->z_scale -= scale_diff;
-		// vars->map->z_scale = 1;
-		printf("scale : %f\n", vars->map->scale);
-	}
-	printf("mouse button: %d\n", button);
+	else if (button == MOUSE_SCROLL_UP || button == MOUSE_SCROLL_DOWN)
+		change_scale(button, vars);
+	// printf("mouse button: %d\n", button);
 	render_next_frame(vars);
 	return (0);
 }

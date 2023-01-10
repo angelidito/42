@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:44:24 by angmarti          #+#    #+#             */
-/*   Updated: 2023/01/09 18:37:58 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/01/10 19:54:07 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int		get_opposite(int argb);
 //	EVENTS
 
 void	hooks(t_vars *vars);
-int		on_keydown(int keycode, t_vars *vars);
+void	on_keydown(int keycode, t_vars *vars);
 int		on_mousedown(int button, int x, int y, t_vars *vars);
 int		on_mousemove(int x, int y, t_vars *vars);
 int		on_destroy(t_vars *vars);

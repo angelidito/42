@@ -6,14 +6,13 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 15:04:21 by angmarti          #+#    #+#             */
-/*   Updated: 2023/01/07 16:21:43 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/01/10 21:06:17 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/fdf.h"
 
 //PERSPECTIVA CABALLERA: CHECK UME NOTEBOOK
-// TODO para hacer que rote en un punto central calcular centro del mapa
 void	point_calc(int x, int y, t_vars *vars)
 {
 	double	a;
@@ -25,8 +24,8 @@ void	point_calc(int x, int y, t_vars *vars)
 	z = map->data_matrix[y][x] * map->z_scale * (1 - map->angle);
 	// a = (x ) * (map->scale + pow(map->scale, 2) / M_SQRT2) + map->start.x;
 	// b = (y ) * (map->scale + map->scale / M_SQRT2) + map->start.y;
-	a = (x + y * map->desv) * map->scale + map->start.x;
-	b = (y - x * map->desv) * map->scale * map->angle + map->start.y - z;
+	a = (x + y * map->desv ) * map->scale + map->start.x;
+	b = (y - x * map->desv ) * map->scale * map->angle + map->start.y - z;
 	// printf("%f, %f\n", a, b);
 	map->point_matrix[y][x].x = (int)trunc(a);
 	map->point_matrix[y][x].y = (int)trunc(b);
