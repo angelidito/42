@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 14:56:35 by angmarti          #+#    #+#             */
-/*   Updated: 2023/01/10 19:57:34 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/01/23 14:12:45 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	set_map_vars(t_map *map)
 {
 	int	aux;
 
-	map->desv = 1;
+	map->desv = 0;
 	aux = 3 * WIN_H / 4 / (sqrt(map->width * map->width * 2));
 	map->angle = 1;
 	map->start.x = 50;
