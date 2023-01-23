@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 15:04:21 by angmarti          #+#    #+#             */
-/*   Updated: 2023/01/10 21:06:17 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/01/23 13:50:17 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,25 +24,31 @@ void	point_calc(int x, int y, t_vars *vars)
 	z = map->data_matrix[y][x] * map->z_scale * (1 - map->angle);
 	// a = (x ) * (map->scale + pow(map->scale, 2) / M_SQRT2) + map->start.x;
 	// b = (y ) * (map->scale + map->scale / M_SQRT2) + map->start.y;
-	a = (x + y * map->desv ) * map->scale + map->start.x;
-	b = (y - x * map->desv ) * map->scale * map->angle + map->start.y - z;
+	a = (x + y * map->desv) * map->scale + map->start.x;
+	b = (y - x * map->desv) * map->scale * map->angle + map->start.y - z;
 	// printf("%f, %f\n", a, b);
 	map->point_matrix[y][x].x = (int)trunc(a);
 	map->point_matrix[y][x].y = (int)trunc(b);
+	if (y != 0)
+		print_line(map->point_matrix[y - 1][x], map->point_matrix[y][x], vars);
+	if (x != 0)
+		print_line(map->point_matrix[y][x - 1], map->point_matrix[y][x], vars);
+	// draw_circle(vars, map->point_matrix[y][x].x,map->point_matrix[y][x].y,0);
+	// map->z_scale / 30);
 	// printf("%d, %d\n", map->point_matrix[y][x].x, map->point_matrix[y][x].y);
 	// ft_printf("%f, %f\n", a, b);
 	// printf("%p\n", &vars->img);
 	// if (map->point_matrix[y][x].x >= 0 && map->point_matrix[y][x].x < WIN_W
 	// 	&& map->point_matrix[y][x].y >= 0 && map->point_matrix[y][x].y < WIN_H)
-	draw_circle(vars, map->point_matrix[y][x].x, map->point_matrix[y][x].y,
-			map->z_scale / 30);
 }
 
 void	set_points(t_vars *vars, t_map *map)
 {
-	int	x;
-	int	y;
+	int		x;
+	int		y;
+	t_point	**matrix;
 
+	matrix = vars->map->point_matrix;
 	y = 0;
 	while (y < map->height)
 	{
@@ -51,7 +57,6 @@ void	set_points(t_vars *vars, t_map *map)
 			point_calc(x++, y, vars);
 		y++;
 	}
-	mlx_put_image_to_window(vars->mlx, vars->win, vars->img->img, 0, 0);
 }
 
 int	set_map_point_matrix(t_vars *vars, t_map *map)

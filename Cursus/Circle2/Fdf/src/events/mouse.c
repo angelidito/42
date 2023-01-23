@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 11:58:36 by angmarti          #+#    #+#             */
-/*   Updated: 2023/01/10 20:04:39 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/01/11 12:45:26 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int	on_mousemove(int x, int y, t_vars *vars)
 	return (0);
 }
 
-
 int	on_mousedown(int button, int x, int y, t_vars *vars)
 {
 	if (button == MOUSE_LEFT)
@@ -40,6 +39,7 @@ int	on_mousedown(int button, int x, int y, t_vars *vars)
 		// my_mlx_set_data_addr(vars->img);
 		// draw_circle(vars, x, y, 100);
 		// mlx_put_image_to_window(vars->mlx, vars->win, vars->img->img, 0, 0);
+		return (0);
 	}
 	else if (button == MOUSE_SCROLL_UP || button == MOUSE_SCROLL_DOWN)
 		change_scale(button, vars);
