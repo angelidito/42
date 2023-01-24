@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 11:58:05 by angmarti          #+#    #+#             */
-/*   Updated: 2023/01/24 14:44:11 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/01/24 16:11:46 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,7 @@ int	arrow_keys(int keycode, t_vars *vars)
 // 	return (0);
 // }
 
-void	on_keydown(int keycode, t_vars *vars)
+int	on_keydown(int keycode, t_vars *vars)
 {
 	if (keycode == KEY_ESC || keycode == KEY_Q)
 	{
@@ -142,4 +142,5 @@ void	on_keydown(int keycode, t_vars *vars)
 	// 	number_keys(keycode, vars);
 	printf("keycode: %d\n", keycode);
 	render_next_frame(vars);
+	return (0);
 }
