@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 15:04:21 by angmarti          #+#    #+#             */
-/*   Updated: 2023/01/23 16:19:02 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/01/24 14:40:01 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,39 +15,39 @@
 //PERSPECTIVA CABALLERA: CHECK UME NOTEBOOK
 void	point_calc(int x, int y, t_vars *vars)
 {
-	double	x_p;
-	double	y_p;
 	int		z;
+	t_point	p;
 	t_map	*map;
 	double	sinTheta;
 	double	cosTheta;
-	double	r;
 
 	map = vars->map;
 	z = map->data_matrix[y][x] * map->z_scale * (1 - map->angle);
-	// x_p = (x ) * (map->scale + pow(map->scale, 2) / M_SQRT2) + map->start.x;
-	// y_p = (y ) * (map->scale + map->scale / M_SQRT2) + map->start.y;
-	// x_p = (x + y * map->desv) * map->scale + map->start.x;
-	// y_p = (y - x * map->desv) * map->scale * map->angle + map->start.y - z;
+	// p.x = (x ) * (map->scale + pow(map->scale, 2) / M_SQRT2) + map->start.x;
+	// p.y = (y ) * (map->scale + map->scale / M_SQRT2) + map->start.y;
+	// p.x = (x + y * map->desv) * map->scale + map->start.x;
+	// p.y = (y - x * map->desv) * map->scale * map->angle + map->start.y - z;
 	sinTheta = sin(map->desv);
 	cosTheta = cos(map->desv);
-	r = 1;
 	// r = sqrt(x * x + y * y);
-	x_p = r * (x * cosTheta - y * sinTheta) * map->scale;
-	y_p = r * (y * cosTheta + x * sinTheta) * map->scale * map->angle;
-	x_p += map->start.x;
-	y_p += map->start.y - z;
-	// printf("%f, %f\n", x_p, y_p);
-	map->point_matrix[y][x].x = (int)trunc(x_p);
-	map->point_matrix[y][x].y = (int)trunc(y_p);
-	if (y != 0)
-		print_line(map->point_matrix[y - 1][x], map->point_matrix[y][x], vars);
-	if (x != 0)
-		print_line(map->point_matrix[y][x - 1], map->point_matrix[y][x], vars);
-	// draw_circle(vars, map->point_matrix[y][x].x, map->point_matrix[y][x].y, 2);
+	// p.x = r * (x * cosTheta - y * sinTheta) * map->scale;
+	// p.y = r * (y * cosTheta + x * sinTheta) * map->scale * map->angle;
+	p.x = ((x - map->width / 2) * cosTheta - (y - map->height / 2) * sinTheta) * map->scale;
+	p.y = ((y - map->height / 2) * cosTheta + (x - map->width / 2) * sinTheta) * map->scale * map->angle;
+	
+	p.x += map->start.x;
+	p.y += map->start.y - z;
+	// printf("%f, %f\n", p.x, p.y);
+	map->point_matrix[y][x].x = (int)trunc(p.x);
+	map->point_matrix[y][x].y = (int)trunc(p.y);
+	// if (y != 0)
+	// 	print_line(map->point_matrix[y - 1][x], map->point_matrix[y][x], vars);
+	// if (x != 0)
+	// 	print_line(map->point_matrix[y][x - 1], map->point_matrix[y][x], vars);
+	draw_circle(vars, map->point_matrix[y][x].x, map->point_matrix[y][x].y, 2);
 	// map->z_scale / 30);d
 	// printf("%d, %d\n", map->point_matrix[y][x].x, map->point_matrix[y][x].y);
-	// ft_printf("%f, %f\n", x_p, y_p);
+	// ft_printf("%f, %f\n", p.x, p.y);
 	// printf("%p\n", &vars->img);
 	// if (map->point_matrix[y][x].x >= 0 && map->point_matrix[y][x].x < WIN_W
 	// 	&& map->point_matrix[y][x].y >= 0 && map->point_matrix[y][x].y < WIN_H)
