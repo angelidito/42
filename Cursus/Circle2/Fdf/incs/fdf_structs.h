@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 13:55:32 by angmarti          #+#    #+#             */
-/*   Updated: 2023/01/09 20:08:12 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/01/24 14:50:36 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ typedef struct s_point
 {
 	int		x;
 	int		y;
-
 }			t_point;
 
 typedef struct s_map
