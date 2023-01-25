@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 13:55:32 by angmarti          #+#    #+#             */
-/*   Updated: 2023/01/24 14:50:36 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/01/25 18:55:07 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,10 @@ typedef struct s_map
 	t_point	start;
 	t_point	**point_matrix;
 	int		**data_matrix;
-	int		width;
+	int		dots_on;
+	int		lines_on;
 	int		height;
+	int		width;
 	double	abs_scale;
 	double	scale;
 	double	z_scale;

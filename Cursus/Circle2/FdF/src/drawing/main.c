@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 12:22:52 by angmarti          #+#    #+#             */
-/*   Updated: 2022/12/22 23:22:59 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/01/25 17:29:05 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	char	*dst;
 	int		offset;
 
+	// if (!(x >= 0 && x < WIN_W && y >= 0 && y < WIN_H))
+	// 	return ;
 	// Think about making a ft_offset function
 	offset = y * data->line_length + x * (data->bits_per_pixel / 8);
 	dst = data->addr + offset;

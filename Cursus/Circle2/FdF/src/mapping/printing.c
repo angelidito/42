@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 14:27:05 by angmarti          #+#    #+#             */
-/*   Updated: 2023/01/11 13:55:09 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/01/25 16:11:45 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	print_f_x(t_point *p1, t_point *p2, t_vars *vars)
 	while (x < p2->x)
 	{
 		y = (p1->y - p2->y) / (p1->x - p2->x) * (x - p1->x) + p1->y;
-		draw_circle(vars, x, y, 2);
+		draw_circle(vars, x, y, 0);
 		x++;
 	}
 }
@@ -37,7 +37,7 @@ void	print_f_y(t_point *p1, t_point *p2, t_vars *vars)
 	{
 		x = (p1->x - p2->x) / (p1->y - p2->y) * (y - p1->y) + p1->x;
 		// my_mlx_pixel_put(vars->img, x, y, 255);
-		draw_circle(vars, x, y, 2);
+		draw_circle(vars, x, y, 0);
 		y++;
 	}
 }

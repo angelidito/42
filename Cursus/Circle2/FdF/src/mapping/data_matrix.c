@@ -6,12 +6,12 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 14:56:35 by angmarti          #+#    #+#             */
-/*   Updated: 2023/01/10 20:04:39 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/01/25 19:00:41 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incs/fdf_events.h"
 #include "../../incs/fdf.h"
+#include "../../incs/fdf_events.h"
 
 /**
  * It prints the file matrix
@@ -139,11 +139,12 @@ int	get_map_matrix(t_list *lines, t_vars *vars)
 		lines = lines->next;
 	}
 	vars->map->width = words;
+	printf("%d", vars->map->width);
 	return (0);
 }
 
 /**
- * It reads the map file and stores the map matrix in the vars struct
+ * It reads the map file and stores the map matrix in the vars structs
  * 
  * @param file The file name
  * @param vars Struct that holds all the variables for the program

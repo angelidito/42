@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 13:55:27 by angmarti          #+#    #+#             */
-/*   Updated: 2023/01/10 19:50:16 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/01/25 19:12:38 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ enum	e_keycodes
 	KEY_DECREASE = 121,
 	KEY_PLUS = 30,
 	KEY_MINUS = 44,
+	KEY_COMMA = 43,
+	KEY_DOT = 47,
 };
 
 enum	e_mousebuttons
@@ -71,7 +73,7 @@ enum	e_colors
 
 enum	e_winsize
 {
-	WIN_W = 1200,
+	WIN_W = 1800,
 	WIN_H = 1200,
 };
 

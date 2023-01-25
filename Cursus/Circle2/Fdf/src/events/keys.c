@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 11:58:05 by angmarti          #+#    #+#             */
-/*   Updated: 2023/01/24 16:11:46 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/01/25 19:43:46 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	asdw_keys(int keycode, t_vars *vars)
 	double	angle_diff;
 	double	desv_diff;
 
+	breakpoint();
 	angle_diff = 0.02;
 	desv_diff = 0.02;
 	if (keycode == KEY_S)
@@ -61,7 +62,8 @@ int	arrow_keys(int keycode, t_vars *vars)
 {
 	int	pos_diff;
 
-	pos_diff = 5 * vars->map->abs_scale;
+	pos_diff = 10;
+	ft_printf("%d", pos_diff);
 	if (keycode == KEY_UP)
 	{
 		vars->map->start.y -= pos_diff;
@@ -137,6 +139,19 @@ int	on_keydown(int keycode, t_vars *vars)
 		change_scale(keycode, vars);
 	else if (keycode == KEY_INCREASE || keycode == KEY_DECREASE)
 		change_z_scale(keycode, vars);
+	else if (keycode == KEY_COMMA)
+	{
+		vars->map->lines_on = (vars->map->lines_on + 1) % 2;
+		if (!vars->map->lines_on)
+			if (!vars->map->dots_on)
+				vars->map->dots_on = 1;
+	}
+	else if (keycode == KEY_DOT)
+	{
+		vars->map->dots_on = (vars->map->dots_on + 1) % 3;
+		if (!vars->map->dots_on)
+			vars->map->lines_on = 1;
+	}
 	// else if (keycode != 24 && keycode != 27 && keycode >= KEY_1
 	// 		&& keycode <= KEY_0)
 	// 	number_keys(keycode, vars);

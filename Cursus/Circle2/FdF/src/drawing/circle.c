@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:36:13 by angmarti          #+#    #+#             */
-/*   Updated: 2022/12/22 23:48:00 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/01/25 19:42:01 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	draw_circle(t_vars *vars, int x_center, int y_center, int radius)
 	t_data	*img;
 
 	img = vars->img;
-	color = get_opposite(get_opposite(get_argb(0, 255, 255, 0)));
+	color = (get_opposite(get_argb(0, 200, 0, 0)));
 	y = y_center - radius - 1;
 	while (y_center + radius >= ++y)
 	{

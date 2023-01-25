@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:44:24 by angmarti          #+#    #+#             */
-/*   Updated: 2023/01/24 16:12:05 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/01/25 17:45:21 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,12 @@ int		desviate(double variation, t_vars *vars);
 // ON_EXPOSE*		12	int (*f)(void *param);
 // ON_DESTROY		17	int (*f)(void *param);
 
-//	SKILL TESTING
+//	DRAWING
 
 void	draw_sqr0(t_data *img, int x_start, int y_start, int side_len);
 void	draw_sqr1(t_data *img, int x_start, int y_start, int side_len);
 void	draw_circle(t_vars *vars, int x_center, int y_center, int radius);
+void	draw_line(t_vars *vars, t_point begin, t_point end);
 
 //	MAPPING
 

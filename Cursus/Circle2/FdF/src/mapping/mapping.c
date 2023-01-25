@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 14:56:35 by angmarti          #+#    #+#             */
-/*   Updated: 2023/01/24 14:41:59 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/01/25 19:17:20 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,14 @@ void	set_map_vars(t_map *map)
 {
 	int	aux;
 
+	map->desv = 0;
 	map->desv = -0.8;
-	aux = 3 * WIN_H / 4 / (sqrt(map->width * map->width * 2));
+	aux = 2 * WIN_W / 4 / (sqrt(map->width * map->width * 2));
+	map->dots_on = 0;
+	map->lines_on = 1;
+	map->angle = 1;
 	map->angle = 0.5;
-	map->start.x = 2 * WIN_H / 4;
+	map->start.x = 2 * WIN_W / 4;
 	map->start.y = 2 * WIN_H / 4;
 	map->abs_scale = 1.0;
 	if (aux > 0)
