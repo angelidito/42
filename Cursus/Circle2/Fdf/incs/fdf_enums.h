@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 13:55:27 by angmarti          #+#    #+#             */
-/*   Updated: 2023/01/25 19:12:38 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/02/01 14:34:46 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,8 @@ enum	e_mousebuttons
 enum	e_events
 {
 	ON_KEYDOWN = 2,
-	// ON_KEYUP = 3,
 	ON_MOUSEDOWN = 4,
-	// ON_MOUSEUP = 5,
 	ON_MOUSEMOVE = 6,
-	// ON_EXPOSE = 12,
 	ON_DESTROY = 17,
 };
 
