@@ -6,12 +6,20 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:36:13 by angmarti          #+#    #+#             */
-/*   Updated: 2023/01/25 19:42:01 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/02/01 17:08:28 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/fdf.h"
 
+/**
+ * It draws a circle
+ * 
+ * @param vars the structure containing all the variables
+ * @param x_center the x coordinate of the center of the circle
+ * @param y_center the y coordinate of the center of the circle
+ * @param radius the radius of the circle
+ */
 void	draw_circle(t_vars *vars, int x_center, int y_center, int radius)
 {
 	int		x;

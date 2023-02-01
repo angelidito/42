@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 13:13:55 by angmarti          #+#    #+#             */
-/*   Updated: 2022/11/29 15:40:48 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/02/01 17:08:10 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,15 @@ int	get_rgb(int r, int g, int b)
 	return (get_argb(0, r, g, b));
 }
 
+/**
+ * It takes a color and a shade value, and returns a new color that is the 
+ * original color with the shade value applied to it
+ * 
+ * @param shade a double between 0 and 1. 0 is no shade, 1 is full shade.
+ * @param argb The color to be shaded.
+ * 
+ * @return the color of the pixel after the shade has been applied.
+ */
 int	add_shade(double shade, int argb)
 {
 	int	a;
@@ -79,6 +88,13 @@ int	add_shade(double shade, int argb)
 	return (get_argb(a, r, g, b));
 }
 
+/**
+ * It takes an ARGB color and returns the opposite color
+ * 
+ * @param argb The color to get the opposite of.
+ * 
+ * @return The opposite of the color.
+ */
 int	get_opposite(int argb)
 {
 	int	a;

@@ -6,12 +6,20 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 15:04:21 by angmarti          #+#    #+#             */
-/*   Updated: 2023/02/01 14:20:08 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/02/01 17:14:22 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/fdf.h"
 
+/**
+ * It draws the lines and dots on the map
+ * 
+ * @param x the x coordinate of the point
+ * @param y the y coordinate of the point
+ * @param z the z value of the point
+ * @param vars a pointer to the t_vars struct
+ */
 void	point_print(int x, int y, int z, t_vars *vars)
 {
 	if (vars->map->lines_on)
@@ -29,6 +37,17 @@ void	point_print(int x, int y, int z, t_vars *vars)
 	z++;
 }
 
+/**
+ * It calculates the x and y coordinates of a point on the map, and returns the 
+ * z coordinate
+ * 
+ * @param x x coordinate of the point
+ * @param y the y coordinate of the point
+ * @param vars a pointer to the t_vars struct, which contains all the variables 
+ * needed for the program.
+ * 
+ * @return The z value of the point.
+ */
 int	point_calc(int x, int y, t_vars *vars)
 {
 	int		z;
@@ -52,6 +71,13 @@ int	point_calc(int x, int y, t_vars *vars)
 	return (z);
 }
 
+/**
+ * It takes the x and y coordinates of a point, calculates the z coordinate, 
+ * and then prints the point
+ * 
+ * @param vars a pointer to the t_vars struct
+ * @param map the map struct
+ */
 void	set_points(t_vars *vars, t_map *map)
 {
 	int		x;
@@ -74,6 +100,14 @@ void	set_points(t_vars *vars, t_map *map)
 	}
 }
 
+/**
+ * It allocates a 2D array of t_point structs, one for each point in the map
+ * 
+ * @param vars a pointer to the t_vars struct
+ * @param map the map struct
+ * 
+ * @return the value of the variable y.
+ */
 int	set_map_point_matrix(t_vars *vars, t_map *map)
 {
 	int	y;

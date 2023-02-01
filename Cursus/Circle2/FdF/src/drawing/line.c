@@ -6,12 +6,19 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 17:44:42 by angmarti          #+#    #+#             */
-/*   Updated: 2023/02/01 14:29:32 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/02/01 17:08:40 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/fdf.h"
 
+/**
+ * It draws a line between two points
+ * 
+ * @param vars a pointer to the t_vars structure.
+ * @param begin the starting point of the line
+ * @param end the end point of the line
+ */
 void	draw_line(t_vars *vars, t_point begin, t_point end)
 {
 	double	delta_x;

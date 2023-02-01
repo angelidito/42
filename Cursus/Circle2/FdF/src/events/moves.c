@@ -6,12 +6,18 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:47:46 by angmarti          #+#    #+#             */
-/*   Updated: 2023/02/01 14:47:11 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/02/01 17:11:28 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/fdf.h"
 
+/**
+ * It changes the scale of the map
+ * 
+ * @param code the keycode of the key pressed
+ * @param vars a pointer to the t_vars struct
+ */
 void	change_scale(int code, t_vars *vars)
 {
 	double	scale_diff;
@@ -39,12 +45,26 @@ void	change_scale(int code, t_vars *vars)
 	}
 }
 
+/**
+ * It changes the desviation of the map
+ * 
+ * @param variation the amount of variation to be applied to the desviation.
+ * @param vars A pointer to the t_vars struct.
+ * 
+ * @return the value 0.
+ */
 int	change_desviation(double variation, t_vars *vars)
 {
 	vars->map->desv += variation;
 	return (0);
 }
 
+/**
+ * It changes the z scale of the map
+ * 
+ * @param keycode the keycode of the key that was pressed
+ * @param vars a pointer to the t_vars struct
+ */
 void	change_z_scale(int keycode, t_vars *vars)
 {
 	double	scale_diff;

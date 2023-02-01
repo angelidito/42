@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 11:58:05 by angmarti          #+#    #+#             */
-/*   Updated: 2023/02/01 16:53:55 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/02/01 17:09:20 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,12 @@ int	arrow_keys(int keycode, t_vars *vars)
 	return (0);
 }
 
+/**
+ * It toggles the lines and dots on and off
+ * 
+ * @param keycode the key that was pressed
+ * @param vars a pointer to the t_vars struct
+ */
 void	dot_n_comma(int keycode, t_vars *vars)
 {
 	if (keycode == KEY_COMMA)
@@ -98,6 +104,14 @@ void	dot_n_comma(int keycode, t_vars *vars)
 	}
 }
 
+/**
+ * It handles all the keypresses
+ * 
+ * @param keycode the key that was pressed
+ * @param vars a pointer to the t_vars struct
+ * 
+ * @return 0
+ */
 int	on_keydown(int keycode, t_vars *vars)
 {
 	if (keycode == KEY_ESC || keycode == KEY_Q)

@@ -6,12 +6,17 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 14:56:35 by angmarti          #+#    #+#             */
-/*   Updated: 2023/02/01 14:51:17 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/02/01 17:13:11 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/fdf.h"
 
+/**
+ * It sets the variables that control the map's appearance
+ * 
+ * @param map the map structure
+ */
 void	set_map_vars(t_map *map)
 {
 	int	aux;
@@ -32,6 +37,16 @@ void	set_map_vars(t_map *map)
 	map->z_scale = map->abs_scale;
 }
 
+/**
+ * It reads the map file,
+ * allocates memory for the map, and sets the map's variables
+ * 
+ * @param file the file name of the map
+ * @param vars a pointer to the t_vars struct that holds all the variables 
+ * for the program.
+ * 
+ * @return the value of the variable "map"
+ */
 int	set_map(const char *file, t_vars *vars)
 {
 	t_map	*map;

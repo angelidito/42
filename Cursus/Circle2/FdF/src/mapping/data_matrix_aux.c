@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 19:36:25 by angmarti          #+#    #+#             */
-/*   Updated: 2022/12/22 20:05:47 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/02/01 17:11:53 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,11 @@ void	free_data_matrix_i(int i, int **data_matrix)
 	free(data_matrix);
 }
 
+/**
+ * It frees the data matrix
+ * 
+ * @param map the map structure
+ */
 void	free_data_matrix(t_map *map)
 {
 	int	i;
