@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 11:58:05 by angmarti          #+#    #+#             */
-/*   Updated: 2023/02/01 14:56:32 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/02/01 16:53:55 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,6 @@ int	on_keydown(int keycode, t_vars *vars)
 		change_z_scale(keycode, vars);
 	else if (keycode == KEY_COMMA || keycode == KEY_DOT)
 		dot_n_comma(keycode, vars);
-	ft_printf("keycode: %d\n", keycode);
 	render_next_frame(vars);
 	return (0);
 }
