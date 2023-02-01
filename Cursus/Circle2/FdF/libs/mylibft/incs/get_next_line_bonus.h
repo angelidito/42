@@ -6,18 +6,18 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 17:04:29 by angmarti          #+#    #+#             */
-/*   Updated: 2023/02/01 14:31:36 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/02/01 14:33:03 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_BONUS_H
 # define GET_NEXT_LINE_BONUS_H
 
-# include <stdlib.h>	/* Malloc & Free functions */
-# include <unistd.h> 	/* Write & Read functions */
-# include <stdio.h>		/* BUFSIZ definition*/
 # include <fcntl.h> 	/* Open function */
 # include <limits.h>	/* Macro defined OPEN_MAX */
+# include <stdio.h>		/* BUFSIZ definition*/
+# include <stdlib.h>	/* Malloc & Free functions */
+# include <unistd.h> 	/* Write & Read functions */
 // # include "libft.h"
 
 # ifndef BUFFER_SIZE
