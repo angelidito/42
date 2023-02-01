@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 17:44:42 by angmarti          #+#    #+#             */
-/*   Updated: 2023/01/25 19:32:39 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/02/01 14:29:32 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	draw_line(t_vars *vars, t_point begin, t_point end)
 {
-	double delta_x;
-	double delta_y;
-	int pixels;
-	double pixel_x;
-	double pixel_y;
+	double	delta_x;
+	double	delta_y;
+	int		pixels;
+	double	pixel_x;
+	double	pixel_y;
 
 	delta_x = end.x - begin.x;
 	delta_y = end.y - begin.y;
@@ -34,7 +34,7 @@ void	draw_line(t_vars *vars, t_point begin, t_point end)
 						|| (pixel_x == end.x && pixel_y == end.y))
 					&& vars->map->dots_on))
 				my_mlx_pixel_put(vars->img, pixel_x, pixel_y, get_argb(0, 200,
-							0, 0));
+						0, 0));
 		pixel_x += delta_x;
 		pixel_y += delta_y;
 		--pixels;

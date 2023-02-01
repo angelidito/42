@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:47:46 by angmarti          #+#    #+#             */
-/*   Updated: 2023/01/23 14:07:19 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/02/01 14:21:19 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,23 +42,6 @@ void	change_scale(int code, t_vars *vars)
 int	desviate(double variation, t_vars *vars)
 {
 	vars->map->desv += variation;
-	// if (vars->map->desv < -1)
-	// {
-	// 	vars->map->desv = -1;
-	// 	return (-1);
-	// }
-	// else if (vars->map->desv > 1)
-	// {
-	// 	vars->map->desv = 1;
-	// 	return (1);
-	// }
-	// if (vars->map->desv + 2 > 2)
-	// 	vars->map->scale = -0.41 * vars->map->desv + 1.41;
-	// else
-	// 	vars->map->scale = 0.41 * vars->map->desv + 1.41;
-	// vars->map->scale *= vars->map->abs_scale;
-	// if (vars->map->scale < 1)
-	// 	vars->map->scale = 1;
 	return (0);
 }
 

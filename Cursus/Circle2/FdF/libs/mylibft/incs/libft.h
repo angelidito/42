@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 12:01:34 by angmarti          #+#    #+#             */
-/*   Updated: 2022/12/20 16:10:52 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/02/01 14:31:09 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,15 @@
 # define LIBFT_H
 
 # include <stdio.h>
-# include <stdlib.h>	/* Malloc & Free functions */
+# include <stdlib.h> /* Malloc & Free functions */
 # include <stdlib.h>
 # include <string.h>
-# include <unistd.h> 	/* Write & Read functions */
-// # include "ft_printf.h"
-// # include "get_next_line_bonus.h"
+# include <unistd.h> /* Write & Read functions */
 
 //	ADD-ONS
 
-int		ft_printf(char const *str, ...);
-char	*get_next_line(int fd);
+int					ft_printf(char const *str, ...);
+char				*get_next_line(int fd);
 
 //	LIBFT
 

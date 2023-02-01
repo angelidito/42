@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 15:04:21 by angmarti          #+#    #+#             */
-/*   Updated: 2023/01/25 19:47:49 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/02/01 14:20:08 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,36 @@
 
 void	point_print(int x, int y, int z, t_vars *vars)
 {
-	// breakpoint();
 	if (vars->map->lines_on)
 	{
 		if (y != 0)
 			draw_line(vars, vars->map->point_matrix[y - 1][x],
-					vars->map->point_matrix[y][x]);
+				vars->map->point_matrix[y][x]);
 		if (x != 0)
 			draw_line(vars, vars->map->point_matrix[y][x - 1],
-					vars->map->point_matrix[y][x]);
+				vars->map->point_matrix[y][x]);
 	}
 	if (vars->map->dots_on)
 		draw_circle(vars, vars->map->point_matrix[y][x].x,
-				vars->map->point_matrix[y][x].y, vars->map->dots_on - 1);
+			vars->map->point_matrix[y][x].y, vars->map->dots_on - 1);
 	z++;
 }
 
 int	point_calc(int x, int y, t_vars *vars)
 {
 	int		z;
-	double	sinTheta;
-	double	cosTheta;
+	double	sin_theta;
+	double	cos_theta;
 	t_map	*map;
 	t_point	p;
 
 	map = vars->map;
 	z = map->data_matrix[y][x] * map->z_scale * (1 - map->angle);
-	sinTheta = sin(map->desv);
-	cosTheta = cos(map->desv);
-	p.x = ((x - map->width / 2) * cosTheta - (y - map->height / 2) * sinTheta)
+	sin_theta = sin(map->desv);
+	cos_theta = cos(map->desv);
+	p.x = ((x - map->width / 2) * cos_theta - (y - map->height / 2) * sin_theta)
 		* map->scale;
-	p.y = ((y - map->height / 2) * cosTheta + (x - map->width / 2) * sinTheta)
+	p.y = ((y - map->height / 2) * cos_theta + (x - map->width / 2) * sin_theta)
 		* map->scale * map->angle;
 	p.x += map->start.x;
 	p.y += map->start.y - z;
@@ -77,7 +76,7 @@ void	set_points(t_vars *vars, t_map *map)
 
 int	set_map_point_matrix(t_vars *vars, t_map *map)
 {
-	int y;
+	int	y;
 
 	map = vars->map;
 	map->point_matrix = ft_calloc(map->height + 1, sizeof(t_point *));

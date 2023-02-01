@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 14:56:35 by angmarti          #+#    #+#             */
-/*   Updated: 2023/01/25 19:00:41 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/02/01 14:20:40 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,11 +72,6 @@ t_list	*linelist(const char *file)
 	close(fd);
 	return (lines);
 }
-// t_list	*it;
-// it = lines;
-// while (it->content)
-// {ft_printf("%s", it->content);it = it->next;
-// }
 
 /**
  * Takes an array of strings and an array of integers, converts the strings to
@@ -163,6 +158,5 @@ int	set_map_data_matrix(const char *file, t_vars *vars)
 	ft_lstclear(&lines, free);
 	if (!vars->map->data_matrix)
 		return (-1);
-	// map_print(vars->map);
 	return (0);
 }

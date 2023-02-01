@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:44:24 by angmarti          #+#    #+#             */
-/*   Updated: 2023/01/25 17:45:21 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/02/01 14:16:26 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ int		set_map_data_matrix(const char *file, t_vars *vars);
 int		set_map_point_matrix(t_vars *vars, t_map *map);
 int		set_map(const char *file, t_vars *vars);
 void	set_points(t_vars *vars, t_map *map);
-void	print_line(t_point a, t_point b, t_vars *vars);
 
 //	MY MLX
 

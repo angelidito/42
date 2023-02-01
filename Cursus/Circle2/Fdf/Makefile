@@ -6,7 +6,7 @@
 #    By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/17 12:03:08 by angmarti          #+#    #+#              #
-#    Updated: 2023/01/25 17:54:45 by angmarti         ###   ########.fr        #
+#    Updated: 2023/02/01 14:16:45 by angmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,6 @@ SRC				=	\
 					src/mapping/data_matrix_aux.c \
 					src/mapping/mapping.c \
 					src/mapping/point_matrix.c \
-					src/mapping/printing.c \
 					src/events/hooks.c \
 					src/events/keys.c \
 					src/events/mouse.c \
