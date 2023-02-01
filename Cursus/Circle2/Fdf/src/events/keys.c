@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 11:58:05 by angmarti          #+#    #+#             */
-/*   Updated: 2023/02/01 14:27:35 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/02/01 14:56:32 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int	asdw_keys(int keycode, t_vars *vars)
 	double	angle_diff;
 	double	desv_diff;
 
-	breakpoint();
 	angle_diff = 0.02;
 	desv_diff = 0.02;
 	if (keycode == KEY_S)
@@ -43,9 +42,9 @@ int	asdw_keys(int keycode, t_vars *vars)
 			vars->map->angle = 0;
 	}
 	else if (keycode == KEY_A)
-		desviate(-desv_diff, vars);
+		change_desviation(-desv_diff, vars);
 	else if (keycode == KEY_D)
-		desviate(desv_diff, vars);
+		change_desviation(desv_diff, vars);
 	return (0);
 }
 
@@ -104,7 +103,7 @@ int	on_keydown(int keycode, t_vars *vars)
 	if (keycode == KEY_ESC || keycode == KEY_Q)
 	{
 		mlx_destroy_window(vars->mlx, vars->win);
-		printf("Exiting program: keycode %d\n", keycode);
+		ft_printf("Exiting program: keycode %d\n", keycode);
 		exit(0);
 	}
 	else if (keycode == KEY_A || keycode == KEY_S || keycode == KEY_D
@@ -118,7 +117,7 @@ int	on_keydown(int keycode, t_vars *vars)
 		change_z_scale(keycode, vars);
 	else if (keycode == KEY_COMMA || keycode == KEY_DOT)
 		dot_n_comma(keycode, vars);
-	printf("keycode: %d\n", keycode);
+	ft_printf("keycode: %d\n", keycode);
 	render_next_frame(vars);
 	return (0);
 }

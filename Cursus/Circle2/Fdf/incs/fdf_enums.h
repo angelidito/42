@@ -6,12 +6,27 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 13:55:27 by angmarti          #+#    #+#             */
-/*   Updated: 2023/02/01 14:34:46 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/02/01 14:36:54 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_ENUMS_H
 # define FDF_ENUMS_H
+
+enum	e_colors
+{
+	RED = 0x00ff0000,
+	GREEN = 0x0000ff00,
+	BLUE = 0x000000ff,
+};
+
+enum	e_events
+{
+	ON_KEYDOWN = 2,
+	ON_MOUSEDOWN = 4,
+	ON_MOUSEMOVE = 6,
+	ON_DESTROY = 17,
+};
 
 enum	e_keycodes
 {
@@ -51,21 +66,6 @@ enum	e_mousebuttons
 	MOUSE_MIDDLE = 3,
 	MOUSE_SCROLL_DOWN = 4,
 	MOUSE_SCROLL_UP = 5,
-};
-
-enum	e_events
-{
-	ON_KEYDOWN = 2,
-	ON_MOUSEDOWN = 4,
-	ON_MOUSEMOVE = 6,
-	ON_DESTROY = 17,
-};
-
-enum	e_colors
-{
-	RED = 0x00ff0000,
-	GREEN = 0x0000ff00,
-	BLUE = 0x000000ff,
 };
 
 enum	e_winsize

@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:47:46 by angmarti          #+#    #+#             */
-/*   Updated: 2023/02/01 14:21:19 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/02/01 14:47:11 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	change_scale(int code, t_vars *vars)
 	}
 }
 
-int	desviate(double variation, t_vars *vars)
+int	change_desviation(double variation, t_vars *vars)
 {
 	vars->map->desv += variation;
 	return (0);

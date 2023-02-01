@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 14:56:35 by angmarti          #+#    #+#             */
-/*   Updated: 2023/01/26 13:52:17 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/02/01 14:51:17 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ int	set_map(const char *file, t_vars *vars)
 	map = vars->map;
 	if (set_map_data_matrix(file, vars))
 	{
-		ft_printf("FREEING: free_map_data_matrix\n");
 		free_data_matrix(map);
 		free(map);
 		return (-1);

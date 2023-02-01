@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 11:58:36 by angmarti          #+#    #+#             */
-/*   Updated: 2023/02/01 14:21:41 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/02/01 14:56:42 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ int	on_mousemove(int x, int y, t_vars *vars)
 	else
 		mouse_is_in = 0;
 	if (mouse_was_in && !mouse_is_in)
-		printf("Mouse leaving\n");
+		ft_printf("Mouse leaving\n");
 	else if (!mouse_was_in && mouse_is_in)
-		printf("Mouse entering\n");
+		ft_printf("Mouse entering\n");
 	return (0);
 }
 
@@ -34,7 +34,7 @@ int	on_mousedown(int button, int x, int y, t_vars *vars)
 {
 	if (button == MOUSE_LEFT)
 	{
-		printf("mouse click at (%d, %d)\n", x, y);
+		ft_printf("mouse click at (%d, %d)\n", x, y);
 		return (0);
 	}
 	else if (button == MOUSE_SCROLL_UP || button == MOUSE_SCROLL_DOWN)

@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 14:56:35 by angmarti          #+#    #+#             */
-/*   Updated: 2023/02/01 14:20:40 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/02/01 15:01:29 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,7 +134,6 @@ int	get_map_matrix(t_list *lines, t_vars *vars)
 		lines = lines->next;
 	}
 	vars->map->width = words;
-	printf("%d", vars->map->width);
 	return (0);
 }
 

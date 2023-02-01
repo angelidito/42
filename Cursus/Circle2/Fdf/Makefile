@@ -6,7 +6,7 @@
 #    By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/17 12:03:08 by angmarti          #+#    #+#              #
-#    Updated: 2023/02/01 14:16:45 by angmarti         ###   ########.fr        #
+#    Updated: 2023/02/01 14:49:52 by angmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,8 +30,7 @@ SRC				=	\
 					src/events/win.c \
 					src/events/render_next_frame.c \
 					src/drawing/circle.c \
-					src/drawing/line.c \
-					src/drawing/sqr.c
+					src/drawing/line.c
 OBJ				=	$(SRC:.c=.o)
 
 

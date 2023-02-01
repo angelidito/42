@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 12:22:52 by angmarti          #+#    #+#             */
-/*   Updated: 2023/02/01 14:15:26 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/02/01 14:53:59 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,10 @@ char	*my_mlx_set_data_addr(t_data *img)
 	return (img->addr);
 }
 
+/**
+ * It runs the command `leaks -q fdf` and prints the result in yellow.
+ * Usage: atexit(leaks);
+ */
 void	leaks(void)
 {
 	ft_printf("\033[7;49;33m");
@@ -60,7 +64,6 @@ int	main(int argc, const char *argv[])
 {
 	t_vars	vars;
 
-	atexit(leaks);
 	if (argc != 2)
 	{
 		ft_printf("\033[0;34mUsage : %s <filename>\n\n", *argv);
