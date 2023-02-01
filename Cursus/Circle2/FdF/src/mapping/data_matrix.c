@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 14:56:35 by angmarti          #+#    #+#             */
-/*   Updated: 2023/02/01 15:01:29 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/02/01 15:54:31 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ t_list	*linelist(const char *file)
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 	{
-		ft_printf("Error openning file %s\n\n", file);
+		ft_printf("\n\033[1;31mError openning file %s\n\n", file);
 		return (NULL);
 	}
 	i = 0;
@@ -151,6 +151,11 @@ int	set_map_data_matrix(const char *file, t_vars *vars)
 	int		errors;
 
 	lines = linelist(file);
+	if (!lines || !lines->content || *(char *)(lines->content) == '\n')
+	{
+		ft_printf("\n\033[0;34mThis map is empty. Nothing to show.\n");
+		exit(0);
+	}
 	errors = get_map_matrix(lines, vars);
 	if (errors)
 		free_data_matrix_i(errors, vars->map->data_matrix);

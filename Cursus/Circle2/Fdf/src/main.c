@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 12:22:52 by angmarti          #+#    #+#             */
-/*   Updated: 2023/02/01 14:53:59 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/02/01 15:53:30 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,21 +56,24 @@ char	*my_mlx_set_data_addr(t_data *img)
  */
 void	leaks(void)
 {
-	ft_printf("\033[7;49;33m");
+	ft_printf("\033[0m\n\033[7;49;33m");
 	system("leaks -q fdf");
+	ft_printf("\033[0m");
 }
 
 int	main(int argc, const char *argv[])
 {
 	t_vars	vars;
 
+	atexit(leaks);
 	if (argc != 2)
 	{
-		ft_printf("\033[0;34mUsage : %s <filename>\n\n", *argv);
+		ft_printf("\n\033[0;34mUsage : %s <filename>\n\n", *argv);
 		return (-1);
 	}
+	ft_printf("Map: %s\n", argv[1]);
 	vars.mlx = mlx_init();
-	vars.win = mlx_new_window(vars.mlx, WIN_W, WIN_H, "Hello Mori!");
+	vars.win = mlx_new_window(vars.mlx, WIN_W, WIN_H, (char *) argv[1]);
 	vars.img = ft_calloc(1, sizeof(t_data));
 	vars.img->img = mlx_new_image(vars.mlx, WIN_W, WIN_H);
 	hooks(&vars);
