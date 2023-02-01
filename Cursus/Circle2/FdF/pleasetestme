@@ -1,4 +1,5 @@
 #!/bin/bash
+make
 echo "EXECUTING: ./fdf"
 ./fdf test_maps/t1.fdf test_maps/t2.fdf
 echo 
