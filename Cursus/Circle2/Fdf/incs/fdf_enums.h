@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 13:55:27 by angmarti          #+#    #+#             */
-/*   Updated: 2023/02/01 14:36:54 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/02/01 16:27:56 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,28 +35,17 @@ enum	e_keycodes
 	KEY_D = 2,
 	KEY_W = 13,
 	KEY_Q = 12,
-	KEY_ESC = 53,
-	KEY_ENTER = 36,
-	KEY_UP = 126,
-	KEY_DOWN = 125,
-	KEY_LEFT = 123,
-	KEY_RIGHT = 124,
-	KEY_1 = 18,
-	KEY_2 = 19,
-	KEY_3 = 20,
-	KEY_4 = 21,
-	KEY_5 = 23,
-	KEY_6 = 22,
-	KEY_7 = 26,
-	KEY_8 = 28,
-	KEY_9 = 25,
-	KEY_0 = 29,
-	KEY_INCREASE = 116,
-	KEY_DECREASE = 121,
+	KEY_DECREASE = 3,
+	KEY_INCREASE = 15,
 	KEY_PLUS = 30,
 	KEY_MINUS = 44,
 	KEY_COMMA = 43,
 	KEY_DOT = 47,
+	KEY_UP = 126,
+	KEY_DOWN = 125,
+	KEY_LEFT = 123,
+	KEY_RIGHT = 124,
+	KEY_ESC = 53,
 };
 
 enum	e_mousebuttons
