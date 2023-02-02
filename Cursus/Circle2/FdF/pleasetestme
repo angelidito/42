@@ -1,135 +1,135 @@
 #!/bin/bash
 make
 echo "EXECUTING: ./fdf"
-./fdf test_maps/t1.fdf test_maps/t2.fdf
+./fdf maps/t1.fdf maps/t2.fdf
 echo 
 echo
 echo
-echo "EXECUTING: ./fdf test_maps/t1.fdf test_maps/t2.fdf"
-./fdf test_maps/t1.fdf test_maps/t2.fdf
+echo "EXECUTING: ./fdf maps/t1.fdf maps/t2.fdf"
+./fdf maps/t1.fdf maps/t2.fdf
 echo 
 echo
 echo
-echo "EXECUTING: ./fdf test_maps/not_existing_map"
-./fdf test_maps/not_existing_map
+echo "EXECUTING: ./fdf maps/not_existing_map"
+./fdf maps/not_existing_map
 echo 
 echo
 echo
-echo "EXECUTING: ./fdf test_maps/not_existing_map1 test_maps/not_existing_map1"
-./fdf test_maps/not_existing_map1 test_maps/not_existing_map1
+echo "EXECUTING: ./fdf maps/not_existing_map1 maps/not_existing_map1"
+./fdf maps/not_existing_map1 maps/not_existing_map1
 echo 
 echo
 echo
-echo "EXECUTING: ./fdf test_maps/empty.fdf"
-./fdf test_maps/empty.fdf
+echo "EXECUTING: ./fdf maps/empty.fdf"
+./fdf maps/empty.fdf
 echo 
 echo
 echo
-echo "EXECUTING: ./fdf test_maps/empty_nl.fdf"
-./fdf test_maps/empty_nl.fdf
+echo "EXECUTING: ./fdf maps/empty_nl.fdf"
+./fdf maps/empty_nl.fdf
 echo 
 echo
 echo
-echo "EXECUTING: ./fdf test_maps/10-2.fdf"
-./fdf test_maps/10-2.fdf
+echo "EXECUTING: ./fdf maps/10-2.fdf"
+./fdf maps/10-2.fdf
 echo 
 echo
 echo
-echo "EXECUTING: ./fdf test_maps/10-70.fdf"
-./fdf test_maps/10-70.fdf
+echo "EXECUTING: ./fdf maps/10-70.fdf"
+./fdf maps/10-70.fdf
 echo 
 echo
 echo
-echo "EXECUTING: ./fdf test_maps/100-6.fdf"
-./fdf test_maps/100-6.fdf
+echo "EXECUTING: ./fdf maps/100-6.fdf"
+./fdf maps/100-6.fdf
 echo 
 echo
 echo
-echo "EXECUTING: ./fdf test_maps/20-60.fdf"
-./fdf test_maps/20-60.fdf
+echo "EXECUTING: ./fdf maps/20-60.fdf"
+./fdf maps/20-60.fdf
 echo 
 echo
 echo
-echo "EXECUTING: ./fdf test_maps/42.fdf"
-./fdf test_maps/42.fdf
+echo "EXECUTING: ./fdf maps/42.fdf"
+./fdf maps/42.fdf
 echo 
 echo
 echo
-echo "EXECUTING: ./fdf test_maps/50-4.fdf"
-./fdf test_maps/50-4.fdf
+echo "EXECUTING: ./fdf maps/50-4.fdf"
+./fdf maps/50-4.fdf
 echo 
 echo
 echo
-echo "EXECUTING: ./fdf test_maps/basictest.fdf"
-./fdf test_maps/basictest.fdf
+echo "EXECUTING: ./fdf maps/basictest.fdf"
+./fdf maps/basictest.fdf
 echo 
 echo
 echo
-echo "EXECUTING: ./fdf test_maps/elem-col.fdf"
-./fdf test_maps/elem-col.fdf
+echo "EXECUTING: ./fdf maps/elem-col.fdf"
+./fdf maps/elem-col.fdf
 echo 
 echo
 echo
-echo "EXECUTING: ./fdf test_maps/elem-fract.fdf"
-./fdf test_maps/elem-fract.fdf
+echo "EXECUTING: ./fdf maps/elem-fract.fdf"
+./fdf maps/elem-fract.fdf
 echo 
 echo
 echo
-echo "EXECUTING: ./fdf test_maps/elem.fdf"
-./fdf test_maps/elem.fdf
+echo "EXECUTING: ./fdf maps/elem.fdf"
+./fdf maps/elem.fdf
 echo 
 echo
 echo
-echo "EXECUTING: ./fdf test_maps/elem2.fdf"
-./fdf test_maps/elem2.fdf
+echo "EXECUTING: ./fdf maps/elem2.fdf"
+./fdf maps/elem2.fdf
 echo 
 echo
 echo
-echo "EXECUTING: ./fdf test_maps/julia.fdf"
-./fdf test_maps/julia.fdf
+echo "EXECUTING: ./fdf maps/julia.fdf"
+./fdf maps/julia.fdf
 echo 
 echo
 echo
-echo "EXECUTING: ./fdf test_maps/mars.fdf"
-./fdf test_maps/mars.fdf
+echo "EXECUTING: ./fdf maps/mars.fdf"
+./fdf maps/mars.fdf
 echo 
 echo
 echo
-echo "EXECUTING: ./fdf test_maps/pentenegpos.fdf"
-./fdf test_maps/pentenegpos.fdf
+echo "EXECUTING: ./fdf maps/pentenegpos.fdf"
+./fdf maps/pentenegpos.fdf
 echo 
 echo
 echo
-echo "EXECUTING: ./fdf test_maps/plat.fdf"
-./fdf test_maps/plat.fdf
+echo "EXECUTING: ./fdf maps/plat.fdf"
+./fdf maps/plat.fdf
 echo 
 echo
 echo
-echo "EXECUTING: ./fdf test_maps/pnp_flat.fdf"
-./fdf test_maps/pnp_flat.fdf
+echo "EXECUTING: ./fdf maps/pnp_flat.fdf"
+./fdf maps/pnp_flat.fdf
 echo 
 echo
 echo
-echo "EXECUTING: ./fdf test_maps/pylone.fdf"
-./fdf test_maps/pylone.fdf
+echo "EXECUTING: ./fdf maps/pylone.fdf"
+./fdf maps/pylone.fdf
 echo 
 echo
 echo
-echo "EXECUTING: ./fdf test_maps/pyra.fdf"
-./fdf test_maps/pyra.fdf
+echo "EXECUTING: ./fdf maps/pyra.fdf"
+./fdf maps/pyra.fdf
 echo 
 echo
 echo
-echo "EXECUTING: ./fdf test_maps/pyramide.fdf"
-./fdf test_maps/pyramide.fdf
+echo "EXECUTING: ./fdf maps/pyramide.fdf"
+./fdf maps/pyramide.fdf
 echo 
 echo
 echo
-echo "EXECUTING: ./fdf test_maps/t1.fdf"
-./fdf test_maps/t1.fdf
+echo "EXECUTING: ./fdf maps/t1.fdf"
+./fdf maps/t1.fdf
 echo 
 echo
 echo
-echo "EXECUTING: ./fdf test_maps/t2.fdf"
-./fdf test_maps/t2.fdf
+echo "EXECUTING: ./fdf maps/t2.fdf"
+./fdf maps/t2.fdf
 

@@ -15,7 +15,7 @@ Clone this repository to your local machine and run the following commands in yo
 	make
 	./fdf <map_file>
 
-Replace `[map_file]` with the path to a valid map file. A few sample maps are provided in the `test_maps/` directory.
+Replace `[map_file]` with the path to a valid map file. A few sample maps are provided in the `maps/` directory.
 
 ## Features
 

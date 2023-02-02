@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 12:22:52 by angmarti          #+#    #+#             */
-/*   Updated: 2023/02/01 17:16:09 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/02/02 14:08:31 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int	main(int argc, const char *argv[])
 	atexit(leaks);
 	if (argc != 2)
 	{
-		ft_printf("\n\033[0;34mUsage : %s <filename>\n\n", *argv);
+		ft_printf("\n\033[0;34mUsage : %s <map_file>\n\n", *argv);
 		return (-1);
 	}
 	ft_printf("Map: %s\n", argv[1]);
