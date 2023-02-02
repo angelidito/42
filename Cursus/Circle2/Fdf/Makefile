@@ -6,7 +6,7 @@
 #    By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/17 12:03:08 by angmarti          #+#    #+#              #
-#    Updated: 2023/02/01 14:49:52 by angmarti         ###   ########.fr        #
+#    Updated: 2023/02/02 14:01:08 by angmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -127,5 +127,6 @@ fclean:
 	@rm -f $(NAME)
 	@echo
 
+bonus: ${NAME}
 
 .PHONY: re clean fclean all
