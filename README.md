@@ -1,7 +1,7 @@
 # 42
 Welcome to my 42 project repository! This repository contains various projects developed as part of the curriculum at 42.
 
-At cursus, you can check my projects, grouped by circles
+Inside `cursus` folder, you can check my projects, grouped by circles.
 
 ## My work at ***42 Madrid***.
 
