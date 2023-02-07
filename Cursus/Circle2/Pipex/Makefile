@@ -6,7 +6,7 @@
 #    By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/17 12:03:08 by angmarti          #+#    #+#              #
-#    Updated: 2023/02/06 19:40:12 by angmarti         ###   ########.fr        #
+#    Updated: 2023/02/07 14:51:01 by angmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,7 +76,7 @@ $(NAME): $(OBJ)
 	@${MAKES}
 	@echo
 	@echo "$(GREEN)$(NAME):$(NOCOLOR) [Compilation:$(YELLOW) $@$(NOCOLOR)]$(GRAY)"
-	$(CC) $(C_FLAGS) $(OBJ) $(LIBFT) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	$(CC) $(C_FLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 	@echo
 	@echo
 	@echo "$(NOCOLOR)[$(GREEN)--------------------------$(NOCOLOR)]"
