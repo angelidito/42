@@ -11,14 +11,15 @@ To run the Pipex project, you will need a C compiler and a Unix-like operating s
 
 1. Clone or download this repository to your local machine.
 2. Navigate to the repository directory in your terminal.
-3. Compile the source code using the following command: `make`
-4. Run the Pipex project by executing the following command:`./pipex file1 cmd1 cmd2 file2`
+3. Compile the source code using the command `make`.
+4. Run the Pipex project by executing the following command:  
+	> `./pipex file1 command1 command1 file2`
 
 
 ## Allowed functions
 
 | | |
-|:--- | ---
+|:---      | :---
 |     open | opens a file or device and returns a file descriptor that can be used for reading, writing, or manipulating the file or device.
 |    close | closes a file descriptor, freeing up system resources and allowing the file or device to be reused.
 |     read | reads data from a file descriptor into a buffer.
