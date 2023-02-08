@@ -13,7 +13,7 @@ To run the Pipex project, you will need a C compiler and a Unix-like operating s
 2. Navigate to the repository directory in your terminal.
 3. Compile the source code using the command `make`.
 4. Run the Pipex project by executing the following command:  
-	> `./pipex file1 command1 command1 file2`
+	> `./pipex infile command1 command1 outfile`
 
 
 ## Allowed functions

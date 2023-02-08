@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 18:58:20 by angmarti          #+#    #+#             */
-/*   Updated: 2023/02/08 14:57:44 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/02/08 15:03:58 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ void	*ft_calloc(size_t count, size_t size)
 		len = 1;
 	else
 		len = count * size;
-	if (len < count && len < size)
-		return (NULL);
 	if (len < count && len < size)
 		return (NULL);
 	ptr = malloc(len);

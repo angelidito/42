@@ -6,16 +6,11 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 17:22:16 by angmarti          #+#    #+#             */
-/*   Updated: 2023/02/07 15:55:13 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/02/08 17:35:49 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/pipex.h"
-#include <fcntl.h> /* Open function */
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <unistd.h>
 
 void	breakpoint(void)
 {
@@ -55,26 +50,52 @@ void	parent(int *pipe_fd)
 	ft_printf("Termina el padre.\n");
 }
 
-int	main(int argc, char const *argv[])
+// int main(int argc, char const *argv[])
+int	main(void)
 {
-	int		i;
-	char	*str;
-	pid_t	pid;
+	int			argc;
+	char const	*argv[7];
+	int			i;
+	char		*str;
+	char		*path[8];
 
-	if (argc < 2)
+	argc = 5;
+	argv[0] = "./pipezzz";
+	argv[1] = "infile";
+	argv[2] = "cat -e";
+	argv[3] = "wc -w";
+	argv[4] = "outfile";
+	argv[5] = NULL;
+	// * pid_t	pid;
+	
+	path[0] = "/usr/local/bin";
+	path[1] = "/usr/bin";
+	path[2] = "/bin";
+	path[3] = "/usr/sbin";
+	path[4] = "/sbin";
+	path[5] = "/usr/local/munki";
+	path[6] = NULL;
+	if (argc != 5)
 	{
-		fprintf(stderr, "Usage: %s file1 command1 command1 file2\n", argv[0]);
-		// exit(EXIT_FAILURE);
-	}
-	ft_printf("Comienza el Programa.\n");
-	int pipe_fd[2]; // 0 - read ; 1 - write
-	str = "hola";
-	i = 0;
-	if (pipe(pipe_fd) == -1)
-	{
-		perror("Error while piping.");
+		ft_printf("\n\033[1;31mUsage: %s file1 command1 command1 file2\n\n",
+					argv[0]);
 		exit(EXIT_FAILURE);
 	}
+	ft_printf("\033[7;49;34mComienza el Programa.\033[0m\n");
+	i = 0;
+	while (path[i])
+		ft_printf("%s\n", path[i++]);
+	i = 0;
+	while (argv[i])
+		ft_printf("%s\n", argv[i++]);
+	// int pipe_fd[2]; // 0 - read ; 1 - write
+	// str = "hola";
+	// i = 0;
+	// if (pipe(pipe_fd) == -1)
+	// {
+	// 	perror("Error while piping.");
+	// 	exit(EXIT_FAILURE);
+	// }
 	// if ((pid = fork()) == 0)
 	// {
 	// 	child(pipe_fd);
@@ -83,9 +104,9 @@ int	main(int argc, char const *argv[])
 	// {
 	// 	parent(pipe_fd);
 	// }
-	char	*args[] = {"ls", "-l", NULL};
-	execve("/bin/ls", args, NULL);
-	perror("execve");
-	exit(EXIT_FAILURE);
+	// execve("/bin/", argv, NULL);
+	// perror("execve");
+	// exit(EXIT_FAILURE);
+	ft_printf("\033[7;49;34mAcaba el Programa.\n");
 	return (0);
 }
