@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:22:32 by angmarti          #+#    #+#             */
-/*   Updated: 2022/12/16 13:59:01 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/02/09 14:41:16 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@
  * 
  * @return 1 or 0
  */
-static int	ft_isspace(char c)
-{
-	return (c == ' ' || c == '\t' || c == '\n' || c == '\v'
-		|| c == '\r' || c == '\f');
-}
+// static int	ft_isspace(char c)
+// {
+// 	return (c == ' ' || c == '\t' || c == '\n' || c == '\v'
+// 		|| c == '\r' || c == '\f');
+// }
 
 /**
  * It returns the sign of the number, or 0 if there is no sign

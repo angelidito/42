@@ -6,23 +6,19 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 12:01:34 by angmarti          #+#    #+#             */
-/*   Updated: 2023/02/01 14:31:09 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/02/09 14:27:34 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include "add_ons.h" /*	ADD-ONS					*/
 # include <stdio.h>
-# include <stdlib.h> /* Malloc & Free functions */
+# include <stdlib.h> /*		Malloc & Free functions	*/
 # include <stdlib.h>
 # include <string.h>
-# include <unistd.h> /* Write & Read functions */
-
-//	ADD-ONS
-
-int					ft_printf(char const *str, ...);
-char				*get_next_line(int fd);
+# include <unistd.h> /*		Write & Read functions	*/
 
 //	LIBFT
 
@@ -68,16 +64,13 @@ char				*ft_substr(char const *s, unsigned int start, size_t len);
 
 char				**ft_split(char const *s, char c);
 
+//	BONUS
+
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }					t_list;
-
-t_list				*ft_lstlast(t_list *lst);
-t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
-						void (*del)(void *));
-t_list				*ft_lstnew(void *content);
 
 void				ft_lstadd_back(t_list **alst, t_list *new);
 void				ft_lstadd_front(t_list **alst, t_list *new);
@@ -86,5 +79,10 @@ void				ft_lstdelone(t_list *lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 
 int					ft_lstsize(t_list *lst);
+
+t_list				*ft_lstlast(t_list *lst);
+t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
+						void (*del)(void *));
+t_list				*ft_lstnew(void *content);
 
 #endif

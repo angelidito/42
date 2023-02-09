@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 18:54:26 by angmarti          #+#    #+#             */
-/*   Updated: 2022/12/16 14:19:17 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/02/09 14:25:34 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,8 @@ char	*gnl_read_and_add(int fd, char *myline)
 }
 
 /**
- * Reads a file descriptor and returns a line from it
+ * Reads a file descriptor and returns a line from it.
+ * It is possible to use it for reading from more than one file descriptor.
  * 
  * @param fd file descriptor
  * 

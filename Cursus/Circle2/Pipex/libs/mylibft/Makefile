@@ -6,7 +6,7 @@
 #    By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 14:17:59 by angmarti          #+#    #+#              #
-#    Updated: 2022/12/16 14:18:06 by angmarti         ###   ########.fr        #
+#    Updated: 2023/02/09 15:59:27 by angmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,7 +58,9 @@ SRCS	=	srcs/ft_bzero.c \
 			srcs/ft_printf_puts_fd.c \
 			srcs/ft_printf_puts_bases_fd.c \
 			srcs/get_next_line_bonus.c \
-			srcs/get_next_line_utils_bonus.c
+			srcs/get_next_line_utils_bonus.c \
+			srcs/ft_isspace.c \
+			srcs/ft_str_rm_ws.c
 OBJS	= $(SRCS:.c=.o)
 
 #----------------------------------------------------------COMPILER
