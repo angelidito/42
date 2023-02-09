@@ -6,7 +6,7 @@
 #    By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/17 12:03:08 by angmarti          #+#    #+#              #
-#    Updated: 2023/02/08 17:31:01 by angmarti         ###   ########.fr        #
+#    Updated: 2023/02/09 17:09:22 by angmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@
 
 NAME			=	pipex
 SRC				=	\
-					src/main.c
+					src/main.c \
+					src/ft_functions.c
 OBJ				=	$(SRC:.c=.o)
 
 
@@ -41,7 +42,7 @@ LIBS			=	${LIBFT}
 # **************************************************************************** #
 
 CC				=	@gcc
-C_FLAGS			=	#-Wall -Wextra -Werror #-g3 -fsanitize=address
+C_FLAGS			=	-Wall -Wextra -Werror #-g3 -fsanitize=address
 C_INCLUDES		=	-Imlx -I$(INCS_DIR) -I$(LIBFT_INCS_DIR)
 
 MAKES			=	make -C $(LIBFT_DIR)/ ; 

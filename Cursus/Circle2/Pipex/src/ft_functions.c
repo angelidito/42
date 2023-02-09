@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                              :+:      :+:    :+:   */
+/*   ft_functions.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/21 14:44:24 by angmarti          #+#    #+#             */
-/*   Updated: 2023/02/01 14:52:24 by angmarti         ###   ########.fr       */
+/*   Created: 2023/02/09 17:03:40 by angmarti          #+#    #+#             */
+/*   Updated: 2023/02/09 17:08:52 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#include "../incs/pipex.h"
 
-# include "../libs/mylibft/incs/libft.h"
-# include <fcntl.h> /* Open function */
-# include <time.h>
-
-//	DEBUGGING
-
-void	breakpoint(void);
-
-
-
-//	FT_FUNCTIONS
-
-void	ft_freechararr(char **chararr);
-
-#endif
+/**
+ * It frees an array of strings.
+ * 
+ * @param chararr The array of strings to be freed.
+ */
+void	ft_freechararr(char **chararr)
+{
+	int i = -1;
+	while (chararr[++i])
+		free(chararr[i]);
+	free(chararr);
+}
