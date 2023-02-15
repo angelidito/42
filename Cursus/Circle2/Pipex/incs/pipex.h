@@ -20,6 +20,8 @@
 //	DEBUGGING
 
 void	breakpoint(void);
+char	*ft_strjoin_n_free(const char *s1, const char *s2);
+char	*ft_strjoin_n_free_op(const char *s1, const char *s2, int f1, int f2);
 
 
 

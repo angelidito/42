@@ -6,7 +6,7 @@
 #    By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 14:17:59 by angmarti          #+#    #+#              #
-#    Updated: 2023/02/09 15:59:27 by angmarti         ###   ########.fr        #
+#    Updated: 2023/02/14 18:54:02 by angmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,7 @@ SRCS	=	srcs/ft_bzero.c \
 			srcs/get_next_line_bonus.c \
 			srcs/get_next_line_utils_bonus.c \
 			srcs/ft_isspace.c \
-			srcs/ft_str_rm_ws.c
+			srcs/ft_str_replace_dup_whitespaces.c
 OBJS	= $(SRCS:.c=.o)
 
 #----------------------------------------------------------COMPILER
