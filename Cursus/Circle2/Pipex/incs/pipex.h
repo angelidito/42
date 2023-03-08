@@ -20,13 +20,17 @@
 //	DEBUGGING
 
 void	breakpoint(void);
-char	*ft_strjoin_n_free(const char *s1, const char *s2);
-char	*ft_strjoin_n_free_op(const char *s1, const char *s2, int f1, int f2);
 
-
+//	UTILS
+char	*get_cmd_path(char const *cmd, char **path_var);
+char	**get_path(char *envp[]);
+char	**exec_cmd(char const *cmd, char **path_var, char *envp[]);
 
 //	FT_FUNCTIONS
 
 void	ft_freechararr(char **chararr);
+
+char	*ft_strjoin_n_free(const char *s1, const char *s2);
+char	*ft_strjoin_n_free_op(const char *s1, const char *s2, int f1, int f2);
 
 #endif
