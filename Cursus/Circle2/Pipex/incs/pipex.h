@@ -22,7 +22,7 @@
 void	breakpoint(void);
 
 //	UTILS
-char	*get_cmd_path(char const *cmd, char **path_var);
+char	*get_cmd_file(char const *cmd, char **path_var);
 char	**get_path(char *envp[]);
 char	**exec_cmd(char const *cmd, char **path_var, char *envp[]);
 

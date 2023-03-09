@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 14:44:42 by angmarti          #+#    #+#             */
-/*   Updated: 2023/03/08 18:11:04 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/03/09 17:45:22 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	leaks(void)
  * 
  * @return The path of the command.
  */
-char	*get_cmd_path(char const *cmd, char **path_var)
+char	*get_cmd_file(char const *cmd, char **path)
 {
 	int		i;
 	char	**words;
@@ -47,11 +47,11 @@ char	*get_cmd_path(char const *cmd, char **path_var)
 	i = -1;
 	words = ft_split(cmd, ' ');
 	result = NULL;
-	while (words && words[++i])
+	while (++i < 6)
 	{
 		aux = ft_strjoin("/", words[0]);
-		result = ft_strjoin_n_free_op(path_var[i], aux, 0, 1);
-		// free(aux);
+		result = ft_strjoin(path[i], aux);
+		free(aux);
 		if (access(result, X_OK) == 0)
 			break ;
 		free(result);
@@ -59,6 +59,7 @@ char	*get_cmd_path(char const *cmd, char **path_var)
 	ft_freechararr(words);
 	return (result);
 }
+
 
 /**
  * It takes an environment variable array and returns an array of strings 
@@ -84,30 +85,26 @@ char	**get_path(char *envp[])
  * with the command and its arguments
  * 
  * @param cmd the command to be executed.
- * @param path_var the PATH variable, split by ':'
+ * @param path the PATH variable, split by ':'
  * @param envp is the environment variables.
  * 
  * @return The array of arguments.
  */
-char	**exec_cmd(char const *cmd, char **path_var, char *envp[])
+char	**exec_cmd(char const *cmd, char **path, char *envp[])
 {
-	//char	**args;
+	char	**args;
 	int		i;
-	char	*cmd_path;
+	char	*file;
 
-	//args = ft_split(cmd, ' ');
-	//i = 0; // TODO: esto
-	//while (args[i])
-		//i++;
+	args = ft_split(cmd, ' ');
+	i = 0; // TODO: esto
+	while (args[i])
+		i++;
 	i = -1; // se puede quitar. Si funciona sin ellos, claro.
-	cmd_path = "/bin/cat";
-	envp = NULL;//get_cmd_path(cmd, path_var);
-	path_var = NULL;//get_cmd_path(cmd, path_var);
-	cmd = NULL;
-	if (cmd_path)
+	file = get_cmd_file(cmd, path);
+	if (file)
 	{
-		ft_printf("\nexecve(%s, {%s}, {%s})\n", cmd_path, NULL, NULL);
-		execve(cmd_path, NULL, NULL);
+		execve(file, args, envp);
 	}
-	return (path_var);
+	return (args);
 }
