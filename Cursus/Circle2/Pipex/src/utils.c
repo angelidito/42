@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 14:44:42 by angmarti          #+#    #+#             */
-/*   Updated: 2023/03/09 17:45:22 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/03/09 18:35:02 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,11 @@ char	*get_cmd_file(char const *cmd, char **path)
 		if (access(result, X_OK) == 0)
 			break ;
 		free(result);
+		result = NULL;
 	}
 	ft_freechararr(words);
 	return (result);
 }
-
 
 /**
  * It takes an environment variable array and returns an array of strings 
@@ -93,14 +93,14 @@ char	**get_path(char *envp[])
 char	**exec_cmd(char const *cmd, char **path, char *envp[])
 {
 	char	**args;
-	int		i;
 	char	*file;
 
 	args = ft_split(cmd, ' ');
-	i = 0; // TODO: esto
-	while (args[i])
-		i++;
-	i = -1; // se puede quitar. Si funciona sin ellos, claro.
+	// int		i;
+	// i = 0; // TODO: esto
+	// while (args[i])
+	// 	i++;
+	// i = -1; // se puede quitar. Si funciona sin ellos, claro.
 	file = get_cmd_file(cmd, path);
 	if (file)
 	{
