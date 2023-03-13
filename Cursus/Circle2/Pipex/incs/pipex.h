@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                              :+:      :+:    :+:   */
+/*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:44:24 by angmarti          #+#    #+#             */
-/*   Updated: 2023/02/01 14:52:24 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/03/13 17:51:18 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ void	breakpoint(void);
 //	UTILS
 char	*get_cmd_file(char const *cmd, char **path_var);
 char	**get_path(char *envp[]);
-char	**exec_cmd(char const *cmd, char **path_var, char *envp[]);
+char	**exec_cmd(char const *cmd, char **path, char *envp[]);
+
+void	cmd_not_found(char *cmd);
 
 //	FT_FUNCTIONS
 

@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 14:44:42 by angmarti          #+#    #+#             */
-/*   Updated: 2023/03/09 18:35:02 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/03/13 17:59:58 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,9 @@ void	breakpoint(void)
  */
 void	leaks(void)
 {
-	//	ft_printf("\033[0m\n\n\033[7;49;33m");
+	ft_printf("\033[0m\n\n\033[7;49;33m");
 	system("leaks -q pipex");
-	// system("leaks -q pipex");
-	//	ft_printf("\033[0m");
+	ft_printf("\033[0m");
 }
 
 /**
@@ -44,6 +43,8 @@ char	*get_cmd_file(char const *cmd, char **path)
 	char	*result;
 	char	*aux;
 
+	if (access(cmd, X_OK) == 0)
+		return ((char *)cmd);
 	i = -1;
 	words = ft_split(cmd, ' ');
 	result = NULL;
@@ -80,9 +81,8 @@ char	**get_path(char *envp[])
 }
 
 /**
- * It takes a command, a path variable and an environment variable,
-	and returns an array of strings
- * with the command and its arguments
+ * It takes a command, a path variable and an environment variable, 
+ * and returns an array of strings with the command and its arguments
  * 
  * @param cmd the command to be executed.
  * @param path the PATH variable, split by ':'
