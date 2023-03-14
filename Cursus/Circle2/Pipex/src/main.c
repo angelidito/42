@@ -6,17 +6,11 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 14:43:05 by angmarti          #+#    #+#             */
-/*   Updated: 2023/03/13 18:05:03 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/03/14 17:24:22 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/pipex.h"
-
-void	cmd_not_found(char *cmd)
-{
-	ft_printf("pipex: command not found: %s\n", cmd);
-	exit(EXIT_FAILURE);
-}
 
 void	check_cmd(char *cmd, char **path)
 {
@@ -24,7 +18,7 @@ void	check_cmd(char *cmd, char **path)
 
 	file = get_cmd_file(cmd, path);
 	if (!file)
-		cmd_not_found(cmd);
+		ft_printf("command not found: %s\n", cmd);
 }
 
 void	check_errors(int argc, char **argv, char **envp, int *pipe_fd)
@@ -57,7 +51,7 @@ void	child(char **argv, char **envp, char **path, int *pipe_fd)
 	int	fd_infile;
 
 	check_cmd(argv[2], path);
-	fd_infile = open(argv[1], O_RDONLY); // assuming it's not -1
+	fd_infile = open(argv[1], O_RDONLY);
 	if (fd_infile == -1)
 	{
 		ft_printf("\n\033[1;31mNot accessible input file.\n\n");
@@ -67,8 +61,9 @@ void	child(char **argv, char **envp, char **path, int *pipe_fd)
 	dup2(pipe_fd[1], STDOUT_FILENO);
 	close(pipe_fd[0]);
 	exec_cmd(argv[2], path, envp);
-	exit(EXIT_FAILURE);
+	// exit(EXIT_FAILURE);
 }
+
 void	parent(char **argv, char **envp, char **path, int *pipe_fd)
 {
 	int	fd_outfile;
@@ -84,7 +79,7 @@ void	parent(char **argv, char **envp, char **path, int *pipe_fd)
 	dup2(fd_outfile, STDOUT_FILENO);
 	close(pipe_fd[1]);
 	exec_cmd(argv[3], path, envp);
-	exit(EXIT_FAILURE);
+	// exit(EXIT_FAILURE);
 }
 
 int	main(int argc, char **argv, char **envp)
@@ -92,12 +87,10 @@ int	main(int argc, char **argv, char **envp)
 	int		i;
 	pid_t	pid;
 	char	**path;
+	int		pipe_fd[2];
 
-	int pipe_fd[2]; // 0 - read ; 1 - write
-	////
-	////
 	check_errors(argc, argv, envp, pipe_fd);
-	path = get_path(envp); // assuming it's not NULL
+	path = get_path(envp);
 	i = 0;
 	pid = fork();
 	if (pid == -1)

@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 14:44:42 by angmarti          #+#    #+#             */
-/*   Updated: 2023/03/13 17:59:58 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/03/14 17:24:00 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,15 +96,8 @@ char	**exec_cmd(char const *cmd, char **path, char *envp[])
 	char	*file;
 
 	args = ft_split(cmd, ' ');
-	// int		i;
-	// i = 0; // TODO: esto
-	// while (args[i])
-	// 	i++;
-	// i = -1; // se puede quitar. Si funciona sin ellos, claro.
 	file = get_cmd_file(cmd, path);
-	if (file)
-	{
-		execve(file, args, envp);
-	}
+	execve(file, args, envp);
+	exit(127);
 	return (args);
 }
