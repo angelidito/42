@@ -6,15 +6,15 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 14:44:42 by angmarti          #+#    #+#             */
-/*   Updated: 2023/03/14 17:24:00 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/03/15 18:28:03 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/pipex.h"
 
-void	breakpoint(void)
+void	checkpoint(void)
 {
-	ft_printf("\033[0m––––____BREAKPOINT____––––\n\033[0m");
+	ft_printf("\033[0m––––____checkpoint____––––\n\033[0m");
 }
 
 /**
@@ -43,6 +43,8 @@ char	*get_cmd_file(char const *cmd, char **path)
 	char	*result;
 	char	*aux;
 
+	if (!cmd)
+		return (NULL);
 	if (access(cmd, X_OK) == 0)
 		return ((char *)cmd);
 	i = -1;
@@ -90,7 +92,7 @@ char	**get_path(char *envp[])
  * 
  * @return The array of arguments.
  */
-char	**exec_cmd(char const *cmd, char **path, char *envp[])
+void	exec_cmd(char const *cmd, char **path, char *envp[])
 {
 	char	**args;
 	char	*file;
@@ -99,5 +101,4 @@ char	**exec_cmd(char const *cmd, char **path, char *envp[])
 	file = get_cmd_file(cmd, path);
 	execve(file, args, envp);
 	exit(127);
-	return (args);
 }
