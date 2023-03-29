@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:44:24 by angmarti          #+#    #+#             */
-/*   Updated: 2023/03/16 18:34:06 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/03/29 17:25:38 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,16 @@ void	exec_cmd(char const *cmd, char **path, char *envp[]);
 // ERROR CHECKING
 
 void	check_cmd(char *cmd, char **path);
-void	check_errors(t_vars *vars);
+void	check_errors(int argc, char **argv, char **envp, t_vars *vars);
 
 
 //	CASE TWO CMDS
+
 void	case2cmds(t_vars *vars);
+
+//	CASE _N_ CMDS
+
+void	case_n_cmds(t_vars *vars);
 
 
 //	FT_FUNCTIONS
