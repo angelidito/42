@@ -6,88 +6,99 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 14:43:05 by angmarti          #+#    #+#             */
-/*   Updated: 2023/03/29 19:17:10 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/04/02 18:20:19 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/pipex.h"
 
-void	_child(t_vars *vars, int *pipe_fd, int std_fd[], int n)
+/**
+ * It opens the input file and returns the file descriptor
+ * 
+ * @param infile the name of the file to open
+ * @param flags O_RDONLY, O_RDWR
+ * 
+ * @return The file descriptor of the input file.
+ */
+int	open_in(char *infile, int flags)
 {
 	int	fd_infile;
 
-	check_cmd(vars->cmds[n], vars->path);
-	fd_infile = open(vars->infile, O_RDONLY);
+	fd_infile = open(infile, flags);
 	if (fd_infile == -1)
 	{
 		ft_printf("\n\033[1;31mNot accessible input file.\n\n");
 		exit(EXIT_FAILURE);
 	}
-	dup2(fd_infile, std_fd[0]);
-	dup2(pipe_fd[1], std_fd[1]);
-	close(pipe_fd[0]);
-	exec_cmd(vars->cmds[n], vars->path, vars->envp);
+	return (fd_infile);
 }
 
-void	_parent(t_vars *vars, int *pipe_fd, int std_fd[], int n)
+/**
+ * It opens the output file and returns the file descriptor
+ * 
+ * @param outfile the name of the file to open
+ * @param flags O_WRONLY, O_CREAT, O_TRUNC, O_APPEND
+ * @param mode The mode is specified in octal, and is the same as the mode 
+ * argument to open(2).
+ * 
+ * @return The file descriptor of the output file.
+ */
+int	open_out(char *outfile, int flags, int mode)
 {
 	int	fd_outfile;
 
-	check_cmd(vars->cmds[n], vars->path);
-	fd_outfile = open(vars->outfile, O_CREAT | O_RDWR | O_TRUNC, 0644);
+	fd_outfile = open(outfile, flags, mode);
 	if (fd_outfile == -1)
 	{
 		ft_printf("\n\033[1;31mNot accessible output file.\n\n");
 		exit(EXIT_FAILURE);
 	}
-	dup2(pipe_fd[0], std_fd[0]);
-	dup2(fd_outfile, std_fd[1]);
-	close(pipe_fd[1]);
-	exec_cmd(vars->cmds[n], vars->path, vars->envp);
+	return (fd_outfile);
 }
 
-// void case_n_cmds(t_vars *vars)
-// {
-// 	int pipe_fd[2];
-// 	pid_t pid;
+void	n_child(t_vars *vars, int *pipe_fd)
+{
+	int	fd_infile;
 
-// 	if (pipe(pipe_fd) == -1)
-// 	{
-// 		perror("\033[1;31mPipe error: ");
-// 		exit(EXIT_FAILURE);
-// 	}
-// 	pid = fork();
-// 	if (pid == -1)
-// 	{
-// 		perror("\033[1;31mError while forking.");
-// 		exit(EXIT_FAILURE);
-// 	}
-// 	if (pid == 0)
-// 		_child(vars, pipe_fd);
-// 	else
-// 		_parent(vars, pipe_fd);
-// }
+	check_cmd(vars->cmds[0], vars->path);
+	fd_infile = open_in(vars->infile, O_RDONLY);
+	dup2(fd_infile, STDIN_FILENO);
+	dup2(pipe_fd[1], STDOUT_FILENO);
+	close(pipe_fd[0]);
+	exec_cmd(vars->cmds[0], vars->path, vars->envp);
+}
 
-void	case_n_cmds(t_vars *vars, int std_fd[], int n)
+void	n_parent(t_vars *vars, int *pipe_fd, int fd_out, int cmd)
+{
+	check_cmd(vars->cmds[cmd], vars->path);
+	dup2(pipe_fd[0], STDIN_FILENO);
+	dup2(fd_out, STDOUT_FILENO);
+	close(pipe_fd[1]);
+	exec_cmd(vars->cmds[cmd], vars->path, vars->envp);
+}
+
+void	case_n_cmds(t_vars *vars, int *prev_fd, int n_comands)
 {
 	int		pipe_fd[2];
 	pid_t	pid;
+	int		fd_outfile;
 
-	if (n == 0)
-		_child(vars, pipe_fd, std_fd, 0);
-	if (pipe(pipe_fd) == -1)
+	if (n_comands == 1)
 	{
-		perror("\033[1;31mPipe error: ");
-		exit(EXIT_FAILURE);
+		n_child(vars, prev_fd);
+		return ;
 	}
+	if (pipe(pipe_fd) == -1)
+		my_perror("\033[1;31mPipe error: ");
 	pid = fork();
 	if (pid == -1)
-	{
-		perror("\033[1;31mError while forking.");
-		exit(EXIT_FAILURE);
-	}
-	if (pid == 0)
-		case_n_cmds(vars, pipe_fd, n - 1);
+		my_perror("\033[1;31mError while forking.");
+	if (!prev_fd)
+		fd_outfile = open_out(vars->outfile, O_CREAT | O_RDWR | O_TRUNC, 0644);
 	else
-		_parent(vars, pipe_fd, std_fd, n - 1);
+		fd_outfile = prev_fd[1];
+	if (pid == 0)
+		case_n_cmds(vars, pipe_fd, n_comands - 1);
+	else
+		n_parent(vars, pipe_fd, fd_outfile, n_comands - 1);
 }

@@ -1,31 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   getting_executing.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 14:44:42 by angmarti          #+#    #+#             */
-/*   Updated: 2023/03/15 18:28:03 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/04/02 18:15:39 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/pipex.h"
 
-void	checkpoint(void)
-{
-	ft_printf("\033[0m––––____checkpoint____––––\n\033[0m");
-}
+// void	checkpoint(void)
+// {
+// 	ft_printf("\033[0m––––____checkpoint____––––\n\033[0m");
+// }
+
+// /**
+//  * It runs the command `leaks -q fdf` and prints the result in yellow.
+//  * Usage: atexit(leaks);
+//  */
+// void	leaks(void)
+// {
+// 	ft_printf("\033[0m\n\n\033[7;49;33m");
+// 	system("leaks -q pipex");
+// 	ft_printf("\033[0m");
+// }
 
 /**
- * It runs the command `leaks -q fdf` and prints the result in yellow.
- * Usage: atexit(leaks);
+ * It returns the number of elements in a char **
+ * 
+ * @param chararr The array of strings to be counted.
+ * 
+ * @return The number of elements in the array.
  */
-void	leaks(void)
+int	chararrsize(char **chararr)
 {
-	ft_printf("\033[0m\n\n\033[7;49;33m");
-	system("leaks -q pipex");
-	ft_printf("\033[0m");
+	int	i;
+
+	i = 0;
+	while (chararr[i])
+		i++;
+	return (i);
 }
 
 /**

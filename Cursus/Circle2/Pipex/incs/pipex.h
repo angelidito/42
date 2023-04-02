@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:44:24 by angmarti          #+#    #+#             */
-/*   Updated: 2023/03/29 19:09:04 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/04/02 18:17:54 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ char	**get_path(char *envp[]);
 
 void	check_cmd(char *cmd, char **path);
 void	check_errors(int argc, char **argv, char **envp, t_vars *vars);
+void	my_perror(char *s);
 
 //	CASE TWO CMDS
 
@@ -41,12 +42,11 @@ void	case2cmds(t_vars *vars);
 
 //	CASE _N_ CMDS
 
-void	case_n_cmds(t_vars *vars, int *std_fd, int n);
+void	case_n_cmds(t_vars *vars, int *prev_fd, int n_comands);
 
 //	FT_FUNCTIONS
 
 void	ft_freechararr(char **chararr);
-
 char	*ft_strjoin_n_free(const char *s1, const char *s2);
 char	*ft_strjoin_n_free_op(const char *s1, const char *s2, int f1, int f2);
 

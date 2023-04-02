@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 17:03:40 by angmarti          #+#    #+#             */
-/*   Updated: 2023/02/14 21:47:30 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/04/02 18:17:18 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,9 @@ char	*ft_strjoin_n_free_op(const char *s1, const char *s2, int f1, int f2)
 		return (result);
 	}
 	result = ft_strjoin(s1, s2);
-	if (f1 > 0)
+	if (f1)
 		free((char *)s1);
-	if (f2 > 0)
+	if (f2)
 		free((char *)s2);
 	return (result);
 }

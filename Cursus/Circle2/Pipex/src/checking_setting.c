@@ -1,16 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_checking.c                                   :+:      :+:    :+:   */
+/*   checking_setting.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 18:31:18 by angmarti          #+#    #+#             */
-/*   Updated: 2023/03/29 17:34:43 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/04/02 18:13:33 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/pipex.h"
+
+/**
+ * It prints the error message associated with the last system call, 
+ * and then exits the program
+ * 
+ * @param s The string to print.
+ */
+void	my_perror(char *s)
+{
+	perror(s);
+	exit(EXIT_FAILURE);
+}
 
 /**
  * It checks if a command exists in the path
@@ -24,7 +36,7 @@ void	check_cmd(char *cmd, char **path)
 
 	file = get_cmd_file(cmd, path);
 	if (!file)
-		ft_printf("command not found: %s\n", cmd);
+		ft_printf("pipex: command not found: %s\n", cmd);
 }
 
 /**
@@ -62,8 +74,8 @@ void	check_errors(int argc, char **argv, char **envp, t_vars *vars)
 
 	if (argc < 5)
 	{
-		ft_printf("\n\033[1;31mUsage: %s infile command1 command1 outfile\n\n",
-					argv[0]);
+		ft_printf("\n\033[1;31mUsage: %s infile", argv[0]);
+		ft_printf(" command1 command1 outfile\n\n");
 		exit(EXIT_FAILURE);
 	}
 	i = 0;

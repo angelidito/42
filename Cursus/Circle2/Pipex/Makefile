@@ -6,7 +6,7 @@
 #    By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/17 12:03:08 by angmarti          #+#    #+#              #
-#    Updated: 2023/03/16 18:32:59 by angmarti         ###   ########.fr        #
+#    Updated: 2023/04/02 18:20:34 by angmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,12 +16,12 @@
 
 NAME			=	pipex
 SRC				=	\
-					src/case_n_cmds.c \
 					src/case2cmds.c \
-					src/error_checking.c \
+					src/case_n_cmds.c \
+					src/checking_setting.c \
+					src/getting_executing.c \
 					src/ft_functions.c \
-					src/main.c \
-					src/utils.c
+					src/main.c
 OBJ				=	$(SRC:.c=.o)
 
 
