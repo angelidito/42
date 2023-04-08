@@ -6,7 +6,7 @@
 #    By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/17 12:03:08 by angmarti          #+#    #+#              #
-#    Updated: 2023/04/02 18:20:34 by angmarti         ###   ########.fr        #
+#    Updated: 2023/04/06 18:23:49 by angmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,10 @@
 
 NAME			=	pipex
 SRC				=	\
-					src/case2cmds.c \
 					src/case_n_cmds.c \
+					src/case2cmds.c \
 					src/checking_setting.c \
+					src/get_cmd_args.c \
 					src/getting_executing.c \
 					src/ft_functions.c \
 					src/main.c

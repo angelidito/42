@@ -6,27 +6,11 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 14:44:42 by angmarti          #+#    #+#             */
-/*   Updated: 2023/04/02 18:15:39 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/04/08 19:37:48 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/pipex.h"
-
-// void	checkpoint(void)
-// {
-// 	ft_printf("\033[0m––––____checkpoint____––––\n\033[0m");
-// }
-
-// /**
-//  * It runs the command `leaks -q fdf` and prints the result in yellow.
-//  * Usage: atexit(leaks);
-//  */
-// void	leaks(void)
-// {
-// 	ft_printf("\033[0m\n\n\033[7;49;33m");
-// 	system("leaks -q pipex");
-// 	ft_printf("\033[0m");
-// }
 
 /**
  * It returns the number of elements in a char **
@@ -114,7 +98,7 @@ void	exec_cmd(char const *cmd, char **path, char *envp[])
 	char	**args;
 	char	*file;
 
-	args = ft_split(cmd, ' ');
+	args = get_cmd_args(cmd);
 	file = get_cmd_file(cmd, path);
 	execve(file, args, envp);
 	exit(127);

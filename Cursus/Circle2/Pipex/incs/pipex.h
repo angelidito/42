@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:44:24 by angmarti          #+#    #+#             */
-/*   Updated: 2023/04/02 18:17:54 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/04/08 19:16:28 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,22 @@
 void	checkpoint(void);
 void	leaks(void);
 
-//	UTILS
+//	CHECKING_SETTING
+
+void	check_cmd(char *cmd, char **path);
+void	check_errors(int argc, char **argv, char **envp, t_vars *vars);
+void	my_perror(char *s);
+
+//	GET COMAND ARGUMENTS
+
+char	**get_cmd_args(char const *cmd);
+
+//	GETTING_EXECUTING
 
 int		chararrsize(char **chararr);
 void	exec_cmd(char const *cmd, char **path, char *envp[]);
 char	*get_cmd_file(char const *cmd, char **path_var);
 char	**get_path(char *envp[]);
-
-// ERROR CHECKING
-
-void	check_cmd(char *cmd, char **path);
-void	check_errors(int argc, char **argv, char **envp, t_vars *vars);
-void	my_perror(char *s);
 
 //	CASE TWO CMDS
 
