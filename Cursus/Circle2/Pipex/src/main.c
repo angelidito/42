@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 14:43:05 by angmarti          #+#    #+#             */
-/*   Updated: 2023/04/08 22:17:43 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/05/01 18:04:52 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	checkpoint(void)
 {
-	ft_printf("\033[0m––––____checkpoint____––––\n\033[0m");
+	ft_putstr_fd("\033[0m––––____checkpoint____––––\n\033[0m", STDOUT_FILENO);
 }
 
 void	leaks(void)
@@ -24,7 +24,7 @@ void	leaks(void)
 	ft_printf("\033[0m");
 }
 
-void	test(char **argv, int j)
+void	test(char **argv, int j, char **envp)
 {
 	int		i;
 	char	**args;
@@ -35,33 +35,65 @@ void	test(char **argv, int j)
 		printf("No args\n");
 	else
 	{
-		printf("\n\033[0mComand[%d]: \033[7;49;34m", j);
+		printf("\n\033[0mComand[%d]: ", j + 1);
 		i = 1;
 		// while (i < argc)
 		// {
-			printf("\033[7;49;34m%s ", argv[j]);
+		printf("\033[7;49;34m%s\n", argv[j]);
 		// 	i++;
 		// }
-		printf("\033[0m\nRESULT: \n");
+		// printf("\033[0m\nRESULT: \n");
 	}
 	i = 0;
 	while (args[i])
 	{
-		printf("\033[0margs[%d]: \033[7;49;33m%s\n", i, args[i]);
+		printf("\033[0m  arg%d: \033[7;49;33m%s\n", i, args[i]);
 		i++;
 	}
+	printf("\033[0m  CmdFile: \033[7;49;33m%s\n\033[1;32m",
+			get_cmd_file(argv[0], get_path(envp)));
+	execve(get_cmd_file(argv[0], get_path(envp)), args, envp);
 }
 
 int	main(int argc, char **argv, char **envp)
 {
 	t_vars	vars;
-	int		j;
+	char	**cmds;
+	int		i;
 
-	if (argc > 1 && ft_strncmp(argv[1], "test", 4) == 0)
+	if ((argc > 1 && ft_strncmp(argv[1], "test", ft_strlen(argv[1])) == 0))
 	{
-		j = 3;
-		while (argv[j+1])
-			test(argv, j++);
+		ft_printf("\033[7;31m                           \n");
+		ft_printf("\033[7;31m         TEST MODE         \n");
+		ft_printf("\033[7;31m                           \n");
+		cmds = ft_calloc(100, sizeof(char *));
+		i = 0;
+		////////////////////////
+		// TEST CMDS
+		cmds[i++] = "awk '{count++} END {print count}'";
+		// cmds[i++] = "awk {no quotes}";
+		// cmds[i++] = "awk '{quotes}'";
+		// cmds[i++] = "awk '{ quo \\' tes}'";
+		// cmds[i++] = "awk '{ quo \\' tes}'";
+		// cmds[i++] = "awk '{quoteleft}";
+		// cmds[i++] = "awk \'{escq\\\"uotes}\'";
+		// cmds[i++] = "awk '{quoteleft}";
+		// cmds[i++] = "awk \'{escquoteleft}";
+		// cmds[i++] = "awk {quoteright}'";
+		// cmds[i++] = "awk {escquoteright}\'";
+		// cmds[i++] = "awk \"{quotes}\"";
+		// cmds[i++] = "awk \"{ quo\\\"tes}\"";
+		// cmds[i++] = "awk \"{ quo \\\" tes}\"";
+		// cmds[i++] = "awk \"{quoteleft}";
+		// cmds[i++] = "awk \"{escq\"uotes}\"";
+		// cmds[i++] = "awk \"{quoteleft}";
+		// cmds[i++] = "awk \"{escquoteleft}";
+		// cmds[i++] = "awk {quoteright}\"";
+		// cmds[i++] = "awk {escquoteright}\\\"";
+		//////////////////////
+		i = 0;
+		while (cmds[i])
+			test(cmds, i++, envp);
 		exit(0);
 	}
 	check_errors(argc, argv, envp, &vars);

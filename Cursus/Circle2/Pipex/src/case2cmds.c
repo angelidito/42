@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 14:43:05 by angmarti          #+#    #+#             */
-/*   Updated: 2023/04/02 16:57:54 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/04/09 17:46:45 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	child(t_vars *vars, int *pipe_fd)
 	}
 	dup2(fd_infile, STDIN_FILENO);
 	dup2(pipe_fd[1], STDOUT_FILENO);
+	// ft_putstr_fd("\033[0m––––____checkpoint____––––\n\033[0m", STDOUT_FILENO);
 	close(pipe_fd[0]);
 	exec_cmd(vars->cmds[0], vars->path, vars->envp);
 }
