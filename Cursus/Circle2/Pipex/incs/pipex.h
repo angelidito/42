@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:44:24 by angmarti          #+#    #+#             */
-/*   Updated: 2023/04/08 19:16:28 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/05/02 19:46:28 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "../libs/mylibft/incs/libft.h"
 # include "pipex_structs.h"
+# include "colors.h"
 # include <fcntl.h> /* Open function */
 # include <time.h>
 
