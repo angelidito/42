@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 14:43:05 by angmarti          #+#    #+#             */
-/*   Updated: 2023/05/01 18:04:52 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/05/05 16:17:15 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	test(char **argv, int j, char **envp)
 	}
 	printf("\033[0m  CmdFile: \033[7;49;33m%s\n\033[1;32m",
 			get_cmd_file(argv[0], get_path(envp)));
-	execve(get_cmd_file(argv[0], get_path(envp)), args, envp);
+	// execve(get_cmd_file(argv[0], get_path(envp)), args, envp);
 }
 
 int	main(int argc, char **argv, char **envp)
@@ -61,7 +61,7 @@ int	main(int argc, char **argv, char **envp)
 	char	**cmds;
 	int		i;
 
-	if ((argc > 1 && ft_strncmp(argv[1], "test", ft_strlen(argv[1])) == 0))
+	if (0 && (argc > 1 && ft_strncmp(argv[1], "test", ft_strlen(argv[1])) == 0))
 	{
 		ft_printf("\033[7;31m                           \n");
 		ft_printf("\033[7;31m         TEST MODE         \n");
@@ -70,7 +70,17 @@ int	main(int argc, char **argv, char **envp)
 		i = 0;
 		////////////////////////
 		// TEST CMDS
-		cmds[i++] = "awk '{count++} END {print count}'";
+		cmds[i++] = argv[3];
+		cmds[i++] = argv[4];
+		cmds[i++] = argv[4];
+		cmds[i++] = argv[4];
+		cmds[i++] = argv[4];
+		// while (i < argc)
+		// {
+		// 	cmds[i] = argv[i + 3];
+		// 	i++;
+		// }
+		// cmds[i++] = "awk '{count++} END {print count}'";
 		// cmds[i++] = "awk {no quotes}";
 		// cmds[i++] = "awk '{quotes}'";
 		// cmds[i++] = "awk '{ quo \\' tes}'";
