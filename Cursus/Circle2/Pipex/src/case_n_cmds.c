@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 14:43:05 by angmarti          #+#    #+#             */
-/*   Updated: 2023/04/02 18:20:19 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/05/05 17:34:53 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,7 @@ int	open_in(char *infile, int flags)
 
 	fd_infile = open(infile, flags);
 	if (fd_infile == -1)
-	{
-		ft_printf("\n\033[1;31mNot accessible input file.\n\n");
-		exit(EXIT_FAILURE);
-	}
+		pf_exit("Not accessible input file", STDERR_FILENO);
 	return (fd_infile);
 }
 
@@ -49,10 +46,7 @@ int	open_out(char *outfile, int flags, int mode)
 
 	fd_outfile = open(outfile, flags, mode);
 	if (fd_outfile == -1)
-	{
-		ft_printf("\n\033[1;31mNot accessible output file.\n\n");
-		exit(EXIT_FAILURE);
-	}
+		pf_exit("Not accessible output file", STDERR_FILENO);
 	return (fd_outfile);
 }
 

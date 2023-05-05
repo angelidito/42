@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 14:43:05 by angmarti          #+#    #+#             */
-/*   Updated: 2023/05/05 16:17:15 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/05/05 17:38:26 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,7 @@ void	test(char **argv, int j, char **envp)
 	{
 		printf("\n\033[0mComand[%d]: ", j + 1);
 		i = 1;
-		// while (i < argc)
-		// {
 		printf("\033[7;49;34m%s\n", argv[j]);
-		// 	i++;
-		// }
-		// printf("\033[0m\nRESULT: \n");
 	}
 	i = 0;
 	while (args[i])
@@ -50,9 +45,8 @@ void	test(char **argv, int j, char **envp)
 		printf("\033[0m  arg%d: \033[7;49;33m%s\n", i, args[i]);
 		i++;
 	}
-	printf("\033[0m  CmdFile: \033[7;49;33m%s\n\033[1;32m",
-			get_cmd_file(argv[0], get_path(envp)));
-	// execve(get_cmd_file(argv[0], get_path(envp)), args, envp);
+	printf("\033[0m  CmdFile: \033[7;49;33m");
+	printf("%s\n\033[1;32m", get_cmd_file(argv[0], get_path(envp)));
 }
 
 int	main(int argc, char **argv, char **envp)
@@ -68,39 +62,9 @@ int	main(int argc, char **argv, char **envp)
 		ft_printf("\033[7;31m                           \n");
 		cmds = ft_calloc(100, sizeof(char *));
 		i = 0;
-		////////////////////////
-		// TEST CMDS
 		cmds[i++] = argv[3];
 		cmds[i++] = argv[4];
 		cmds[i++] = argv[4];
-		cmds[i++] = argv[4];
-		cmds[i++] = argv[4];
-		// while (i < argc)
-		// {
-		// 	cmds[i] = argv[i + 3];
-		// 	i++;
-		// }
-		// cmds[i++] = "awk '{count++} END {print count}'";
-		// cmds[i++] = "awk {no quotes}";
-		// cmds[i++] = "awk '{quotes}'";
-		// cmds[i++] = "awk '{ quo \\' tes}'";
-		// cmds[i++] = "awk '{ quo \\' tes}'";
-		// cmds[i++] = "awk '{quoteleft}";
-		// cmds[i++] = "awk \'{escq\\\"uotes}\'";
-		// cmds[i++] = "awk '{quoteleft}";
-		// cmds[i++] = "awk \'{escquoteleft}";
-		// cmds[i++] = "awk {quoteright}'";
-		// cmds[i++] = "awk {escquoteright}\'";
-		// cmds[i++] = "awk \"{quotes}\"";
-		// cmds[i++] = "awk \"{ quo\\\"tes}\"";
-		// cmds[i++] = "awk \"{ quo \\\" tes}\"";
-		// cmds[i++] = "awk \"{quoteleft}";
-		// cmds[i++] = "awk \"{escq\"uotes}\"";
-		// cmds[i++] = "awk \"{quoteleft}";
-		// cmds[i++] = "awk \"{escquoteleft}";
-		// cmds[i++] = "awk {quoteright}\"";
-		// cmds[i++] = "awk {escquoteright}\\\"";
-		//////////////////////
 		i = 0;
 		while (cmds[i])
 			test(cmds, i++, envp);

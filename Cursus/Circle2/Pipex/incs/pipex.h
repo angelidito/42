@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:44:24 by angmarti          #+#    #+#             */
-/*   Updated: 2023/05/02 19:46:28 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/05/05 17:34:21 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define PIPEX_H
 
 # include "../libs/mylibft/incs/libft.h"
-# include "pipex_structs.h"
 # include "colors.h"
+# include "pipex_structs.h"
 # include <fcntl.h> /* Open function */
 # include <time.h>
 
@@ -28,7 +28,11 @@ void	leaks(void);
 
 void	check_cmd(char *cmd, char **path);
 void	check_errors(int argc, char **argv, char **envp, t_vars *vars);
+
+//	ERRORS
 void	my_perror(char *s);
+void	print_stderr(char *str);
+void	pf_exit(char *s, int fd);
 
 //	GET COMAND ARGUMENTS
 
