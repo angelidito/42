@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 18:31:18 by angmarti          #+#    #+#             */
-/*   Updated: 2023/05/05 17:35:50 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/05/08 18:28:26 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,11 @@ void	check_cmd(char *cmd, char **path)
 }
 
 /**
- * It takes the command line arguments and assigns them to the appropriate 
- * variables
+ * The function sets variables in a t_vars struct
  * 
- * @param vars a pointer to the t_vars struct
+ * @param argc Number of arguments passed to the program
+ * @param argv Arguments passed to the program
+ * @param vars Variables used in the program.
  */
 void	set_vars(int argc, char **argv, t_vars *vars)
 {
@@ -45,17 +46,25 @@ void	set_vars(int argc, char **argv, t_vars *vars)
 	vars->outfile = argv[argc - 1];
 	vars->cmds = ft_calloc(argc - 2, sizeof(char *));
 	if (!vars->cmds)
-		pf_exit("Malloc Error.", STDERR_FILENO);
+		pf_exit("Malloc error", STDERR_FILENO);
 	i = 1;
 	while (++i < argc - 1)
 		vars->cmds[i - 2] = argv[i];
 }
 
 /**
- * It checks the number of arguments, checks if the environment variables 
- * are set, and set the vars path, infile, outfile, and cmds
- * 
- * @param vars a pointer to a t_vars structure.
+ * It checks:
+ * 		the number of arguments, 
+ * 		and if the environment variables are set.
+ * Also sets:
+ * 		the vars path, 
+ * 		infile, 
+ * 		outfile, 
+ * 		and cmds.
+ * @param argc Number of arguments passed to the program
+ * @param argv Arguments passed to the program
+ * @param envp Environment variables
+ * @param vars Variables used in the program.
  */
 void	check_errors(int argc, char **argv, char **envp, t_vars *vars)
 {
@@ -72,14 +81,24 @@ void	check_errors(int argc, char **argv, char **envp, t_vars *vars)
 	}
 	if (argc < 5)
 	{
-		ft_printf("\nUsage: %s infile", argv[0]);
+		ft_printf("Usage: %s infile", argv[0]);
 		pf_exit(" command1 command2 [... commandN] outfile", 1);
 	}
 	i = 0;
 	while (envp && envp[i] && ft_strncmp(envp[i], "PATH=", 5))
 		i++;
 	if (!envp || !envp[i])
-		pf_exit("PATH not set.", 1);
+	{
+		// i = 1;
+		// while (++i < argc - 1)
+		// {
+		// 	ft_printf("pipex: command not found: ");
+		// 	ft_printf("%s", ft_split(argv[i], ' ')[0]);
+		// 	ft_printf("\n");
+		// }
+		// print_stderr("PATH not set.");
+		exit(0);
+	}
 	vars->path = get_path(envp);
 	vars->envp = envp;
 	set_vars(argc, argv, vars);

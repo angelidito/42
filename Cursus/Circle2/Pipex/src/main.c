@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 14:43:05 by angmarti          #+#    #+#             */
-/*   Updated: 2023/05/05 17:38:26 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/05/08 19:23:25 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	main(int argc, char **argv, char **envp)
 	char	**cmds;
 	int		i;
 
-	if (0 && (argc > 1 && ft_strncmp(argv[1], "test", ft_strlen(argv[1])) == 0))
+	if ((argc > 1 && ft_strncmp(argv[1], "test", ft_strlen(argv[1])) == 0))
 	{
 		ft_printf("\033[7;31m                           \n");
 		ft_printf("\033[7;31m         TEST MODE         \n");
@@ -71,9 +71,10 @@ int	main(int argc, char **argv, char **envp)
 		exit(0);
 	}
 	check_errors(argc, argv, envp, &vars);
-	if (argc == 5)
-		case2cmds(&vars);
-	else
-		case_n_cmds(&vars, NULL, chararrsize(vars.cmds));
+	// if (argc == 5)
+	// 	case2cmds(&vars);
+	// else
+	case_n_cmds(&vars, NULL, chararrsize(vars.cmds));
 	return (0);
 }
+

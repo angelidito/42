@@ -6,13 +6,13 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:44:24 by angmarti          #+#    #+#             */
-/*   Updated: 2023/05/05 17:34:21 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/05/08 18:35:48 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PIPEX_H
 # define PIPEX_H
-
+# define _GNU_SOURCE
 # include "../libs/mylibft/incs/libft.h"
 # include "colors.h"
 # include "pipex_structs.h"
