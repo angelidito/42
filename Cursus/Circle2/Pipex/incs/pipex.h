@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:44:24 by angmarti          #+#    #+#             */
-/*   Updated: 2023/05/08 18:35:48 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/05/14 16:01:02 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,13 @@
 # include "pipex_structs.h"
 # include <fcntl.h> /* Open function */
 # include <time.h>
+
+// BACKSLASHES
+
+void	remove_notescaped_backslash(t_list **lst);
+void	remove_backslash(t_list **lst);
+char	**ft_split_not_escaped(char const *s, char c);
+
 
 //	DEBUGGING
 
