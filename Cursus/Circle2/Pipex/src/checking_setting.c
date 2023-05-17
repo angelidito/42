@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 18:31:18 by angmarti          #+#    #+#             */
-/*   Updated: 2023/05/08 18:28:26 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/05/17 15:10:19 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,13 @@ void	check_cmd(char *cmd, char **path)
 	char	*file;
 
 	file = get_cmd_file(cmd, path);
-	if (!file)
+	if (access(cmd, F_OK) == 0 && !file)
+	{
+		print_stderr("pipex: permission denied: ");
+		print_stderr(cmd);
+		print_stderr("\n");
+	}
+	else if (!file)
 	{
 		print_stderr("pipex: command not found: ");
 		print_stderr(cmd);

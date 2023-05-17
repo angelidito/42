@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 14:44:42 by angmarti          #+#    #+#             */
-/*   Updated: 2023/04/08 22:51:38 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/05/17 15:08:17 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	chararrsize(char **chararr)
  * 
  * @return The path of the command.
  */
-char	*get_cmd_file(char const *cmd, char **path)
+char	*get_cmd_file(char *cmd, char **path)
 {
 	int		i;
 	char	**words;
@@ -46,10 +46,12 @@ char	*get_cmd_file(char const *cmd, char **path)
 
 	if (!cmd)
 		return (NULL);
-	if (access(cmd, X_OK) == 0)
+	cmd = str_remove_escapes(cmd);
+	if ((cmd[0] == '/' || (cmd[0] == '.' && cmd[1] == '/')) && access(cmd,
+			X_OK) == 0)
 		return ((char *)cmd);
 	i = -1;
-	words = ft_split(cmd, ' ');
+	words = ft_split_not_escaped(cmd, ' ');
 	result = NULL;
 	while (++i < 6)
 	{
@@ -93,7 +95,7 @@ char	**get_path(char *envp[])
  * 
  * @return The array of arguments.
  */
-void	exec_cmd(char const *cmd, char **path, char *envp[])
+void	exec_cmd(char *cmd, char **path, char *envp[])
 {
 	char	**args;
 	char	*file;

@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 13:30:02 by angmarti          #+#    #+#             */
-/*   Updated: 2023/05/14 16:50:14 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/05/15 14:58:10 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,26 +23,22 @@
  * 
  * @return int Number of times the character `c` is escaped.
  */
-int	count_escapes(char const *str, int start, int end, char c)
+int	count_escaped_chars(char const *str, int start, int end, char c)
 {
-	int	escaped_chars;
-	int	i;
-	int	is_escaped;
+	int	count;
 
-	escaped_chars = 0;
-	i = start - 1;
-	is_escaped = 0;
-	while (++i < end)
+	count = 0;
+	while (start < end)
 	{
-		if (str[i] == '\\' && str[i + 1] == c)
+		if (str[start] == '\\' && str[start + 1] == c)
 		{
-			if (is_escaped)
-				escaped_chars++;
-			else
-				is_escaped = 1;
+			count++;
+			start++;
 		}
+		else
+			start++;
 	}
-	return (escaped_chars);
+	return (count);
 }
 
 /**
@@ -65,7 +61,7 @@ char	*get_strcpy_no_c_escapes(char const *str, int start, int end, char c)
 	if (start >= end)
 		ft_printf("Error: start == end\n");
 	i = -1;
-	escaped_chars = count_escapes(str, start, end, c);
+	escaped_chars = count_escaped_chars(str, start, end, c);
 	cpy = ft_calloc(sizeof(char), end - start + 1 - escaped_chars);
 	if (!cpy)
 		return (NULL);

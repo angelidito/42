@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 18:23:10 by angmarti          #+#    #+#             */
-/*   Updated: 2023/05/05 17:41:26 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/05/15 15:25:58 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,8 @@ void	set_arg_lst(char const *cmd, t_list **arg_lst)
 		w_logic(cmd, arg_lst, &i, &len, &search);
 	if (len > 0)
 		ft_lstadd_back(arg_lst, ft_lstnew(ft_substr(cmd, i, len)));
+	// remove_backslash(arg_lst);
+	// remove_notescaped_backslash(arg_lst);
 }
 
 char	**lst_to_arr(t_list **lst)
@@ -136,11 +138,12 @@ char	**get_cmd_args(char const *cmd)
 	char	**arg_arr;
 
 	if (!ft_strchr(cmd, '\'') && !ft_strchr(cmd, '\"'))
-		return (ft_split(cmd, ' '));
+		return (ft_split_not_escaped(cmd, ' '));
 	arg_lst = ft_calloc(sizeof(t_list *), 1);
 	if (!arg_lst)
 		return (NULL);
 	set_arg_lst(cmd, arg_lst);
+	remove_escapes(arg_lst);
 	arg_arr = lst_to_arr(arg_lst);
 	return (arg_arr);
 }

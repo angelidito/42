@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 16:42:37 by angmarti          #+#    #+#             */
-/*   Updated: 2023/05/05 17:34:07 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/05/17 14:47:56 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,3 +55,5 @@ void	pf_exit(char *s, int fd)
 	}
 	exit(EXIT_FAILURE);
 }
+
+

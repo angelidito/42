@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:44:24 by angmarti          #+#    #+#             */
-/*   Updated: 2023/05/14 16:01:02 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/05/16 18:26:26 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,14 @@
 
 // BACKSLASHES
 
-void	remove_notescaped_backslash(t_list **lst);
-void	remove_backslash(t_list **lst);
-char	**ft_split_not_escaped(char const *s, char c);
+char	*str_remove_escapes(char *str);
+void	remove_escapes(t_list **lst);
+// void	remove_notescaped_backslash(t_list **lst);
+// void	remove_backslash(t_list **lst);
 
+// FT_SPLIT_NOT_ESCAPED
+
+char	**ft_split_not_escaped(char const *s, char c);
 
 //	DEBUGGING
 
@@ -48,8 +52,8 @@ char	**get_cmd_args(char const *cmd);
 //	GETTING_EXECUTING
 
 int		chararrsize(char **chararr);
-void	exec_cmd(char const *cmd, char **path, char *envp[]);
-char	*get_cmd_file(char const *cmd, char **path_var);
+void	exec_cmd(char *cmd, char **path, char *envp[]);
+char	*get_cmd_file(char *cmd, char **path_var);
 char	**get_path(char *envp[]);
 
 //	CASE TWO CMDS
