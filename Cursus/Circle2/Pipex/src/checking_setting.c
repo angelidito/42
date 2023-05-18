@@ -6,23 +6,11 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 18:31:18 by angmarti          #+#    #+#             */
-/*   Updated: 2023/04/02 18:13:33 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/05/18 18:52:48 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/pipex.h"
-
-/**
- * It prints the error message associated with the last system call, 
- * and then exits the program
- * 
- * @param s The string to print.
- */
-void	my_perror(char *s)
-{
-	perror(s);
-	exit(EXIT_FAILURE);
-}
 
 /**
  * It checks if a command exists in the path
@@ -35,56 +23,93 @@ void	check_cmd(char *cmd, char **path)
 	char	*file;
 
 	file = get_cmd_file(cmd, path);
-	if (!file)
-		ft_printf("pipex: command not found: %s\n", cmd);
+	if (access(cmd, F_OK) == 0 && !file)
+	{
+		print_stderr("pipex: permission denied: ");
+		print_stderr(cmd);
+		print_stderr("\n");
+	}
+	else if (!file)
+	{
+		print_stderr("pipex: command not found: ");
+		print_stderr(cmd);
+		print_stderr("\n");
+	}
 }
 
 /**
- * It takes the command line arguments and assigns them to the appropriate 
- * variables
+ * The function sets variables in a t_vars struct
  * 
- * @param vars a pointer to the t_vars struct
+ * @param argc Number of arguments passed to the program
+ * @param argv Arguments passed to the program
+ * @param vars Variables used in the program.
  */
 void	set_vars(int argc, char **argv, t_vars *vars)
 {
 	int	i;
+	int	here_doc;
 
-	vars->infile = argv[1];
-	vars->outfile = argv[argc - 1];
-	vars->cmds = ft_calloc(argc - 2, sizeof(char *));
-	if (!vars->cmds)
+	here_doc = 0;
+	if (ft_strncmp(argv[1], "here_doc", 8) == 0)
 	{
-		ft_printf("\n\033[1;31mMalloc Error.\n\n");
-		exit(EXIT_FAILURE);
+		here_doc = 1;
 	}
-	i = 1;
+	vars->infile = argv[1 + here_doc];
+	vars->outfile = argv[argc - 1];
+	vars->cmds = ft_calloc(argc - (2 + here_doc), sizeof(char *));
+	if (!vars->cmds)
+		pf_exit("Malloc error", STDERR_FILENO);
+	i = 1 + here_doc;
 	while (++i < argc - 1)
-		vars->cmds[i - 2] = argv[i];
+		vars->cmds[i - (2 + here_doc)] = argv[i];
 }
 
 /**
- * It checks the number of arguments, checks if the environment variables 
- * are set, and set the vars path, infile, outfile, and cmds
- * 
- * @param vars a pointer to a t_vars structure.
+ * It checks:
+ * 		the number of arguments, 
+ * 		and if the environment variables are set.
+ * Also sets:
+ * 		the vars path, 
+ * 		infile, 
+ * 		outfile, 
+ * 		and cmds.
+ * @param argc Number of arguments passed to the program
+ * @param argv Arguments passed to the program
+ * @param envp Environment variables
+ * @param vars Variables used in the program.
  */
 void	check_errors(int argc, char **argv, char **envp, t_vars *vars)
 {
-	int	i;
+	int		i;
+	char	*tmp;
 
+	i = argc;
+	while (--i > 1)
+	{
+		tmp = ft_strtrim(argv[i], " \t\v\f\r");
+		if (!tmp || !*tmp)
+			pf_exit("Wrong arguments.", 1);
+		free(tmp);
+	}
 	if (argc < 5)
 	{
-		ft_printf("\n\033[1;31mUsage: %s infile", argv[0]);
-		ft_printf(" command1 command1 outfile\n\n");
-		exit(EXIT_FAILURE);
+		ft_printf("Usage: %s infile", argv[0]);
+		pf_exit(" command1 command2 [... commandN] outfile", 1);
 	}
 	i = 0;
 	while (envp && envp[i] && ft_strncmp(envp[i], "PATH=", 5))
 		i++;
 	if (!envp || !envp[i])
 	{
-		ft_printf("\n\033[1;31mWrong environment vars.\n\n");
-		exit(EXIT_FAILURE);
+		// i = 1;
+		// while (++i < argc - 1)
+		// {
+		// 	ft_printf("pipex: command not found: ");
+		// 	ft_printf("%s", ft_split(argv[i], ' ')[0]);
+		// 	ft_printf("\n");
+		// }
+		// print_stderr("PATH not set.");
+		exit(0);
 	}
 	vars->path = get_path(envp);
 	vars->envp = envp;

@@ -6,21 +6,21 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 17:08:44 by angmarti          #+#    #+#             */
-/*   Updated: 2022/12/16 13:59:01 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/04/08 00:18:38 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/libft.h"
 
 /**
- * If the string is too short, return an empty string, otherwise return a 
- * substring of the given string.
+ * Returns a substring of a given string starting from a specified index and
+ * with a specified length.
  * 
- * @param s The string to be split.
- * @param start the index of the first character to include in the substring.
+ * @param s The string that we want to extract from.
+ * @param start the index of the first character to include in the substring
  * @param len the length of the substring to be returned
  * 
- * @return A pointer to a new string.
+ * @return A pointer to a new string. If fails, it returns NULL.
  */
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {

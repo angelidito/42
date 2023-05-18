@@ -6,7 +6,7 @@
 #    By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/17 12:03:08 by angmarti          #+#    #+#              #
-#    Updated: 2023/04/02 18:20:34 by angmarti         ###   ########.fr        #
+#    Updated: 2023/05/14 16:01:02 by angmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,15 @@
 
 NAME			=	pipex
 SRC				=	\
-					src/case2cmds.c \
+					src/backslashes.c \
 					src/case_n_cmds.c \
+					src/case2cmds.c \
 					src/checking_setting.c \
+					src/errors.c \
+					src/get_cmd_args.c \
 					src/getting_executing.c \
 					src/ft_functions.c \
+					src/ft_split_not_escaped.c \
 					src/main.c
 OBJ				=	$(SRC:.c=.o)
 
@@ -109,6 +113,9 @@ fclean:
 	@echo "$(GREEN)$(NAME):$(NOCOLOR) [$(RED)Removing $(BLUE)$(NAME)$(NOCOLOR)]$(RED)"
 	@rm -f $(NAME)
 	@echo
+
+
+bonus: $(NAME)
 
 
 .PHONY: re clean fclean all
