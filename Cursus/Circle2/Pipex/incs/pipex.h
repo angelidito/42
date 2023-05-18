@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:44:24 by angmarti          #+#    #+#             */
-/*   Updated: 2023/05/18 21:50:26 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/05/18 21:53:10 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@
 
 // BACKSLASHES
 
-char	*str_remove_escapes(char *str);
 void	remove_escapes(t_list **lst);
+char	*str_remove_escapes(char *str);
 
 //	DEBUGGING
 
