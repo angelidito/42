@@ -6,7 +6,7 @@
 #    By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/17 12:03:08 by angmarti          #+#    #+#              #
-#    Updated: 2023/05/14 16:01:02 by angmarti         ###   ########.fr        #
+#    Updated: 2023/05/18 20:20:36 by angmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRC				=	\
 					src/errors.c \
 					src/get_cmd_args.c \
 					src/getting_executing.c \
+					src/here_doc.c \
 					src/ft_functions.c \
 					src/ft_split_not_escaped.c \
 					src/main.c

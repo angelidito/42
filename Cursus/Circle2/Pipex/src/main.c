@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 14:43:05 by angmarti          #+#    #+#             */
-/*   Updated: 2023/05/18 18:36:13 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/05/18 20:22:15 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,10 +112,10 @@ int	main(int argc, char **argv, char **envp)
 		exit(0);
 	}
 	check_errors(argc, argv, envp, &vars);
-	if (argc == 5)
+	if (argc == (5 + vars.here_doc))
 		case2cmds(&vars);
 	else
-	case_n_cmds(&vars, NULL, chararrsize(vars.cmds));
+		case_n_cmds(&vars, NULL, chararrsize(vars.cmds));
 	return (0);
 }
 

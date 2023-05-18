@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex_structs.h                                    :+:      :+:    :+:   */
+/*   here_doc.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/16 18:11:45 by angmarti          #+#    #+#             */
-/*   Updated: 2023/05/18 21:29:26 by angmarti         ###   ########.fr       */
+/*   Created: 2023/05/18 19:44:51 by angmarti          #+#    #+#             */
+/*   Updated: 2023/05/18 20:17:47 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_STRUCTS_H
-# define PIPEX_STRUCTS_H
+#include "../incs/pipex.h"
 
-typedef struct s_vars
+int	heredoc(char *limiter)
 {
-	char	*infile;
-	char	**cmds;
-	char	*outfile;
-	char	**envp;
-	char	**path;
-	int		here_doc;
-}			t_vars;
+	int fd;
+	char *line;
 
-#endif
+	fd = open(TEMP_HERE_DOC, O_CREAT | O_RDWR | O_TRUNC, 0644);
+	if (fd == -1)
+		pf_exit("Error opening file", 1);
+	line = get_next_line(STDIN_FILENO);
+	while (ft_strncmp(line, limiter, ft_strlen(limiter)))
+	{
+		ft_putstr_fd(line, fd);
+		free(line);
+		line = get_next_line(STDIN_FILENO);
+	}
+	close(fd);
+	return (0);
+}

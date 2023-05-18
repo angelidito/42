@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 18:31:18 by angmarti          #+#    #+#             */
-/*   Updated: 2023/05/18 18:52:48 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/05/18 20:21:51 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,21 +47,23 @@ void	check_cmd(char *cmd, char **path)
 void	set_vars(int argc, char **argv, t_vars *vars)
 {
 	int	i;
-	int	here_doc;
 
-	here_doc = 0;
+	vars->here_doc = 0;
 	if (ft_strncmp(argv[1], "here_doc", 8) == 0)
 	{
-		here_doc = 1;
+		vars->here_doc = 1;
+		vars->infile = TEMP_HERE_DOC;
+		heredoc(argv[2]);
 	}
-	vars->infile = argv[1 + here_doc];
+	else
+		vars->infile = argv[1];
 	vars->outfile = argv[argc - 1];
-	vars->cmds = ft_calloc(argc - (2 + here_doc), sizeof(char *));
+	vars->cmds = ft_calloc(argc - (2 + vars->here_doc), sizeof(char *));
 	if (!vars->cmds)
 		pf_exit("Malloc error", STDERR_FILENO);
-	i = 1 + here_doc;
+	i = 1 + vars->here_doc;
 	while (++i < argc - 1)
-		vars->cmds[i - (2 + here_doc)] = argv[i];
+		vars->cmds[i - (2 + vars->here_doc)] = argv[i];
 }
 
 /**
