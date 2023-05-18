@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 14:43:05 by angmarti          #+#    #+#             */
-/*   Updated: 2023/05/05 17:34:53 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/05/17 17:43:40 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,10 @@ int	open_in(char *infile, int flags)
 
 	fd_infile = open(infile, flags);
 	if (fd_infile == -1)
-		pf_exit("Not accessible input file", STDERR_FILENO);
+	{
+		print_stderr("pipex: permission denied: ");
+		pf_exit(infile, STDERR_FILENO);
+	}
 	return (fd_infile);
 }
 
@@ -40,13 +43,18 @@ int	open_in(char *infile, int flags)
  * 
  * @return The file descriptor of the output file.
  */
-int	open_out(char *outfile, int flags, int mode)
+int	open_out(char *outfile, int flags, int mode, int pid)
 {
 	int	fd_outfile;
 
 	fd_outfile = open(outfile, flags, mode);
 	if (fd_outfile == -1)
-		pf_exit("Not accessible output file", STDERR_FILENO);
+	{
+		if (pid)
+			exit(EXIT_FAILURE);
+		print_stderr("pipex: permission denied: ");
+		pf_exit(outfile, STDERR_FILENO);
+	}
 	return (fd_outfile);
 }
 
@@ -88,7 +96,8 @@ void	case_n_cmds(t_vars *vars, int *prev_fd, int n_comands)
 	if (pid == -1)
 		my_perror("\033[1;31mError while forking.");
 	if (!prev_fd)
-		fd_outfile = open_out(vars->outfile, O_CREAT | O_RDWR | O_TRUNC, 0644);
+		fd_outfile = open_out(vars->outfile, O_CREAT | O_RDWR | O_TRUNC, 0644,
+				pid);
 	else
 		fd_outfile = prev_fd[1];
 	if (pid == 0)

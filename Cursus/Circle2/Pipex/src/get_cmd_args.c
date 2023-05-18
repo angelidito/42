@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 18:23:10 by angmarti          #+#    #+#             */
-/*   Updated: 2023/05/15 15:25:58 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/05/17 17:43:51 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,8 @@ int	is_escaped_quote(char const *cmd, int i)
 // 	return ;
 // } // SIN COMILLAS--------------------------
 
-void	w_logic(char const *cmd, t_list **lst, int *i, int *len, char **search)
+int	search_word(char const *cmd, int *i, int *len, char **search)
 {
-	t_list	*node;
-
 	if (ft_strchr(*search, cmd[*i + *len]) && !is_escaped_quote(cmd, *i + *len))
 	{
 		if (*len == 0)
@@ -75,14 +73,11 @@ void	w_logic(char const *cmd, t_list **lst, int *i, int *len, char **search)
 				*search = "\"";
 			*i += 1;
 			*len = -1;
-			return ;
+			return (0);
 		}
-		node = ft_lstnew(ft_substr(cmd, *i, *len));
-		ft_lstadd_back(lst, node);
-		*i += *len + 1;
-		*len = -1;
-		*search = " '\"";
+		return (1);
 	}
+	return (0);
 }
 
 void	set_arg_lst(char const *cmd, t_list **arg_lst)
@@ -90,16 +85,24 @@ void	set_arg_lst(char const *cmd, t_list **arg_lst)
 	int		i;
 	int		len;
 	char	*search;
+	t_list	*node;
 
 	i = 0;
-	search = " '\"";
 	len = -1;
+	search = " '\"";
 	while (cmd && (i + ++len) < (int)ft_strlen(cmd))
-		w_logic(cmd, arg_lst, &i, &len, &search);
+	{
+		if (search_word(cmd, &i, &len, &search))
+		{
+			node = ft_lstnew(ft_substr(cmd, i, len));
+			ft_lstadd_back(arg_lst, node);
+			i += len + 1;
+			len = -1;
+			search = " '\"";
+		}
+	}
 	if (len > 0)
 		ft_lstadd_back(arg_lst, ft_lstnew(ft_substr(cmd, i, len)));
-	// remove_backslash(arg_lst);
-	// remove_notescaped_backslash(arg_lst);
 }
 
 char	**lst_to_arr(t_list **lst)

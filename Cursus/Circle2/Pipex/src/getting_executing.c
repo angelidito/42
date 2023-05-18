@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 14:44:42 by angmarti          #+#    #+#             */
-/*   Updated: 2023/05/17 15:08:17 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/05/17 17:48:15 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char	*get_cmd_file(char *cmd, char **path)
 		return ((char *)cmd);
 	i = -1;
 	words = ft_split_not_escaped(cmd, ' ');
-	result = NULL;
+	// result = NULL;
 	while (++i < 6)
 	{
 		aux = ft_strjoin("/", words[0]);
