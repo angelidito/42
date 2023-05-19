@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 14:44:42 by angmarti          #+#    #+#             */
-/*   Updated: 2023/05/17 17:48:15 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/05/19 18:16:48 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,26 @@ int	chararrsize(char **chararr)
 		i++;
 	return (i);
 }
+char	*find_file(char **words, char **path)
+{
+	char	*file;
+	int		i;
+	char	*aux;
 
+	i = -1;
+	file = NULL;
+	while (++i < 6)
+	{
+		aux = ft_strjoin("/", words[0]);
+		file = ft_strjoin(path[i], aux);
+		free(aux);
+		if (access(file, X_OK) == 0)
+			break ;
+		free(file);
+		file = NULL;
+	}
+	return (file);
+}
 /**
  * It takes a command and a path, and returns the path to the command
  * 
@@ -41,30 +60,20 @@ char	*get_cmd_file(char *cmd, char **path)
 {
 	int		i;
 	char	**words;
-	char	*result;
-	char	*aux;
+	char	*file;
 
 	if (!cmd)
 		return (NULL);
 	cmd = str_remove_escapes(cmd);
-	if ((cmd[0] == '/' || (cmd[0] == '.' && cmd[1] == '/')) && access(cmd,
+	if ((*cmd == '/' || (*cmd == '.' && cmd[1] == '/')) && access(cmd,
 			X_OK) == 0)
 		return ((char *)cmd);
 	i = -1;
 	words = ft_split_not_escaped(cmd, ' ');
-	// result = NULL;
-	while (++i < 6)
-	{
-		aux = ft_strjoin("/", words[0]);
-		result = ft_strjoin(path[i], aux);
-		free(aux);
-		if (access(result, X_OK) == 0)
-			break ;
-		free(result);
-		result = NULL;
-	}
+	file = find_file(words, path);
+	free(cmd);
 	ft_freechararr(words);
-	return (result);
+	return (file);
 }
 
 /**

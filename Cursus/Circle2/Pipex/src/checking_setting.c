@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 18:31:18 by angmarti          #+#    #+#             */
-/*   Updated: 2023/05/18 20:21:51 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/05/19 18:03:10 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	check_cmd(char *cmd, char **path)
 		print_stderr(cmd);
 		print_stderr("\n");
 	}
+	free(file);
 }
 
 /**

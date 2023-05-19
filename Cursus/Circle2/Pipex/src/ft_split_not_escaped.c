@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 13:30:02 by angmarti          #+#    #+#             */
-/*   Updated: 2023/05/15 14:58:10 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/05/19 18:23:19 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,7 +163,6 @@ char	**ft_split_not_escaped(char const *s, char c)
 
 	words = 0;
 	str_len = (int)ft_strlen(s);
-	array = ft_calloc(sizeof(char *), 1);
 	words = count_words_not_escaped(s, c, str_len);
 	array = ft_calloc(sizeof(char *), words + 1);
 	if (!array)
