@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 18:31:18 by angmarti          #+#    #+#             */
-/*   Updated: 2023/05/19 18:03:10 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/05/19 18:55:42 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,17 +103,7 @@ void	check_errors(int argc, char **argv, char **envp, t_vars *vars)
 	while (envp && envp[i] && ft_strncmp(envp[i], "PATH=", 5))
 		i++;
 	if (!envp || !envp[i])
-	{
-		// i = 1;
-		// while (++i < argc - 1)
-		// {
-		// 	ft_printf("pipex: command not found: ");
-		// 	ft_printf("%s", ft_split(argv[i], ' ')[0]);
-		// 	ft_printf("\n");
-		// }
-		// print_stderr("PATH not set.");
 		exit(0);
-	}
 	vars->path = get_path(envp);
 	vars->envp = envp;
 	set_vars(argc, argv, vars);

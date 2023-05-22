@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 14:44:42 by angmarti          #+#    #+#             */
-/*   Updated: 2023/05/19 18:16:48 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/05/19 18:57:11 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	chararrsize(char **chararr)
 		i++;
 	return (i);
 }
+
 char	*find_file(char **words, char **path)
 {
 	char	*file;
@@ -48,6 +49,7 @@ char	*find_file(char **words, char **path)
 	}
 	return (file);
 }
+
 /**
  * It takes a command and a path, and returns the path to the command
  * 

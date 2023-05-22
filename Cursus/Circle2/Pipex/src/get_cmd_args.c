@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 18:23:10 by angmarti          #+#    #+#             */
-/*   Updated: 2023/05/17 17:43:51 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/05/19 18:53:58 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,43 +23,6 @@ int	is_escaped_quote(char const *cmd, int i)
 	}
 	return (0);
 }
-
-// int	set_search(char const *cmd, int i, char **search)
-// {
-// 	if (cmd[i] == ' ')
-// 		return (0);
-// 	if (cmd[i] == '\'')
-// 		*search = "\'";
-// 	else if (cmd[i] == '\"')
-// 		*search = "\"";
-// 	return (1);
-// }
-
-// if (*len == 0) // ! CON COMILLAS----------------
-// {
-// 	if (cmd[*i + *len] == ' ')
-// 	{
-// 		*i += 1;
-// 		*len = -1;
-// 	}
-// 	else if (cmd[*i] == '\'')
-// 		*search = "\'";
-// 	else if (cmd[*i] == '\"')
-// 		*search = "\"";
-// 	return ;
-// }
-// if (cmd[*i + *len] != ' ')
-// 	*len += 1; // CON COMILLAS----------------
-// if (*len == 0) // ! SIN COMILLAS-------------
-// {
-// 	if (cmd[*i] == '\'')
-// 		*search = "\'";
-// 	else if (cmd[*i] == '\"')
-// 		*search = "\"";
-// 	*i += 1;
-// 	*len = -1;
-// 	return ;
-// } // SIN COMILLAS--------------------------
 
 int	search_word(char const *cmd, int *i, int *len, char **search)
 {

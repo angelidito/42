@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 19:44:51 by angmarti          #+#    #+#             */
-/*   Updated: 2023/05/18 20:17:47 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/05/19 18:56:58 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	heredoc(char *limiter)
 {
-	int fd;
-	char *line;
+	int		fd;
+	char	*line;
 
 	fd = open(TEMP_HERE_DOC, O_CREAT | O_RDWR | O_TRUNC, 0644);
 	if (fd == -1)
