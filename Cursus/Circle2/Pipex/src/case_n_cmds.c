@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 14:43:05 by angmarti          #+#    #+#             */
-/*   Updated: 2023/05/17 17:43:40 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/05/22 19:20:04 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,17 @@ int	open_in(char *infile, int flags)
  */
 int	open_out(char *outfile, int flags, int mode, int pid)
 {
-	int	fd_outfile;
+	int	fd_of;
 
-	fd_outfile = open(outfile, flags, mode);
-	if (fd_outfile == -1)
+	fd_of = open(outfile, flags, mode);
+	if (fd_of == -1)
 	{
 		if (pid)
 			exit(EXIT_FAILURE);
 		print_stderr("pipex: permission denied: ");
 		pf_exit(outfile, STDERR_FILENO);
 	}
-	return (fd_outfile);
+	return (fd_of);
 }
 
 void	n_child(t_vars *vars, int *pipe_fd)
@@ -83,7 +83,7 @@ void	case_n_cmds(t_vars *vars, int *prev_fd, int n_comands)
 {
 	int		pipe_fd[2];
 	pid_t	pid;
-	int		fd_outfile;
+	int		fd_of;
 
 	if (n_comands == 1)
 	{
@@ -95,13 +95,14 @@ void	case_n_cmds(t_vars *vars, int *prev_fd, int n_comands)
 	pid = fork();
 	if (pid == -1)
 		my_perror("\033[1;31mError while forking.");
-	if (!prev_fd)
-		fd_outfile = open_out(vars->outfile, O_CREAT | O_RDWR | O_TRUNC, 0644,
-				pid);
+	if (!prev_fd && vars->here_doc == 1)
+		fd_of = open_out(vars->outfile, O_CREAT | O_RDWR | O_APPEND, 0644, pid);
+	else if (!prev_fd)
+		fd_of = open_out(vars->outfile, O_CREAT | O_RDWR | O_TRUNC, 0644, pid);
 	else
-		fd_outfile = prev_fd[1];
+		fd_of = prev_fd[1];
 	if (pid == 0)
 		case_n_cmds(vars, pipe_fd, n_comands - 1);
 	else
-		n_parent(vars, pipe_fd, fd_outfile, n_comands - 1);
+		n_parent(vars, pipe_fd, fd_of, n_comands - 1);
 }

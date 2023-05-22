@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:44:24 by angmarti          #+#    #+#             */
-/*   Updated: 2023/05/18 21:53:10 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/05/22 18:20:28 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ char	**get_path(char *envp[]);
 
 // HERE_DOC
 
-int		heredoc(char *limiter);
+void	heredoc(char *limiter, int n_comands);
 
 //	FT_FUNCTIONS
 

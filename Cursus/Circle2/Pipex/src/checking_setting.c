@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 18:31:18 by angmarti          #+#    #+#             */
-/*   Updated: 2023/05/19 18:55:42 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/05/22 18:33:45 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,10 @@ void	set_vars(int argc, char **argv, t_vars *vars)
 {
 	int	i;
 
-	vars->here_doc = 0;
-	if (ft_strncmp(argv[1], "here_doc", 8) == 0)
+	if (vars->here_doc)
 	{
-		vars->here_doc = 1;
 		vars->infile = TEMP_HERE_DOC;
-		heredoc(argv[2]);
+		heredoc(argv[2], argc - 5);
 	}
 	else
 		vars->infile = argv[1];
@@ -94,10 +92,10 @@ void	check_errors(int argc, char **argv, char **envp, t_vars *vars)
 			pf_exit("Wrong arguments.", 1);
 		free(tmp);
 	}
-	if (argc < 5)
+	if (argc < 5 + vars->here_doc)
 	{
-		ft_printf("Usage: %s infile", argv[0]);
-		pf_exit(" command1 command2 [... commandN] outfile", 1);
+		ft_printf("Usage: %s (here_doc LIMITER)|infile", argv[0]);
+		pf_exit(" cmd1 cmd2 [... cmdN] outfile", 1);
 	}
 	i = 0;
 	while (envp && envp[i] && ft_strncmp(envp[i], "PATH=", 5))
