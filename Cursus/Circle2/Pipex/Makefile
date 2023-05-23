@@ -6,7 +6,7 @@
 #    By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/17 12:03:08 by angmarti          #+#    #+#              #
-#    Updated: 2023/05/23 16:37:01 by angmarti         ###   ########.fr        #
+#    Updated: 2023/05/23 17:07:58 by angmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,13 +59,13 @@ LIBS			=	${LIBFT}
 # *****************************      CONFIG      ***************************** #
 # **************************************************************************** #
 
-CC				=	gcc
-C_FLAGS			=	-Wall -Wextra -Werror -g3 #-fsanitize=address
+CC				=	@gcc
+C_FLAGS			=	-Wall -Wextra -Werror #-g3 -fsanitize=address
 C_INCLUDES		=	-Imlx -I$(INCS_DIR) -I$(LIBFT_INCS_DIR)
 
-MAKES			=	make -C $(LIBFT_DIR)/ ; 
-MAKES_CLEAN		=	make clean -C $(LIBFT_DIR)/ ;
-MAKES_FCLEAN	=	make fclean -C $(LIBFT_DIR)/ ;
+MAKES			=	make -C $(LIBFT_DIR)/
+MAKES_CLEAN		=	make clean -C $(LIBFT_DIR)/
+MAKES_FCLEAN	=	make fclean -C $(LIBFT_DIR)/
 
 # **************************************************************************** #
 # *****************************      COLORS      ***************************** #
@@ -100,10 +100,6 @@ $(NAME): $(OBJS)
 	@echo
 	@echo
 
-# **************************************************************************** #
-# *****************************       STUFF      ***************************** #
-# **************************************************************************** #
-
 all: $(NAME)
 
 re: fclean all
@@ -124,11 +120,10 @@ fclean:
 	@rm -f $(NAME)
 	@echo
 
-
 bonus: $(OBJS_B)
 	@${MAKES}
 	@echo
-	@echo "$(GREEN)$(NAME):$(NOCOLOR) [Compilation:$(YELLOW) $@$(NOCOLOR)]$(GRAY)"
+	@echo "$(GREEN)$(NAME):$(NOCOLOR) [Compilation:$(YELLOW) $(NAME) $@$(NOCOLOR)]$(GRAY)"
 	$(CC) $(C_FLAGS) $(OBJS_B) $(LIBFT) -o $(NAME)
 	@echo
 	@echo
@@ -138,5 +133,4 @@ bonus: $(OBJS_B)
 	@echo
 	@echo
 
-
-.PHONY: re clean fclean all
+.PHONY:  all bonus clean fclean re
