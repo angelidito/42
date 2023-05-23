@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   case2cmds.c                                        :+:      :+:    :+:   */
+/*   case_2_cmds.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -40,7 +40,7 @@ void	parent(t_vars *vars, int *pipe_fd)
 	exec_cmd(vars->cmds[1], vars->path, vars->envp);
 }
 
-void	case2cmds(t_vars *vars)
+void	case_2_cmds(t_vars *vars)
 {
 	int		pipe_fd[2];
 	pid_t	pid;

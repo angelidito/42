@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checking_setting.c                                 :+:      :+:    :+:   */
+/*   checking_setting_no_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 18:31:18 by angmarti          #+#    #+#             */
-/*   Updated: 2023/05/23 16:17:11 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/05/23 16:11:03 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,34 +39,26 @@ void	check_cmd(char *cmd, char **path)
 }
 
 /**
- * The function sets various variables based on 
- * the input arguments and environment variables
+ * The function sets variables in a t_vars struct
  * 
  * @param argc Number of arguments passed to the program
  * @param argv Arguments passed to the program
- * @param envp Environment variables
  * @param vars Variables used in the program.
  */
-void	set_vars(int argc, char **argv, char **envp, t_vars *vars)
+void	set_vars_no_bonus(int argc, char **argv, char **envp, t_vars *vars)
 {
 	int	i;
 
 	vars->path = get_path(envp);
 	vars->envp = envp;
-	if (vars->here_doc)
-	{
-		vars->infile = TEMP_HERE_DOC;
-		heredoc(argv[2], argc - 5);
-	}
-	else
-		vars->infile = argv[1];
+	vars->infile = argv[1];
 	vars->outfile = argv[argc - 1];
-	vars->cmds = ft_calloc(argc - (2 + vars->here_doc), sizeof(char *));
+	vars->cmds = ft_calloc(argc - 2, sizeof(char *));
 	if (!vars->cmds)
 		pf_exit("Malloc error", STDERR_FILENO);
 	i = 1 + vars->here_doc;
 	while (++i < argc - 1)
-		vars->cmds[i - (2 + vars->here_doc)] = argv[i];
+		vars->cmds[i - 2] = argv[i];
 }
 
 /**
@@ -83,15 +75,11 @@ void	set_vars(int argc, char **argv, char **envp, t_vars *vars)
  * @param envp Environment variables
  * @param vars Variables used in the program.
  */
-void	check_errors(int argc, char **argv, char **envp, t_vars *vars)
+void	check_errors_no_bonus(int argc, char **argv, char **envp)
 {
 	int		i;
 	char	*tmp;
 
-	vars->here_doc = 0;
-	if (argc > 1)
-		if (ft_strlen(argv[1]) == 8 && ft_strncmp(argv[1], "here_doc", 8) == 0)
-			vars->here_doc = 1;
 	i = argc;
 	while (--i > 1)
 	{
@@ -100,9 +88,9 @@ void	check_errors(int argc, char **argv, char **envp, t_vars *vars)
 			pf_exit("Wrong arguments.", 1);
 		free(tmp);
 	}
-	if (argc < 5 + vars->here_doc)
+	if (argc < 5)
 	{
-		ft_printf("Usage: %s (here_doc LIMITER)|infile", argv[0]);
+		ft_printf("Usage: %s infile", argv[0]);
 		pf_exit(" cmd1 cmd2 [... cmdN] outfile", 1);
 	}
 	i = 0;
