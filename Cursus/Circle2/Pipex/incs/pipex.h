@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:44:24 by angmarti          #+#    #+#             */
-/*   Updated: 2023/05/23 16:21:40 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/05/23 17:18:35 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@
 
 void	remove_escapes(t_list **lst);
 char	*str_remove_escapes(char *str);
-
 
 //	CASE TWO CMDS (NO BONUS)
 
