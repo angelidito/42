@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 14:43:05 by angmarti          #+#    #+#             */
-/*   Updated: 2023/05/22 19:20:04 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/05/23 17:26:28 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,12 @@ int	open_in(char *infile, int flags)
 	int	fd_infile;
 
 	fd_infile = open(infile, flags);
+	if (fd_infile == -1 && access(infile, F_OK) == -1)
+	{
+		print_stderr("pipex: ");
+		print_stderr(infile);
+		pf_exit(": No such file or directory", STDERR_FILENO);
+	}
 	if (fd_infile == -1)
 	{
 		print_stderr("pipex: permission denied: ");

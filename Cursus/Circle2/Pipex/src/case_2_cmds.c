@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   case_2_cmds.c                                        :+:      :+:    :+:   */
+/*   case_2_cmds.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 14:43:05 by angmarti          #+#    #+#             */
-/*   Updated: 2023/05/05 17:35:01 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/05/23 17:23:58 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,18 @@ void	child(t_vars *vars, int *pipe_fd)
 	int	fd_infile;
 
 	check_cmd(vars->cmds[0], vars->path);
+	if (access(vars->infile, F_OK) == -1)
+	{
+		print_stderr("pipex: ");
+		print_stderr(vars->infile);
+		pf_exit(": No such file or directory", STDERR_FILENO);
+	}
 	fd_infile = open(vars->infile, O_RDONLY);
 	if (fd_infile == -1)
-		pf_exit("Not accessible input file", STDERR_FILENO);
+	{
+		print_stderr("pipex: permission denied: ");
+		pf_exit(vars->infile, STDERR_FILENO);
+	}
 	dup2(fd_infile, STDIN_FILENO);
 	dup2(pipe_fd[1], STDOUT_FILENO);
 	close(pipe_fd[0]);
