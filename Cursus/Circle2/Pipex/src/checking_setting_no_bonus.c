@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 18:31:18 by angmarti          #+#    #+#             */
-/*   Updated: 2023/05/23 16:11:03 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/05/24 18:01:49 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	set_vars_no_bonus(int argc, char **argv, char **envp, t_vars *vars)
 	vars->cmds = ft_calloc(argc - 2, sizeof(char *));
 	if (!vars->cmds)
 		pf_exit("Malloc error", STDERR_FILENO);
-	i = 1 + vars->here_doc;
+	i = 1;
 	while (++i < argc - 1)
 		vars->cmds[i - 2] = argv[i];
 }
@@ -88,10 +88,10 @@ void	check_errors_no_bonus(int argc, char **argv, char **envp)
 			pf_exit("Wrong arguments.", 1);
 		free(tmp);
 	}
-	if (argc < 5)
+	if (argc != 5)
 	{
 		ft_printf("Usage: %s infile", argv[0]);
-		pf_exit(" cmd1 cmd2 [... cmdN] outfile", 1);
+		pf_exit(" cmd1 cmd2 outfile", 1);
 	}
 	i = 0;
 	while (envp && envp[i] && ft_strncmp(envp[i], "PATH=", 5))
