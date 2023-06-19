@@ -18,4 +18,4 @@ Inside `cursus` folder, you can check my projects, grouped by circles.
 | *Second circle* | *on progress* |
 |  Push Swap   | ![angmarti's 42 push_swap Score](https://badge42.vercel.app/api/v2/cl5nvqyx2001109jk9d48eq0s/project/2854555) |
 |  FdF   | ![angmarti's 42 push_swap Score](https://badge42.vercel.app/api/v2/cl5nvqyx2001109jk9d48eq0s/project/2881283) |
-|  minitalk? pipex?   | still thinking |
+|  Pipex   | ![angmarti's 42 push_swap Score](https://badge42.vercel.app/api/v2/cl5nvqyx2001109jk9d48eq0s/project/2640062) |
