@@ -1,0 +1,84 @@
+NAME	= libftprintf.a
+LIBFT	= libft.a
+CC		= gcc
+CFLAGS	= -Wall -Wextra -Werror
+LIB		= ar rcs
+RM		= rm -f
+ifdef BONUS
+	SRCS 	=	ft_eval_format_bonus.c			\
+				ft_print_format_letter_bonus.c	\
+				ft_printf_bonus.c				\
+				ft_hex_format_bonus.c 			\
+				ft_hex_utils_bonus.c			\
+				ft_fill_struct_bonus.c			\
+				ft_num_format_signed_bonus.c	\
+				ft_num_utils_bonus.c			\
+				ft_num_format_unsigned_bonus.c	\
+				ft_pointer_format_bonus.c
+	SRC_DIR		= ./src_bonus/
+	INCLUDE = 	ft_printf_bonus.h
+else
+	SRCS 	=	ft_eval_format.c				\
+				ft_print_format_letter.c		\
+				ft_printf.c						\
+				ft_hex_format.c					\
+				ft_hex_utils.c					\
+				ft_fill_struct.c				\
+				ft_num_format_signed.c			\
+				ft_num_utils.c					\
+				ft_num_format_unsigned.c		\
+				ft_pointer_format.c
+	SRC_DIR		= ./src/
+	INCLUDE = 	ft_printf.h
+endif
+INCLUDE_DIR	= ./includes/
+OBJ_DIR		= ./OBJS/
+LIBFT_DIR	= ./Libft/
+# Colors
+GR	= \033[32;1m
+RE	= \033[31;1m
+YE	= \033[33;1m
+CY	= \033[36;1m
+RC	= \033[0m
+OBJS = $(addprefix $(OBJ_DIR), $(SRCS:.c=.o))
+all: $(NAME)
+$(NAME): $(OBJS) $(addprefix $(INCLUDE_DIR),$(INCLUDE))
+	@printf "$(GR)\nCompiled [$(CC) $(CFLAGS)] $(SRCS)$(RC)"
+	@make -s -C $(LIBFT_DIR)
+	@printf "$(YE)\n--> Created $(LIBFT)$(RC)"
+	@cp Libft/libft.a .
+	@mv libft.a $(NAME)
+	@$(LIB) $(NAME) $(OBJS)
+	@printf "$(YE)\n--> Created $(NAME)$(RC)\n"
+bonus:
+	@$(MAKE) BONUS=1
+main: $(NAME)
+	@$(CC) $(CFLAGS) $(addprefix $(SRC_DIR), main.c) $(NAME) -o exec
+	./exec
+noflag: $(NAME)
+	@$(CC) $(addprefix $(SRC_DIR), main.c) $(NAME) -o exec
+	./exec
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c
+	@mkdir -p $(OBJ_DIR)
+	@printf "$(GR)+$(RC)"
+	@$(CC) $(CFLAGS) -I $(INCLUDE_DIR) -c -o $@ $<
+clean:
+	@printf "$(RE)--- Removing objects$(RC)\n"
+	@$(MAKE) clean -s -C $(LIBFT_DIR)
+	@$(RM) -r $(OBJ_DIR)
+fclean: clean
+	@printf "$(RE)--- Removing $(LIBFT)$(RC)\n"
+	@$(MAKE) fclean -s -C $(LIBFT_DIR)
+	@printf "$(RE)--- Removing $(NAME)$(RC)\n"
+	@$(RM) $(NAME)
+	@printf "$(RE)--- Removing exec$(RC)\n"
+	@$(RM) exec
+	
+re: fclean all
+.PHONY: all clean fclean re bonus main
+
+
+
+
+
+

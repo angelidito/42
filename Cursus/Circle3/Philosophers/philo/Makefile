@@ -6,7 +6,7 @@
 #    By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/17 12:03:08 by angmarti          #+#    #+#              #
-#    Updated: 2023/06/19 22:06:41 by angmarti         ###   ########.fr        #
+#    Updated: 2023/07/13 19:01:37 by angmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -102,6 +102,20 @@ $(NAME): $(OBJS)
 
 # bonus:
 # 	@$(MAKE) BONUS=1
+
+
+exec:
+	@$(MAKE)
+	@echo "$(NOCOLOR)[$(GREEN)--------------------------$(NOCOLOR)]"
+	@echo "$(NOCOLOR)[$(GREEN)-----$(BBLUE)   EXECUTING    $(NOCOLOR)$(GREEN)-----$(NOCOLOR)]"
+	@echo "$(NOCOLOR)[$(GREEN)--------------------------$(NOCOLOR)]"
+	@echo
+	@echo
+	@./$(NAME)
+	@echo "$(NOCOLOR)[$(BLUE)--------------------------$(NOCOLOR)]"
+	@echo "$(NOCOLOR)[$(BLUE)-----$(BBLUE)    FINISHED    $(NOCOLOR)$(BLUE)-----$(NOCOLOR)]"
+	@echo "$(NOCOLOR)[$(BLUE)--------------------------$(NOCOLOR)]"
+
 
 clean:
 	@echo
