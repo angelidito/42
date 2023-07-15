@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philosophers.h                                     :+:      :+:    :+:   */
+/*   philosopher.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/19 20:04:28 by angmarti          #+#    #+#             */
-/*   Updated: 2023/07/15 22:02:21 by angmarti         ###   ########.fr       */
+/*   Created: 2023/07/15 21:48:28 by angmarti          #+#    #+#             */
+/*   Updated: 2023/07/15 21:51:06 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHILOSOPHERS_H
-# define PHILOSOPHERS_H
+#include "../incs/philosophers.h"
 
-# include "colors.h"
-# include "functions.h"
-# include "libs.h"
-# include "structs.h"
+void	*start(void *arg)
+{
+	t_philo *philo;
+	int i;
 
-#endif
+	philo = (t_philo *)arg;
+	i = -1;
+	philo->last_eat = get_time();
+	pthread_mutex_lock(philo->print_mutex);
+	printf("is alive Philosopher %d\n", philo->id);
+	pthread_mutex_unlock(philo->print_mutex);
+	return (NULL);
+}
