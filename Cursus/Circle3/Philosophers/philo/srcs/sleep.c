@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 20:05:18 by angmarti          #+#    #+#             */
-/*   Updated: 2023/07/19 21:33:17 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/07/19 21:39:02 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ void	philo_sleep(t_philo *philo)
 	}
 }
 
-// TODO: hacer que el tiempo del usleep sea como mucho 10 ms ( o se dividir por la cantidad de philosophers)
-void ft_usleep(int mcs)
-{
+// TODO: hacer que el tiempo del usleep sea como mucho 10 ms ( o se dividir por la cantidad de philosophers) ???
+// void ft_usleep(int mcs)
+// {
 
-}
+// }
