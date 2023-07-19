@@ -1,38 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philosopher.c                                      :+:      :+:    :+:   */
+/*   sleep.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/15 21:48:28 by angmarti          #+#    #+#             */
-/*   Updated: 2023/07/19 20:47:54 by angmarti         ###   ########.fr       */
+/*   Created: 2023/07/19 20:05:18 by angmarti          #+#    #+#             */
+/*   Updated: 2023/07/19 21:33:17 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/philosophers.h"
 
-void	*start(void *arg)
+void	philo_sleep(t_philo *philo)
 {
-	t_philo	*philo;
-	int		i;
+	long	time_end;
+	long	now;
 
-	philo = (t_philo *)arg;
-	i = -1;
-	philo->last_eat = get_time();
-	// wanna_print(philo);
-	// printf("Philosopher %d is alive and ready to eat!\n", philo->id);
-	// pthread_mutex_unlock(philo->print_mutex);
-	while (++i < philo->args->n_times_must_eat)
+	now = get_time();
+	time_end = now + philo->args->time_to_sleep;
+	wanna_print(philo);
+	printf("%ld %d is sleeping\n", now, philo->id);
+	pthread_mutex_unlock(philo->print_mutex);
+	while (get_time() < time_end)
 	{
-		if (!is_philo_dead(philo))
-			philo_sleep(philo);
-		if (!is_philo_dead(philo))
-			philo_think(philo);
-		if (!is_philo_dead(philo))
-			philo_eat(philo);
 		if (is_philo_dead(philo))
-			break ;
+			return ;
+		usleep(100);
 	}
-	return (NULL);
+}
+
+// TODO: hacer que el tiempo del usleep sea como mucho 10 ms ( o se dividir por la cantidad de philosophers)
+void ft_usleep(int mcs)
+{
+
 }

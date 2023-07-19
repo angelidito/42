@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   time.c                                             :+:      :+:    :+:   */
+/*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/15 21:48:28 by angmarti          #+#    #+#             */
-/*   Updated: 2023/07/19 20:08:39 by angmarti         ###   ########.fr       */
+/*   Created: 2023/07/19 20:05:18 by angmarti          #+#    #+#             */
+/*   Updated: 2023/07/19 20:07:10 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/philosophers.h"
 
-/**
- * The function "get_time" returns the current time in milliseconds.
- * 
- * @return the current time in milliseconds.
- */
-long	get_time(void)
+void	wanna_print(t_philo *philo)
 {
-	struct timeval	tv;
-
-	gettimeofday(&tv, NULL);
-	return (tv.tv_sec * 1000 + tv.tv_usec / 1000);
+	// pthread_mutex_lock(philo->somebody_died_mutex);
+	// if (*(philo->somebody_died) == 1)
+	// {
+	// 	pthread_mutex_unlock(philo->somebody_died_mutex);
+	// 	exit(0);
+	// }
+	// pthread_mutex_unlock(philo->somebody_died_mutex);
+	pthread_mutex_lock(philo->print_mutex);
 }

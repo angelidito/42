@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 20:04:28 by angmarti          #+#    #+#             */
-/*   Updated: 2023/07/19 16:43:19 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/07/19 20:12:26 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,29 @@
 # define PHILOSOPHERS_H
 
 # include "colors.h"
-# include "structs.h" 
 # include "libs.h"
+# include "structs.h"
 // # include "functions.h"
 
+//	PRINT
+
+void	wanna_print(t_philo *philo);
+
+//	THINK
+
+void	philo_think(t_philo *philo);
+
+//	DEATH
+
+int		is_philo_dead(t_philo *philo);
+
+//	EAT
+
+void	philo_eat(t_philo *philo);
+
+//	SLEEP
+
+void	philo_sleep(t_philo *philo);
 
 //	LIBFT
 

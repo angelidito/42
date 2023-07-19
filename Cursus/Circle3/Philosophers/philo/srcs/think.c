@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   time.c                                             :+:      :+:    :+:   */
+/*   think.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/15 21:48:28 by angmarti          #+#    #+#             */
-/*   Updated: 2023/07/19 20:08:39 by angmarti         ###   ########.fr       */
+/*   Created: 2023/07/19 20:05:18 by angmarti          #+#    #+#             */
+/*   Updated: 2023/07/19 21:30:33 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/philosophers.h"
 
-/**
- * The function "get_time" returns the current time in milliseconds.
- * 
- * @return the current time in milliseconds.
- */
-long	get_time(void)
+void	philo_think(t_philo *philo)
 {
-	struct timeval	tv;
+	long	now;
 
-	gettimeofday(&tv, NULL);
-	return (tv.tv_sec * 1000 + tv.tv_usec / 1000);
+	now = get_time();
+	wanna_print(philo);
+	printf("%ld %d is thinking\n", now, philo->id);
+	pthread_mutex_unlock(philo->print_mutex);
+	if (philo->left_fork == philo->right_fork)
+	{
+		while (!is_philo_dead(philo))
+		{
+			usleep(1000);
+		}
+	}
 }

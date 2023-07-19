@@ -6,7 +6,7 @@
 #    By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/17 12:03:08 by angmarti          #+#    #+#              #
-#    Updated: 2023/07/15 21:56:44 by angmarti         ###   ########.fr        #
+#    Updated: 2023/07/19 21:26:52 by angmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,15 +36,24 @@ SRC_libft		=	libft
 SRCS			=	\
 					$(SRC_libft)/ft_atoi.c \
 					$(SRC_libft)/ft_itoa.c \
-					philosopher.c \
+					death.c \
+					eat.c \
 					error.c \
+					philosopher.c \
+					print.c \
 					table.c \
+					think.c \
 					time.c \
+					sleep.c \
 					main.c
 	
 # endif
 
-EXEC			=	./$(NAME) 4 333 200 100
+# EXEC			=	./$(NAME) 100 330 200 100
+# EXEC			=	./$(NAME) 50  500 450 40
+# EXEC			=	./$(NAME) 5 420 200 200
+# EXEC			=	./$(NAME) 2 100 50 51
+EXEC			=	./$(NAME) 1 800 200 200
 
 # **************************************************************************** #
 # ******************************     CONFIG     ****************************** #
