@@ -6,7 +6,7 @@
 #    By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/17 12:03:08 by angmarti          #+#    #+#              #
-#    Updated: 2023/07/19 21:37:40 by angmarti         ###   ########.fr        #
+#    Updated: 2023/07/20 20:37:04 by angmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ SRCS			=	\
 					error.c \
 					philosopher.c \
 					print.c \
-					table.c \
+					data.c \
 					think.c \
 					time.c \
 					sleep.c \
@@ -49,12 +49,30 @@ SRCS			=	\
 	
 # endif
 
-EXEC			=	./$(NAME) 50000 500 400 60
-# EXEC			=	./$(NAME) 100 330 200 100
-# EXEC			=	./$(NAME) 50  500 450 40
-# EXEC			=	./$(NAME) 5 420 200 200
-# EXEC			=	./$(NAME) 2 100 50 51
-# EXEC			=	./$(NAME) 1 800 200 200
+# ./philo 1 800 200 200 > out1
+# ./philo 5 800 200 200 > out2
+# ./philo 5 800 200 200 7 > out3
+# ./philo 4 410 200 200 > out4
+# ./philo 4 310 200 100 > out5
+# ./philo 3 310 103 103 > out6
+# ./philo 3 310 104 104 > out7
+
+
+
+# EXEC			=	./philo 1 800 200 200 # muere
+# EXEC			=	./philo 5 800 200 200 # viven
+EXEC			=	./philo 5 800 200 200 7 # viven y cada uno come 7 veces
+# EXEC			=	./philo 4 410 200 200 # viven
+# EXEC			=	./philo 4 310 200 100 # mueren
+# EXEC			=	./philo 3 310 103 103 # (tienen que vivir)
+# EXEC			=	./philo 3 310 104 104 # (tienen que morir) y si no te lo hace bien te lo tire
+
+# EXEC			=	./philo 50000 500 400 60
+# EXEC			=	./philo 100 330 200 100
+# EXEC			=	./philo 50  500 450 40
+# EXEC			=	./philo 5 420 200 200
+# EXEC			=	./philo 2 100 50 51
+# EXEC			=	./philo 1 800 200 200
 
 # **************************************************************************** #
 # ******************************     CONFIG     ****************************** #

@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 20:05:18 by angmarti          #+#    #+#             */
-/*   Updated: 2023/07/19 21:39:02 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/07/20 19:28:04 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,10 @@ void	philo_sleep(t_philo *philo)
 	now = get_time();
 	time_end = now + philo->args->time_to_sleep;
 	wanna_print(philo);
-	printf("%ld %d is sleeping\n", now, philo->id);
+	printf("%ld %d is sleeping\n", now - philo->data->start_time, philo->id);
 	pthread_mutex_unlock(philo->print_mutex);
 	while (get_time() < time_end)
 	{
-		if (is_philo_dead(philo))
-			return ;
-		usleep(100);
+		usleep(200);
 	}
 }
-
-// TODO: hacer que el tiempo del usleep sea como mucho 10 ms ( o se dividir por la cantidad de philosophers) ???
-// void ft_usleep(int mcs)
-// {
-
-// }

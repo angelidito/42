@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 21:48:28 by angmarti          #+#    #+#             */
-/*   Updated: 2023/07/19 20:47:54 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/07/20 20:54:57 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,12 @@ void	*start(void *arg)
 	philo = (t_philo *)arg;
 	i = -1;
 	philo->last_eat = get_time();
-	// wanna_print(philo);
-	// printf("Philosopher %d is alive and ready to eat!\n", philo->id);
-	// pthread_mutex_unlock(philo->print_mutex);
+	death_checker_init(philo);
 	while (++i < philo->args->n_times_must_eat)
 	{
-		if (!is_philo_dead(philo))
-			philo_sleep(philo);
-		if (!is_philo_dead(philo))
-			philo_think(philo);
-		if (!is_philo_dead(philo))
-			philo_eat(philo);
-		if (is_philo_dead(philo))
-			break ;
+		philo_sleep(philo);
+		philo_think(philo);
+		philo_eat(philo);
 	}
 	return (NULL);
 }

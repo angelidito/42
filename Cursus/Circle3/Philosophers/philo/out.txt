@@ -1,6 +1,172 @@
-Launching philosophers.
-is alive Philosopher 1
-is alive Philosopher 2
-is alive Philosopher 3
-is alive Philosopher 4
-Main end.
+1689868731072 1 is sleeping
+1689868731072 3 is sleeping
+1689868731072 4 is sleeping
+1689868731072 2 is sleeping
+1689868731172 1 is thinking
+1689868731172 1 has taken a fork
+1689868731172 1 has taken a fork
+1689868731172 1 is eating
+1689868731172 3 is thinking
+1689868731172 3 has taken a fork
+1689868731172 3 has taken a fork
+1689868731172 2 is thinking
+1689868731172 3 is eating
+1689868731172 4 is thinking
+1689868731372 3 is sleeping
+1689868731372 4 has taken a fork
+1689868731372 1 is sleeping
+1689868731372 4 has taken a fork
+1689868731372 4 is eating
+1689868731372 2 has taken a fork
+1689868731372 2 has taken a fork
+1689868731372 2 is eating
+1689868731472 3 is thinking
+1689868731472 1 is thinking
+1689868731572 2 is sleeping
+1689868731572 3 has taken a fork
+1689868731572 4 is sleeping
+1689868731572 3 has taken a fork
+1689868731572 3 is eating
+1689868731572 1 has taken a fork
+1689868731572 1 has taken a fork
+1689868731572 1 is eating
+1689868731672 4 is thinking
+1689868731672 2 is thinking
+1689868731772 1 is sleeping
+1689868731772 2 has taken a fork
+1689868731772 2 has taken a fork
+1689868731772 2 is eating
+1689868731772 3 is sleeping
+1689868731772 4 has taken a fork
+1689868731772 4 has taken a fork
+1689868731772 4 is eating
+1689868731872 1 is thinking
+1689868731872 3 is thinking
+1689868731972 2 is sleeping
+1689868731972 1 has taken a fork
+1689868731972 1 has taken a fork
+1689868731972 1 is eating
+1689868731972 3 has taken a fork
+1689868731972 3 has taken a fork
+1689868731972 3 is eating
+1689868731972 4 is sleeping
+1689868732072 2 is thinking
+1689868732072 4 is thinking
+1689868732172 1 is sleeping
+1689868732172 3 is sleeping
+1689868732172 2 has taken a fork
+1689868732172 2 has taken a fork
+1689868732172 2 is eating
+1689868732172 4 has taken a fork
+1689868732172 4 has taken a fork
+1689868732172 4 is eating
+1689868732272 3 is thinking
+1689868732272 1 is thinking
+1689868732372 2 is sleeping
+1689868732372 4 is sleeping
+1689868732372 1 has taken a fork
+1689868732372 1 has taken a fork
+1689868732372 1 is eating
+1689868732372 3 has taken a fork
+1689868732372 3 has taken a fork
+1689868732372 3 is eating
+1689868732472 4 is thinking
+1689868732472 2 is thinking
+1689868732572 1 is sleeping
+1689868732572 2 has taken a fork
+1689868732572 3 is sleeping
+1689868732572 2 has taken a fork
+1689868732572 2 is eating
+1689868732572 4 has taken a fork
+1689868732572 4 has taken a fork
+1689868732572 4 is eating
+1689868732672 1 is thinking
+1689868732672 3 is thinking
+1689868732772 4 is sleeping
+1689868732772 1 has taken a fork
+1689868732772 1 has taken a fork
+1689868732772 3 has taken a fork
+1689868732772 3 has taken a fork
+1689868732772 3 is eating
+1689868732772 1 is eating
+1689868732772 2 is sleeping
+1689868732872 2 is thinking
+1689868732872 4 is thinking
+1689868732972 1 is sleeping
+1689868732972 3 is sleeping
+1689868732972 2 has taken a fork
+1689868732972 2 has taken a fork
+1689868732972 2 is eating
+1689868732972 4 has taken a fork
+1689868732972 4 has taken a fork
+1689868732972 4 is eating
+1689868733072 3 is thinking
+1689868733072 1 is thinking
+1689868733172 4 is sleeping
+1689868733172 1 has taken a fork
+1689868733172 1 has taken a fork
+1689868733172 1 is eating
+1689868733172 2 is sleeping
+1689868733172 3 has taken a fork
+1689868733172 3 has taken a fork
+1689868733172 3 is eating
+1689868733272 4 is thinking
+1689868733272 2 is thinking
+1689868733372 1 is sleeping
+1689868733372 2 has taken a fork
+1689868733372 3 is sleeping
+1689868733372 2 has taken a fork
+1689868733372 2 is eating
+1689868733372 4 has taken a fork
+1689868733372 4 has taken a fork
+1689868733372 4 is eating
+1689868733472 3 is thinking
+1689868733472 1 is thinking
+1689868733572 4 is sleeping
+1689868733572 2 is sleeping
+1689868733572 1 has taken a fork
+1689868733572 1 has taken a fork
+1689868733572 3 has taken a fork
+1689868733572 3 has taken a fork
+1689868733572 3 is eating
+1689868733572 1 is eating
+1689868733672 2 is thinking
+1689868733672 4 is thinking
+1689868733772 3 is sleeping
+1689868733772 1 is sleeping
+1689868733772 4 has taken a fork
+1689868733772 4 has taken a fork
+1689868733772 4 is eating
+1689868733772 2 has taken a fork
+1689868733772 2 has taken a fork
+1689868733772 2 is eating
+1689868733872 3 is thinking
+1689868733872 1 is thinking
+1689868733972 4 is sleeping
+1689868733972 2 is sleeping
+1689868733972 3 has taken a fork
+1689868733972 3 has taken a fork
+1689868733972 3 is eating
+1689868733972 1 has taken a fork
+1689868733972 1 has taken a fork
+1689868733972 1 is eating
+1689868734072 4 is thinking
+1689868734072 2 is thinking
+1689868734172 1 is sleeping
+1689868734172 3 is sleeping
+1689868734172 2 has taken a fork
+1689868734172 2 has taken a fork
+1689868734172 2 is eating
+1689868734172 4 has taken a fork
+1689868734172 4 has taken a fork
+1689868734172 4 is eating
+1689868734272 3 is thinking
+1689868734272 1 is thinking
+1689868734372 4 is sleeping
+1689868734372 2 is sleeping
+1689868734372 1 has taken a fork
+1689868734372 1 has taken a fork
+1689868734372 1 is eating
+1689868734372 3 has taken a fork
+1689868734372 3 has taken a fork
+1689868734372 3 is eating

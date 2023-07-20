@@ -1,0 +1,1902 @@
+234 4 is sleeping
+334 4 is thinking
+534 4 has taken a fork
+534 4 has taken a fork
+534 4 is eating
+734 4 is sleeping
+834 4 is thinking
+934 4 has taken a fork
+934 4 has taken a fork
+934 4 is eating
+6134 4 is sleeping
+6234 4 is thinking
+6334 4 has taken a fork
+6334 4 has taken a fork
+6334 4 is eating
+6534 4 is sleeping
+6634 4 is thinking
+6734 4 has taken a fork
+6734 4 has taken a fork
+6734 4 is eating
+6934 4 is sleeping
+7034 4 is thinking
+7134 4 has taken a fork
+7134 4 has taken a fork
+7134 4 is eating
+7334 4 is sleeping
+7434 4 is thinking
+7534 4 has taken a fork
+7534 4 has taken a fork
+7534 4 is eating
+7734 4 is sleeping
+7834 4 is thinking
+7934 4 has taken a fork
+7934 4 has taken a fork
+7934 4 is eating
+8134 4 is sleeping
+8234 4 is thinking
+8334 4 has taken a fork
+8334 4 has taken a fork
+8334 4 is eating
+8534 4 is sleeping
+8634 4 is thinking
+8734 4 has taken a fork
+8734 4 has taken a fork
+8734 4 is eating
+8934 4 is sleeping
+9034 4 is thinking
+9134 4 has taken a fork
+9134 4 has taken a fork
+9134 4 is eating
+9334 4 is sleeping
+9434 4 is thinking
+9534 4 has taken a fork
+9534 4 has taken a fork
+9534 4 is eating
+9734 4 is sleeping
+9834 4 is thinking
+9934 4 has taken a fork
+9934 4 has taken a fork
+9934 4 is eating
+900134 4 is sleeping
+900234 4 is thinking
+900334 4 has taken a fork
+900334 4 has taken a fork
+900334 4 is eating
+900534 4 is sleeping
+900634 4 is thinking
+900734 4 has taken a fork
+900734 4 has taken a fork
+900734 4 is eating
+900934 4 is sleeping
+901034 4 is thinking
+901134 4 has taken a fork
+901134 4 has taken a fork
+901134 4 is eating
+901334 4 is sleeping
+901434 4 is thinking
+901534 4 has taken a fork
+901534 4 has taken a fork
+901534 4 is eating
+901734 4 is sleeping
+901834 4 is thinking
+901934 4 has taken a fork
+901934 4 has taken a fork
+901934 4 is eating
+902134 4 is sleeping
+902234 4 is thinking
+902334 4 has taken a fork
+902334 4 has taken a fork
+902334 4 is eating
+902534 4 is sleeping
+902634 4 is thinking
+902734 4 has taken a fork
+902734 4 has taken a fork
+902734 4 is eating
+902934 4 is sleeping
+903034 4 is thinking
+903134 4 has taken a fork
+903134 4 has taken a fork
+903134 4 is eating
+903334 4 is sleeping
+903434 4 is thinking
+903534 4 has taken a fork
+903534 4 has taken a fork
+903534 4 is eating
+903734 4 is sleeping
+903834 4 is thinking
+903934 4 has taken a fork
+903934 4 has taken a fork
+903934 4 is eating
+904134 4 is sleeping
+904234 4 is thinking
+904334 4 has taken a fork
+904334 4 has taken a fork
+904334 4 is eating
+904534 4 is sleeping
+904634 4 is thinking
+904734 4 has taken a fork
+904734 4 has taken a fork
+904734 4 is eating
+904934 4 is sleeping
+905034 4 is thinking
+905134 4 has taken a fork
+905134 4 has taken a fork
+905134 4 is eating
+905334 4 is sleeping
+905434 4 is thinking
+905534 4 has taken a fork
+905534 4 has taken a fork
+905534 4 is eating
+905734 4 is sleeping
+905834 4 is thinking
+905934 4 has taken a fork
+905934 4 has taken a fork
+905934 4 is eating
+906134 4 is sleeping
+906234 4 is thinking
+906334 4 has taken a fork
+906334 4 has taken a fork
+906334 4 is eating
+906534 4 is sleeping
+906634 4 is thinking
+906734 4 has taken a fork
+906734 4 has taken a fork
+906734 4 is eating
+906934 4 is sleeping
+907034 4 is thinking
+907134 4 has taken a fork
+907134 4 has taken a fork
+907134 4 is eating
+907334 4 is sleeping
+907434 4 is thinking
+907534 4 has taken a fork
+907534 4 has taken a fork
+907534 4 is eating
+907734 4 is sleeping
+907834 4 is thinking
+907934 4 has taken a fork
+907934 4 has taken a fork
+907934 4 is eating
+908134 4 is sleeping
+908234 4 is thinking
+908334 4 has taken a fork
+908334 4 has taken a fork
+908334 4 is eating
+908534 4 is sleeping
+908634 4 is thinking
+908734 4 has taken a fork
+908734 4 has taken a fork
+908734 4 is eating
+908934 4 is sleeping
+909034 4 is thinking
+909134 4 has taken a fork
+909134 4 has taken a fork
+909134 4 is eating
+909334 4 is sleeping
+909434 4 is thinking
+909534 4 has taken a fork
+909534 4 has taken a fork
+909534 4 is eating
+909734 4 is sleeping
+909834 4 is thinking
+909934 4 has taken a fork
+909934 4 has taken a fork
+909934 4 is eating
+910134 4 is sleeping
+910234 4 is thinking
+910334 4 has taken a fork
+910334 4 has taken a fork
+910334 4 is eating
+910534 4 is sleeping
+910634 4 is thinking
+910734 4 has taken a fork
+910734 4 has taken a fork
+910734 4 is eating
+910934 4 is sleeping
+911034 4 is thinking
+911134 4 has taken a fork
+911134 4 has taken a fork
+911134 4 is eating
+911334 4 is sleeping
+911434 4 is thinking
+911534 4 has taken a fork
+911534 4 has taken a fork
+911534 4 is eating
+911734 4 is sleeping
+911834 4 is thinking
+911934 4 has taken a fork
+911934 4 has taken a fork
+911934 4 is eating
+912134 4 is sleeping
+912234 4 is thinking
+912334 4 has taken a fork
+912334 4 has taken a fork
+912334 4 is eating
+912534 4 is sleeping
+912634 4 is thinking
+912734 4 has taken a fork
+912734 4 has taken a fork
+912734 4 is eating
+912934 4 is sleeping
+913034 4 is thinking
+913134 4 has taken a fork
+913134 4 has taken a fork
+913134 4 is eating
+913334 4 is sleeping
+913434 4 is thinking
+913534 4 has taken a fork
+913534 4 has taken a fork
+913534 4 is eating
+913734 4 is sleeping
+913834 4 is thinking
+913934 4 has taken a fork
+913934 4 has taken a fork
+913934 4 is eating
+914134 4 is sleeping
+914234 4 is thinking
+914334 4 has taken a fork
+914334 4 has taken a fork
+914334 4 is eating
+914534 4 is sleeping
+914634 4 is thinking
+914734 4 has taken a fork
+914734 4 has taken a fork
+914734 4 is eating
+914934 4 is sleeping
+915034 4 is thinking
+915134 4 has taken a fork
+915134 4 has taken a fork
+915134 4 is eating
+915334 4 is sleeping
+915434 4 is thinking
+915534 4 has taken a fork
+915534 4 has taken a fork
+915534 4 is eating
+915734 4 is sleeping
+915834 4 is thinking
+915934 4 has taken a fork
+915934 4 has taken a fork
+915934 4 is eating
+916134 4 is sleeping
+916234 4 is thinking
+916334 4 has taken a fork
+916334 4 has taken a fork
+916334 4 is eating
+916534 4 is sleeping
+916634 4 is thinking
+916734 4 has taken a fork
+916734 4 has taken a fork
+916734 4 is eating
+916934 4 is sleeping
+917034 4 is thinking
+917134 4 has taken a fork
+917134 4 has taken a fork
+917134 4 is eating
+917334 4 is sleeping
+917434 4 is thinking
+917534 4 has taken a fork
+917534 4 has taken a fork
+917534 4 is eating
+917734 4 is sleeping
+917834 4 is thinking
+917934 4 has taken a fork
+917934 4 has taken a fork
+917934 4 is eating
+918134 4 is sleeping
+918234 4 is thinking
+918334 4 has taken a fork
+918334 4 has taken a fork
+918334 4 is eating
+918534 4 is sleeping
+918634 4 is thinking
+918734 4 has taken a fork
+918734 4 has taken a fork
+918734 4 is eating
+918934 4 is sleeping
+919034 4 is thinking
+919134 4 has taken a fork
+919134 4 has taken a fork
+919134 4 is eating
+919334 4 is sleeping
+919434 4 is thinking
+919534 4 has taken a fork
+919534 4 has taken a fork
+919534 4 is eating
+919734 4 is sleeping
+919834 4 is thinking
+919934 4 has taken a fork
+919934 4 has taken a fork
+919934 4 is eating
+920134 4 is sleeping
+920234 4 is thinking
+920334 4 has taken a fork
+920334 4 has taken a fork
+920334 4 is eating
+920534 4 is sleeping
+920634 4 is thinking
+920734 4 has taken a fork
+920734 4 has taken a fork
+920734 4 is eating
+920934 4 is sleeping
+921034 4 is thinking
+921134 4 has taken a fork
+921134 4 has taken a fork
+921134 4 is eating
+921334 4 is sleeping
+921434 4 is thinking
+921534 4 has taken a fork
+921534 4 has taken a fork
+921534 4 is eating
+921734 4 is sleeping
+921834 4 is thinking
+921934 4 has taken a fork
+921934 4 has taken a fork
+921934 4 is eating
+922134 4 is sleeping
+922234 4 is thinking
+922334 4 has taken a fork
+922334 4 has taken a fork
+922334 4 is eating
+922534 4 is sleeping
+922634 4 is thinking
+922734 4 has taken a fork
+922734 4 has taken a fork
+922734 4 is eating
+922934 4 is sleeping
+923034 4 is thinking
+923138 4 has taken a fork
+923138 4 has taken a fork
+923138 4 is eating
+923338 4 is sleeping
+923438 4 is thinking
+923538 4 has taken a fork
+923538 4 has taken a fork
+923538 4 is eating
+923738 4 is sleeping
+923838 4 is thinking
+923938 4 has taken a fork
+923938 4 has taken a fork
+923938 4 is eating
+924138 4 is sleeping
+924238 4 is thinking
+924338 4 has taken a fork
+924338 4 has taken a fork
+924338 4 is eating
+924538 4 is sleeping
+924638 4 is thinking
+924738 4 has taken a fork
+924738 4 has taken a fork
+924738 4 is eating
+924938 4 is sleeping
+925038 4 is thinking
+925138 4 has taken a fork
+925138 4 has taken a fork
+925138 4 is eating
+925338 4 is sleeping
+925438 4 is thinking
+925538 4 has taken a fork
+925538 4 has taken a fork
+925538 4 is eating
+925738 4 is sleeping
+925838 4 is thinking
+925938 4 has taken a fork
+925938 4 has taken a fork
+925938 4 is eating
+926138 4 is sleeping
+926238 4 is thinking
+926338 4 has taken a fork
+926338 4 has taken a fork
+926338 4 is eating
+926538 4 is sleeping
+926638 4 is thinking
+926738 4 has taken a fork
+926738 4 has taken a fork
+926738 4 is eating
+926938 4 is sleeping
+927038 4 is thinking
+927138 4 has taken a fork
+927138 4 has taken a fork
+927138 4 is eating
+927338 4 is sleeping
+927438 4 is thinking
+927538 4 has taken a fork
+927538 4 has taken a fork
+927538 4 is eating
+927738 4 is sleeping
+927838 4 is thinking
+927938 4 has taken a fork
+927938 4 has taken a fork
+927938 4 is eating
+928138 4 is sleeping
+928238 4 is thinking
+928338 4 has taken a fork
+928338 4 has taken a fork
+928338 4 is eating
+928538 4 is sleeping
+928638 4 is thinking
+928738 4 has taken a fork
+928738 4 has taken a fork
+928738 4 is eating
+928938 4 is sleeping
+929038 4 is thinking
+929138 4 has taken a fork
+929138 4 has taken a fork
+929138 4 is eating
+929338 4 is sleeping
+929438 4 is thinking
+929538 4 has taken a fork
+929538 4 has taken a fork
+929538 4 is eating
+929738 4 is sleeping
+929838 4 is thinking
+929938 4 has taken a fork
+929938 4 has taken a fork
+929938 4 is eating
+930138 4 is sleeping
+930238 4 is thinking
+930338 4 has taken a fork
+930338 4 has taken a fork
+930338 4 is eating
+930538 4 is sleeping
+930638 4 is thinking
+930738 4 has taken a fork
+930738 4 has taken a fork
+930738 4 is eating
+930938 4 is sleeping
+931038 4 is thinking
+931138 4 has taken a fork
+931138 4 has taken a fork
+931138 4 is eating
+931338 4 is sleeping
+931438 4 is thinking
+931538 4 has taken a fork
+931538 4 has taken a fork
+931538 4 is eating
+931738 4 is sleeping
+931838 4 is thinking
+931938 4 has taken a fork
+931938 4 has taken a fork
+931938 4 is eating
+932138 4 is sleeping
+932238 4 is thinking
+932338 4 has taken a fork
+932338 4 has taken a fork
+932338 4 is eating
+932538 4 is sleeping
+932638 4 is thinking
+932738 4 has taken a fork
+932738 4 has taken a fork
+932738 4 is eating
+932938 4 is sleeping
+933038 4 is thinking
+933138 4 has taken a fork
+933138 4 has taken a fork
+933138 4 is eating
+933338 4 is sleeping
+933438 4 is thinking
+933538 4 has taken a fork
+933538 4 has taken a fork
+933538 4 is eating
+933738 4 is sleeping
+933838 4 is thinking
+933938 4 has taken a fork
+933938 4 has taken a fork
+933938 4 is eating
+934138 4 is sleeping
+934238 4 is thinking
+934338 4 has taken a fork
+934338 4 has taken a fork
+934338 4 is eating
+934538 4 is sleeping
+934638 4 is thinking
+934738 4 has taken a fork
+934738 4 has taken a fork
+934738 4 is eating
+934938 4 is sleeping
+935038 4 is thinking
+935138 4 has taken a fork
+935138 4 has taken a fork
+935138 4 is eating
+935338 4 is sleeping
+935438 4 is thinking
+935538 4 has taken a fork
+935538 4 has taken a fork
+935538 4 is eating
+935738 4 is sleeping
+935838 4 is thinking
+935938 4 has taken a fork
+935938 4 has taken a fork
+935938 4 is eating
+936138 4 is sleeping
+936238 4 is thinking
+936338 4 has taken a fork
+936338 4 has taken a fork
+936338 4 is eating
+936538 4 is sleeping
+936638 4 is thinking
+936738 4 has taken a fork
+936738 4 has taken a fork
+936738 4 is eating
+936938 4 is sleeping
+937038 4 is thinking
+937138 4 has taken a fork
+937138 4 has taken a fork
+937138 4 is eating
+937338 4 is sleeping
+937438 4 is thinking
+937538 4 has taken a fork
+937538 4 has taken a fork
+937538 4 is eating
+937738 4 is sleeping
+937838 4 is thinking
+937938 4 has taken a fork
+937938 4 has taken a fork
+937938 4 is eating
+938138 4 is sleeping
+938238 4 is thinking
+938338 4 has taken a fork
+938338 4 has taken a fork
+938338 4 is eating
+938538 4 is sleeping
+938638 4 is thinking
+938738 4 has taken a fork
+938738 4 has taken a fork
+938738 4 is eating
+938938 4 is sleeping
+939038 4 is thinking
+939138 4 has taken a fork
+939138 4 has taken a fork
+939138 4 is eating
+939338 4 is sleeping
+939438 4 is thinking
+939538 4 has taken a fork
+939538 4 has taken a fork
+939538 4 is eating
+939738 4 is sleeping
+939838 4 is thinking
+939938 4 has taken a fork
+939938 4 has taken a fork
+939938 4 is eating
+940138 4 is sleeping
+940238 4 is thinking
+940338 4 has taken a fork
+940338 4 has taken a fork
+940338 4 is eating
+940538 4 is sleeping
+940638 4 is thinking
+940738 4 has taken a fork
+940738 4 has taken a fork
+940738 4 is eating
+940938 4 is sleeping
+941038 4 is thinking
+941138 4 has taken a fork
+941138 4 has taken a fork
+941138 4 is eating
+941338 4 is sleeping
+941438 4 is thinking
+941538 4 has taken a fork
+941538 4 has taken a fork
+941538 4 is eating
+941738 4 is sleeping
+941838 4 is thinking
+941938 4 has taken a fork
+941938 4 has taken a fork
+941938 4 is eating
+942138 4 is sleeping
+942238 4 is thinking
+942338 4 has taken a fork
+942338 4 has taken a fork
+942338 4 is eating
+942538 4 is sleeping
+942638 4 is thinking
+942738 4 has taken a fork
+942738 4 has taken a fork
+942738 4 is eating
+942938 4 is sleeping
+943038 4 is thinking
+943138 4 has taken a fork
+943138 4 has taken a fork
+943138 4 is eating
+943338 4 is sleeping
+943438 4 is thinking
+943538 4 has taken a fork
+943538 4 has taken a fork
+943538 4 is eating
+943738 4 is sleeping
+943838 4 is thinking
+943938 4 has taken a fork
+943938 4 has taken a fork
+943938 4 is eating
+944138 4 is sleeping
+944238 4 is thinking
+944338 4 has taken a fork
+944338 4 has taken a fork
+944338 4 is eating
+944538 4 is sleeping
+944638 4 is thinking
+944738 4 has taken a fork
+944738 4 has taken a fork
+944738 4 is eating
+944938 4 is sleeping
+945038 4 is thinking
+945138 4 has taken a fork
+945138 4 has taken a fork
+945138 4 is eating
+945338 4 is sleeping
+945438 4 is thinking
+945538 4 has taken a fork
+945538 4 has taken a fork
+945538 4 is eating
+945738 4 is sleeping
+945838 4 is thinking
+945938 4 has taken a fork
+945938 4 has taken a fork
+945938 4 is eating
+946138 4 is sleeping
+946238 4 is thinking
+946338 4 has taken a fork
+946338 4 has taken a fork
+946338 4 is eating
+946538 4 is sleeping
+946638 4 is thinking
+946738 4 has taken a fork
+946738 4 has taken a fork
+946738 4 is eating
+946938 4 is sleeping
+947038 4 is thinking
+947138 4 has taken a fork
+947138 4 has taken a fork
+947138 4 is eating
+947338 4 is sleeping
+947438 4 is thinking
+947538 4 has taken a fork
+947538 4 has taken a fork
+947538 4 is eating
+947738 4 is sleeping
+947838 4 is thinking
+947938 4 has taken a fork
+947938 4 has taken a fork
+947938 4 is eating
+948138 4 is sleeping
+948238 4 is thinking
+948338 4 has taken a fork
+948338 4 has taken a fork
+948338 4 is eating
+948538 4 is sleeping
+948638 4 is thinking
+948738 4 has taken a fork
+948738 4 has taken a fork
+948738 4 is eating
+948938 4 is sleeping
+949038 4 is thinking
+949138 4 has taken a fork
+949138 4 has taken a fork
+949138 4 is eating
+949338 4 is sleeping
+949438 4 is thinking
+949538 4 has taken a fork
+949538 4 has taken a fork
+949538 4 is eating
+949738 4 is sleeping
+949838 4 is thinking
+949938 4 has taken a fork
+949938 4 has taken a fork
+949938 4 is eating
+950138 4 is sleeping
+950238 4 is thinking
+950338 4 has taken a fork
+950338 4 has taken a fork
+950338 4 is eating
+950538 4 is sleeping
+950638 4 is thinking
+950738 4 has taken a fork
+950738 4 has taken a fork
+950738 4 is eating
+950938 4 is sleeping
+951038 4 is thinking
+951138 4 has taken a fork
+951138 4 has taken a fork
+951138 4 is eating
+951338 4 is sleeping
+951438 4 is thinking
+951538 4 has taken a fork
+951538 4 has taken a fork
+951538 4 is eating
+951738 4 is sleeping
+951838 4 is thinking
+951938 4 has taken a fork
+951938 4 has taken a fork
+951938 4 is eating
+952138 4 is sleeping
+952238 4 is thinking
+952338 4 has taken a fork
+952338 4 has taken a fork
+952338 4 is eating
+952538 4 is sleeping
+952638 4 is thinking
+952738 4 has taken a fork
+952738 4 has taken a fork
+952738 4 is eating
+952938 4 is sleeping
+953038 4 is thinking
+953138 4 has taken a fork
+953138 4 has taken a fork
+953138 4 is eating
+953338 4 is sleeping
+953438 4 is thinking
+953539 4 has taken a fork
+953539 4 has taken a fork
+953539 4 is eating
+953739 4 is sleeping
+953839 4 is thinking
+953939 4 has taken a fork
+953939 4 has taken a fork
+953939 4 is eating
+954139 4 is sleeping
+954239 4 is thinking
+954339 4 has taken a fork
+954339 4 has taken a fork
+954339 4 is eating
+954539 4 is sleeping
+954639 4 is thinking
+954739 4 has taken a fork
+954739 4 has taken a fork
+954739 4 is eating
+954939 4 is sleeping
+955039 4 is thinking
+955139 4 has taken a fork
+955139 4 has taken a fork
+955139 4 is eating
+955339 4 is sleeping
+955439 4 is thinking
+955539 4 has taken a fork
+955539 4 has taken a fork
+955539 4 is eating
+955739 4 is sleeping
+955839 4 is thinking
+955939 4 has taken a fork
+955939 4 has taken a fork
+955939 4 is eating
+956139 4 is sleeping
+956239 4 is thinking
+956339 4 has taken a fork
+956339 4 has taken a fork
+956339 4 is eating
+956539 4 is sleeping
+956639 4 is thinking
+956739 4 has taken a fork
+956739 4 has taken a fork
+956739 4 is eating
+956939 4 is sleeping
+957039 4 is thinking
+957139 4 has taken a fork
+957139 4 has taken a fork
+957139 4 is eating
+957339 4 is sleeping
+957439 4 is thinking
+957539 4 has taken a fork
+957539 4 has taken a fork
+957539 4 is eating
+957739 4 is sleeping
+957839 4 is thinking
+957939 4 has taken a fork
+957939 4 has taken a fork
+957939 4 is eating
+958139 4 is sleeping
+958239 4 is thinking
+958339 4 has taken a fork
+958339 4 has taken a fork
+958339 4 is eating
+958539 4 is sleeping
+958639 4 is thinking
+958739 4 has taken a fork
+958739 4 has taken a fork
+958739 4 is eating
+958939 4 is sleeping
+959039 4 is thinking
+959139 4 has taken a fork
+959139 4 has taken a fork
+959139 4 is eating
+959339 4 is sleeping
+959439 4 is thinking
+959539 4 has taken a fork
+959539 4 has taken a fork
+959539 4 is eating
+959739 4 is sleeping
+959839 4 is thinking
+959939 4 has taken a fork
+959939 4 has taken a fork
+959939 4 is eating
+960139 4 is sleeping
+960239 4 is thinking
+960339 4 has taken a fork
+960339 4 has taken a fork
+960339 4 is eating
+960539 4 is sleeping
+960639 4 is thinking
+960739 4 has taken a fork
+960739 4 has taken a fork
+960739 4 is eating
+960939 4 is sleeping
+961039 4 is thinking
+961139 4 has taken a fork
+961139 4 has taken a fork
+961139 4 is eating
+961339 4 is sleeping
+961439 4 is thinking
+961539 4 has taken a fork
+961539 4 has taken a fork
+961539 4 is eating
+961739 4 is sleeping
+961839 4 is thinking
+961939 4 has taken a fork
+961939 4 has taken a fork
+961939 4 is eating
+962139 4 is sleeping
+962239 4 is thinking
+962339 4 has taken a fork
+962339 4 has taken a fork
+962339 4 is eating
+962539 4 is sleeping
+962639 4 is thinking
+962739 4 has taken a fork
+962739 4 has taken a fork
+962739 4 is eating
+962939 4 is sleeping
+963039 4 is thinking
+963139 4 has taken a fork
+963139 4 has taken a fork
+963139 4 is eating
+963339 4 is sleeping
+963439 4 is thinking
+963539 4 has taken a fork
+963539 4 has taken a fork
+963539 4 is eating
+963739 4 is sleeping
+963839 4 is thinking
+963939 4 has taken a fork
+963939 4 has taken a fork
+963939 4 is eating
+964139 4 is sleeping
+964239 4 is thinking
+964339 4 has taken a fork
+964339 4 has taken a fork
+964339 4 is eating
+964539 4 is sleeping
+964639 4 is thinking
+964739 4 has taken a fork
+964739 4 has taken a fork
+964739 4 is eating
+964939 4 is sleeping
+965039 4 is thinking
+965139 4 has taken a fork
+965139 4 has taken a fork
+965139 4 is eating
+965339 4 is sleeping
+965439 4 is thinking
+965539 4 has taken a fork
+965539 4 has taken a fork
+965539 4 is eating
+965739 4 is sleeping
+965839 4 is thinking
+965939 4 has taken a fork
+965939 4 has taken a fork
+965939 4 is eating
+966139 4 is sleeping
+966239 4 is thinking
+966339 4 has taken a fork
+966339 4 has taken a fork
+966339 4 is eating
+966539 4 is sleeping
+966639 4 is thinking
+966739 4 has taken a fork
+966739 4 has taken a fork
+966739 4 is eating
+966939 4 is sleeping
+967039 4 is thinking
+967139 4 has taken a fork
+967139 4 has taken a fork
+967139 4 is eating
+967339 4 is sleeping
+967439 4 is thinking
+967539 4 has taken a fork
+967539 4 has taken a fork
+967539 4 is eating
+967739 4 is sleeping
+967839 4 is thinking
+967939 4 has taken a fork
+967939 4 has taken a fork
+967939 4 is eating
+968139 4 is sleeping
+968239 4 is thinking
+968339 4 has taken a fork
+968339 4 has taken a fork
+968339 4 is eating
+968539 4 is sleeping
+968639 4 is thinking
+968739 4 has taken a fork
+968739 4 has taken a fork
+968739 4 is eating
+968939 4 is sleeping
+969039 4 is thinking
+969139 4 has taken a fork
+969139 4 has taken a fork
+969139 4 is eating
+969339 4 is sleeping
+969439 4 is thinking
+969539 4 has taken a fork
+969539 4 has taken a fork
+969539 4 is eating
+969739 4 is sleeping
+969839 4 is thinking
+969939 4 has taken a fork
+969939 4 has taken a fork
+969939 4 is eating
+970139 4 is sleeping
+970239 4 is thinking
+970339 4 has taken a fork
+970339 4 has taken a fork
+970339 4 is eating
+970539 4 is sleeping
+970639 4 is thinking
+970739 4 has taken a fork
+970739 4 has taken a fork
+970739 4 is eating
+970939 4 is sleeping
+971039 4 is thinking
+971139 4 has taken a fork
+971139 4 has taken a fork
+971139 4 is eating
+971339 4 is sleeping
+971439 4 is thinking
+971539 4 has taken a fork
+971539 4 has taken a fork
+971539 4 is eating
+971739 4 is sleeping
+971839 4 is thinking
+971939 4 has taken a fork
+971939 4 has taken a fork
+971939 4 is eating
+972139 4 is sleeping
+972239 4 is thinking
+972339 4 has taken a fork
+972339 4 has taken a fork
+972339 4 is eating
+972539 4 is sleeping
+972639 4 is thinking
+972739 4 has taken a fork
+972739 4 has taken a fork
+972739 4 is eating
+972939 4 is sleeping
+973039 4 is thinking
+973139 4 has taken a fork
+973139 4 has taken a fork
+973139 4 is eating
+973339 4 is sleeping
+973439 4 is thinking
+973539 4 has taken a fork
+973539 4 has taken a fork
+973539 4 is eating
+973739 4 is sleeping
+973839 4 is thinking
+973939 4 has taken a fork
+973939 4 has taken a fork
+973939 4 is eating
+974139 4 is sleeping
+974239 4 is thinking
+974339 4 has taken a fork
+974339 4 has taken a fork
+974339 4 is eating
+974539 4 is sleeping
+974639 4 is thinking
+974739 4 has taken a fork
+974739 4 has taken a fork
+974739 4 is eating
+974939 4 is sleeping
+975039 4 is thinking
+975139 4 has taken a fork
+975139 4 has taken a fork
+975139 4 is eating
+975339 4 is sleeping
+975439 4 is thinking
+975539 4 has taken a fork
+975539 4 has taken a fork
+975539 4 is eating
+975739 4 is sleeping
+975839 4 is thinking
+975939 4 has taken a fork
+975939 4 has taken a fork
+975939 4 is eating
+976139 4 is sleeping
+976239 4 is thinking
+976339 4 has taken a fork
+976339 4 has taken a fork
+976339 4 is eating
+976539 4 is sleeping
+976639 4 is thinking
+976739 4 has taken a fork
+976739 4 has taken a fork
+976739 4 is eating
+976939 4 is sleeping
+977039 4 is thinking
+977139 4 has taken a fork
+977139 4 has taken a fork
+977139 4 is eating
+977339 4 is sleeping
+977439 4 is thinking
+977539 4 has taken a fork
+977539 4 has taken a fork
+977539 4 is eating
+977739 4 is sleeping
+977839 4 is thinking
+977939 4 has taken a fork
+977939 4 has taken a fork
+977939 4 is eating
+978139 4 is sleeping
+978239 4 is thinking
+978339 4 has taken a fork
+978339 4 has taken a fork
+978339 4 is eating
+978539 4 is sleeping
+978639 4 is thinking
+978739 4 has taken a fork
+978739 4 has taken a fork
+978739 4 is eating
+978939 4 is sleeping
+979039 4 is thinking
+979139 4 has taken a fork
+979139 4 has taken a fork
+979139 4 is eating
+979339 4 is sleeping
+979439 4 is thinking
+979539 4 has taken a fork
+979539 4 has taken a fork
+979539 4 is eating
+979739 4 is sleeping
+979839 4 is thinking
+979939 4 has taken a fork
+979939 4 has taken a fork
+979939 4 is eating
+980139 4 is sleeping
+980239 4 is thinking
+980339 4 has taken a fork
+980339 4 has taken a fork
+980339 4 is eating
+980539 4 is sleeping
+980639 4 is thinking
+980739 4 has taken a fork
+980739 4 has taken a fork
+980739 4 is eating
+980939 4 is sleeping
+981039 4 is thinking
+981139 4 has taken a fork
+981139 4 has taken a fork
+981139 4 is eating
+981339 4 is sleeping
+981439 4 is thinking
+981539 4 has taken a fork
+981539 4 has taken a fork
+981539 4 is eating
+981739 4 is sleeping
+981839 4 is thinking
+981939 4 has taken a fork
+981939 4 has taken a fork
+981939 4 is eating
+982139 4 is sleeping
+982239 4 is thinking
+982339 4 has taken a fork
+982339 4 has taken a fork
+982339 4 is eating
+982539 4 is sleeping
+982639 4 is thinking
+982739 4 has taken a fork
+982739 4 has taken a fork
+982739 4 is eating
+982939 4 is sleeping
+983039 4 is thinking
+983139 4 has taken a fork
+983139 4 has taken a fork
+983139 4 is eating
+983339 4 is sleeping
+983439 4 is thinking
+983539 4 has taken a fork
+983539 4 has taken a fork
+983539 4 is eating
+983739 4 is sleeping
+983839 4 is thinking
+983940 4 has taken a fork
+983940 4 has taken a fork
+983940 4 is eating
+984140 4 is sleeping
+984240 4 is thinking
+984340 4 has taken a fork
+984340 4 has taken a fork
+984340 4 is eating
+984540 4 is sleeping
+984640 4 is thinking
+984740 4 has taken a fork
+984740 4 has taken a fork
+984740 4 is eating
+984940 4 is sleeping
+985040 4 is thinking
+985140 4 has taken a fork
+985140 4 has taken a fork
+985140 4 is eating
+985340 4 is sleeping
+985440 4 is thinking
+985540 4 has taken a fork
+985540 4 has taken a fork
+985540 4 is eating
+985740 4 is sleeping
+985840 4 is thinking
+985940 4 has taken a fork
+985940 4 has taken a fork
+985940 4 is eating
+986140 4 is sleeping
+986240 4 is thinking
+986340 4 has taken a fork
+986340 4 has taken a fork
+986340 4 is eating
+986540 4 is sleeping
+986640 4 is thinking
+986740 4 has taken a fork
+986740 4 has taken a fork
+986740 4 is eating
+986940 4 is sleeping
+987040 4 is thinking
+987140 4 has taken a fork
+987140 4 has taken a fork
+987140 4 is eating
+987340 4 is sleeping
+987440 4 is thinking
+987540 4 has taken a fork
+987540 4 has taken a fork
+987540 4 is eating
+987740 4 is sleeping
+987840 4 is thinking
+987940 4 has taken a fork
+987940 4 has taken a fork
+987940 4 is eating
+988140 4 is sleeping
+988240 4 is thinking
+988340 4 has taken a fork
+988340 4 has taken a fork
+988340 4 is eating
+988540 4 is sleeping
+988640 4 is thinking
+988740 4 has taken a fork
+988740 4 has taken a fork
+988740 4 is eating
+988940 4 is sleeping
+989040 4 is thinking
+989140 4 has taken a fork
+989140 4 has taken a fork
+989140 4 is eating
+989340 4 is sleeping
+989440 4 is thinking
+989540 4 has taken a fork
+989540 4 has taken a fork
+989540 4 is eating
+989740 4 is sleeping
+989840 4 is thinking
+989940 4 has taken a fork
+989940 4 has taken a fork
+989940 4 is eating
+990140 4 is sleeping
+990240 4 is thinking
+990340 4 has taken a fork
+990340 4 has taken a fork
+990340 4 is eating
+990540 4 is sleeping
+990640 4 is thinking
+990740 4 has taken a fork
+990740 4 has taken a fork
+990740 4 is eating
+990940 4 is sleeping
+991040 4 is thinking
+991140 4 has taken a fork
+991140 4 has taken a fork
+991140 4 is eating
+991340 4 is sleeping
+991440 4 is thinking
+991540 4 has taken a fork
+991540 4 has taken a fork
+991540 4 is eating
+991740 4 is sleeping
+991840 4 is thinking
+991940 4 has taken a fork
+991940 4 has taken a fork
+991940 4 is eating
+992140 4 is sleeping
+992240 4 is thinking
+992340 4 has taken a fork
+992340 4 has taken a fork
+992340 4 is eating
+992540 4 is sleeping
+992640 4 is thinking
+992740 4 has taken a fork
+992740 4 has taken a fork
+992740 4 is eating
+992940 4 is sleeping
+993040 4 is thinking
+993140 4 has taken a fork
+993140 4 has taken a fork
+993140 4 is eating
+993340 4 is sleeping
+993440 4 is thinking
+993540 4 has taken a fork
+993540 4 has taken a fork
+993540 4 is eating
+993740 4 is sleeping
+993840 4 is thinking
+993940 4 has taken a fork
+993940 4 has taken a fork
+993940 4 is eating
+994140 4 is sleeping
+994240 4 is thinking
+994340 4 has taken a fork
+994340 4 has taken a fork
+994340 4 is eating
+994540 4 is sleeping
+994640 4 is thinking
+994740 4 has taken a fork
+994740 4 has taken a fork
+994740 4 is eating
+994940 4 is sleeping
+995040 4 is thinking
+995140 4 has taken a fork
+995140 4 has taken a fork
+995140 4 is eating
+995340 4 is sleeping
+995440 4 is thinking
+995540 4 has taken a fork
+995540 4 has taken a fork
+995540 4 is eating
+995740 4 is sleeping
+995840 4 is thinking
+995940 4 has taken a fork
+995940 4 has taken a fork
+995940 4 is eating
+996140 4 is sleeping
+996240 4 is thinking
+996340 4 has taken a fork
+996340 4 has taken a fork
+996340 4 is eating
+996540 4 is sleeping
+996640 4 is thinking
+996740 4 has taken a fork
+996740 4 has taken a fork
+996740 4 is eating
+996940 4 is sleeping
+997040 4 is thinking
+997140 4 has taken a fork
+997140 4 has taken a fork
+997140 4 is eating
+997340 4 is sleeping
+997440 4 is thinking
+997540 4 has taken a fork
+997540 4 has taken a fork
+997540 4 is eating
+997740 4 is sleeping
+997840 4 is thinking
+997940 4 has taken a fork
+997940 4 has taken a fork
+997940 4 is eating
+998140 4 is sleeping
+998240 4 is thinking
+998340 4 has taken a fork
+998340 4 has taken a fork
+998340 4 is eating
+998540 4 is sleeping
+998640 4 is thinking
+998740 4 has taken a fork
+998740 4 has taken a fork
+998740 4 is eating
+998940 4 is sleeping
+999040 4 is thinking
+999140 4 has taken a fork
+999140 4 has taken a fork
+999140 4 is eating
+999340 4 is sleeping
+999440 4 is thinking
+999540 4 has taken a fork
+999540 4 has taken a fork
+999540 4 is eating
+999740 4 is sleeping
+999840 4 is thinking
+999940 4 has taken a fork
+999940 4 has taken a fork
+999940 4 is eating
+1689866000140 4 is sleeping
+1689866000240 4 is thinking
+1689866000340 4 has taken a fork
+1689866000340 4 has taken a fork
+1689866000340 4 is eating
+1689866000540 4 is sleeping
+1689866000640 4 is thinking
+1689866000740 4 has taken a fork
+1689866000740 4 has taken a fork
+1689866000740 4 is eating
+1689866000940 4 is sleeping
+1689866001040 4 is thinking
+1689866001140 4 has taken a fork
+1689866001140 4 has taken a fork
+1689866001140 4 is eating
+1689866001340 4 is sleeping
+1689866001440 4 is thinking
+1689866001540 4 has taken a fork
+1689866001540 4 has taken a fork
+1689866001540 4 is eating
+1689866001740 4 is sleeping
+1689866001840 4 is thinking
+1689866001940 4 has taken a fork
+1689866001940 4 has taken a fork
+1689866001940 4 is eating
+1689866002140 4 is sleeping
+1689866002240 4 is thinking
+1689866002340 4 has taken a fork
+1689866002340 4 has taken a fork
+1689866002340 4 is eating
+1689866002540 4 is sleeping
+1689866002640 4 is thinking
+1689866002740 4 has taken a fork
+1689866002740 4 has taken a fork
+1689866002740 4 is eating
+1689866002940 4 is sleeping
+1689866003040 4 is thinking
+1689866003140 4 has taken a fork
+1689866003140 4 has taken a fork
+1689866003140 4 is eating
+1689866003340 4 is sleeping
+1689866003440 4 is thinking
+1689866003540 4 has taken a fork
+1689866003540 4 has taken a fork
+1689866003540 4 is eating
+1689866003740 4 is sleeping
+1689866003840 4 is thinking
+1689866003940 4 has taken a fork
+1689866003940 4 has taken a fork
+1689866003940 4 is eating
+1689866004140 4 is sleeping
+1689866004240 4 is thinking
+1689866004340 4 has taken a fork
+1689866004340 4 has taken a fork
+1689866004340 4 is eating
+1689866004540 4 is sleeping
+1689866004640 4 is thinking
+1689866004740 4 has taken a fork
+1689866004740 4 has taken a fork
+1689866004740 4 is eating
+1689866004940 4 is sleeping
+1689866005040 4 is thinking
+1689866005140 4 has taken a fork
+1689866005140 4 has taken a fork
+1689866005140 4 is eating
+1689866005340 4 is sleeping
+1689866005440 4 is thinking
+1689866005540 4 has taken a fork
+1689866005540 4 has taken a fork
+1689866005540 4 is eating
+1689866005740 4 is sleeping
+1689866005840 4 is thinking
+1689866005940 4 has taken a fork
+1689866005940 4 has taken a fork
+1689866005940 4 is eating
+1689866006140 4 is sleeping
+1689866006240 4 is thinking
+1689866006340 4 has taken a fork
+1689866006340 4 has taken a fork
+1689866006340 4 is eating
+1689866006540 4 is sleeping
+1689866006640 4 is thinking
+1689866006740 4 has taken a fork
+1689866006740 4 has taken a fork
+1689866006740 4 is eating
+1689866006940 4 is sleeping
+1689866007040 4 is thinking
+1689866007140 4 has taken a fork
+1689866007140 4 has taken a fork
+1689866007140 4 is eating
+1689866007340 4 is sleeping
+1689866007440 4 is thinking
+1689866007540 4 has taken a fork
+1689866007540 4 has taken a fork
+1689866007540 4 is eating
+1689866007740 4 is sleeping
+1689866007840 4 is thinking
+1689866007940 4 has taken a fork
+1689866007940 4 has taken a fork
+1689866007940 4 is eating
+1689866008140 4 is sleeping
+1689866008240 4 is thinking
+1689866008340 4 has taken a fork
+1689866008340 4 has taken a fork
+1689866008340 4 is eating
+1689866008540 4 is sleeping
+1689866008640 4 is thinking
+1689866008740 4 has taken a fork
+1689866008740 4 has taken a fork
+1689866008740 4 is eating
+1689866008940 4 is sleeping
+1689866009040 4 is thinking
+1689866009142 4 has taken a fork
+1689866009142 4 has taken a fork
+1689866009142 4 is eating
+1689866009342 4 is sleeping
+1689866009442 4 is thinking
+1689866009542 4 has taken a fork
+1689866009542 4 has taken a fork
+1689866009542 4 is eating
+1689866009742 4 is sleeping
+1689866009842 4 is thinking
+1689866009942 4 has taken a fork
+1689866009942 4 has taken a fork
+1689866009942 4 is eating
+1689866010142 4 is sleeping
+1689866010242 4 is thinking
+1689866010342 4 has taken a fork
+1689866010342 4 has taken a fork
+1689866010342 4 is eating
+1689866010542 4 is sleeping
+1689866010642 4 is thinking
+1689866010742 4 has taken a fork
+1689866010742 4 has taken a fork
+1689866010742 4 is eating
+1689866010942 4 is sleeping
+1689866011042 4 is thinking
+1689866011142 4 has taken a fork
+1689866011142 4 has taken a fork
+1689866011142 4 is eating
+1689866011342 4 is sleeping
+1689866011442 4 is thinking
+1689866011542 4 has taken a fork
+1689866011542 4 has taken a fork
+1689866011542 4 is eating
+1689866011742 4 is sleeping
+1689866011842 4 is thinking
+1689866011942 4 has taken a fork
+1689866011942 4 has taken a fork
+1689866011942 4 is eating
+1689866012142 4 is sleeping
+1689866012242 4 is thinking
+1689866012342 4 has taken a fork
+1689866012342 4 has taken a fork
+1689866012342 4 is eating
+1689866012542 4 is sleeping
+1689866012642 4 is thinking
+1689866012742 4 has taken a fork
+1689866012742 4 has taken a fork
+1689866012742 4 is eating
+1689866012942 4 is sleeping
+1689866013042 4 is thinking
+1689866013142 4 has taken a fork
+1689866013142 4 has taken a fork
+1689866013142 4 is eating
+1689866013342 4 is sleeping
+1689866013442 4 is thinking
+1689866013542 4 has taken a fork
+1689866013542 4 has taken a fork
+1689866013542 4 is eating
+1689866013742 4 is sleeping
+1689866013842 4 is thinking
+1689866013942 4 has taken a fork
+1689866013942 4 has taken a fork
+1689866013942 4 is eating
+1689866014142 4 is sleeping
+1689866014242 4 is thinking
+1689866014342 4 has taken a fork
+1689866014342 4 has taken a fork
+1689866014342 4 is eating
+1689866014542 4 is sleeping
+1689866014642 4 is thinking
+1689866014742 4 has taken a fork
+1689866014742 4 has taken a fork
+1689866014742 4 is eating
+1689866014942 4 is sleeping
+1689866015042 4 is thinking
+1689866015142 4 has taken a fork
+1689866015142 4 has taken a fork
+1689866015142 4 is eating
+1689866015342 4 is sleeping
+1689866015442 4 is thinking
+1689866015542 4 has taken a fork
+1689866015542 4 has taken a fork
+1689866015542 4 is eating
+1689866015742 4 is sleeping
+1689866015842 4 is thinking
+1689866015942 4 has taken a fork
+1689866015942 4 has taken a fork
+1689866015942 4 is eating
+1689866016142 4 is sleeping
+1689866016242 4 is thinking
+1689866016342 4 has taken a fork
+1689866016342 4 has taken a fork
+1689866016342 4 is eating
+1689866016542 4 is sleeping
+1689866016642 4 is thinking
+1689866016742 4 has taken a fork
+1689866016742 4 has taken a fork
+1689866016742 4 is eating
+1689866016942 4 is sleeping
+1689866017042 4 is thinking
+1689866017142 4 has taken a fork
+1689866017142 4 has taken a fork
+1689866017142 4 is eating
+1689866017342 4 is sleeping
+1689866017442 4 is thinking
+1689866017542 4 has taken a fork
+1689866017542 4 has taken a fork
+1689866017542 4 is eating
+1689866017742 4 is sleeping
+1689866017842 4 is thinking
+1689866017942 4 has taken a fork
+1689866017942 4 has taken a fork
+1689866017942 4 is eating
+1689866018142 4 is sleeping
+1689866018242 4 is thinking
+1689866018342 4 has taken a fork
+1689866018342 4 has taken a fork
+1689866018342 4 is eating
+1689866018542 4 is sleeping
+1689866018642 4 is thinking
+1689866018742 4 has taken a fork
+1689866018742 4 has taken a fork
+1689866018742 4 is eating
+1689866018942 4 is sleeping
+1689866019042 4 is thinking
+1689866019142 4 has taken a fork
+1689866019142 4 has taken a fork
+1689866019142 4 is eating
+1689866019342 4 is sleeping
+1689866019442 4 is thinking
+1689866019542 4 has taken a fork
+1689866019542 4 has taken a fork
+1689866019542 4 is eating
+1689866019742 4 is sleeping
+1689866019842 4 is thinking
+1689866019942 4 has taken a fork
+1689866019942 4 has taken a fork
+1689866019942 4 is eating
+1689866020142 4 is sleeping
+1689866020242 4 is thinking
+1689866020342 4 has taken a fork
+1689866020342 4 has taken a fork
+1689866020342 4 is eating
+1689866020542 4 is sleeping
+1689866020642 4 is thinking
+1689866020742 4 has taken a fork
+1689866020742 4 has taken a fork
+1689866020742 4 is eating
+1689866020942 4 is sleeping
+1689866021042 4 is thinking
+1689866021142 4 has taken a fork
+1689866021142 4 has taken a fork
+1689866021142 4 is eating
+1689866021342 4 is sleeping
+1689866021442 4 is thinking
+1689866021542 4 has taken a fork
+1689866021542 4 has taken a fork
+1689866021542 4 is eating
+1689866021742 4 is sleeping
+1689866021842 4 is thinking
+1689866021942 4 has taken a fork
+1689866021942 4 has taken a fork
+1689866021942 4 is eating
+1689866022142 4 is sleeping
+1689866022242 4 is thinking
+1689866022342 4 has taken a fork
+1689866022342 4 has taken a fork
+1689866022342 4 is eating
+1689866022542 4 is sleeping
+1689866022642 4 is thinking
+1689866022742 4 has taken a fork
+1689866022742 4 has taken a fork
+1689866022742 4 is eating
+1689866022942 4 is sleeping
+1689866023042 4 is thinking
+1689866023142 4 has taken a fork
+1689866023142 4 has taken a fork
+1689866023142 4 is eating
+1689866023342 4 is sleeping
+1689866023442 4 is thinking
+1689866023542 4 has taken a fork
+1689866023542 4 has taken a fork
+1689866023542 4 is eating
+1689866023742 4 is sleeping
+1689866023842 4 is thinking
+1689866023942 4 has taken a fork
+1689866023942 4 has taken a fork
+1689866023942 4 is eating
+1689866024142 4 is sleeping
+1689866024242 4 is thinking
+1689866024342 4 has taken a fork
+1689866024342 4 has taken a fork
+1689866024342 4 is eating
+1689866024542 4 is sleeping
+1689866024642 4 is thinking
+1689866024742 4 has taken a fork
+1689866024742 4 has taken a fork
+1689866024742 4 is eating
+1689866024942 4 is sleeping
+1689866025042 4 is thinking
+1689866025142 4 has taken a fork
+1689866025142 4 has taken a fork
+1689866025142 4 is eating
+1689866025342 4 is sleeping
+1689866025442 4 is thinking
+1689866025542 4 has taken a fork
+1689866025542 4 has taken a fork
+1689866025542 4 is eating
+1689866025742 4 is sleeping
+1689866025842 4 is thinking
+1689866025942 4 has taken a fork
+1689866025942 4 has taken a fork
+1689866025942 4 is eating
+1689866026142 4 is sleeping
+1689866026242 4 is thinking
+1689866026342 4 has taken a fork
+1689866026342 4 has taken a fork
+1689866026342 4 is eating
+1689866026542 4 is sleeping
+1689866026642 4 is thinking
+1689866026742 4 has taken a fork
+1689866026742 4 has taken a fork
+1689866026742 4 is eating
+1689866026942 4 is sleeping
+1689866027042 4 is thinking
+1689866027142 4 has taken a fork
+1689866027142 4 has taken a fork
+1689866027142 4 is eating
+1689866027342 4 is sleeping
+1689866027442 4 is thinking
+1689866027542 4 has taken a fork
+1689866027542 4 has taken a fork
+1689866027542 4 is eating
+1689866027742 4 is sleeping
+1689866027842 4 is thinking
+1689866027942 4 has taken a fork
+1689866027942 4 has taken a fork
+1689866027942 4 is eating
+1689866028142 4 is sleeping
+1689866028242 4 is thinking
+1689866028342 4 has taken a fork
+1689866028342 4 has taken a fork
+1689866028342 4 is eating
+1689866028542 4 is sleeping
+1689866028642 4 is thinking
+1689866028742 4 has taken a fork
+1689866028742 4 has taken a fork
+1689866028742 4 is eating
+1689866028942 4 is sleeping
+1689866029042 4 is thinking
+1689866029142 4 has taken a fork
+1689866029142 4 has taken a fork
+1689866029142 4 is eating
+1689866029342 4 is sleeping
+1689866029442 4 is thinking
+1689866029542 4 has taken a fork
+1689866029542 4 has taken a fork
+1689866029542 4 is eating
+1689866029742 4 is sleeping
+1689866029842 4 is thinking
+1689866029942 4 has taken a fork
+1689866029942 4 has taken a fork
+1689866029942 4 is eating
+1689866030142 4 is sleeping
+1689866030242 4 is thinking
+1689866030342 4 has taken a fork
+1689866030342 4 has taken a fork
+1689866030342 4 is eating
+1689866030542 4 is sleeping
+1689866030644 4 is thinking
+1689866030742 4 has taken a fork
+1689866030742 4 has taken a fork
+1689866030742 4 is eating
+1689866030942 4 is sleeping
+1689866031042 4 is thinking
+1689866031142 4 has taken a fork
+1689866031142 4 has taken a fork
+1689866031142 4 is eating
+1689866031342 4 is sleeping
+1689866031442 4 is thinking
+1689866031542 4 has taken a fork
+1689866031542 4 has taken a fork
+1689866031542 4 is eating
+1689866031742 4 is sleeping
+1689866031842 4 is thinking
+1689866031942 4 has taken a fork
+1689866031942 4 has taken a fork
+1689866031942 4 is eating
+1689866032142 4 is sleeping
+1689866032242 4 is thinking
+1689866032343 4 has taken a fork
+1689866032343 4 has taken a fork
+1689866032343 4 is eating
+1689866032543 4 is sleeping
+1689866032643 4 is thinking
+1689866032743 4 has taken a fork
+1689866032743 4 has taken a fork
+1689866032743 4 is eating
+1689866032943 4 is sleeping
+1689866033043 4 is thinking
+1689866033143 4 has taken a fork
+1689866033143 4 has taken a fork
+1689866033143 4 is eating
+1689866033343 4 is sleeping
+1689866033443 4 is thinking
+1689866033543 4 has taken a fork
+1689866033543 4 has taken a fork
+1689866033543 4 is eating
+1689866033743 4 is sleeping
+1689866033843 4 is thinking
+1689866033943 4 has taken a fork
+1689866033943 4 has taken a fork
+1689866033943 4 is eating
+1689866034143 4 is sleeping
+1689866034243 4 is thinking
+1689866034343 4 has taken a fork
+1689866034343 4 has taken a fork
+1689866034343 4 is eating
+1689866034543 4 is sleeping
+1689866034643 4 is thinking
+1689866034743 4 has taken a fork
+1689866034743 4 has taken a fork
+1689866034743 4 is eating
+1689866034943 4 is sleeping
+1689866035043 4 is thinking
+1689866035143 4 has taken a fork
+1689866035143 4 has taken a fork
+1689866035143 4 is eating
+1689866035343 4 is sleeping
+1689866035443 4 is thinking
+1689866035543 4 has taken a fork
+1689866035543 4 has taken a fork
+1689866035543 4 is eating
+1689866035743 4 is sleeping
+1689866035843 4 is thinking
+1689866035943 4 has taken a fork
+1689866035943 4 has taken a fork
+1689866035943 4 is eating
+1689866036143 4 is sleeping
+1689866036243 4 is thinking
+1689866036343 4 has taken a fork
+1689866036343 4 has taken a fork
+1689866036343 4 is eating
+1689866036543 4 is sleeping
+1689866036643 4 is thinking
+1689866036743 4 has taken a fork
+1689866036743 4 has taken a fork
+1689866036743 4 is eating
+1689866036943 4 is sleeping
+1689866037043 4 is thinking
+1689866037143 4 has taken a fork
+1689866037143 4 has taken a fork
+1689866037143 4 is eating
+1689866037343 4 is sleeping
+1689866037443 4 is thinking
+1689866037543 4 has taken a fork
+1689866037543 4 has taken a fork
+1689866037543 4 is eating
+1689866037743 4 is sleeping
+1689866037843 4 is thinking
+1689866037943 4 has taken a fork
+1689866037943 4 has taken a fork
+1689866037943 4 is eating
+1689866038143 4 is sleeping
+1689866038243 4 is thinking
+1689866038343 4 has taken a fork
+1689866038343 4 has taken a fork
+1689866038343 4 is eating
+1689866038543 4 is sleeping
+1689866038643 4 is thinking
+1689866038743 4 has taken a fork
+1689866038743 4 has taken a fork
+1689866038743 4 is eating
+1689866038944 4 is sleeping
+1689866039044 4 is thinking
+1689866039145 4 has taken a fork
+1689866039145 4 has taken a fork
+1689866039145 4 is eating
+1689866039345 4 is sleeping
+1689866039445 4 is thinking
+1689866039545 4 has taken a fork
+1689866039545 4 has taken a fork
+1689866039545 4 is eating
+1689866039745 4 is sleeping
+1689866039845 4 is thinking
+1689866039945 4 has taken a fork
+1689866039945 4 has taken a fork
+1689866039945 4 is eating
+1689866040145 4 is sleeping
+1689866040245 4 is thinking
+1689866040345 4 has taken a fork
+1689866040345 4 has taken a fork
+1689866040345 4 is eating
+1689866040545 4 is sleeping
+1689866040645 4 is thinking
+1689866040745 4 has taken a fork
+1689866040745 4 has taken a fork
+1689866040745 4 is eating
+1689866040945 4 is sleeping
+1689866041045 4 is thinking
+1689866041145 4 has taken a fork
+1689866041145 4 has taken a fork
+1689866041145 4 is eating
+1689866041345 4 is sleeping
+1689866041445 4 is thinking
+1689866041545 4 has taken a fork
+1689866041545 4 has taken a fork
+1689866041545 4 is eating
+1689866041745 4 is sleeping
+1689866041845 4 is thinking
+1689866041945 4 has taken a fork
+1689866041945 4 has taken a fork
+1689866041945 4 is eating
+1689866042145 4 is sleeping
+1689866042245 4 is thinking
+1689866042345 4 has taken a fork
+1689866042345 4 has taken a fork
+1689866042345 4 is eating
+1689866042545 4 is sleeping
+1689866042645 4 is thinking
+1689866042745 4 has taken a fork
+1689866042745 4 has taken a fork
+1689866042745 4 is eating
+1689866042945 4 is sleeping
+1689866043045 4 is thinking
+1689866043145 4 has taken a fork
+1689866043145 4 has taken a fork
+1689866043145 4 is eating
+1689866043345 4 is sleeping
+1689866043445 4 is thinking
+1689866043545 4 has taken a fork
+1689866043545 4 has taken a fork
+1689866043545 4 is eating
+1689866043745 4 is sleeping
+1689866043845 4 is thinking
+1689866043945 4 has taken a fork
+1689866043945 4 has taken a fork
+1689866043945 4 is eating
+1689866044145 4 is sleeping
+1689866044245 4 is thinking
+1689866044345 4 has taken a fork
+1689866044345 4 has taken a fork
+1689866044345 4 is eating
+1689866044545 4 is sleeping
+1689866044645 4 is thinking
+1689866044745 4 has taken a fork
+1689866044745 4 has taken a fork
+1689866044745 4 is eating
+1689866044945 4 is sleeping
+1689866045045 4 is thinking
+1689866045145 4 has taken a fork
+1689866045145 4 has taken a fork
+1689866045145 4 is eating
+1689866045345 4 is sleeping
+1689866045445 4 is thinking
+1689866045545 4 has taken a fork
+1689866045545 4 has taken a fork
+1689866045545 4 is eating
+1689866045745 4 is sleeping
+1689866045845 4 is thinking
+1689866045945 4 has taken a fork
+1689866045945 4 has taken a fork
+1689866045945 4 is eating
+1689866046145 4 is sleeping
+1689866046245 4 is thinking
+1689866046345 4 has taken a fork
+1689866046345 4 has taken a fork
+1689866046345 4 is eating
+1689866046545 4 is sleeping
+1689866046645 4 is thinking
+1689866046745 4 has taken a fork
+1689866046745 4 has taken a fork
+1689866046745 4 is eating
+1689866046945 4 is sleeping
+1689866047045 4 is thinking
+1689866047145 4 has taken a fork
+1689866047145 4 has taken a fork
+1689866047145 4 is eating
+1689866047345 4 is sleeping
+1689866047345 3 is eat

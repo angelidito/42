@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 20:05:18 by angmarti          #+#    #+#             */
-/*   Updated: 2023/07/19 21:18:07 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/07/20 20:36:51 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,36 @@ void	take_fork(t_philo *philo, pthread_mutex_t *fork)
 {
 	pthread_mutex_lock(fork);
 	wanna_print(philo);
-	printf("%ld %d has taken a fork\n", get_time(), philo->id);
+	printf("%ld %d has taken a fork\n", get_time() - philo->data->start_time,
+			philo->id);
 	pthread_mutex_unlock(philo->print_mutex);
 }
 /**
- * The function takes the forks of a philosopher.
+ * The function takes the first fork of a philosopher.
+ * 
+ * @param philo A philosopher.
+ */
+void	take_fork1(t_philo *philo)
+{
+	if (philo->id % 2 == 0)
+		take_fork(philo, philo->left_fork);
+	else
+		take_fork(philo, philo->right_fork);
+}
+/**
+ * The function takes the second fork of a philosopher.
+ * 
+ * @param philo A philosopher.
+ */
+void	take_fork2(t_philo *philo)
+{
+	if (philo->id % 2 == 0)
+		take_fork(philo, philo->right_fork);
+	else
+		take_fork(philo, philo->left_fork);
+}
+/**
+ * The function takes the first fork of a philosopher.
  * 
  * @param philo A philosopher.
  */
@@ -39,11 +64,10 @@ void	take_forks(t_philo *philo)
 	}
 	else
 	{
-		take_fork(philo, philo->left_fork);
 		take_fork(philo, philo->right_fork);
+		take_fork(philo, philo->left_fork);
 	}
 }
-
 /**
  * The function leaves the forks of a philosopher.
  * 
@@ -60,18 +84,20 @@ void	philo_eat(t_philo *philo)
 	long	time_end;
 	long	now;
 
+	// take_fork1(philo);
+	// take_fork2(philo);
 	take_forks(philo);
 	now = get_time();
-	philo->last_eat = now;
-	time_end = now + philo->args->time_to_eat;
 	wanna_print(philo);
-	printf("%ld %d is eating\n", now, philo->id);
+	pthread_mutex_lock(&philo->eating);
+	printf("%ld %d is eating\n", now - philo->data->start_time, philo->id);
+	philo->last_eat = now;
+	pthread_mutex_unlock(&philo->eating);
 	pthread_mutex_unlock(philo->print_mutex);
+	time_end = now + philo->args->time_to_eat;
 	while (get_time() < time_end)
 	{
-		if (is_philo_dead(philo))
-			return ;
-		usleep(100);
+		usleep(200);
 	}
 	leave_forks(philo);
 }

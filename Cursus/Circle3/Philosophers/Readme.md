@@ -1,6 +1,6 @@
 # Philosophers Project
 
-This project is a simulation of the Dining Philosophers Problem, where a group of philosophers sit at a round table, alternating between eating, thinking, and sleeping. The goal is to implement the simulation in C using either threads and mutexes (mandatory part) or processes and semaphores (bonus part).
+This project is a simulation of the Dining Philosophers Problem, where a group of philosophers sit at a round data, alternating between eating, thinking, and sleeping. The goal is to implement the simulation in C using either threads and mutexes (mandatory part) or processes and semaphores (bonus part).
 
 ## Overview
 
@@ -40,7 +40,7 @@ In the mandatory part, the simulation should be implemented using threads and mu
     - `timestamp_in_ms X is thinking`
     - `timestamp_in_ms X died`
   - Displayed state messages shouldn't be mixed up with another messages.
-  - Death announcements should be displayed in the next 10 ms after the death.
+  - **Death announcements should be displayed in the next 10 ms after the death**.
 
 - Program:
   - Must not have any **data races**
@@ -84,7 +84,7 @@ In the mandatory part, the simulation should be implemented using threads and mu
 
 In the bonus part, the simulation should be implemented using processes and semaphores. The program should be named `philo_bonus` and located in the `philo_bonus/` directory. It should comply with the same requirements as the mandatory part, in addition to the following:
 
-- All the forks are placed in the middle of the table.
+- All the forks are placed in the middle of the data.
 - The number of available forks is represented by a semaphore.
 - Each philosopher becomes a separate process, with the main process not being a philosopher.
 

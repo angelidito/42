@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 20:05:18 by angmarti          #+#    #+#             */
-/*   Updated: 2023/07/19 20:07:10 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/07/20 20:21:23 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	wanna_print(t_philo *philo)
 {
-	// pthread_mutex_lock(philo->somebody_died_mutex);
-	// if (*(philo->somebody_died) == 1)
-	// {
-	// 	pthread_mutex_unlock(philo->somebody_died_mutex);
-	// 	exit(0);
-	// }
-	// pthread_mutex_unlock(philo->somebody_died_mutex);
+	pthread_mutex_lock(&philo->data->somebody_is_dead_mutex);
+	if (philo->data->somebody_is_dead == 1)
+	{
+		pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex);
+		exit(0);
+	}
+	pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex);
 	pthread_mutex_lock(philo->print_mutex);
 }
