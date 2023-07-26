@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 20:05:18 by angmarti          #+#    #+#             */
-/*   Updated: 2023/07/26 18:35:33 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/07/26 19:11:04 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ int	philo_eat(t_philo *philo)
 	time_end = now + philo->args->time_to_eat;
 	while (get_time() < time_end)
 	{
-		usleep(100);
+		usleep(50);
 	}
 	leave_forks(philo);
 	return (1);
