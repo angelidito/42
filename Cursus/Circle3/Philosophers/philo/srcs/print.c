@@ -6,20 +6,24 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 20:05:18 by angmarti          #+#    #+#             */
-/*   Updated: 2023/07/20 20:21:23 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/07/26 14:57:35 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/philosophers.h"
 
-void	wanna_print(t_philo *philo)
+/**
+ * Locks print_mutex if it is safe to print, that means that nobody is dead.
+ * 
+ * @param philo A philosopher.
+ * 
+ * @return If print_mutex is locked returns 1. Otherwise, it returns 0 and it
+ * means sombebody is dead.
+ */
+int	can_i_print(t_philo *philo)
 {
-	pthread_mutex_lock(&philo->data->somebody_is_dead_mutex);
-	if (philo->data->somebody_is_dead == 1)
-	{
-		pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex);
-		exit(0);
-	}
-	pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex);
+	if (is_somebody_dead(philo))
+		return (0);
 	pthread_mutex_lock(philo->print_mutex);
+	return (1);
 }

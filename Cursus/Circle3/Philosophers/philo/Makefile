@@ -6,7 +6,7 @@
 #    By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/17 12:03:08 by angmarti          #+#    #+#              #
-#    Updated: 2023/07/20 20:37:04 by angmarti         ###   ########.fr        #
+#    Updated: 2023/07/24 20:17:07 by angmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,8 +60,8 @@ SRCS			=	\
 
 
 # EXEC			=	./philo 1 800 200 200 # muere
-# EXEC			=	./philo 5 800 200 200 # viven
-EXEC			=	./philo 5 800 200 200 7 # viven y cada uno come 7 veces
+EXEC			=	./philo 5 800 200 200 # viven
+# EXEC			=	./philo 5 800 200 200 7 # viven y cada uno come 7 veces
 # EXEC			=	./philo 4 410 200 200 # viven
 # EXEC			=	./philo 4 310 200 100 # mueren
 # EXEC			=	./philo 3 310 103 103 # (tienen que vivir)
@@ -177,6 +177,6 @@ fclean:
 	$(RM_NAME)
 	@echo
 
-re: fclean all
+re: fclean all exec
 
 .PHONY:  all clean fclean re

@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 20:04:28 by angmarti          #+#    #+#             */
-/*   Updated: 2023/07/20 19:28:01 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/07/26 15:15:25 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,26 +20,27 @@
 
 //	PRINT
 
-void	wanna_print(t_philo *philo);
+int		can_i_print(t_philo *philo);
 
 //	THINK
 
-void	philo_think(t_philo *philo);
+int	philo_think(t_philo *philo);
 
 //	DEATH
 
-void	*check_death(void *arg);
-void		death_checker_init(t_philo *philo);
+void	death_checker_init(t_philo *philo);
+int		is_somebody_dead(t_philo *philo);
 
 //	EAT
 
-void	philo_eat(t_philo *philo);
+int	philo_eat(t_philo *philo);
 void	take_fork1(t_philo *philo);
 void	take_fork2(t_philo *philo);
+int		philo_is_full(t_philo *philo);
 
 //	SLEEP
 
-void	philo_sleep(t_philo *philo);
+int	philo_sleep(t_philo *philo);
 
 //	LIBFT
 

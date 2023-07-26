@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 19:52:51 by angmarti          #+#    #+#             */
-/*   Updated: 2023/07/20 19:42:47 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/07/26 15:21:30 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	main(int argc, char const *argv[])
 	i = -1;
 	// Lanzamos filosofos
 	// printf("Launching philosophers.\n");
-	data.start_time= get_time();
+	data.start_time = get_time();
 	while (++i < data.args.n_philos)
 	{
 		pthread_create(&philos[i].thread, NULL, start, &philos[i]);
