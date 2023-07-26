@@ -6,7 +6,7 @@
 #    By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/17 12:03:08 by angmarti          #+#    #+#              #
-#    Updated: 2023/07/26 18:42:59 by angmarti         ###   ########.fr        #
+#    Updated: 2023/07/26 19:23:46 by angmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,27 +50,20 @@ SRCS			=	\
 	
 # endif
 
-# ./philo 1 800 200 200 > out1
-# ./philo 5 800 200 200 > out2
-# ./philo 5 800 200 200 7 > out3
-# ./philo 4 410 200 200 > out4
-# ./philo 4 310 200 100 > out5
-# ./philo 3 310 103 103 > out6
-# ./philo 3 310 104 104 > out7
-
-
+# **************************************************************************** #
+# ******************************   EXECUTION    ****************************** #
+# **************************************************************************** #
 
 # EXEC			=	./philo 1 800 200 200 # muere
-# EXEC			=	./philo 5 800 200 200 # viven
+EXEC			=	./philo 5 800 200 200 # viven
 # EXEC			=	./philo 5 800 200 200 7 # viven y cada uno come 7 veces
 # EXEC			=	./philo 4 410 200 200 # viven
 # EXEC			=	./philo 5 310 200 100 # mueren
+# EXEC			=	./philo 3 310 100 100 # (tienen que vivir)
 # EXEC			=	./philo 3 310 103 103 # (tienen que vivir)
-EXEC			=	./philo 3 310 103 103 # (tienen que vivir)
 # EXEC			=	./philo 3 310 104 104 # (tienen que morir) y si no te lo hace bien te lo tire
-# EXEC			=	./philo 5 310 104 104 # (tienen que morir) y si no te lo hace bien te lo tire
 
-# EXEC			=	./philo 50000 500 400 60
+# EXEC			=	./philo 50 300 109 109
 # EXEC			=	./philo 100 330 200 100
 # EXEC			=	./philo 50  500 450 40
 # EXEC			=	./philo 5 420 200 200
@@ -181,6 +174,6 @@ fclean:
 	$(RM_NAME)
 	@echo
 
-re: fclean all exec
+re: fclean all
 
 .PHONY:  all clean fclean re
