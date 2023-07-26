@@ -6,7 +6,7 @@
 #    By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/17 12:03:08 by angmarti          #+#    #+#              #
-#    Updated: 2023/07/24 20:17:07 by angmarti         ###   ########.fr        #
+#    Updated: 2023/07/26 17:35:18 by angmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,12 +60,14 @@ SRCS			=	\
 
 
 # EXEC			=	./philo 1 800 200 200 # muere
-EXEC			=	./philo 5 800 200 200 # viven
+# EXEC			=	./philo 5 800 200 200 # viven
 # EXEC			=	./philo 5 800 200 200 7 # viven y cada uno come 7 veces
-# EXEC			=	./philo 4 410 200 200 # viven
-# EXEC			=	./philo 4 310 200 100 # mueren
+EXEC			=	./philo 4 410 200 200 # viven
+# EXEC			=	./philo 5 310 200 100 # mueren
+# EXEC			=	./philo 3 310 103 103 # (tienen que vivir)
 # EXEC			=	./philo 3 310 103 103 # (tienen que vivir)
 # EXEC			=	./philo 3 310 104 104 # (tienen que morir) y si no te lo hace bien te lo tire
+# EXEC			=	./philo 5 310 104 104 # (tienen que morir) y si no te lo hace bien te lo tire
 
 # EXEC			=	./philo 50000 500 400 60
 # EXEC			=	./philo 100 330 200 100
@@ -149,12 +151,13 @@ $(NAME): $(OBJS)
 
 exec:
 	@$(MAKE)
-	@echo "$(COLOR_RESET)$(RED)"
+	@echo
+	@echo "$(COLOR_RESET)\033[31m$(EXEC) $(RED)" 
 	@echo "[--Makefile says...--------]"
 	@echo "[-----$(BRED)   EXECUTING!   $(COLOR_RESET)$(RED)-----]"
 	@echo "[--------------------------]"
 	@echo "$(COLOR_RESET)"
-	$(EXEC)
+	@$(EXEC)
 	@echo "$(COLOR_RESET)$(YELLOW)"
 	@echo "[--Makefile says...--------]"
 	@echo "[-----$(BYELLOW) EXEC. FINISHED $(COLOR_RESET)$(YELLOW)-----]"

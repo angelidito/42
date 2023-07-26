@@ -12,55 +12,83 @@
 
 #include "../incs/philosophers.h"
 
-int	init_data(t_data *data, int argc, char const *argv[])
+/**
+ * Sets the values of the t_args pointer passed as parameter, 
+ * returning -1 if there is an error.
+ * 
+ * @param args The pointer to the t_args struct to be filled.
+ * @param argc The number of command-line arguments passed to the program
+ * @param argv Arguments passed to the program.
+ * 
+ * @return Returns -1 if there is an error. Otherwise, it returns 0.
+ */
+int	set_args(t_args *args, int argc, char const *argv[])
 {
-	int	i;
-
-	// ARGUMENTS
 	if (argc < 5 || argc > 6)
 	{
 		printf("Error: wrong number of arguments: %d.\n", argc - 1);
 		return (-1);
 	}
-	data->args.n_philos = ft_atoi(argv[1]);
-	if (data->args.n_philos < 1)
+	args->n_philos = ft_atoi(argv[1]);
+	if (args->n_philos < 1)
 	{
-		printf("Error: wrong number of philosophers: %d\n.",
-				data->args.n_philos);
+		printf("Error: wrong number of philosophers: %d\n.", args->n_philos);
 		return (-1);
 	}
-	data->args.time_to_die = ft_atoi(argv[2]);
-	data->args.time_to_eat = ft_atoi(argv[3]);
-	data->args.time_to_sleep = ft_atoi(argv[4]);
+	args->time_to_die = ft_atoi(argv[2]);
+	args->time_to_eat = ft_atoi(argv[3]);
+	args->time_to_sleep = ft_atoi(argv[4]);
 	if (argc == 6)
-		data->args.n_times_must_eat = ft_atoi(argv[5]);
+		args->n_times_must_eat = ft_atoi(argv[5]);
 	else
-		data->args.n_times_must_eat = 2147483647;
-	if (data->args.time_to_die < 0 || data->args.time_to_eat < 0
-		|| data->args.time_to_sleep < 0 || data->args.n_times_must_eat < 0)
+		args->n_times_must_eat = 2147483647;
+	if (args->time_to_die < 0 || args->time_to_eat < 0
+		|| args->time_to_sleep < 0 || args->n_times_must_eat < 0)
 	{
 		printf("Error: negative argument.\n");
 		return (-1);
 	}
-	// TABLE - FORKS
+	return (0);
+}
+
+/**
+ * The function initializes the data structure by setting the arguments, allocating memory for forks,
+ * initializing mutexes, and returning 0 if successful.
+ * 
+ * @param data A pointer to a struct of type t_data.
+ * @param argc The number of command-line arguments passed to the program
+ * @param argv Arguments passed to the program.
+ * 
+ * @return an integer value. If the initialization of data is successful, it returns 0. If there is an
+ * error, it returns -1.
+ */
+int	init_data(t_data *data, int argc, char const *argv[])
+{
+	int	i;
+
+	if (set_args(&data->args, argc, argv) == -1)
+		return (-1);
 	data->forks = malloc(sizeof(pthread_mutex_t) * data->args.n_philos);
 	if (!data->forks)
 	{
 		printf("Error: malloc failed\n");
 		return (-1);
 	}
-	// TABLE - FORKS
 	i = -1;
 	while (++i < data->args.n_philos)
 		pthread_mutex_init(&data->forks[i], NULL);
-	// TABLE - PRINT_MUTEX
 	pthread_mutex_init(&data->print_mutex, NULL);
-	// TABLE - somebody_is_dead
 	data->somebody_is_dead = 0;
 	pthread_mutex_init(&data->somebody_is_dead_mutex, NULL);
 	return (0);
 }
 
+/**
+ * TInitializes the properties of each philosopher.
+ * 
+ * @param philos An array of philosophers.
+ * @param data Data of the program, shared by all the philosophers.
+ */
 void	init_philos(t_philo *philos, t_data *data)
 {
 	int	i;
@@ -77,7 +105,5 @@ void	init_philos(t_philo *philos, t_data *data)
 		philos[i].print_mutex = &data->print_mutex;
 		philos[i].data = data;
 		pthread_mutex_init(&philos[i].eating, NULL);
-		// data->philos[i].somebody_died = data->somebody_is_dead;
-		// data->philos[i].somebody_died_mutex = &data->somebody_is_dead_mutex;
 	}
 }
