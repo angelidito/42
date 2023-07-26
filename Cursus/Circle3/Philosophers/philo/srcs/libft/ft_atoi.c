@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:22:32 by angmarti          #+#    #+#             */
-/*   Updated: 2023/07/15 18:43:43 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/07/26 18:20:33 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	ft_isdigit(int c)
 		return (c);
 	return (0);
 }
+
 /**
  * It returns the sign of the number, or 0 if there is no sign
  * 

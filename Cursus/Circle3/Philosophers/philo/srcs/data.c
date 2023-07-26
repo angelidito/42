@@ -52,15 +52,16 @@ int	set_args(t_args *args, int argc, char const *argv[])
 }
 
 /**
- * The function initializes the data structure by setting the arguments, allocating memory for forks,
+ * The function initializes the data structure by setting the arguments, 
+ * allocating memory for forks,
  * initializing mutexes, and returning 0 if successful.
  * 
  * @param data A pointer to a struct of type t_data.
  * @param argc The number of command-line arguments passed to the program
  * @param argv Arguments passed to the program.
  * 
- * @return an integer value. If the initialization of data is successful, it returns 0. If there is an
- * error, it returns -1.
+ * @return If the initialization of data is successful, it returns 0. 
+ * If there is an error, it returns -1.
  */
 int	init_data(t_data *data, int argc, char const *argv[])
 {
@@ -104,6 +105,6 @@ void	init_philos(t_philo *philos, t_data *data)
 		philos[i].right_fork = &data->forks[(i + 1) % data->args.n_philos];
 		philos[i].print_mutex = &data->print_mutex;
 		philos[i].data = data;
-		pthread_mutex_init(&philos[i].eating, NULL);
+		pthread_mutex_init(&philos[i].eating_mutex, NULL);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 20:06:18 by angmarti          #+#    #+#             */
-/*   Updated: 2023/07/26 17:07:08 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/07/26 18:38:08 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,10 @@
  */
 void	somebody_died(t_philo *philo)
 {
-	pthread_mutex_unlock(&philo->eating);
+	pthread_mutex_unlock(&philo->eating_mutex);
 	philo->data->somebody_is_dead = 1;
 	pthread_mutex_lock(philo->print_mutex);
-	printf("%ld %d %sdied%s\n", get_time() - philo->data->start_time, philo->id,
-			TEXT_RED, TEXT_RESET);
-	printf("%sDeath info \n", TEXT_YELLOW);
-	printf("     philo->id: %d\n", philo->id);
-	printf("   time_to_die: %d\n", philo->args->time_to_die);
-	printf("      last_eat: %ld\n", philo->last_eat - philo->data->start_time);
-	printf("    get_time(): %ld\n", get_time() - philo->data->start_time);
-	printf("  elapsed time: %ld%s\n", get_time() - philo->last_eat, TEXT_RESET);
+	print_death(philo, get_time());
 	pthread_mutex_unlock(philo->print_mutex);
 }
 
@@ -64,7 +57,7 @@ void	*check_death(void *arg)
 	while (!philo_is_full(philo) && !death)
 	{
 		usleep(100);
-		pthread_mutex_lock(&philo->eating);
+		pthread_mutex_lock(&philo->eating_mutex);
 		death = get_time() - philo->last_eat > philo->args->time_to_die;
 		if (death)
 		{
@@ -72,12 +65,12 @@ void	*check_death(void *arg)
 			if (!philo->data->somebody_is_dead)
 				somebody_died(philo);
 			else
-				pthread_mutex_unlock(&philo->eating);
+				pthread_mutex_unlock(&philo->eating_mutex);
 			pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex);
 			break ;
 		}
 		else
-			pthread_mutex_unlock(&philo->eating);
+			pthread_mutex_unlock(&philo->eating_mutex);
 	}
 	return (NULL);
 }

@@ -6,7 +6,7 @@
 #    By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/17 12:03:08 by angmarti          #+#    #+#              #
-#    Updated: 2023/07/26 17:35:18 by angmarti         ###   ########.fr        #
+#    Updated: 2023/07/26 18:42:59 by angmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,15 +36,16 @@ SRC_libft		=	libft
 SRCS			=	\
 					$(SRC_libft)/ft_atoi.c \
 					$(SRC_libft)/ft_itoa.c \
+					data.c \
 					death.c \
 					eat.c \
 					error.c \
 					philosopher.c \
-					print.c \
-					data.c \
+					print1.c \
+					print2.c \
+					sleep.c \
 					think.c \
 					time.c \
-					sleep.c \
 					main.c
 	
 # endif
@@ -62,10 +63,10 @@ SRCS			=	\
 # EXEC			=	./philo 1 800 200 200 # muere
 # EXEC			=	./philo 5 800 200 200 # viven
 # EXEC			=	./philo 5 800 200 200 7 # viven y cada uno come 7 veces
-EXEC			=	./philo 4 410 200 200 # viven
+# EXEC			=	./philo 4 410 200 200 # viven
 # EXEC			=	./philo 5 310 200 100 # mueren
 # EXEC			=	./philo 3 310 103 103 # (tienen que vivir)
-# EXEC			=	./philo 3 310 103 103 # (tienen que vivir)
+EXEC			=	./philo 3 310 103 103 # (tienen que vivir)
 # EXEC			=	./philo 3 310 104 104 # (tienen que morir) y si no te lo hace bien te lo tire
 # EXEC			=	./philo 5 310 104 104 # (tienen que morir) y si no te lo hace bien te lo tire
 

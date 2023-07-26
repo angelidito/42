@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 20:05:18 by angmarti          #+#    #+#             */
-/*   Updated: 2023/07/26 15:30:06 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/07/26 18:27:10 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ int	philo_sleep(t_philo *philo)
 	now = get_time();
 	if (!can_i_print(philo))
 		return (0);
-	printf("%ld %d %sis sleeping%s\n", now - philo->data->start_time, philo->id,
-			TEXT_BLACK, TEXT_RESET);
+	print_sleep(philo, now);
 	pthread_mutex_unlock(philo->print_mutex);
 	time_end = now + philo->args->time_to_sleep;
 	while (get_time() < time_end)
