@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 20:06:18 by angmarti          #+#    #+#             */
-/*   Updated: 2023/07/27 20:05:25 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/07/27 20:14:55 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	*check_death(void *arg)
 	death = 0;
 	while (!philo_is_full(philo) && !death)
 	{
-		usleep(100);
+		usleep(8500);
 		pthread_mutex_lock(&philo->eating_mutex);
 		death = get_time() - philo->last_eat > philo->args->time_to_die;
 		if (death)
@@ -75,6 +75,11 @@ void	*check_death(void *arg)
 	return (NULL);
 }
 
+/**
+ * Initializes a death checker thread for a philosopher.
+ * 
+ * @param philo The philosopher to check.
+ */
 void	death_checker_init(t_philo *philo)
 {
 	pthread_create(&philo->death_checker, NULL, check_death, philo);
