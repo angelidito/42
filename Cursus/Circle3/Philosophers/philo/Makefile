@@ -6,7 +6,7 @@
 #    By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/17 12:03:08 by angmarti          #+#    #+#              #
-#    Updated: 2023/07/26 19:23:46 by angmarti         ###   ########.fr        #
+#    Updated: 2023/07/27 19:56:29 by angmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,11 +35,10 @@ SRC_libft		=	libft
 
 SRCS			=	\
 					$(SRC_libft)/ft_atoi.c \
-					$(SRC_libft)/ft_itoa.c \
 					data.c \
 					death.c \
 					eat.c \
-					error.c \
+					error_free.c \
 					philosopher.c \
 					print1.c \
 					print2.c \
@@ -60,7 +59,7 @@ EXEC			=	./philo 5 800 200 200 # viven
 # EXEC			=	./philo 4 410 200 200 # viven
 # EXEC			=	./philo 5 310 200 100 # mueren
 # EXEC			=	./philo 3 310 100 100 # (tienen que vivir)
-# EXEC			=	./philo 3 310 103 103 # (tienen que vivir)
+EXEC			=	./philo 3 310 103 103 # (tienen que vivir)
 # EXEC			=	./philo 3 310 104 104 # (tienen que morir) y si no te lo hace bien te lo tire
 
 # EXEC			=	./philo 50 300 109 109
@@ -97,7 +96,7 @@ OBJS			=	$(addprefix $(OBJ_DIR), $(SRCS:.c=.o))
 
 # ******************************    COMPILE     ****************************** #
 CC				=	@gcc
-C_FLAGS			=	-Wall -Wextra -Werror #-g3 -fsanitize=address
+C_FLAGS			=	-Wall -Wextra -Werror #-g3 -fsanitize=address 
 C_INCLUDES		=	-I$(INCS_DIR) #-I$(LIBFT_INCS_DIR)
 LINKS			=	#-lreadline
 

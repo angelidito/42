@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 20:04:28 by angmarti          #+#    #+#             */
-/*   Updated: 2023/07/26 18:39:49 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/07/27 19:17:35 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "colors.h"
 # include "libs.h"
+# include "strings.h"
 # include "structs.h"
 
 # define SLEEPING "%6ld %d %sis sleeping%s\n"
@@ -30,8 +31,8 @@ void	init_philos(t_philo *philos, t_data *data);
 
 //	DEATH
 
-void	death_checker_init(t_philo *philo);
 int		is_somebody_dead(t_philo *philo);
+void	death_checker_init(t_philo *philo);
 
 //	EAT
 
@@ -39,15 +40,15 @@ int		philo_eat(t_philo *philo);
 int		philo_is_full(t_philo *philo);
 void	leave_forks(t_philo *philo);
 
-//	ERROR
+//	ERROR_FREE
 
-void	early_free(t_data *data);
-int		return_early_free(t_data *data);
+int		error_return_early_free(t_data *data);
 int		wrong_args(void);
+void	late_free(t_philo *philos, t_data *data);
+void	early_free(t_data *data);
 
 //	LIBFT
 
-char	*ft_itoa(int n);
 int		ft_atoi(const char *str);
 
 //	PHILOSOPHER

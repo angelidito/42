@@ -14,26 +14,23 @@
 
 /**
  * Sets the values of the t_args pointer passed as parameter, 
- * returning -1 if there is an error.
+ * returning 1 if there is an error.
  * 
  * @param args The pointer to the t_args struct to be filled.
  * @param argc The number of command-line arguments passed to the program
  * @param argv Arguments passed to the program.
  * 
- * @return Returns -1 if there is an error. Otherwise, it returns 0.
+ * @return Returns 1 if there is an error. Otherwise, it returns 0.
  */
 int	set_args(t_args *args, int argc, char const *argv[])
 {
 	if (argc < 5 || argc > 6)
-	{
-		printf("Error: wrong number of arguments: %d.\n", argc - 1);
-		return (-1);
-	}
+		return (wrong_args());
 	args->n_philos = ft_atoi(argv[1]);
 	if (args->n_philos < 1)
 	{
-		printf("Error: wrong number of philosophers: %d\n.", args->n_philos);
-		return (-1);
+		printf(ERROR_PHILO_NBR);
+		return (1);
 	}
 	args->time_to_die = ft_atoi(argv[2]);
 	args->time_to_eat = ft_atoi(argv[3]);
@@ -45,8 +42,8 @@ int	set_args(t_args *args, int argc, char const *argv[])
 	if (args->time_to_die < 0 || args->time_to_eat < 0
 		|| args->time_to_sleep < 0 || args->n_times_must_eat < 0)
 	{
-		printf("Error: negative argument.\n");
-		return (-1);
+		printf(ERROR_NEGATIVE_ARG);
+		return (1);
 	}
 	return (0);
 }
@@ -61,19 +58,19 @@ int	set_args(t_args *args, int argc, char const *argv[])
  * @param argv Arguments passed to the program.
  * 
  * @return If the initialization of data is successful, it returns 0. 
- * If there is an error, it returns -1.
+ * If there is an error, it returns 1.
  */
 int	init_data(t_data *data, int argc, char const *argv[])
 {
 	int	i;
 
-	if (set_args(&data->args, argc, argv) == -1)
-		return (-1);
+	if (set_args(&data->args, argc, argv))
+		return (1);
 	data->forks = malloc(sizeof(pthread_mutex_t) * data->args.n_philos);
 	if (!data->forks)
 	{
-		printf("Error: malloc failed\n");
-		return (-1);
+		printf(ERROR_MALLOC);
+		return (1);
 	}
 	i = -1;
 	while (++i < data->args.n_philos)
