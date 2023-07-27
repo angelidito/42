@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 21:48:28 by angmarti          #+#    #+#             */
-/*   Updated: 2023/07/26 17:09:31 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/07/27 20:05:31 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,5 @@ void	*start(void *arg)
 			break ;
 	}
 	leave_forks(philo);
-	pthread_join(philo->death_checker, NULL);
 	return (NULL);
 }

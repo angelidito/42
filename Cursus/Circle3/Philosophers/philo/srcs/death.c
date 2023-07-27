@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 20:06:18 by angmarti          #+#    #+#             */
-/*   Updated: 2023/07/26 18:38:08 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/07/27 20:05:25 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,5 @@ void	*check_death(void *arg)
 void	death_checker_init(t_philo *philo)
 {
 	pthread_create(&philo->death_checker, NULL, check_death, philo);
+	pthread_detach(philo->death_checker);
 }
