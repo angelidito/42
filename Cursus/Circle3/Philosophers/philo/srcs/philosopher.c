@@ -6,17 +6,71 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 21:48:28 by angmarti          #+#    #+#             */
-/*   Updated: 2023/07/29 15:27:31 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/07/29 18:15:31 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/philosophers.h"
+
+int	wait4turn(t_philo *philo)
+{
+	int	everybody_alive;
+	int	myturn;
+
+	myturn = 0;
+	everybody_alive = 1;
+	while (everybody_alive && !myturn)
+	{
+		pthread_mutex_lock(philo->data->turn_mutex);
+		if (philo->id % 2 == philo->data->turn)
+			myturn = 1;
+		pthread_mutex_unlock(philo->data->turn_mutex);
+		if (!myturn)
+			usleep(500);
+		if (is_somebody_dead(philo))
+			everybody_alive = 0;
+	}
+	return (everybody_alive);
+}
+
+void	next_turn(t_philo *philo)
+{
+	pthread_mutex_lock(philo->data->turn_mutex);
+	if (philo->id % 2)
+		philo->data->pairs++;
+	else
+		philo->data->odds++;
+	if (philo->data->pairs == philo->data->args.n_philos / 2)
+	{
+		can_i_print(philo);
+		philo->data->turn = (philo->data->turn + 1) % 2;
+		printf("TURN CHANGEEEEE: %d\n", philo->data->turn);
+		printf("ODDS: %d\n", philo->data->odds);
+		printf("PAIRS: %d\n", philo->data->pairs);
+		philo->data->pairs = 0;
+		pthread_mutex_unlock(philo->print_mutex);
+	}
+	if (philo->data->odds == (philo->data->args.n_philos / 2)
+		+ (philo->data->args.n_philos % 2))
+	{
+		can_i_print(philo);
+		philo->data->turn = (philo->data->turn + 1) % 2;
+		printf("TURN CHANGEEEEE: %d\n", philo->data->turn);
+		printf("ODDS: %d\n", philo->data->odds);
+		printf("PAIRS: %d\n", philo->data->pairs);
+		philo->data->odds = 0;
+		pthread_mutex_unlock(philo->print_mutex);
+	}
+	pthread_mutex_unlock(philo->data->turn_mutex);
+}
 
 void	*start(void *arg)
 {
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
+	// if (philo->id % 2 == 0)
+	// 	usleep(500);
 	philo->last_eat = get_time();
 	death_checker_init(philo);
 	while (!philo_is_full(philo) && !philo->data->somebody_is_dead)
@@ -25,14 +79,17 @@ void	*start(void *arg)
 			break ;
 		if (!philo_think(philo))
 			break ;
+		// if (!wait4turn(philo))
+		// 	break ;
 		if (!philo_eat(philo))
 			break ;
+		// next_turn(philo);
 	}
 	leave_forks(philo);
 	return (NULL);
 }
 
-int	wait4turn(t_philo *philo)
+int	wait4turn_case_3(t_philo *philo)
 {
 	int	everybody_alive;
 	int	myturn;
@@ -53,7 +110,7 @@ int	wait4turn(t_philo *philo)
 	return (everybody_alive);
 }
 
-void	next_turn(t_philo *philo)
+void	next_turn_case_3(t_philo *philo)
 {
 	pthread_mutex_lock(philo->data->case_3_mutex);
 	philo->data->case_3_order = (philo->data->case_3_order + 1) % 3;
@@ -73,11 +130,11 @@ void	*start_case_3(void *arg)
 			break ;
 		if (!philo_think(philo))
 			break ;
-		if (!wait4turn(philo))
+		if (!wait4turn_case_3(philo))
 			break ;
 		if (!philo_eat(philo))
 			break ;
-		next_turn(philo);
+		next_turn_case_3(philo);
 	}
 	leave_forks(philo);
 	return (NULL);

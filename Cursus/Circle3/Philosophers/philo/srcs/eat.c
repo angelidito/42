@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 20:05:18 by angmarti          #+#    #+#             */
-/*   Updated: 2023/07/26 19:11:04 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/07/29 18:22:59 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	take_forks(t_philo *philo)
 			usleep(100);
 		}
 	}
-	else if (philo->id % 2 == 0 || philo->data->args.n_philos == 3)
+	else if (1 || philo->id % 2 == 0 || philo->data->args.n_philos == 3)
 	{
 		take_fork(philo, philo->right_fork);
 		take_fork(philo, philo->left_fork);
@@ -86,6 +86,24 @@ int	philo_is_full(t_philo *philo)
 	return (is_full);
 }
 
+// void	ps_access(t_philo *philo)
+// {
+// 	int	n_philos;
+
+// 	n_philos = philo->data->args.n_philos;
+// 	pthread_mutex_lock(&philo->data->ps_mutex[(philo->id + 1) % n_philos]);
+// 	pthread_mutex_lock(&philo->data->ps_mutex[(philo->id) % n_philos]);
+// }
+
+// void ps_leave(t_philo *philo)
+// {
+// 	int	n_philos;
+
+// 	n_philos = philo->data->args.n_philos;
+// 	pthread_mutex_unlock(&philo->data->ps_mutex[(philo->id) % n_philos]);
+// 	pthread_mutex_unlock(&philo->data->ps_mutex[(philo->id + 1) % n_philos]);
+// }
+
 /**
  * The function makes a philosopher eat.
  * 
@@ -96,11 +114,12 @@ int	philo_eat(t_philo *philo)
 	long	time_end;
 	long	now;
 
+	// if (philo->id % 2 == 0)
+	// 	usleep(500);
+	// ps_access(philo);
 	take_forks(philo);
 	if (!can_i_print(philo))
-	{
 		return (0);
-	}
 	pthread_mutex_lock(&philo->eating_mutex);
 	now = get_time();
 	pthread_mutex_lock(&philo->data->somebody_is_dead_mutex);
@@ -113,8 +132,9 @@ int	philo_eat(t_philo *philo)
 	time_end = now + philo->args->time_to_eat;
 	while (get_time() < time_end)
 	{
-		usleep(50);
+		usleep(100);
 	}
 	leave_forks(philo);
+	// ps_leave(philo);
 	return (1);
 }

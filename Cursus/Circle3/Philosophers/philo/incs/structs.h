@@ -6,9 +6,10 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 20:04:28 by angmarti          #+#    #+#             */
-/*   Updated: 2023/07/29 14:56:10 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/07/29 17:49:13 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
@@ -40,9 +41,12 @@ typedef struct s_data
 	pthread_mutex_t	somebody_is_dead_mutex;
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	print_mutex;
-	int				fd_out;
 	int				case_3_order;
 	pthread_mutex_t	*case_3_mutex;
+	int				turn;
+	int				pairs;
+	int 			odds;
+	pthread_mutex_t	*turn_mutex;
 }					t_data;
 
 typedef struct s_philo
