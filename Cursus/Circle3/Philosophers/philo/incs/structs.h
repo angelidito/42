@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 20:04:28 by angmarti          #+#    #+#             */
-/*   Updated: 2023/07/27 19:06:17 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/07/29 14:56:10 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ typedef struct s_data
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	print_mutex;
 	int				fd_out;
+	int				case_3_order;
+	pthread_mutex_t	*case_3_mutex;
 }					t_data;
 
 typedef struct s_philo

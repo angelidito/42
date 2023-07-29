@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 19:52:51 by angmarti          #+#    #+#             */
-/*   Updated: 2023/07/27 19:55:36 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/07/29 15:02:38 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,34 @@ void	finish(t_philo *philos, t_data *data)
 		pthread_join(philos[i].thread, NULL);
 		pthread_mutex_destroy(&philos[i].eating_mutex);
 	}
+	if (data->args.n_philos == 3)
+		pthread_mutex_destroy(data->case_3_mutex);
 	late_free(philos, data);
+}
+
+void	launch_philos(t_philo *philos, t_data *data)
+{
+	int	i;
+
+	if (data->args.n_philos == 3)
+	{
+		pthread_mutex_init(data->case_3_mutex, NULL);
+		data->case_3_order = 0;
+	}
+	i = -1;
+	while (++i < data->args.n_philos)
+	{
+		if (data->args.n_philos == 3)
+			pthread_create(&philos[i].thread, NULL, start_case_3, &philos[i]);
+		else
+			pthread_create(&philos[i].thread, NULL, start, &philos[i]);
+		usleep(data->args.time_to_sleep * 1000);
+	}
 }
 
 int	main(int argc, char const *argv[])
 {
 	t_data	data;
-	int		i;
 	t_philo	*philos;
 
 	if (init_data(&data, argc, argv))
@@ -37,13 +58,8 @@ int	main(int argc, char const *argv[])
 	if (!philos)
 		return (error_return_early_free(&data));
 	init_philos(philos, &data);
-	i = -1;
 	data.start_time = get_time();
-	while (++i < data.args.n_philos)
-	{
-		pthread_create(&philos[i].thread, NULL, start, &philos[i]);
-		usleep(data.args.time_to_sleep * 1000);
-	}
+	launch_philos(philos, &data);
 	finish(philos, &data);
 	return (0);
 }

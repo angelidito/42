@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 20:04:28 by angmarti          #+#    #+#             */
-/*   Updated: 2023/07/27 19:17:35 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/07/29 14:48:36 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int		ft_atoi(const char *str);
 //	PHILOSOPHER
 
 void	*start(void *arg);
+void	*start_case_3(void *arg);
 
 //	PRINT
 
