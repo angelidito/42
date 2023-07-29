@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 20:06:18 by angmarti          #+#    #+#             */
-/*   Updated: 2023/07/27 20:14:55 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/07/29 15:25:25 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	*check_death(void *arg)
 	death = 0;
 	while (!philo_is_full(philo) && !death)
 	{
-		usleep(8500);
+		usleep(50);
 		pthread_mutex_lock(&philo->eating_mutex);
 		death = get_time() - philo->last_eat > philo->args->time_to_die;
 		if (death)
