@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 20:05:18 by angmarti          #+#    #+#             */
-/*   Updated: 2023/07/26 18:42:44 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/07/29 14:13:05 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	print_sleep(t_philo *philo, long now)
 	long	time;
 
 	time = now - philo->data->start_time;
-	printf(SLEEPING, time, philo->id, TEXT_BLACK, TEXT_RESET);
+	printf(SLEEPING, time, philo->id, TEXT_YELLOW, TEXT_RESET);
 }
 
 /**
@@ -37,7 +37,7 @@ void	print_think(t_philo *philo, long now)
 	long	time;
 
 	time = now - philo->data->start_time;
-	printf(THINKING, time, philo->id, TEXT_YELLOW, TEXT_RESET);
+	printf(THINKING, time, philo->id, TEXT_MAGENTA, TEXT_RESET);
 }
 
 /**
