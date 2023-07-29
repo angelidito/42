@@ -6,7 +6,7 @@
 #    By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/17 12:03:08 by angmarti          #+#    #+#              #
-#    Updated: 2023/07/27 19:56:29 by angmarti         ###   ########.fr        #
+#    Updated: 2023/07/29 14:10:43 by angmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -136,7 +136,7 @@ $(NAME): $(OBJS)
 	@echo "$(COLOR_RESET)$(GREEN)"
 	@echo "[--Makefile says...--------]"
 	@echo "[-----$(BGREEN)    MAKE DONE   $(COLOR_RESET)$(GREEN)-----]"
-	@echo "[--------------------------]"
+	@echo "[--------------------------]$(COLOR_RESET)"
 
 # bonus:
 # 	@$(MAKE) BONUS=1
@@ -148,13 +148,13 @@ exec:
 	@echo "$(COLOR_RESET)\033[31m$(EXEC) $(RED)" 
 	@echo "[--Makefile says...--------]"
 	@echo "[-----$(BRED)   EXECUTING!   $(COLOR_RESET)$(RED)-----]"
-	@echo "[--------------------------]"
-	@echo "$(COLOR_RESET)"
+	@echo "[--------------------------]$(COLOR_RESET)"
+	@echo
 	@$(EXEC)
 	@echo "$(COLOR_RESET)$(YELLOW)"
 	@echo "[--Makefile says...--------]"
 	@echo "[-----$(BYELLOW) EXEC. FINISHED $(COLOR_RESET)$(YELLOW)-----]"
-	@echo "[--------------------------]"
+	@echo "[--------------------------]$(COLOR_RESET)"
 
 
 clean:
