@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 20:06:18 by angmarti          #+#    #+#             */
-/*   Updated: 2023/11/12 16:30:28 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/07/29 18:22:55 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,13 @@ void	somebody_died(t_philo *philo)
 
 int	is_somebody_dead(t_philo *philo)
 {
+	pthread_mutex_lock(&philo->data->somebody_is_dead_mutex);
 	if (philo->data->somebody_is_dead)
 	{
+		pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex);
 		return (1);
 	}
+	pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex);
 	return (0);
 }
 
