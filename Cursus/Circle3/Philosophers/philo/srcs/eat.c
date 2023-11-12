@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 20:05:18 by angmarti          #+#    #+#             */
-/*   Updated: 2023/07/29 18:22:59 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/11/12 16:30:28 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,13 @@ int	take_fork(t_philo *philo, pthread_mutex_t *fork)
 {
 	long	now;
 
+	pthread_mutex_lock(&philo->data->somebody_is_dead_mutex);
 	if (is_somebody_dead(philo))
+	{
+		pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex);
 		return (0);
+	}
+	pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex);
 	pthread_mutex_lock(fork);
 	now = get_time();
 	if (!can_i_print(philo))
@@ -66,7 +71,7 @@ void	take_forks(t_philo *philo)
 }
 
 /**
- * The function leaves the forks of a philosopher.
+ * Leaves the forks of a philosopher.
  * 
  * @param philo A philosopher. 
  */
@@ -76,6 +81,14 @@ void	leave_forks(t_philo *philo)
 	pthread_mutex_unlock(philo->left_fork);
 }
 
+/**
+ * Checks if a philosopher has eaten the required number of times.
+ * 
+ * @param philo A philosopher.
+ * 
+ * @return 1 if he has eaten the required number of times.
+ * Otherwise, it returns 0.
+ */
 int	philo_is_full(t_philo *philo)
 {
 	int	is_full;
@@ -114,9 +127,6 @@ int	philo_eat(t_philo *philo)
 	long	time_end;
 	long	now;
 
-	// if (philo->id % 2 == 0)
-	// 	usleep(500);
-	// ps_access(philo);
 	take_forks(philo);
 	if (!can_i_print(philo))
 		return (0);
@@ -135,6 +145,5 @@ int	philo_eat(t_philo *philo)
 		usleep(100);
 	}
 	leave_forks(philo);
-	// ps_leave(philo);
 	return (1);
 }

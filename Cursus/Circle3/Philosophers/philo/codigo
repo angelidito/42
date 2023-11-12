@@ -1,0 +1,860 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   data.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/15 21:48:28 by angmarti          #+#    #+#             */
+/*   Updated: 2023/07/20 16:36:40 by angmarti         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../incs/philosophers.h"
+
+/**
+ * Sets the values of the t_args pointer passed as parameter, 
+ * returning 1 if there is an error.
+ * 
+ * @param args The pointer to the t_args struct to be filled.
+ * @param argc The number of command-line arguments passed to the program
+ * @param argv Arguments passed to the program.
+ * 
+ * @return Returns 1 if there is an error. Otherwise, it returns 0.
+ */
+int	set_args(t_args *args, int argc, char const *argv[])
+{
+	if (argc < 5 || argc > 6)
+		return (wrong_args());
+	args->n_philos = ft_atoi(argv[1]);
+	if (args->n_philos < 1)
+	{
+		printf(ERROR_PHILO_NBR);
+		return (1);
+	}
+	args->time_to_die = ft_atoi(argv[2]);
+	args->time_to_eat = ft_atoi(argv[3]);
+	args->time_to_sleep = ft_atoi(argv[4]);
+	if (argc == 6)
+		args->n_times_must_eat = ft_atoi(argv[5]);
+	else
+		args->n_times_must_eat = 2147483647;
+	if (args->time_to_die < 0 || args->time_to_eat < 0
+		|| args->time_to_sleep < 0 || args->n_times_must_eat < 0)
+	{
+		printf(ERROR_NEGATIVE_ARG);
+		return (1);
+	}
+	return (0);
+}
+
+/**
+ * The function initializes the data structure by setting the arguments, 
+ * allocating memory for forks,
+ * initializing mutexes, and returning 0 if successful.
+ * 
+ * @param data A pointer to a struct of type t_data.
+ * @param argc The number of command-line arguments passed to the program
+ * @param argv Arguments passed to the program.
+ * 
+ * @return If the initialization of data is successful, it returns 0. 
+ * If there is an error, it returns 1.
+ */
+int	init_data(t_data *data, int argc, char const *argv[])
+{
+	int	i;
+
+	if (set_args(&data->args, argc, argv))
+		return (1);
+	data->forks = malloc(sizeof(pthread_mutex_t) * data->args.n_philos);
+	if (!data->forks)
+	{
+		printf(ERROR_MALLOC);
+		return (1);
+	}
+	i = -1;
+	while (++i < data->args.n_philos)
+	{
+		pthread_mutex_init(&data->forks[i], NULL);
+	}
+	pthread_mutex_init(&data->print_mutex, NULL);
+	data->somebody_is_dead = 0;
+	pthread_mutex_init(&data->somebody_is_dead_mutex, NULL);
+	return (0);
+}
+
+/**
+ * TInitializes the properties of each philosopher.
+ * 
+ * @param philos An array of philosophers.
+ * @param data Data of the program, shared by all the philosophers.
+ */
+void	init_philos(t_philo *philos, t_data *data)
+{
+	int	i;
+
+	i = -1;
+	while (++i < data->args.n_philos)
+	{
+		philos[i].id = i + 1;
+		philos[i].is_eating = 0;
+		philos[i].times_eaten = 0;
+		philos[i].args = &data->args;
+		philos[i].left_fork = &data->forks[i];
+		philos[i].right_fork = &data->forks[(i + 1) % data->args.n_philos];
+		philos[i].print_mutex = &data->print_mutex;
+		philos[i].data = data;
+		pthread_mutex_init(&philos[i].eating_mutex, NULL);
+	}
+}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   death.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/19 20:06:18 by angmarti          #+#    #+#             */
+/*   Updated: 2023/11/12 15:11:36 by angmarti         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../incs/philosophers.h"
+
+/**
+ * Prints the death of a philosopher and announces it to the others.
+ * 
+ * @param philo 
+ */
+void	somebody_died(t_philo *philo)
+{
+	pthread_mutex_lock(&philo->data->somebody_is_dead_mutex);
+	if (!philo->data->somebody_is_dead)
+	{
+		philo->data->somebody_is_dead = 1;
+		pthread_mutex_lock(philo->print_mutex);
+		print_death(philo, get_time());
+		pthread_mutex_unlock(philo->print_mutex);
+	}
+	pthread_mutex_unlock(&philo->eating_mutex);
+	pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex);
+}
+
+/**
+ * Checks if somebody is dead.
+ * 
+ * @param philo A philosopher.
+ * 
+ * @return 1 if somebody is dead. Otherwise, it returns 0.
+ */
+int	is_somebody_dead(t_philo *philo)
+{
+	pthread_mutex_lock(&philo->data->somebody_is_dead_mutex);
+	if (philo->data->somebody_is_dead)
+	{
+		pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex);
+		return (1);
+	}
+	pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex);
+	return (0);
+}
+
+/**
+ * It's a thread function that continuously checks if a philosopher has exceeded
+ * the time limit for eating and if so, prints the death of a philosopher and 
+ * announces it to the others.
+ * 
+ * @param arg A `t_philo` pointer.
+ * 
+ * @return NULL.
+ */
+void	*check_death(void *arg)
+{              
+	long	death;
+	t_philo	*philo;
+
+	philo = (t_philo *)arg;
+	death = 0;
+	while (!philo_is_full(philo) && !death)
+	{
+		usleep(100);
+		pthread_mutex_lock(&philo->eating_mutex);
+		death = get_time() - philo->last_eat > philo->args->time_to_die;
+		if (death)
+		{
+			somebody_died(philo);
+			break ;
+		}
+		else
+			pthread_mutex_unlock(&philo->eating_mutex);
+	}
+	return (NULL);
+}
+
+/**
+ * Initializes a death checker thread for a philosopher.
+ * 
+ * @param philo The philosopher to check.
+ */
+void	death_checker_init(t_philo *philo)
+{
+	pthread_create(&philo->death_checker, NULL, check_death, philo);
+	pthread_detach(philo->death_checker);
+}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   eat.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/19 20:05:18 by angmarti          #+#    #+#             */
+/*   Updated: 2023/11/10 12:51:49 by angmarti         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../incs/philosophers.h"
+
+/**
+ * Takes a fork of a philosopher, and prints it, if nobody is dead.
+ * 
+ * @param philo A philosopher.
+ * @param fork His fork to take.
+ * 
+ * @return 1 if it can take it. Otherwise, it returns 0, because 
+ * somebody is dead.
+ */
+int	take_fork(t_philo *philo, pthread_mutex_t *fork)
+{
+	long	now;
+
+	if (is_somebody_dead(philo))
+		return (0);
+	pthread_mutex_lock(fork);
+	now = get_time();
+	if (!can_i_print(philo))
+		return (0);
+	print_fork_taking(philo, now);
+	pthread_mutex_unlock(philo->print_mutex);
+	return (1);
+}
+
+/**
+ * The function takes the first fork of a philosopher.
+ * 
+ * @param philo A philosopher.
+ * 
+ */
+void	take_forks(t_philo *philo)
+{
+	if (philo->left_fork == philo->right_fork)
+	{
+		take_fork(philo, philo->left_fork);
+		while (can_i_print(philo))
+		{
+			pthread_mutex_unlock(philo->print_mutex);
+			usleep(100);
+		}
+	}
+	else if (1 || philo->id % 2 == 0 || philo->data->args.n_philos == 3)
+	{
+		take_fork(philo, philo->right_fork);
+		take_fork(philo, philo->left_fork);
+	}
+	else
+	{
+		take_fork(philo, philo->left_fork);
+		take_fork(philo, philo->right_fork);
+	}
+}
+
+/**
+ * Leaves the forks of a philosopher.
+ * 
+ * @param philo A philosopher. 
+ */
+void	leave_forks(t_philo *philo)
+{
+	pthread_mutex_unlock(philo->right_fork);
+	pthread_mutex_unlock(philo->left_fork);
+}
+
+/**
+ * Checks if a philosopher has eaten the required number of times.
+ * 
+ * @param philo A philosopher.
+ * 
+ * @return 1 if
+ */
+int	philo_is_full(t_philo *philo)
+{
+	int	is_full;
+
+	pthread_mutex_lock(&philo->eating_mutex);
+	is_full = philo->times_eaten >= philo->args->n_times_must_eat;
+	pthread_mutex_unlock(&philo->eating_mutex);
+	return (is_full);
+}
+
+// void	ps_access(t_philo *philo)
+// {
+// 	int	n_philos;
+
+// 	n_philos = philo->data->args.n_philos;
+// 	pthread_mutex_lock(&philo->data->ps_mutex[(philo->id + 1) % n_philos]);
+// 	pthread_mutex_lock(&philo->data->ps_mutex[(philo->id) % n_philos]);
+// }
+
+// void ps_leave(t_philo *philo)
+// {
+// 	int	n_philos;
+
+// 	n_philos = philo->data->args.n_philos;
+// 	pthread_mutex_unlock(&philo->data->ps_mutex[(philo->id) % n_philos]);
+// 	pthread_mutex_unlock(&philo->data->ps_mutex[(philo->id + 1) % n_philos]);
+// }
+
+/**
+ * The function makes a philosopher eat.
+ * 
+ * @param philo A philosopher.
+ */
+int	philo_eat(t_philo *philo)
+{
+	long	time_end;
+	long	now;
+
+	take_forks(philo);
+	if (!can_i_print(philo))
+		return (0);
+	pthread_mutex_lock(&philo->eating_mutex);
+	now = get_time();
+	pthread_mutex_lock(&philo->data->somebody_is_dead_mutex);
+	print_eat(philo, now);
+	philo->last_eat = now;
+	philo->times_eaten++;
+	pthread_mutex_unlock(&philo->eating_mutex);
+	pthread_mutex_unlock(philo->print_mutex);
+	pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex);
+	time_end = now + philo->args->time_to_eat;
+	while (get_time() < time_end)
+	{
+		usleep(100);
+	}
+	leave_forks(philo);
+	return (1);
+}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   error_free.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/19 20:11:52 by angmarti          #+#    #+#             */
+/*   Updated: 2023/07/27 19:48:52 by angmarti         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../incs/philosophers.h"
+
+/**
+ * Frees the mutexes and the forks
+ * 
+ * @param data A pointer to a struct of type t_data.
+ */
+void	early_free(t_data *data)
+{
+	int	i;
+
+	i = -1;
+	while (++i < data->args.n_philos)
+		pthread_mutex_destroy(&data->forks[i]);
+	pthread_mutex_destroy(&data->print_mutex);
+	pthread_mutex_destroy(&data->somebody_is_dead_mutex);
+	free(data->forks);
+}
+
+/**
+ * Frees the mutexes, the forks and the philos
+ * 
+ * @param philos A pointer to a struct of type t_philo.
+ * @param data A pointer to a struct of type t_data.
+ */
+void	late_free(t_philo *philos, t_data *data)
+{
+	early_free(data);
+	free(philos);
+}
+
+/**
+ * Prints an error message and frees the mutexes, the forks and the philos
+ * 
+ * @param data A pointer to a struct of type t_data.
+ * @return int 1
+ */
+int	error_return_early_free(t_data *data)
+{
+	early_free(data);
+	printf(ERROR_MALLOC);
+	return (1);
+}
+
+/**
+ * Prints usage messages and returns 1.
+ * 
+ * @return the value 1.
+ */
+int	wrong_args(void)
+{
+	printf(USAGE_1_3);
+	printf(USAGE_2_3);
+	printf(USAGE_3_3);
+	return (1);
+}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/19 19:52:51 by angmarti          #+#    #+#             */
+/*   Updated: 2023/11/10 12:54:00 by angmarti         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../incs/philosophers.h"
+
+/**
+ * Joins the threads, destroys the mutexes, and frees the memory.
+ * 
+ * @param philos t_philo structure.
+ * @param data t_data structure.
+ */
+void	finish(t_philo *philos, t_data *data)
+{
+	int	i;
+
+	i = -1;
+	while (++i < data->args.n_philos)
+	{
+		pthread_join(philos[i].thread, NULL);
+		pthread_mutex_destroy(&philos[i].eating_mutex);
+	}
+	if (data->args.n_philos == 3)
+		pthread_mutex_destroy(&data->case_3_mutex);
+	else
+		pthread_mutex_destroy(&data->turn_mutex);
+	late_free(philos, data);
+}
+
+void	mutex_init_case(t_data *data)
+{
+	if (data->args.n_philos == 3)
+	{
+		pthread_mutex_init(&data->case_3_mutex, NULL);
+		data->case_3_order = 0;
+	}
+	else
+	{
+		pthread_mutex_init(&data->turn_mutex, NULL);
+		data->turn = 1;
+		data->pairs = 0;
+		data->odds = 0;
+	}
+}
+
+void	launch_philos(t_philo *philos, t_data *data)
+{
+	int	i;
+
+	mutex_init_case(data);
+	i = -1;
+	while (++i < data->args.n_philos)
+	{
+		if (data->args.n_philos == 3)
+			pthread_create(&philos[i].thread, NULL, start_case_3, &philos[i]);
+		else
+		{
+			if (!(i % 2))
+				pthread_create(&philos[i].thread, NULL, start, &philos[i]);
+		}
+	}
+	usleep(data->args.time_to_sleep * 1000);
+	i = -1;
+	while (data->args.n_philos != 3 && ++i < data->args.n_philos)
+	{
+		if ((i % 2))
+			pthread_create(&philos[i].thread, NULL, start, &philos[i]);
+	}
+}
+
+int	main(int argc, char const *argv[])
+{
+	t_data	data;
+	t_philo	*philos;
+
+	if (init_data(&data, argc, argv))
+		return (1);
+	philos = malloc(sizeof(t_philo) * data.args.n_philos);
+	if (!philos)
+		return (error_return_early_free(&data));
+	init_philos(philos, &data);
+	data.start_time = get_time();
+	launch_philos(philos, &data);
+	finish(philos, &data);
+	return (0);
+}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philosopher.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/15 21:48:28 by angmarti          #+#    #+#             */
+/*   Updated: 2023/11/10 12:56:46 by angmarti         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../incs/philosophers.h"
+
+int	wait4turn(t_philo *philo)
+{
+	int	everybody_alive;
+	int	myturn;
+
+	myturn = 0;
+	everybody_alive = 1;
+	while (everybody_alive && !myturn)
+	{
+		pthread_mutex_lock(&philo->data->turn_mutex);
+		if (philo->id % 2 == philo->data->turn)
+			myturn = 1;
+		pthread_mutex_unlock(&philo->data->turn_mutex);
+		if (!myturn)
+			usleep(500);
+		if (is_somebody_dead(philo))
+			everybody_alive = 0;
+	}
+	return (everybody_alive);
+}
+
+void	next_turn(t_philo *philo)
+{
+	pthread_mutex_lock(&philo->data->turn_mutex);
+	if (philo->id % 2)
+		philo->data->pairs++;
+	else
+		philo->data->odds++;
+	if (philo->data->pairs == philo->data->args.n_philos / 2)
+	{
+		can_i_print(philo);
+		philo->data->turn = (philo->data->turn + 1) % 2;
+		philo->data->pairs = 0;
+		pthread_mutex_unlock(philo->print_mutex);
+	}
+	if (philo->data->odds == (philo->data->args.n_philos / 2)
+		+ (philo->data->args.n_philos % 2))
+	{
+		can_i_print(philo);
+		philo->data->turn = (philo->data->turn + 1) % 2;
+		philo->data->odds = 0;
+		pthread_mutex_unlock(philo->print_mutex);
+	}
+	pthread_mutex_unlock(&philo->data->turn_mutex);
+}
+
+void	*start(void *arg)
+{
+	t_philo	*philo;
+
+	philo = (t_philo *)arg;
+	pthread_mutex_lock(&philo->eating_mutex);
+	philo->last_eat = get_time();
+	pthread_mutex_unlock(&philo->eating_mutex);
+	death_checker_init(philo);
+	pthread_mutex_lock(&philo->data->somebody_is_dead_mutex);
+	while (!philo_is_full(philo) && !philo->data->somebody_is_dead)
+	{
+		pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex);
+		if (!philo_sleep(philo))
+			break ;
+		if (!philo_think(philo))
+			break ;
+		if (!philo_eat(philo))
+			break ;
+		pthread_mutex_lock(&philo->data->somebody_is_dead_mutex);
+	}
+	pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex);
+	leave_forks(philo);
+	return (NULL);
+}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philosopher_case_3.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/15 21:48:28 by angmarti          #+#    #+#             */
+/*   Updated: 2023/11/10 12:56:03 by angmarti         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../incs/philosophers.h"
+
+int	wait4turn_case_3(t_philo *philo)
+{
+	int	everybody_alive;
+	int	myturn;
+
+	myturn = 0;
+	everybody_alive = 1;
+	while (everybody_alive && !myturn)
+	{
+		pthread_mutex_lock(&philo->data->case_3_mutex);
+		if (philo->id == philo->data->case_3_order + 1)
+			myturn = 1;
+		pthread_mutex_unlock(&philo->data->case_3_mutex);
+		if (!myturn)
+			usleep(50);
+		if (is_somebody_dead(philo))
+			everybody_alive = 0;
+	}
+	return (everybody_alive);
+}
+
+void	next_turn_case_3(t_philo *philo)
+{
+	pthread_mutex_lock(&philo->data->case_3_mutex);
+	philo->data->case_3_order = (philo->data->case_3_order + 1) % 3;
+	pthread_mutex_unlock(&philo->data->case_3_mutex);
+}
+
+void	*start_case_3(void *arg)
+{
+	t_philo	*philo;
+
+	philo = (t_philo *)arg;
+	philo->last_eat = get_time();
+	death_checker_init(philo);
+	pthread_mutex_lock(&philo->data->somebody_is_dead_mutex);
+	while (!philo_is_full(philo) && !philo->data->somebody_is_dead)
+	{
+		pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex);
+		if (!philo_sleep(philo))
+			break ;
+		if (!philo_think(philo))
+			break ;
+		if (!wait4turn_case_3(philo))
+			break ;
+		if (!philo_eat(philo))
+			break ;
+		next_turn_case_3(philo);
+		pthread_mutex_lock(&philo->data->somebody_is_dead_mutex);
+	}
+	pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex);
+	leave_forks(philo);
+	return (NULL);
+}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print1.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/19 20:05:18 by angmarti          #+#    #+#             */
+/*   Updated: 2023/07/26 18:50:39 by angmarti         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../incs/philosophers.h"
+
+/**
+ * Locks print_mutex if it is safe to print, that means that nobody is dead.
+ * 
+ * @param philo A philosopher.
+ * 
+ * @return If print_mutex is locked returns 1. Otherwise, it returns 0 and it
+ * means sombebody is dead.
+ */
+int	can_i_print(t_philo *philo)
+{
+	if (is_somebody_dead(philo))
+		return (0);
+	pthread_mutex_lock(philo->print_mutex);
+	if (is_somebody_dead(philo))
+	{
+		pthread_mutex_unlock(philo->print_mutex);
+		return (0);
+	}
+	return (1);
+}
+
+/**
+ * Prints a message indicating that a philosopher is taking a fork.
+ * 
+ * @param philo A philosopher.
+ * @param now Current time in milliseconds.
+ */
+void	print_fork_taking(t_philo *philo, long now)
+{
+	long	time;
+
+	time = now - philo->data->start_time;
+	printf(FORK_TAKING, time, philo->id, TEXT_BLUE, TEXT_RESET);
+}
+
+/**
+ * Prints a message indicating that a philosopher has died.
+ * 
+ * @param philo A philosopher.
+ * @param now Current time in milliseconds.
+ */
+void	print_death(t_philo *philo, long now)
+{
+	long	time;
+
+	time = now - philo->data->start_time;
+	printf(DEATH, time, philo->id, TEXT_RED, TEXT_RESET);
+}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print2.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/19 20:05:18 by angmarti          #+#    #+#             */
+/*   Updated: 2023/07/29 14:13:05 by angmarti         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../incs/philosophers.h"
+
+/**
+ * Prints a message indicating that a philosopher is sleeping.
+ * 
+ * @param philo A philosopher.
+ * @param now Current time in milliseconds.
+ */
+void	print_sleep(t_philo *philo, long now)
+{
+	long	time;
+
+	time = now - philo->data->start_time;
+	printf(SLEEPING, time, philo->id, TEXT_YELLOW, TEXT_RESET);
+}
+
+/**
+ * Prints a message indicating that a philosopher is thinking.
+ * 
+ * @param philo A philosopher.
+ * @param now Current time in milliseconds.
+ */
+void	print_think(t_philo *philo, long now)
+{
+	long	time;
+
+	time = now - philo->data->start_time;
+	printf(THINKING, time, philo->id, TEXT_MAGENTA, TEXT_RESET);
+}
+
+/**
+ * Prints a message indicating that a philosopher is eating.
+ * 
+ * @param philo A philosopher.
+ * @param now Current time in milliseconds.
+ */
+void	print_eat(t_philo *philo, long now)
+{
+	long	time;
+
+	time = now - philo->data->start_time;
+	printf(EATING, time, philo->id, TEXT_GREEN, TEXT_RESET);
+}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sleep.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/19 20:05:18 by angmarti          #+#    #+#             */
+/*   Updated: 2023/07/26 18:27:10 by angmarti         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../incs/philosophers.h"
+
+int	philo_sleep(t_philo *philo)
+{
+	long	time_end;
+	long	now;
+
+	now = get_time();
+	if (!can_i_print(philo))
+		return (0);
+	print_sleep(philo, now);
+	pthread_mutex_unlock(philo->print_mutex);
+	time_end = now + philo->args->time_to_sleep;
+	while (get_time() < time_end)
+	{
+		usleep(100);
+	}
+	return (1);
+}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   think.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/19 20:05:18 by angmarti          #+#    #+#             */
+/*   Updated: 2023/07/26 18:32:41 by angmarti         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../incs/philosophers.h"
+
+int	philo_think(t_philo *philo)
+{
+	long	now;
+
+	now = get_time();
+	if (!can_i_print(philo))
+		return (0);
+	print_think(philo, now);
+	pthread_mutex_unlock(philo->print_mutex);
+	return (1);
+}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   time.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/15 21:48:28 by angmarti          #+#    #+#             */
+/*   Updated: 2023/07/27 19:55:06 by angmarti         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../incs/philosophers.h"
+
+/**
+ * The function "get_time" returns the current time in milliseconds.
+ * 
+ * @return the current time in milliseconds.
+ */
+long	get_time(void)
+{
+	struct timeval	tv;
+
+	gettimeofday(&tv, NULL);
+	return (tv.tv_sec * 1000 + tv.tv_usec / 1000);
+}

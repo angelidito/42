@@ -80,6 +80,10 @@ In the mandatory part, the simulation should be implemented using threads and mu
     - `sem_wait`
     - `sem_unlink`
 
+#### Things to consider
+  - Check leaks with system("leaks philo")
+  - Check data races with fsanitize=thread
+
 ### Bonus Part
 
 In the bonus part, the simulation should be implemented using processes and semaphores. The program should be named `philo_bonus` and located in the `philo_bonus/` directory. It should comply with the same requirements as the mandatory part, in addition to the following:

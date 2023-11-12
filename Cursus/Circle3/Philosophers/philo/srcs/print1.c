@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 20:05:18 by angmarti          #+#    #+#             */
-/*   Updated: 2023/07/26 18:50:39 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/11/12 16:28:37 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,22 @@
  */
 int	can_i_print(t_philo *philo)
 {
-	if (is_somebody_dead(philo))
-		return (0);
-	pthread_mutex_lock(philo->print_mutex);
+	pthread_mutex_lock(&philo->data->somebody_is_dead_mutex);
 	if (is_somebody_dead(philo))
 	{
+		pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex);
+		return (0);
+	}
+	pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex);
+	pthread_mutex_lock(philo->print_mutex);
+	pthread_mutex_lock(&philo->data->somebody_is_dead_mutex);
+	if (is_somebody_dead(philo))
+	{
+		pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex);
 		pthread_mutex_unlock(philo->print_mutex);
 		return (0);
 	}
+	pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex);
 	return (1);
 }
 

@@ -76,7 +76,6 @@ int	init_data(t_data *data, int argc, char const *argv[])
 	while (++i < data->args.n_philos)
 	{
 		pthread_mutex_init(&data->forks[i], NULL);
-		pthread_mutex_unlock(&data->forks[i]);
 	}
 	pthread_mutex_init(&data->print_mutex, NULL);
 	data->somebody_is_dead = 0;
