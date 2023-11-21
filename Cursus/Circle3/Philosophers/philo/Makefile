@@ -6,7 +6,7 @@
 #    By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/17 12:03:08 by angmarti          #+#    #+#              #
-#    Updated: 2023/11/12 16:00:29 by angmarti         ###   ########.fr        #
+#    Updated: 2023/11/21 15:51:47 by angmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ SRCS			=	\
 					death.c \
 					eat.c \
 					error_free.c \
+					my_pthread_mutex.c \
 					philosopher.c \
 					philosopher_case_3.c \
 					print1.c \
@@ -57,24 +58,21 @@ SRCS			=	\
 EXEC			=	./philo 1 800 200 200 # muere
 EXEC			=	./philo 5 800 200 200 # viven
 EXEC			=	./philo 5 800 200 200 7 # viven y cada uno come 7 veces
+EXEC			=	./philo 50 800 200 200 # viven 
+# EXEC			=	./philo 100 800 200 200 7 # viven y cada uno come x veces
 # EXEC			=	./philo 4 410 200 200 # viven
 # EXEC			=	./philo 5 310 200 100 # mueren
 # EXEC			=	./philo 3 310 104 104 # (tienen que morir) y si no te lo hace bien te lo tire
 # EXEC			=	./philo 3 310 100 100 # (tienen que vivir)
 # EXEC			=	./philo 3 310 103 103 # (tienen que vivir)
-# EXEC			=	./philo 5 800 200 200 40 # PARA TESTEAR
+EXEC			=	./philo 100 200  60  60 # PARA TESTEAR
 # EXEC			=	./philo 5 800 200 200 40 # PARA TESTEAR
 # EXEC			=	./philo 5 800 200 200 40 # PARA TESTEAR
 # EXEC			=	./philo 5 800 200 200 40 # PARA TESTEAR
 # EXEC			=	./philo 5 800 200 200 40 # PARA TESTEAR
 # EXEC			=	./philo 5 800 200 200 40 # PARA TESTEAR
 
-# EXEC			=	./philo 50 300 109 109
-# EXEC			=	./philo 100 330 200 100
-# EXEC			=	./philo 50  500 450 40
-# EXEC			=	./philo 5 420 200 200
-# EXEC			=	./philo 2 100 50 51
-# EXEC			=	./philo 1 800 200 200
+
 
 # **************************************************************************** #
 # ******************************     CONFIG     ****************************** #
@@ -103,7 +101,7 @@ OBJS			=	$(addprefix $(OBJ_DIR), $(SRCS:.c=.o))
 
 # ******************************    COMPILE     ****************************** #
 CC				=	@gcc
-C_FLAGS			=	-Wall -Wextra -Werror -g3  -fsanitize=thread #-fsanitize=address #
+C_FLAGS			=	-Wall -Wextra -Werror -g3 -fsanitize=thread #-fsanitize=address #
 C_INCLUDES		=	-I$(INCS_DIR) #-I$(LIBFT_INCS_DIR)
 LINKS			=	#-lreadline
 

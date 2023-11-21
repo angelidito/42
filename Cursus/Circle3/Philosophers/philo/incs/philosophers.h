@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 20:04:28 by angmarti          #+#    #+#             */
-/*   Updated: 2023/07/29 14:48:36 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/11/21 15:19:29 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@
 # include "strings.h"
 # include "structs.h"
 
+//	CONSTANTS
+
+# define DEBUG 0
+
+# define LOCK "%6ld %d %shas locked %s%s\n"
+# define UNLOCK "%6ld %d %shas unlocked %s%s\n"
 # define SLEEPING "%6ld %d %sis sleeping%s\n"
 # define THINKING "%6ld %d %sis thinking%s\n"
 # define EATING "%6ld %d %sis eating%s\n"
@@ -50,6 +56,13 @@ void	early_free(t_data *data);
 //	LIBFT
 
 int		ft_atoi(const char *str);
+
+// MY_PTHREAD_MUTEX
+
+void	my_pthread_mutex_lock(pthread_mutex_t *mutex, char *name,
+			t_philo *philo);
+void	my_pthread_mutex_unlock(pthread_mutex_t *mutex, char *name,
+			t_philo *philo);
 
 //	PHILOSOPHER
 

@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 20:05:18 by angmarti          #+#    #+#             */
-/*   Updated: 2023/07/29 14:13:05 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/11/21 13:18:57 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,20 @@ void	print_eat(t_philo *philo, long now)
 
 	time = now - philo->data->start_time;
 	printf(EATING, time, philo->id, TEXT_GREEN, TEXT_RESET);
+}
+
+void	print_lock(t_philo *philo, long now, char *mutex)
+{
+	long	time;
+
+	time = now - philo->data->start_time;
+	printf(LOCK, time, philo->id, TEXT_YELLOW, mutex, TEXT_RESET);
+}
+
+void	print_unlock(t_philo *philo, long now, char *mutex)
+{
+	long	time;
+
+	time = now - philo->data->start_time;
+	printf(UNLOCK, time, philo->id, TEXT_YELLOW, mutex, TEXT_RESET);
 }
