@@ -105,5 +105,6 @@ void	init_philos(t_philo *philos, t_data *data)
 		philos[i].print_mutex = &data->print_mutex;
 		philos[i].data = data;
 		pthread_mutex_init(&philos[i].eating_mutex, NULL);
+		pthread_mutex_init(&philos[i].eating_mutex2, NULL);
 	}
 }

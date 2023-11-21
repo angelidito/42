@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 20:05:18 by angmarti          #+#    #+#             */
-/*   Updated: 2023/11/12 16:30:28 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/11/21 15:26:14 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,22 @@ int	take_fork(t_philo *philo, pthread_mutex_t *fork)
 {
 	long	now;
 
-	pthread_mutex_lock(&philo->data->somebody_is_dead_mutex);
+	my_pthread_mutex_lock(&philo->data->somebody_is_dead_mutex,
+			"somebody_is_dead", philo);
 	if (is_somebody_dead(philo))
 	{
-		pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex);
+		my_pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex,
+				"somebody_is_dead", philo);
 		return (0);
 	}
-	pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex);
-	pthread_mutex_lock(fork);
+	my_pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex,
+			"somebody_is_dead", philo);
+	my_pthread_mutex_lock(fork, "fork", philo);
 	now = get_time();
 	if (!can_i_print(philo))
 		return (0);
 	print_fork_taking(philo, now);
-	pthread_mutex_unlock(philo->print_mutex);
+	my_pthread_mutex_unlock(philo->print_mutex, "print", philo);
 	return (1);
 }
 
@@ -54,7 +57,7 @@ void	take_forks(t_philo *philo)
 		take_fork(philo, philo->left_fork);
 		while (can_i_print(philo))
 		{
-			pthread_mutex_unlock(philo->print_mutex);
+			my_pthread_mutex_unlock(philo->print_mutex, "print", philo);
 			usleep(100);
 		}
 	}
@@ -77,8 +80,8 @@ void	take_forks(t_philo *philo)
  */
 void	leave_forks(t_philo *philo)
 {
-	pthread_mutex_unlock(philo->right_fork);
-	pthread_mutex_unlock(philo->left_fork);
+	my_pthread_mutex_unlock(philo->right_fork, "right fork", philo);
+	my_pthread_mutex_unlock(philo->left_fork, "left fork", philo);
 }
 
 /**
@@ -93,9 +96,9 @@ int	philo_is_full(t_philo *philo)
 {
 	int	is_full;
 
-	pthread_mutex_lock(&philo->eating_mutex);
+	my_pthread_mutex_lock(&philo->eating_mutex, "eating", philo);
 	is_full = philo->times_eaten >= philo->args->n_times_must_eat;
-	pthread_mutex_unlock(&philo->eating_mutex);
+	my_pthread_mutex_unlock(&philo->eating_mutex, "eating", philo);
 	return (is_full);
 }
 
@@ -130,15 +133,19 @@ int	philo_eat(t_philo *philo)
 	take_forks(philo);
 	if (!can_i_print(philo))
 		return (0);
-	pthread_mutex_lock(&philo->eating_mutex);
+	my_pthread_mutex_lock(&philo->eating_mutex, "eating", philo);
 	now = get_time();
-	pthread_mutex_lock(&philo->data->somebody_is_dead_mutex);
+	my_pthread_mutex_lock(&philo->data->somebody_is_dead_mutex,
+			"somebody_is_dead", philo);
 	print_eat(philo, now);
+	my_pthread_mutex_lock(&philo->eating_mutex2, "eating2", philo);
 	philo->last_eat = now;
 	philo->times_eaten++;
-	pthread_mutex_unlock(&philo->eating_mutex);
-	pthread_mutex_unlock(philo->print_mutex);
-	pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex);
+	my_pthread_mutex_unlock(&philo->eating_mutex2, "eating2", philo);
+	my_pthread_mutex_unlock(&philo->eating_mutex, "eating", philo);
+	my_pthread_mutex_unlock(philo->print_mutex, "print", philo);
+	my_pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex,
+			"somebody_is_dead", philo);
 	time_end = now + philo->args->time_to_eat;
 	while (get_time() < time_end)
 	{

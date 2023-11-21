@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 20:05:18 by angmarti          #+#    #+#             */
-/*   Updated: 2023/11/12 16:28:37 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/11/21 13:42:20 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,22 @@
  */
 int	can_i_print(t_philo *philo)
 {
-	pthread_mutex_lock(&philo->data->somebody_is_dead_mutex);
+	my_pthread_mutex_lock(&philo->data->somebody_is_dead_mutex, "somebody_is_dead", philo);
 	if (is_somebody_dead(philo))
 	{
-		pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex);
+		my_pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex, "somebody_is_dead", philo);
 		return (0);
 	}
-	pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex);
-	pthread_mutex_lock(philo->print_mutex);
-	pthread_mutex_lock(&philo->data->somebody_is_dead_mutex);
+	my_pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex, "somebody_is_dead", philo);
+	my_pthread_mutex_lock(philo->print_mutex, "print", philo);
+	my_pthread_mutex_lock(&philo->data->somebody_is_dead_mutex, "somebody_is_dead", philo);
 	if (is_somebody_dead(philo))
 	{
-		pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex);
-		pthread_mutex_unlock(philo->print_mutex);
+		my_pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex, "somebody_is_dead", philo);
+		my_pthread_mutex_unlock(philo->print_mutex, "print", philo);
 		return (0);
 	}
-	pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex);
+	my_pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex, "somebody_is_dead", philo);
 	return (1);
 }
 

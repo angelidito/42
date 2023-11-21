@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 20:06:18 by angmarti          #+#    #+#             */
-/*   Updated: 2023/11/12 16:30:28 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/11/21 15:47:20 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@
  */
 void	somebody_died(t_philo *philo)
 {
-	pthread_mutex_unlock(&philo->eating_mutex);
+	my_pthread_mutex_unlock(&philo->eating_mutex, "eating", philo);
 	philo->data->somebody_is_dead = 1;
-	pthread_mutex_lock(philo->print_mutex);
+	my_pthread_mutex_lock(philo->print_mutex, "print", philo);
 	print_death(philo, get_time());
-	pthread_mutex_unlock(philo->print_mutex);
+	my_pthread_mutex_unlock(philo->print_mutex, "print", philo);
 }
 
 int	is_somebody_dead(t_philo *philo)
@@ -53,21 +53,26 @@ void	*check_death(void *arg)
 	death = 0;
 	while (!philo_is_full(philo) && !death)
 	{
-		usleep(100);
-		pthread_mutex_lock(&philo->eating_mutex);
+		usleep(400);
+		my_pthread_mutex_lock(&philo->eating_mutex, "eating", philo);
+		my_pthread_mutex_lock(&philo->eating_mutex2, "eating2", philo);
 		death = get_time() - philo->last_eat > philo->args->time_to_die;
+		my_pthread_mutex_unlock(&philo->eating_mutex2, "eating2", philo);
 		if (death)
 		{
-			pthread_mutex_lock(&philo->data->somebody_is_dead_mutex);
+			my_pthread_mutex_lock(&philo->data->somebody_is_dead_mutex,
+									"somebody_is_dead",
+									philo);
 			if (!philo->data->somebody_is_dead)
 				somebody_died(philo);
 			else
-				pthread_mutex_unlock(&philo->eating_mutex);
-			pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex);
+				my_pthread_mutex_unlock(&philo->eating_mutex, "eating", philo);
+			my_pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex,
+									"somebody_is_dead",
+									philo);
 			break ;
 		}
-		else
-			pthread_mutex_unlock(&philo->eating_mutex);
+		my_pthread_mutex_unlock(&philo->eating_mutex, "eating", philo);
 	}
 	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 20:04:28 by angmarti          #+#    #+#             */
-/*   Updated: 2023/11/10 12:50:24 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/11/21 15:21:26 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ typedef struct s_philo
 	int				times_eaten;
 	long			last_eat;
 	pthread_mutex_t	eating_mutex;
+	pthread_mutex_t	eating_mutex2;
 	int				i_am_dead;
 	pthread_mutex_t	*left_fork;
 	pthread_mutex_t	*right_fork;
