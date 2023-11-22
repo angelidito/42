@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 19:52:51 by angmarti          #+#    #+#             */
-/*   Updated: 2023/11/21 15:45:54 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/11/22 14:25:43 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	launch_philos(t_philo *philos, t_data *data)
 				pthread_create(&philos[i].thread, NULL, start, &philos[i]);
 		}
 	}
-	usleep(data->args.time_to_sleep * 1000);
+	ft_usleep(data->args.time_to_sleep);
 	i = -1;
 	while (data->args.n_philos != 3 && ++i < data->args.n_philos)
 	{
@@ -81,11 +81,13 @@ int	main(int argc, char const *argv[])
 	t_data	data;
 	t_philo	*philos;
 
+
 	if (init_data(&data, argc, argv))
 		return (1);
 	philos = malloc(sizeof(t_philo) * data.args.n_philos);
 	if (!philos)
 		return (error_return_early_free(&data));
+	memset(philos, 0, sizeof(t_philo));
 	init_philos(philos, &data);
 	data.start_time = get_time();
 	launch_philos(philos, &data);

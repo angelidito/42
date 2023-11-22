@@ -78,8 +78,10 @@ int	init_data(t_data *data, int argc, char const *argv[])
 		pthread_mutex_init(&data->forks[i], NULL);
 	}
 	pthread_mutex_init(&data->print_mutex, NULL);
-	data->somebody_is_dead = 0;
 	pthread_mutex_init(&data->somebody_is_dead_mutex, NULL);
+	pthread_mutex_lock(&data->somebody_is_dead_mutex);
+	data->somebody_is_dead = 0;
+	pthread_mutex_unlock(&data->somebody_is_dead_mutex);
 	return (0);
 }
 

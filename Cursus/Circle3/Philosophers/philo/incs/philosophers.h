@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 20:04:28 by angmarti          #+#    #+#             */
-/*   Updated: 2023/11/21 15:19:29 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/11/22 15:12:22 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@
 # include "structs.h"
 
 //	CONSTANTS
+# ifndef DEBUG
+#  define DEBUG 1
+# endif
 
-# define DEBUG 0
-
+# define CP "__  checkpoint %s __\n"
 # define LOCK "%6ld %d %shas locked %s%s\n"
 # define UNLOCK "%6ld %d %shas unlocked %s%s\n"
 # define SLEEPING "%6ld %d %sis sleeping%s\n"
@@ -89,5 +91,6 @@ int		philo_think(t_philo *philo);
 //	TIME
 
 long	get_time(void);
+int		ft_usleep(size_t milliseconds);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/17 12:03:08 by angmarti          #+#    #+#              #
-#    Updated: 2023/11/21 15:51:47 by angmarti         ###   ########.fr        #
+#    Updated: 2023/11/22 15:00:59 by angmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,10 +63,12 @@ EXEC			=	./philo 50 800 200 200 # viven
 # EXEC			=	./philo 4 410 200 200 # viven
 # EXEC			=	./philo 5 310 200 100 # mueren
 # EXEC			=	./philo 3 310 104 104 # (tienen que morir) y si no te lo hace bien te lo tire
-# EXEC			=	./philo 3 310 100 100 # (tienen que vivir)
+EXEC			=	./philo 3 310 100 100 # (tienen que vivir)
 # EXEC			=	./philo 3 310 103 103 # (tienen que vivir)
-EXEC			=	./philo 100 200  60  60 # PARA TESTEAR
-# EXEC			=	./philo 5 800 200 200 40 # PARA TESTEAR
+# EXEC			=	./philo 50 500 200 200 # viven 
+# EXEC			=	./philo 100 200  60  60 # PARA TESTEAR
+# EXEC			=	./philo 200 800 200 200  # PARA TESTEAR
+EXEC			=	./philo 200 800  60  60 # PARA TESTEAR
 # EXEC			=	./philo 5 800 200 200 40 # PARA TESTEAR
 # EXEC			=	./philo 5 800 200 200 40 # PARA TESTEAR
 # EXEC			=	./philo 5 800 200 200 40 # PARA TESTEAR

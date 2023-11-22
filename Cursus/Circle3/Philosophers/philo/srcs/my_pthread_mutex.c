@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 13:21:19 by angmarti          #+#    #+#             */
-/*   Updated: 2023/11/21 14:36:24 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/11/22 15:48:05 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	my_pthread_mutex_lock(pthread_mutex_t *mutex, char *name,
 	long	time;
 
 	time = get_time() - philo->data->start_time;
+	printf("%lu trying to lock %s\n", time, name);
 	ret = pthread_mutex_lock(mutex);
 	if (ret)
 	{

@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 20:05:18 by angmarti          #+#    #+#             */
-/*   Updated: 2023/11/21 13:42:20 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/11/22 13:02:27 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	philo_sleep(t_philo *philo)
 	time_end = now + philo->args->time_to_sleep;
 	while (get_time() < time_end)
 	{
-		usleep(100);
+		ft_usleep(100);
 	}
 	return (1);
 }

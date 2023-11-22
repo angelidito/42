@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 21:48:28 by angmarti          #+#    #+#             */
-/*   Updated: 2023/11/21 15:27:26 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/11/22 15:59:44 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ int	wait4turn(t_philo *philo)
 			myturn = 1;
 		my_pthread_mutex_unlock(&philo->data->turn_mutex, "turn", philo);
 		if (!myturn)
-			usleep(500);
-		my_pthread_mutex_lock(&philo->data->somebody_is_dead_mutex, "somebody_is_dead", philo);
-		if (is_somebody_dead(philo))
+			ft_usleep(500);
+		pthread_mutex_lock(&philo->data->somebody_is_dead_mutex);
+		if (philo->data->somebody_is_dead)
 			everybody_alive = 0;
-		my_pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex, "somebody_is_dead", philo);
+		pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex);
 	}
 	return (everybody_alive);
 }
@@ -69,19 +69,19 @@ void	*start(void *arg)
 	philo->last_eat = get_time();
 	my_pthread_mutex_unlock(&philo->eating_mutex, "eating", philo);
 	death_checker_init(philo);
-	my_pthread_mutex_lock(&philo->data->somebody_is_dead_mutex, "somebody_is_dead", philo);
+	pthread_mutex_lock(&philo->data->somebody_is_dead_mutex);
 	while (!philo_is_full(philo) && !philo->data->somebody_is_dead)
 	{
-		my_pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex, "somebody_is_dead", philo);
+		pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex);
 		if (!philo_sleep(philo))
 			break ;
 		if (!philo_think(philo))
 			break ;
 		if (!philo_eat(philo))
 			break ;
-		my_pthread_mutex_lock(&philo->data->somebody_is_dead_mutex, "somebody_is_dead", philo);
+		pthread_mutex_lock(&philo->data->somebody_is_dead_mutex);
 	}
 	leave_forks(philo);
-	my_pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex, "somebody_is_dead", philo);
+	pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex);
 	return (NULL);
 }

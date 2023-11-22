@@ -6,7 +6,7 @@
 /*   By: angmarti <angmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 20:05:18 by angmarti          #+#    #+#             */
-/*   Updated: 2023/11/21 15:26:14 by angmarti         ###   ########.fr       */
+/*   Updated: 2023/11/22 15:59:34 by angmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,22 +25,19 @@ int	take_fork(t_philo *philo, pthread_mutex_t *fork)
 {
 	long	now;
 
-	my_pthread_mutex_lock(&philo->data->somebody_is_dead_mutex,
-			"somebody_is_dead", philo);
-	if (is_somebody_dead(philo))
+	pthread_mutex_lock(&philo->data->somebody_is_dead_mutex);
+	if (philo->data->somebody_is_dead)
 	{
-		my_pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex,
-				"somebody_is_dead", philo);
+		pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex);
 		return (0);
 	}
-	my_pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex,
-			"somebody_is_dead", philo);
 	my_pthread_mutex_lock(fork, "fork", philo);
 	now = get_time();
 	if (!can_i_print(philo))
 		return (0);
 	print_fork_taking(philo, now);
 	my_pthread_mutex_unlock(philo->print_mutex, "print", philo);
+	pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex);
 	return (1);
 }
 
@@ -58,7 +55,7 @@ void	take_forks(t_philo *philo)
 		while (can_i_print(philo))
 		{
 			my_pthread_mutex_unlock(philo->print_mutex, "print", philo);
-			usleep(100);
+			ft_usleep(100);
 		}
 	}
 	else if (1 || philo->id % 2 == 0 || philo->data->args.n_philos == 3)
@@ -135,21 +132,17 @@ int	philo_eat(t_philo *philo)
 		return (0);
 	my_pthread_mutex_lock(&philo->eating_mutex, "eating", philo);
 	now = get_time();
-	my_pthread_mutex_lock(&philo->data->somebody_is_dead_mutex,
-			"somebody_is_dead", philo);
+	pthread_mutex_lock(&philo->data->somebody_is_dead_mutex);
 	print_eat(philo, now);
-	my_pthread_mutex_lock(&philo->eating_mutex2, "eating2", philo);
 	philo->last_eat = now;
 	philo->times_eaten++;
-	my_pthread_mutex_unlock(&philo->eating_mutex2, "eating2", philo);
+	pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex);
 	my_pthread_mutex_unlock(&philo->eating_mutex, "eating", philo);
 	my_pthread_mutex_unlock(philo->print_mutex, "print", philo);
-	my_pthread_mutex_unlock(&philo->data->somebody_is_dead_mutex,
-			"somebody_is_dead", philo);
 	time_end = now + philo->args->time_to_eat;
 	while (get_time() < time_end)
 	{
-		usleep(100);
+		ft_usleep(100);
 	}
 	leave_forks(philo);
 	return (1);
